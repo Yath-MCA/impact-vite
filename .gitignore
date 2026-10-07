@@ -7,6 +7,9 @@ node_modules
 # Generated files
 .psci
 output
+dist
+test-results/
+playwright-report/
 
 test-results/
 playwright-report/

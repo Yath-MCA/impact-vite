@@ -84,10 +84,16 @@ flowchart TD
 - Wrap with `AuthProvider`, Redux `Provider`, `ErrorBoundary` / error tracker providers as available.
 - Unauthenticated access → login.
 
+### Phase 3b — Quarantine unused / duplicates (after Phases 1–3 green)
+
+- Move unused or duplicated pasted modules into `temp/react-paste-unused/` (prefer `git mv`).
+- Do not delete; document each move in `temp/react-paste-unused/README.md`.
+- Never quarantine files still required by home, login, dashboard shell, canonical providers, or the merged store.
+
 ### Phase 4 — Later (explicitly out of Phase 1–3)
 
 - `gridConfigs[dashboardType]` → `columnDefs` / `defaultColDef` / mock or API `rowData`.
-- Wire `AgGridWrapper` into shell body.
+- Wire `AgGridWrapper` into shell body (may restore files from `temp/` if needed).
 - Expand nested dashboard routes (admin/dev/doc/reports) as separate work.
 
 ## Architecture (Phases 1–3)
@@ -137,6 +143,7 @@ Playwright may mock `/api/userlogin` for CI; manual verification uses real backe
 4. Home HTML path still works; `pageMeta` / document head still apply.
 5. No duplicate conflicting `apiService` modules; one Redux store.
 6. Production build succeeds with ES2019 browser targets.
+7. After the above is green: unused or duplicated paste files are moved to `temp/react-paste-unused/` (not deleted), with a README inventory; live login/dashboard/home imports remain intact.
 
 ## Open follow-ups
 

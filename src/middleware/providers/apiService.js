@@ -32,7 +32,7 @@ const IS_LOCAL_DOMAIN = _runtimeEnv('IS_LOCAL_DOMAIN', 'VITE_IS_LOCAL_DOMAIN', f
 
 const BACKEND_DOMAIN = _runtimeEnv('BACKEND_DOMAIN', 'VITE_BACKEND_DOMAIN', 'localhost:8080');
 const API_KEY = _runtimeEnv('API_KEY', 'VITE_API_KEY', '');
-const User_API_KEY = _runtimeEnv('User_API_KEY', 'VITE_User_API_KEY', '');
+export const User_API_KEY = _runtimeEnv('User_API_KEY', 'VITE_User_API_KEY', '');
 const APP_KEY = _runtimeEnv('APP_KEY', 'VITE_APP_KEY', '');
 const API_PATH = _runtimeEnv('API_PATH', 'VITE_API_PATH', '/api/');
 const DOMAIN_ROOT = _runtimeEnv('DOMAIN_ROOT', 'VITE_DOMAIN_ROOT', '/');

@@ -5,7 +5,7 @@
  */
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { apiService, ADMIN_CONFIG, ROLE_IDS } from '../../services/api/apiService';
+import { apiService, ADMIN_CONFIG, ROLE_IDS, User_API_KEY } from './apiService';
 
 const AuthContext = createContext(null);
 
