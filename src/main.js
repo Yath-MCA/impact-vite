@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap'; // uses @popperjs/core
 
 // import 'jquery-ui/ui/widgets/dialog';
-import 'jquery-ui/themes/base/all.css';
+// import 'jquery-ui/themes/base/all.css';
 
 
 import moment from 'moment';

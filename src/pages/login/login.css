@@ -1,0 +1,148 @@
+.demo {
+    cursor: pointer;
+}
+
+.body {
+    background: #ffffff !important;
+    position: absolute;
+    height: 80% !important;
+    width: 100%;
+    top: 0;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.login-page,
+.register-page {
+    background: #ffffff
+}
+
+.btn-primary {
+    background-color: #F68A33;
+    border-color: #fff3ea
+}
+
+.btn-primary:hover {
+    color: #000;
+    background-color: #fff3ea;
+    border-color: #F68A33
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+    color: #000;
+    background-color: #fff3ea;
+    border-color: #ff8635
+}
+
+.social_ico {
+    padding: 3px;
+    color: #F68A33
+}
+
+#loadingid {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 9999;
+    background: rgba(249, 249, 249, .58)
+}
+
+.loader-inner {
+    width: 100px;
+    height: 125px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 99999;
+    text-align: center;
+    background: #fff3ea
+}
+
+.first_row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.input-group-text {
+    border: none !important;
+    background: none;
+}
+
+.input-group {
+    background: #FFFFFF !important;
+    border: 1px solid #E3E6E9 !important;
+    box-sizing: border-box !important;
+    border-radius: 6px !important;
+}
+
+.input-group .form-control {
+    border: none !important;
+}
+
+.newlogo {
+    display: inline;
+    height: 1em;
+    width: 2em;
+    margin-top: 3px;
+}
+
+.logo-txt {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    padding-right: .25em;
+    border-right: .15em solid #E2DFDF;
+}
+
+.login-color {
+    color: #F68A33;
+}
+
+.card-body {
+    color: #818792;
+}
+
+.loginLabel {
+    height: 50px;
+    border-radius: 6px;
+}
+
+#login-smt:hover {
+    box-shadow: 0px 5px 17px -8px #ff7200;
+}
+
+/*07-08-2023*/
+.emailerror,
+.pwderror {
+    background: #FDE8E8;
+    color: #FF2C2C;
+}
+
+#login-smt {
+    background: #F68A33;
+    color: #FFFFFF;
+}
+
+#login-smt:disabled {
+    background: #D2D2D2;
+    color: #FFFFFF;
+    box-shadow: none;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.loginimg {
+    width: 18px;
+    height: 18px;
+}
