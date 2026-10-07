@@ -5,15 +5,13 @@ export const pages = {
   },
   login: {
     loadConfig: () => import('../pages/login/page.config.js'),
-    loadHtml: async () => (await import('../pages/login/login.html?raw')).default,
   },
   editor: {
     loadConfig: () => import('../pages/editor/page.config.js'),
-    loadHtml: async () => '<div class="page-stub">Editor (stub)</div>',
+    loadHtml: async () => '<div class="page-stub p-8 text-slate-600">Editor (stub)</div>',
   },
   dashboard: {
     loadConfig: () => import('../pages/dashboard/page.config.js'),
-    loadHtml: async () => '<div class="page-stub">Dashboard (stub)</div>',
   },
 };
 

@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { DashboardProvider } from '../context/DashboardContext';
 import DashboardSidebar from '../layout/DashboardSidebar';
-import '../layout/DashboardLayout.css';
 import DashboardHome from '../pages/DashboardHome';
 import DashboardShellHeader from './DashboardShellHeader';
 import ProtectedRoute from '../../../core/router/ProtectedRoute';

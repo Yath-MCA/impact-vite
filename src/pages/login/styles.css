@@ -1,0 +1,6 @@
+/* Login page local styles (utilities come from Tailwind). */
+
+.login-page input:disabled,
+.login-page button:disabled {
+  cursor: not-allowed;
+}

@@ -1,0 +1,3 @@
+/* Dashboard shell styles — single entry for the dashboard folder. */
+@import './layout/DashboardLayout.css';
+@import './layout/DashboardSidebar.css';

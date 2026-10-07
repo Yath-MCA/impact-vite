@@ -5,6 +5,7 @@ jQuery = $;
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
+import './styles/app.css';
 
 import { loadPage } from './routing/loadPage.js';
 import { mountReactApp, unmountReactApp } from './app/mountReactApp.jsx';
