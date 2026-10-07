@@ -75,7 +75,7 @@ const Login = () => {
             </span>
           </div>
           <h1 className="tw:text-xl tw:font-semibold tw:text-slate-800 tw:mb-2">Sign in</h1>
-          <p className="tw:text-slate-600 tw:text-sm">Access your IMPACT account</p>
+          {/* <p className="tw:text-slate-600 tw:text-sm">Access your IMPACT account</p> */}
         </div>
 
         {(error || localError) && (
@@ -102,41 +102,43 @@ const Login = () => {
             />
           </div>
 
-          <div className="tw:relative">
+          <div>
             <label htmlFor="password" className="tw:block tw:text-sm tw:font-medium tw:text-slate-700 tw:mb-1">
               Password
             </label>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className="tw:w-full tw:pr-10 tw:px-4 tw:py-2 tw:border tw:border-slate-300 tw:rounded-lg tw:focus:ring-2 tw:focus:ring-primary tw:focus:border-transparent"
-              placeholder="Enter your password"
-              disabled={loading}
-              autoComplete="current-password"
-            />
+            <div className="tw:relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                className="tw:w-full tw:pr-10 tw:px-4 tw:py-2 tw:border tw:border-slate-300 tw:rounded-lg! tw:focus:ring-2 tw:focus:ring-primary tw:focus:border-transparent"
+                placeholder="Enter your password"
+                disabled={loading}
+                autoComplete="current-password"
+              />
 
-            <button
-              type="button"
-              onClick={() => setShowPassword((prev) => !prev)}
-              aria-label={showPassword ? 'Hide password' : 'Show password'}
-              disabled={loading}
-              className="tw:absolute tw:right-2 tw:top-[2.1rem] tw:text-slate-500 tw:hover:text-slate-700"
-            >
-              {showPassword ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="tw:h-5 tw:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M17.94 17.94A10.97 10.97 0 0 1 12 20c-5 0-9.27-3-11-7 1.02-2.36 2.8-4.32 4.91-5.61" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M1 1l22 22" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="tw:h-5 tw:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" strokeLinecap="round" strokeLinejoin="round" />
-                  <circle cx="12" cy="12" r="3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              )}
-            </button>
+              <a
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                disabled={loading}
+                className="tw:absolute tw:right-3 tw:top-1/2 tw:-translate-y-1/2 tw:text-slate-500 tw:hover:text-slate-700 tw:transition-colors"
+              >
+                {showPassword ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="tw:h-5 tw:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M17.94 17.94A10.97 10.97 0 0 1 12 20c-5 0-9.27-3-11-7 1.02-2.36 2.8-4.32 4.91-5.61" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M1 1l22 22" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="tw:h-5 tw:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="12" cy="12" r="3" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                )}
+              </a>
+            </div>
           </div>
 
           <button
