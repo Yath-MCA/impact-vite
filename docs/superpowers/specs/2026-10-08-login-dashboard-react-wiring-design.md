@@ -79,8 +79,7 @@ flowchart TD
 ### Phase 3 — Dashboard shell (header / footer / body)
 
 - Mount React for `#/dashboard`.
-- Compose reusable chrome:
-  - Prefer shared `AppLayout` / `Header` / `Footer` from `src/middleware/layout`, **or** dashboard’s own layout if it already provides header/footer/body — pick one chrome stack and stick to it for this shell.
+- Compose reusable chrome with **`pages/dashboard/layout/DashboardLayout`** (header/sidebar/body already match the pasted dashboard). Reuse `middleware/layout` Header/Footer only where DashboardLayout already depends on them; do not introduce a second competing shell.
 - Body: simple placeholder content (welcome / user summary). **No** type-based AG Grid config in this phase.
 - Wrap with `AuthProvider`, Redux `Provider`, `ErrorBoundary` / error tracker providers as available.
 - Unauthenticated access → login.
@@ -141,11 +140,10 @@ Playwright may mock `/api/userlogin` for CI; manual verification uses real backe
 
 ## Open follow-ups
 
-- Exact Tomcat proxy target path prefix if API is under `/xmleditor/api` vs `/api`.
-- Whether dashboard chrome is `middleware/layout/AppLayout` vs `pages/dashboard/layout/DashboardLayout` (pick during Phase 3 implementation; prefer the one that already matches pasted dashboard visuals).
+- Exact Tomcat proxy target: default Phase 1 proxy is `'/api' → http://localhost:8080` (adjust if deployment serves API under `/xmleditor`).
 - Phase 4 AG Grid type configs.
 - Editor JS loading strategy.
-- Align Login’s `shared/providers` path vs `middleware/providers` permanently in a small public API barrel.
+- Optional barrel `src/shared/providers` for long-term import stability.
 
 ## Spec self-review notes
 
