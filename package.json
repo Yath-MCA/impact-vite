@@ -6,14 +6,22 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:unit": "vitest run tests/unit",
+    "test:unit:watch": "vitest tests/unit",
+    "test:harness": "playwright test tests/e2e/harness-document-head.spec.js",
+    "test:e2e": "playwright test tests/e2e"
   },
   "devDependencies": {
-    "vite": "^8.3.0"
+    "@playwright/test": "^1.63.0",
+    "happy-dom": "^20.0.2",
+    "vite": "^8.3.0",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@reduxjs/toolkit": "^2.13.0",
+    "axios": "^1.20.0",
     "bootstrap": "^5.3.8",
     "jquery": "^4.0.0",
     "jquery-ui": "^1.14.2",

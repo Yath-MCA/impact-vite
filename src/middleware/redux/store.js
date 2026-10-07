@@ -2,6 +2,7 @@ import {
     configureStore,
     createSlice
 } from '@reduxjs/toolkit';
+import pageMetaReducer from './pageMetaSlice.js';
 
 // Example slice
 const panelSlice = createSlice({
@@ -22,6 +23,7 @@ export const {
 
 export const store = configureStore({
     reducer: {
-        panel: panelSlice.reducer
+        panel: panelSlice.reducer,
+        pageMeta: pageMetaReducer,
     }
 });

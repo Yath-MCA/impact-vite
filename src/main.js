@@ -1,44 +1,30 @@
 import $ from 'jquery';
 window.$ = $;
-window.jQuery = $; // make jQuery globally available
+window.jQuery = $;
 jQuery = $;
 
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap'; // uses @popperjs/core
+import 'bootstrap';
 
-// import 'jquery-ui/ui/widgets/dialog';
-// import 'jquery-ui/themes/base/all.css';
+import { loadPage } from './routing/loadPage.js';
 
+const PAGE_IDS = ['home', 'login', 'editor', 'dashboard'];
 
-import moment from 'moment';
-import Swal from 'sweetalert2';
-
-import { store, setContent } from './middleware/redux/store.js';
-
-
-// Simple SPA loader
-async function loadPage(path) {
-    const res = await fetch(`/src/pages/${path}/index.html`);
-    const html = await res.text();
-    document.getElementById('app').innerHTML = html;
+async function routeFromHash() {
+  const id = (location.hash.replace(/^#\/?/, '') || 'home').split('?')[0];
+  const pageId = PAGE_IDS.includes(id) ? id : 'home';
+  await loadPage(pageId);
 }
 
-// Initial load
-loadPage('home');
-
-// Example: show SweetAlert with current time
-Swal.fire({
-    title: 'Welcome to Impact',
-    text: `Loaded at ${moment().format('YYYY-MM-DD HH:mm:ss')}`,
-    icon: 'success'
+window.addEventListener('hashchange', () => {
+  routeFromHash().catch(console.error);
 });
 
-// Redux subscription (global)
-store.subscribe(() => {
-    const state = store.getState();
-    const editor = document.querySelector('.editor');
-    if (editor) {
-        editor.textContent = state.panel.content;
-    }
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('[data-nav]');
+  if (!a) return;
+  e.preventDefault();
+  location.hash = `#/${a.dataset.nav}`;
 });
+
+routeFromHash().catch(console.error);
