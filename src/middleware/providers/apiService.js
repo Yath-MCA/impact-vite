@@ -371,7 +371,7 @@ if (typeof window !== 'undefined') {
   window.ROLE_IDS = ROLE_IDS;
   window.ADMIN_CONFIG = ADMIN_CONFIG;
   window.IS_LOCAL_HOST = IS_LOCAL_HOST;
-  window.IS_LOCAL_LIVE = IS_LOCAL_LIVE;
+  
   window.IS_LIVE_DOMAIN = IS_LIVE_DOMAIN;
   window.IS_DEV_DOMAIN = IS_DEV_DOMAIN;
   window.IS_UAT_DOMAIN = IS_UAT_DOMAIN;
