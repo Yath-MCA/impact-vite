@@ -95,7 +95,7 @@ const Login = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="tw:w-full tw:px-4 tw:py-2 tw:border tw:border-slate-300 tw:rounded-lg tw:focus:ring-2 tw:focus:ring-primary tw:focus:border-transparent"
+              className="tw:w-full tw:px-4 tw:py-2 tw:border tw:border-slate-300 tw:rounded-lg! tw:focus:ring-2 tw:focus:ring-primary tw:focus:border-transparent"
               placeholder="Enter your email"
               disabled={loading}
               autoComplete="username"
@@ -142,7 +142,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="tw:w-full tw:py-2 tw:px-4 tw:bg-primary tw:hover:bg-primary-dark tw:text-white tw:font-semibold tw:rounded-md tw:focus:outline-none tw:focus:ring-2 tw:focus:ring-primary tw:focus:ring-offset-2 tw:disabled:opacity-50 tw:disabled:cursor-not-allowed tw:transition-colors"
+            className="tw:inline-flex tw:w-full tw:items-center tw:justify-center tw:py-2.5 tw:px-5 tw:bg-primary tw:hover:bg-primary-dark tw:text-white tw:font-semibold tw:rounded-md tw:overflow-hidden tw:focus:outline-none tw:focus:ring-2 tw:focus:ring-primary tw:focus:ring-offset-2 tw:disabled:opacity-50 tw:disabled:cursor-not-allowed tw:transition-colors"
           >
             {loading ? (
               <span className="tw:flex tw:items-center tw:justify-center">

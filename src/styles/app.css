@@ -2,13 +2,19 @@
  * Tailwind v4 + Bootstrap coexistence:
  * 1) prefix(tw) — utilities are tw:flex, tw:bg-primary (Bootstrap keeps .btn-primary, .container, …)
  * 2) No Preflight — Bootstrap Reboot owns base element styles
+ * 3) important on utilities — unlayered Bootstrap would otherwise win over layered TW
+ *    (e.g. button border-radius from Reboot / .btn)
+ *
+ * Variant stacking (prefix always first):
+ *   ✅ tw:hover:bg-primary-dark  tw:focus:ring-2  tw:md:flex  tw:disabled:opacity-50
+ *   ❌ hover:tw:bg-primary-dark  focus:tw:ring-2
  */
 @layer theme, base, components, utilities;
 
 @import "tailwindcss/theme.css" layer(theme) prefix(tw);
-@import "tailwindcss/utilities.css" layer(utilities) prefix(tw);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(tw) important;
 
-/* IMPACT tokens → tw:bg-primary, tw:text-brand-navy, etc. */
+/* IMPACT tokens → tw:bg-primary, tw:text-brand-navy (CSS vars emit as --tw-color-*). */
 @theme {
   --color-primary: #ff8635;
   --color-primary-hover: #ff9b55;
@@ -30,7 +36,7 @@ body,
 
 body {
   margin: 0;
-  font-family: var(--font-sans);
+  font-family: var(--tw-font-sans, "Segoe UI", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif);
   color: #0f172a;
   background: #f8fafc;
   -webkit-font-smoothing: antialiased;
@@ -38,7 +44,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--tw-color-primary, #ff8635);
   outline-offset: 2px;
 }
 
