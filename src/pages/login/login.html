@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google" content="notranslate">
+    <title>IMPACT | Log In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/images/logo/ng_favicon.ico" rel="icon">
+    <!-- custom and library css -->
+    <link rel="stylesheet" href="assets/${{VERSION}}$/vendor/vendor_jbt.css?_${{TIMESTAMP}}$">
+    <link rel="stylesheet" href="assets/${{VERSION}}$/css/login.min.css?_${{TIMESTAMP}}$">
+    <!-- Combine version of third party -->
+    <script src="assets/${{VERSION}}$/vendor/vendor_jbt.js?_${{TIMESTAMP}}$"></script>
+    <script src="assets/${{VERSION}}$/vendor/vendor_smt.js?_${{TIMESTAMP}}$"></script>
+    <!-- Page Script -->
+    <script src="assets/${{VERSION}}$/js/login.js?_${{TIMESTAMP}}$"></script>
+</head>
+
+<body class="body">
+    <div class="row first_row">
+        <div class="col">
+            <div class="login-page">
+                <div class="login-box">
+                    <div class="login-logo">
+                        <span class="logo-txt login-color">Sign In</span>
+                        <img class="newlogo" src="assets/images/svg/logo/IMPACT_5_4.svg" alt="logo">
+                    </div>
+                    <div>
+                        <div class="card-body">
+                            <form method="post" [formGroup]="loginForm">
+                                <div class="input-group mb-3">
+                                    <!--07-08-2023-->
+                                    <input type="email" id="loginEmail" class="form-control loginLabel" placeholder="Email ID" onkeyup="changeHandler()">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <img class="loginimg" src="assets/images/svg/login/user.svg" alt="logo">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div id="incorrectemail" type="button" style="display: none;" class="form-control loginLabel emailerror">Incorrect Email ID</div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <!--07-08-2023-->
+                                    <input type="password" id="loginPwd" class="form-control loginLabel" placeholder="Password" onkeyup="changeHandler()">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <img class="loginimg" src="assets/images/svg/login/password.svg" alt="logo">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div id="incorrectpassword" type="button" style="display: none;" class="form-control loginLabel pwderror">Incorrect Password</div>
+                                </div>
+                                <div class="row" style="margin-bottom: 20px;">
+                                    <a>
+                                        <div class="col-12">Forgot Password?</div>
+                                    </a>
+                                </div>
+                                <div style="margin-bottom: 10px;">
+                                    <div id="emailvalidate" type="button" style="display: none;" class="form-control loginLabel emailerror">Email should not be empty or invalid email!</div>
+                                    <div id="passwordvalidate" type="button" style="display: none;" class="form-control loginLabel emailerror">Password should not be empty!</div>
+                                    <!-- should not be empty! -->
+                                    <div id="loginvalidate" type="button" style="display: none;" class="form-control loginLabel emailerror">Please check username and password!</div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <button type="button" id="login-smt" class="form-control loginLabel" disabled>Sign In</button>
+                                </div>
+                                <!-- <div class="row">
+                                    <div class="col-12 align-center">Don't have an account?
+                                        <span class="login-color">Sign Up</span>
+                                    </div>
+                                </div> -->
+                            </form>
+
+                            <!-- <div class="social-auth-links text-center mb-3">
+                                <p>- OR -</p>
+                                <div class="row">
+                                    <a href="#" class="social_ico">
+                                        <i class="fab fa-facebook fa-2x"></i>
+                                    </a>
+                                    <a href="#" class="social_ico">
+                                        <i class="fab fa-google-plus fa-2x"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="mb-1">
+                                <a href="#">I forgot my password</a>
+                            </p>
+                            <p class="mb-0">
+                                <a href="register.html" class="text-center">New User Sign Up</a>
+                            </p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-lg-6"><img class="d-none" src="assets/images/img/login.png" alt="" /></div> -->
+    </div>
+</body>
+
+</html>
