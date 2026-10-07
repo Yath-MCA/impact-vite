@@ -1,0 +1,61 @@
+.history {
+
+    display: block !important;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 15px;
+    line-height: 22px;
+
+    &[data-name]::before {
+        content: attr(data-name);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+    }
+
+    .day[data-name]::before,
+    .month[data-name]::before,
+    .year[data-name]::before,
+    .copyright-statement[data-name]::before,
+    .license[data-name]::before,
+    .copyright-year[data-name]::before {
+        content: attr(data-name) ': ';
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+    }
+
+    .copyright-year[data-name] {
+        margin-bottom: 5px;
+    }
+
+    .date[data-name]::before {
+        content: attr(date-type) ': ';
+        font-weight: bold;
+        // display: block;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+    }
+
+    /* Styling for better visualization */
+    [date-type="received"],
+    [date-type="revised"],
+    [date-type="accepted"],
+    [date-type="copyright-statement"] {
+        display: block !important;
+        margin-bottom: 20px;
+    }
+
+    .date,
+    .copyright-statement,
+    .license {
+        margin-bottom: 10px;
+    }
+
+    .date span {
+        display: inline-block;
+        margin-right: 5px;
+    }
+}

@@ -1,0 +1,30 @@
+.contrib-group [data-name=given-names],
+.contrib [data-name=given-names] {
+  color: #2c2d33;
+}
+.contrib-group [data-name=surname],
+.contrib [data-name=surname] {
+  color: #2c2d33;
+  padding: 3.5px;
+}
+.contrib-group [data-name=surname].active,
+.contrib [data-name=surname].active {
+  border: 1px dashed #355789 !important;
+}
+.contrib-group [data-name=role],
+.contrib [data-name=role] {
+  font-weight: 600;
+  padding-right: 2px;
+}
+.contrib-group [data-name=prefix],
+.contrib [data-name=prefix] {
+  color: #F68A35;
+}
+.contrib-group [data-name=suffix],
+.contrib [data-name=suffix] {
+  color: #F68A33;
+}
+.contrib-group [data-name=degrees],
+.contrib [data-name=degrees] {
+  color: #F68A33;
+}

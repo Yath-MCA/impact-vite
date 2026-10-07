@@ -1,0 +1,13 @@
+/* TRACKING_ONLY_HIDE */
+.ICE-Tracking.TrackOff span.ice-del,
+.ICE-Tracking.TrackOff del.ice-del,
+.ice-del[data-action="Accepted"],
+.ice-ins[data-action="Rejected"],
+[data-action-hidden="Yes"] {
+    display: none !important;
+}
+
+.ICE-Tracking.TrackOff .ice-ins {
+    color: #000000 !important;
+    text-decoration: none !important;
+}

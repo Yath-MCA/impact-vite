@@ -1,0 +1,48 @@
+/*For Reference */
+span.surname {
+    color: #008000;
+}
+
+span.given-names {
+    color: #993300;
+}
+
+span.mixed-citation span.article-title {
+    color: #727272
+}
+
+span.source {
+    color: #3366ff
+}
+
+span.year {
+    color: #9d5d7d;
+}
+
+span.volume {
+    color: #e50000;
+}
+
+span.issue {
+    color: #6565ff;
+}
+
+span.fpage {
+    color: #008080;
+}
+
+span.lpage {
+    color: #0000ff;
+}
+
+span.etal {
+    color: #e50000;
+}
+
+span.mixed-citation span.ext-link {
+    color: #800080;
+}
+
+del>span.mixed-citation span {
+    color: black !important;
+}

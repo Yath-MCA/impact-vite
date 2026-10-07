@@ -1,0 +1,23 @@
+.contrib-group .contrib [data-name=given-names] {
+  color: #2c2d33;
+}
+.contrib-group .contrib [data-name=surname] {
+  color: #2c2d33;
+  padding: 3.5px;
+}
+.contrib-group .contrib [data-name=surname].active {
+  border: 1px dashed #355789 !important;
+}
+.contrib-group .contrib [data-name=role] {
+  font-weight: 600;
+  padding-right: 2px;
+}
+.contrib-group .contrib [data-name=prefix] {
+  color: #F68A35;
+}
+.contrib-group .contrib [data-name=suffix] {
+  color: #F68A33;
+}
+.contrib-group .contrib [data-name=degrees] {
+  color: #F68A33;
+}

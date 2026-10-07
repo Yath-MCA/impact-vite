@@ -1,0 +1,20 @@
+.kwd-group::before {
+
+    content: "Keywords: ";
+
+    font-weight: bold;
+
+}
+
+.kwd-group .kwd:not(:last-child)::after {
+
+    /* content: ", "; */
+
+}
+
+.kwd-group .kwd {
+
+    margin-right: 2px;
+    /* Optional for spacing */
+
+}

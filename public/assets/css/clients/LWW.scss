@@ -1,0 +1,131 @@
+.contrib-group,
+.contrib {
+
+
+    [data-name=given-names] {
+        color: #3C4999; //Given & Surname hex color code is from on mantis details - 1961952
+    }
+
+    [data-name=surname] {
+        color: #ed1c24;
+        padding: 3.5px;
+
+        &.active {
+            border: 1px dashed #355789 !important;
+        }
+
+    }
+
+    [data-name=role],
+    [data-name=email] {
+        display: none;
+    }
+}
+
+// 27-Jun-2026 - Request by to add
+.institution-wrap,
+.contrib-group [data-name=email],
+.contrib-group [data-name=role] {
+    display: none
+}
+
+.history,
+.permissions {
+
+    display: block !important;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 15px;
+    line-height: 22px;
+
+    &[data-name]::before {
+        content: attr(data-name);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+    }
+
+    .day[data-name]::before,
+    .month[data-name]::before,
+    .year[data-name]::before,
+    .copyright-statement[data-name]::before,
+    .license[data-name]::before,
+    .copyright-year[data-name]::before {
+        content: attr(data-name) ': ';
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+    }
+
+    .copyright-year[data-name] {
+        margin-bottom: 5px;
+    }
+
+    .date[data-name]::before {
+        content: attr(date-type) ': ';
+        font-weight: bold;
+        // display: block;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+    }
+
+    /* Styling for better visualization */
+    [date-type="received"],
+    [date-type="revised"],
+    [date-type="accepted"],
+    [date-type="copyright-statement"] {
+        display: block !important;
+        margin-bottom: 20px;
+    }
+
+    .date,
+    .copyright-statement,
+    .license {
+        margin-bottom: 10px;
+    }
+
+    .date span {
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
+
+.funding-group {
+    display: none;
+}
+
+/* Common styles for interest level indicators */
+/* Apply vertical-align: top only to 'a' */
+a[data-interest-level]::after,
+[data-show-interest-level] {
+    vertical-align: super;
+}
+
+/* Interest Level Styling */
+$interest-levels: (
+    "special": "\25A0",
+    "outstanding": "\25A0\25A0"
+);
+
+@each $level,
+$symbol in $interest-levels {
+    a[data-interest-level="#{$level}"]::after {
+        content: "#{$symbol}";
+    }
+
+    .ref .label[data-interest-level="#{$level}"]::after {
+        content: "#{$symbol}";
+    }
+}
+
+.article-version {
+    display: none;
+}
+
+.kwd-group .title {
+    // display: inline-block;
+    font-weight: bold;
+}
+

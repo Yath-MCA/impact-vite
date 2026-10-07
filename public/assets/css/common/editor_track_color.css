@@ -1,0 +1,214 @@
+/* TRACK_HOW_COLOR */
+/* YA - 16_JUNE_2023 */
+/* 27_JUNE_2024 */
+div[data-remove] .label,
+del>span.label {
+    text-decoration: line-through !important;
+}
+
+div.ref[data-remove][data-new],
+div.ref[data-remove][data-new] insert {
+    text-decoration: line-through !important;
+    color: red !important;
+}
+
+.ICE-Tracking span.ice-del,
+.ICE-Tracking del.ice-del,
+.ICE-Tracking del.ice-del a {
+    display: inline;
+    text-decoration: line-through !important;
+    color: red !important;
+}
+
+/*LWW_J_ABB_005 - ABBR CSS RJ-29/07/24 */
+.ICE-Tracking del.ice-del .def {
+    display: inline;
+    text-decoration: line-through !important;
+    color: red !important;
+}
+
+.ICE-Tracking .ice-del[data-action="Rejected"],
+.ICE-Tracking .ice-ins[data-action="Accepted"] {
+    display: inline;
+    text-decoration: none !important;
+    color: #000000 !important;
+}
+
+.ICE-Tracking .ice-ins:not([data-action]),
+.ICE-Tracking.TrackOff a>.ice-ins:not([data-action]),
+.ICE-Tracking.TrackOff .ice-ins>a:not([data-action]) {
+    color: blue !important;
+    text-decoration: underline !important;
+}
+
+/* 
+06_OCT_SIVA_POINTS - YA
+*/
+.ICE-Tracking del.ice-del .ice-ins,
+.ICE-Tracking del.ice-del.ice-cts a.xref {
+    display: inline;
+    text-decoration: line-through !important;
+    color: red !important;
+}
+
+/* QA TC */
+[data-link="new"][data-action="Rejected"],
+[data-link="remove"][data-action="Accepted"] {
+    color: #000000 !important;
+    cursor: auto !important;
+}
+
+[data-high="note"],
+[data-high="note"][data-action="Accepted"] {
+    background-color: yellow;
+}
+
+[data-css='ice-format'],
+[data-link='new'] {
+    background-color: greenyellow;
+}
+
+[data-css='ice-reformat'],
+[data-link='edit'],
+[data-link='remove'] {
+    /*Srini Ins, Changed to green color - All Format & Hyperlink action */
+    background-color: greenyellow;
+}
+
+[data-link='remove'],
+[data-link='remove'][data-action="Accepted"] {
+    cursor: default !important;
+}
+
+[data-link='remove'][data-action="Rejected"] {
+    cursor: pointer !important;
+}
+
+[data-high="note"][data-action="Rejected"],
+[data-link='new'][data-action="Rejected"],
+[data-link='edit'][data-action="Rejected"],
+[data-link='removetxt'][data-action="Rejected"],
+[data-css='ice-reformat'][data-action],
+[data-css='ice-format'][data-action],
+[data-cell-action][data-action],
+[data-link='remove'][data-action="Rejected"],
+.TrackOff [data-css],
+.TrackOff [data-link] {
+    background-color: white !important;
+}
+
+[sctag][data-css='ice-format'][data-action="Rejected"],
+[data-name=sc][data-css='ice-format'][data-action="Rejected"],
+.sc[data-css='ice-format'][data-action="Rejected"] {
+    font-variant: normal !important;
+}
+
+.graphic.replaceImage[data-action="Rejected"] img {
+    border: none !important;
+}
+
+
+/* del.ice-del.ice-cts a.xref{
+	color: red !important;
+} */
+
+[data-link='removetxt']:not([data-action]),[data-link='removetxt'][data-action="Accepted"] {
+    color: red;
+    text-decoration: line-through;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-1 {
+    color: blue;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-2 {
+    color: blue;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-3 {
+    color: blue;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-4 {
+    color: blue;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-5 {
+    color: blue;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-6 {
+    color: blue;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-7 {
+    color: blue;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-8 {
+    color: blue;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-9 {
+    color: blue;
+}
+
+.ICE-Tracking .ice-ins.ice-cts-10 {
+    color: blue;
+}
+
+.ICE-Tracking .ice-del.ice-cts-1 {
+    color: red;
+}
+
+.ICE-Tracking .ice-del.ice-cts-2 {
+    color: red;
+}
+
+.ICE-Tracking .ice-del.ice-cts-3 {
+    color: red;
+}
+
+.ICE-Tracking .ice-del.ice-cts-4 {
+    color: red;
+}
+
+.ICE-Tracking .ice-del.ice-cts-5 {
+    color: red;
+}
+
+.ICE-Tracking .ice-del.ice-cts-6 {
+    color: red;
+}
+
+.ICE-Tracking .ice-del.ice-cts-7 {
+    color: red;
+}
+
+.ICE-Tracking .ice-del.ice-cts-8 {
+    color: red;
+}
+
+.ICE-Tracking .ice-del.ice-cts-9 {
+    color: red;
+}
+
+.ICE-Tracking .ice-del.ice-cts-10 {
+    color: red;
+}
+
+/* EditRefModule['M_FUN'].UPDATE_CITATIONS */
+[data-cite-mod-year]:not([data-action])::after,
+[data-old-cite]:not([data-action])::after {
+    color: red;
+    text-decoration: line-through !important;
+    content: attr(data-old-cite);
+    background-color: greenyellow;
+}
+
+/* ? 2391859: Priority - Reference citation change */
+
+
+[data-swap="s"] {
+    background-color: greenyellow;
+}

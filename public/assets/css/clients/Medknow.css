@@ -1,0 +1,54 @@
+.history {
+  display: block !important;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 15px;
+  line-height: 22px;
+}
+.history[data-name]::before {
+  content: attr(data-name);
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+.history .day[data-name]::before,
+.history .month[data-name]::before,
+.history .year[data-name]::before,
+.history .copyright-statement[data-name]::before,
+.history .license[data-name]::before,
+.history .copyright-year[data-name]::before {
+  content: attr(data-name) ": ";
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+.history .copyright-year[data-name] {
+  margin-bottom: 5px;
+}
+.history .date[data-name]::before {
+  content: attr(date-type) ": ";
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+.history {
+  /* Styling for better visualization */
+}
+.history [date-type=received],
+.history [date-type=revised],
+.history [date-type=accepted],
+.history [date-type=copyright-statement] {
+  display: block !important;
+  margin-bottom: 20px;
+}
+.history .date,
+.history .copyright-statement,
+.history .license {
+  margin-bottom: 10px;
+}
+.history .date span {
+  display: inline-block;
+  margin-right: 5px;
+}

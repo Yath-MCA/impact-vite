@@ -5,13 +5,12 @@
  */
 
 import axios from 'axios';
-import { isLocalHost } from '../session/runtimeFlags.js';
+import { isLocalHost } from './runtimeFlags.js';
 
 // Global configuration variables (injected at build time or from environment)
 const runtimeWindow = typeof window !== 'undefined' ? window : { location: { href: '' }, ENV: {} };
 const DOMAIN_URL = runtimeWindow.location?.href + "";
 const IS_LOCAL_HOST = isLocalHost(DOMAIN_URL);
-const IS_LOCAL_LIVE = Boolean(DOMAIN_URL.includes("web_live"));
 
 /**
  * Runtime ENV helper — prefers window.ENV (populated by public/env.js at runtime)

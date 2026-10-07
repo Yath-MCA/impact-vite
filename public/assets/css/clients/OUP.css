@@ -1,0 +1,26 @@
+.contrib-group .contrib [data-name=given-names] {
+  color: #2c2d33;
+}
+.contrib-group .contrib [data-name=surname] {
+  color: #2c2d33;
+  padding: 3.5px;
+  border: 4px solid #C14F97 !important;
+  /*1914386 Author Name Color - As per Srini Req */
+}
+.contrib-group .contrib [data-name=surname][aria-label].active:after {
+  top: -14px;
+  left: -12px;
+}
+.contrib-group .contrib [data-name=role],
+.contrib-group .contrib [data-name=email] {
+  display: none;
+}
+.contrib-group .contrib [data-name=prefix] {
+  color: #F68A35;
+}
+.contrib-group .contrib [data-name=suffix] {
+  color: #F68A33;
+}
+.contrib-group .contrib [data-name=degrees] {
+  color: #F68A33;
+}

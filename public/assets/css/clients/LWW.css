@@ -1,0 +1,136 @@
+@charset "UTF-8";
+.contrib-group [data-name=given-names],
+.contrib [data-name=given-names] {
+  color: #3C4999;
+}
+.contrib-group [data-name=surname],
+.contrib [data-name=surname] {
+  color: #ed1c24;
+  padding: 3.5px;
+}
+.contrib-group [data-name=surname].active,
+.contrib [data-name=surname].active {
+  border: 1px dashed #355789 !important;
+}
+.contrib-group [data-name=role],
+.contrib-group [data-name=email],
+.contrib [data-name=role],
+.contrib [data-name=email] {
+  display: none;
+}
+
+.institution-wrap,
+.contrib-group [data-name=email],
+.contrib-group [data-name=role] {
+  display: none;
+}
+
+.history,
+.permissions {
+  display: block !important;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 15px;
+  line-height: 22px;
+}
+.history[data-name]::before,
+.permissions[data-name]::before {
+  content: attr(data-name);
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+.history .day[data-name]::before,
+.history .month[data-name]::before,
+.history .year[data-name]::before,
+.history .copyright-statement[data-name]::before,
+.history .license[data-name]::before,
+.history .copyright-year[data-name]::before,
+.permissions .day[data-name]::before,
+.permissions .month[data-name]::before,
+.permissions .year[data-name]::before,
+.permissions .copyright-statement[data-name]::before,
+.permissions .license[data-name]::before,
+.permissions .copyright-year[data-name]::before {
+  content: attr(data-name) ": ";
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+.history .copyright-year[data-name],
+.permissions .copyright-year[data-name] {
+  margin-bottom: 5px;
+}
+.history .date[data-name]::before,
+.permissions .date[data-name]::before {
+  content: attr(date-type) ": ";
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+.history,
+.permissions {
+  /* Styling for better visualization */
+}
+.history [date-type=received],
+.history [date-type=revised],
+.history [date-type=accepted],
+.history [date-type=copyright-statement],
+.permissions [date-type=received],
+.permissions [date-type=revised],
+.permissions [date-type=accepted],
+.permissions [date-type=copyright-statement] {
+  display: block !important;
+  margin-bottom: 20px;
+}
+.history .date,
+.history .copyright-statement,
+.history .license,
+.permissions .date,
+.permissions .copyright-statement,
+.permissions .license {
+  margin-bottom: 10px;
+}
+.history .date span,
+.permissions .date span {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.funding-group {
+  display: none;
+}
+
+/* Common styles for interest level indicators */
+/* Apply vertical-align: top only to 'a' */
+a[data-interest-level]::after,
+[data-show-interest-level] {
+  vertical-align: super;
+}
+
+/* Interest Level Styling */
+a[data-interest-level=special]::after {
+  content: "■";
+}
+
+.ref .label[data-interest-level=special]::after {
+  content: "■";
+}
+
+a[data-interest-level=outstanding]::after {
+  content: "■■";
+}
+
+.ref .label[data-interest-level=outstanding]::after {
+  content: "■■";
+}
+
+.article-version {
+  display: none;
+}
+
+.kwd-group .title {
+  font-weight: bold;
+}

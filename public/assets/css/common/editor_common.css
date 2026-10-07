@@ -1,0 +1,1633 @@
+/* Common editor Font set For Journals*/
+
+.article-meta,
+.body,
+.back,
+.book,
+.book-body {
+    font-family: "Inter UI", sans-serif !important;
+}
+
+/* Front matter hidden information */
+.journal-meta,
+.journal-id,
+.article-meta>.pub-date,
+.article-meta>.volume,
+.article-meta>.issue,
+.article-meta>.fpage,
+.article-meta>.lpage,
+.article-id,
+[date-type="received"],
+[date-type="revised"],
+[date-type="accepted"],
+[date-type="copyright-statement"],
+#AuthorAffTrackChanges,
+#KWChanges,
+#ABRChanges,
+#TrackChangesListKW,
+#TrackChangesListABR,
+.permissions,
+.book-part-id,
+.contrib-group br[type="_moz"],
+.history,
+.custom-meta-group,
+.supplementary-material,
+.subj-group[subj-group-type="category-taxonomy-collection"],
+.counts,
+.self-uri,
+.subj-group[subj-group-type="hwp-journal-coll"] {
+    display: none !important;
+}
+
+[article-type] .product * {
+    /* ="book-review" */
+    display: inline !important;
+    line-height: 2;
+    color: #3D3D3D;
+}
+
+/* Running Head for Books */
+div[alt-title-type="left-running"],
+div[alt-title-type="right-running"] {
+    margin: 10px 0;
+}
+
+
+div[alt-title-type="left-running"]::before,
+div[alt-title-type="lrh"]::before {
+    content: 'Left Page Header: ';
+}
+
+
+
+div[alt-title-type="right-running"]::before,
+div[alt-title-type="rrh"]::before {
+    content: 'Right Page Header: ';
+}
+
+/* Running Head for Journals */
+div[alt-title-type="lrh"],
+div[alt-title-type="rrh"] {
+    margin: 10px 0;
+    font-size: 15px;
+    line-height: 22px;
+
+}
+
+
+/* Common all sub Tag journals */
+.body {
+    line-height: 13pt;
+    font-size: 11pt;
+}
+
+/* Common all sub Tag books */
+.book-body {
+    line-height: 13pt;
+    font-size: 11pt;
+}
+
+/* Common For journals and Books */
+
+/* Subject Details Need to add subtitles */
+.subject {
+    font-size: 20px;
+    line-height: 34px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 6pt;
+}
+
+/* Subtitle */
+.subtitle {
+    display: block;
+    font-size: 15px;
+    line-height: 25px;
+    color: maroon;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 300;
+    margin-top: 15px;
+}
+
+/* Main title for Journals */
+div.title-group {
+    font-weight: normal;
+    margin-bottom: 0.5em;
+}
+
+.title-group .article-title {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 18pt;
+}
+
+/* Main title for Books */
+.title-group .title {
+    font-size: 20pt;
+    line-height: 22pt;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 18pt;
+}
+
+/* Author Group Details for Journals */
+div.contrib-group {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 11pt;
+    line-height: 24pt;
+    text-align: left;
+    margin: 10pt 0;
+    letter-spacing: -0.18pt;
+    display: inline;
+}
+
+div.contrib-group .contrib {
+    font-style: normal;
+    font-weight: bold;
+    display: inline;
+}
+
+div.contrib-group .name {
+    display: inline;
+}
+
+/* ?For Name Alternative view */
+div.name-alternatives {
+    display: inline;
+}
+
+/* ? For New Group */
+.contrib[data-new] div span.given-names {
+    padding-right: .25em;
+}
+
+a.xref:hover {
+    cursor: pointer;
+}
+
+/* Author Name xref Details */
+a.xref[data-role="aff"]>sup,
+a.xref[data-role="aff"]>.sup {
+    color: #3333FF;
+    font-size: 12px;
+}
+
+/* input missing super script tag */
+.xref[data-role="aff"] {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.5em;
+    font-size: 8pt;
+    color: #3333FF;
+}
+
+.highlightAff {
+    background: yellow;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* For Label Details */
+.contrib-group .pistart::after,
+.abstract .pistart::after,
+.name .pistart::after,
+.etal .pistart::after {
+    content: attr(data-pistart);
+    vertical-align: baseline !important;
+}
+
+/* ? 21_FEB_2026-YA -  */
+/* Apply vertical-align only for contrib-group */
+a.xref[data-role="aff"]+.pistart:not([lastpi])::after {
+    vertical-align: super;
+}
+
+.pistart[lastpir]::after {
+    vertical-align: baseline;
+    /* or content: ""; if you want to hide it */
+}
+
+/* For collab */
+#cke_maineditor div.contrib-group:nth-of-type(2n) {
+    display: none;
+}
+
+/* Affiliation Details */
+.aff {
+    line-height: 16pt;
+    font-size: 14px;
+    margin-top: 5pt;
+    text-indent: 0;
+}
+
+/*? 3467441 Bug Fixed*/
+.aff[data-label]:not([aff-first])::before {
+    content: attr(data-label);
+    position: relative !important;
+    display: inline !important;
+    visibility: visible;
+    vertical-align: super;
+}
+
+.aff[aff-first]::before {
+    content: attr(aff-first) " "attr(data-label);
+    position: relative !important;
+    display: inline !important;
+    visibility: visible;
+}
+
+.author-notes {
+    font-size: 14px;
+    line-height: 16pt;
+    text-align: left;
+    margin: 10pt 0;
+    text-indent: 0;
+}
+
+/* Front-matter notes and Corresp details */
+.author-notes>div.fn>div.p {
+    margin: 10px 0 2px 0 !important;
+    padding-bottom: 2pt;
+    text-indent: 0;
+    display: inline !important;
+}
+
+.author-notes .corresp {
+    margin: 10px 0 2px 0 !important;
+    padding-bottom: 2pt;
+    text-indent: 0;
+}
+
+
+/* abstract part */
+.abstract>.p {
+    font: 14px "Inter UI", sans-serif !important;
+    line-height: 22px !important;
+    margin-bottom: 0.5em;
+    text-align: left !important;
+    display: inline !important;
+}
+
+div.abstract>div.sec>span[data-levels="1"] {
+    margin-top: 5px;
+}
+
+div.abstract [data-title]::before {
+    content: attr(data-title);
+    font: italic bold 11pt "Inter UI", sans-serif;
+    padding-right: 0.5em;
+}
+
+div.abstract[data-de-str] [data-title]::before {
+    content: attr(data-title);
+    font: italic bold 11pt "Inter UI", sans-serif;
+    padding-right: 0.5em;
+    color: red;
+    position: relative;
+    text-decoration: line-through;
+}
+
+/*For unstructure abstract */
+.abstract>.title {
+    font: bold 11pt "Inter UI", sans-serif;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+/*For unstructure abstract */
+.abstract .sec .title {
+    font: italic bold 11pt "Inter UI", sans-serif;
+    display: inline;
+    text-align: left;
+    margin: 5px 6px 5px 0;
+}
+
+/*  After structure to structure  
+.abstract .sec > span.p {
+  font: 11pt "Inter UI", sans-serif!important;
+  line-height: 18pt;
+  text-align: left;
+  display: inline;
+}*/
+
+/* For Online Content  */
+/* [abstract-type="teaser"] {
+  display: none;
+} */
+
+/*Abstract siva requested*/
+span[data-pistart="Abstract "] {
+    display: block;
+    font-size: 16px;
+    line-height: 18.5pt;
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 2pt;
+}
+
+/* Graphical Abstract siva requested*/
+span[data-pistart="Graphical Abstract "] {
+    display: block;
+    font-size: 16px;
+    line-height: 18.5pt;
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 2pt;
+}
+
+/* Keyword group by Kumaravel */
+.kwd-group {
+    font-size: 14px;
+    padding-bottom: 5pt;
+    text-align: left;
+    text-indent: 0;
+    line-height: 26px;
+    margin: 2px 0 !important;
+}
+
+/* For kwd title Label Details  */
+.kwd-group>.pistart::after {
+    content: attr(data-pistart) !important;
+    font-weight: 700;
+}
+
+/* Normal Padding in Kwd  */
+.kwd {
+    margin-left: 0;
+}
+
+/* 27_JNE_23 - YA */
+
+.kwd-group .kwd[lastbefore] span.pistart:before,
+.kwd-group .kwd[last] span.pistart:before {
+    content: attr(data-pistart) !important;
+}
+
+.kwd-group del span.pistart:after {
+    content: attr(data-pistart) !important;
+}
+
+/* For Common label  */
+.delimt::after {
+    content: attr(data-pistart) !important;
+}
+
+/* For Delimiter for active  */
+/* css update - 27_Mar_24 - RJ */
+/* css border issue - 11_Jun_24 - RJ */
+.kwd.active,
+.term.active,
+.def .p.active,
+.def-item.active {
+    border: 1px dashed #355789 !important;
+    padding: 3.5px;
+}
+
+.def-item {
+    margin-left: 0;
+    margin-bottom: 2px;
+}
+
+.def-item .pistart {
+    display: none !important;
+}
+
+
+/* For Active Borders */
+
+[aria-label] {
+    position: relative;
+}
+
+
+[data-name="article"] [aria-label]:focus:after,
+[data-name="article"] [aria-label].active:after {
+    display: block;
+    content: attr(aria-label);
+    position: absolute;
+    top: -4px;
+    left: 7px;
+    z-index: 5000;
+    pointer-events: none;
+    padding: 0 5px;
+    line-height: 7px;
+    white-space: nowrap;
+    text-decoration: none;
+    text-indent: 0;
+    overflow: visible;
+    font-size: .75em;
+    font-weight: normal;
+    color: #003A90;
+    background-color: white;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+[data-name="given-names"]:focus,
+[data-name="given-names"].active {
+    border: 1px dashed #355789 !important;
+    padding: 3.5px;
+}
+
+[data-name="surname"]:focus,
+[data-name="surname"].active {
+    border: 1px dashed #355789 !important;
+    padding: 3.5px;
+}
+
+[data-name="degrees"]:focus,
+[data-name="degrees"].active {
+    border: 1px dashed #355789 !important;
+    padding: 3.5px;
+}
+
+/*FRONT MATTER END**/
+/**BODY PART START*/
+/* Boxed Content for both Journals and Books */
+div.boxed-text>div.caption>div.title {
+    font-weight: bold;
+    font-size: 16px;
+    color: blue;
+}
+
+div.boxed-text {
+    max-width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid orange;
+    font-family: "Inter UI", sans-serif;
+}
+
+div.boxed-text>div.caption>div.title>ul {
+    margin: 0px;
+}
+
+div.boxed-text>div.title {
+    font-weight: bold;
+    font-size: 130%;
+    color: blue;
+}
+
+/* Covered For All P Tag by Kumaravel*/
+div .p,
+p.p,
+li .p,
+ol>li.p,
+ul>li.p {
+    font: 14px "Inter UI", sans-serif;
+    line-height: 22px;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+li .p,
+ol>li.p,
+ul>li.p {
+    text-indent: 0em !important;
+}
+
+[content-type="flush-left"],
+[content-type="flush left"],
+[content-type="Back_Matter_Back_Matter_flush left"],
+[content-type="Back_Matter_flush left"] {
+    /*,div.p:first-of-type */
+    text-indent: 0 !important;
+    text-align: left;
+}
+
+div.p[content-type="indent"],
+p.p[content-type="indent"],
+.p[content-type="indented"],
+p.p,
+div.body div.sec>div.p,
+div.body>p.p:not([content-type]),
+div.body>div.p:not([content-type]) {
+    text-indent: 1em;
+}
+
+img.Wirisformula {
+    border: 2px solid blue !important;
+    padding: 1px;
+}
+
+span.cke_widget_wrapper.cke_widget_inline.cke_widget_mathjax.cke_widget_wrapper_TEX {
+    text-indent: 0 !important;
+}
+
+div.body div.title+div.p,
+div.body div.title+p.p {
+    text-indent: 0 !important;
+}
+
+/* Title For Journals */
+div.sec:not([sec-type="supplementary-material"])>div.title[data-levels="1"],
+.ack>.title,
+.glossary>.title,
+.def-list>.title {
+    font-size: 16px;
+    line-height: 1.2;
+    font-style: normal;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+
+div.sec>div.title[data-levels="2"] {
+    font-size: 14px;
+    line-height: 16.5px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+div.sec>div.title[data-levels="3"] {
+    font-size: 12.496px;
+    line-height: 0.906rem;
+    font-style: italic;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* ? 20_FEB_2024 MOCK UPDATE YA */
+
+div.sec div.title[data-levels="4"] {
+    font-size: 11.75px;
+    margin-top: 2px;
+    font-weight: bold;
+}
+
+/* Figures */
+div.fig {
+    font-size: 11pt;
+    font-weight: 500;
+    line-height: 18.5pt;
+    margin: 15px 0;
+    padding: 0.5em 0.7em;
+
+    /* Layout & box model */
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    /* Page break handling */
+    page-break-before: auto;
+    page-break-after: auto;
+
+    /* Text properties */
+    text-align: left;
+    text-indent: 0;
+    text-transform: none;
+    text-decoration: none;
+}
+
+/* Highlight unlocked figures */
+div.fig:not(.para-locked) {
+    border: 1px solid #15158c;
+}
+
+
+div.fig>.graphic.replaceImage img {
+    border: 2px solid red;
+    margin-left: -7px;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+div.fig>.graphic img {
+    display: block !important;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* HILTI */
+
+.alternatives .inline-graphic,
+.inline-formula img[role="graphic"],
+.title .alternatives {
+    display: inline !important;
+}
+
+div.caption div.p,
+div.caption div.title {
+    display: inline;
+    /* padding-left: 1em; */
+}
+
+.caption[data-label]::before,
+.title[data-label]::before {
+    content: attr(data-label);
+    margin-right: .5rem;
+    font-weight: bold;
+}
+
+.caption .p:nth-child(2) {
+    /* 2171267 HAE Journal spacing issue*/
+    display: block;
+}
+
+/* 18_APR_2023 */
+.title[data-label-delete]::before {
+    content: attr(data-label-delete);
+    margin-right: .5rem;
+    font-weight: bold;
+    color: red;
+    text-decoration: line-through;
+}
+
+.caption[data-label][data-table]::before,
+.caption[data-label][data-figure]::before {
+    color: blue
+}
+
+.caption [delete-lab]::before {
+    content: attr(delete-lab);
+    color: red;
+    font-weight: bold;
+    margin-right: .1rem;
+    text-decoration: line-through;
+}
+
+/* ? Table Contents in Journals and Books */
+
+div.table-wrap {
+    font: 13px "Inter UI", sans-serif;
+    font-weight: 500;
+    line-height: 18.5pt;
+    border-collapse: collapse;
+    border: 1px solid #15158c;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.5em 0.25em;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+/* ? For New Tables */
+div.table-wrap[data-table="new"],
+div.table-wrap[data-table="new"] table {
+    width: 100% !important;
+}
+
+/* , [data-action-hidden="Yes"] */
+div.table-wrap[data-table="new"][data-action="Rejected"],
+div.fig[data-figure="new"][data-action="Rejected"] {
+    display: none !important;
+}
+
+/* For Table Border changed */
+.table-wrap table {
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+/* Caption Details */
+.table-wrap .caption .p {
+    line-height: 12pt;
+    display: inline;
+    padding: 5pt 3px 5px 0;
+}
+
+/* Thead color */
+.table-wrap>table>thead {
+    background-color: lightblue;
+}
+
+div.table-wrap>table>tbody>tr>td div.p {
+    font-size: 10pt !important;
+    line-height: 16pt !important;
+    text-indent: 0 !important;
+    text-align: left !important;
+}
+
+.table-wrap [data-table] {
+    width: 95% !important;
+}
+
+th {
+    font-size: 11pt;
+    line-height: 15pt;
+    text-align: left;
+    font-weight: 500 !important;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+td {
+    vertical-align: top !important;
+}
+
+table,
+td,
+th {
+    /* padding: 2pt; */
+    border: #d3d3d3 1px dotted !important;
+    text-align: left !important;
+}
+
+.table-wrap-foot {
+    font-size: 10pt;
+    line-height: 12pt;
+    text-align: left;
+    margin-top: 2pt;
+}
+
+/* v2.0.15 - YA 02_JULY_2023 - END */
+
+div.table-wrap-foot div.fn {
+    margin-left: 0.3rem !important;
+    margin-top: 0.15rem;
+    text-indent: 0 !important;
+    display: block;
+    /*  3348231 - Table fn css - 28_May-25 - RJ  */
+}
+
+div.fn .label {
+    margin-top: .25rem !important;
+    display: inline;
+    position: absolute;
+}
+
+div.table-wrap-foot div.fn .p {
+    /* margin-left: .5em;
+    margin-top: -0.95em; */
+    /* text-indent: 0 !important; */
+    display: inline;
+}
+
+/* v2.0.15 - YA 02_JULY_2023 - START */
+/* .fn-group .fn,
+.fn>.ice-ins,
+.fn>.ice-del {
+    display: -ms-flexbox !important;
+    display: flex !important;
+} 
+    div.fn .p {
+    margin-left: 3.50rem !important;
+    margin-top: 0.15rem;
+    text-indent: 0 !important;
+} 
+    */
+
+
+
+.align-left,
+[align="left"] {
+    text-align: left !important;
+}
+
+.align-center,
+[align="center"] {
+    text-align: center !important;
+}
+
+.align-right,
+[align="right"] {
+    text-align: right !important;
+}
+
+td[data-cell-action] {
+    background-color: greenyellow;
+}
+
+/* Formatting Details start */
+.sup {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.5em;
+    font-size: 8pt;
+}
+
+.sub {
+    vertical-align: baseline;
+    position: relative;
+    bottom: -0.3em;
+    font-size: 8pt;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+[sctag],
+[data-name="sc"],
+.sc {
+    font-variant: small-caps !important;
+}
+
+/* ? For math details */
+/* Math CSS */
+span.cke_widget_wrapper.cke_widget_inline.cke_widget_mathjax.cke_widget_wrapper_TEX {
+    text-indent: 0 !important;
+}
+
+/* For Math JAX Enabled, so Disable Prodiction Images*/
+/* .graphic.mathjaxview,
+.inline-graphic.mathjaxview {
+    display: none !important;
+} */
+
+/* For NOT an Math JAX, so Prodiction Images Display disable TEX Node in view */
+.TEX {
+    display: none !important;
+}
+
+img.Wirisformula {
+    border: 2px solid blue !important;
+    padding: 1px;
+}
+
+/*.disp-formula.data-mathjax .graphic,
+  .inline-formula.data-mathjax .inline-graphic {
+    display: none !important;
+    margin-bottom: 2em !important;
+    margin: auto !important;
+    width: 50% !important;
+    vertical-align: center!important;
+  }*/
+/* .disp-formula.data-mathjax .TEX, .inline-formula.data-mathjax .TEX{
+    display: none !important;
+  } */
+
+div.disp-formula {
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+div.disp-formula span.label[data-value]::after {
+    content: attr(data-value);
+    float: right;
+}
+
+div.disp-formula span.label::after {
+    content: attr(data-value);
+    float: right;
+}
+
+div.disp-formula span.label[data-track-value]::before {
+    content: attr(data-track-value);
+    color: red;
+    float: right;
+    text-decoration: line-through;
+}
+
+[data-cite="delete"] {
+    color: red;
+    text-decoration: line-through;
+}
+
+span.label[data-track-value],
+span.label[track-lab-type="new"],
+[data-math="edit"],
+[data-math="new"] span.label {
+    color: blue;
+}
+
+div.alternatives {
+    display: inline !important;
+}
+
+div.source-line {
+    font: 10pt "Inter UI", sans-serif;
+    line-height: 18pt;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+
+/*BODY PART END*/
+/*BACK PART START*/
+.ref-list .title {
+    font: 16px "Inter UI", sans-serif;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 20pt;
+    margin-bottom: 2pt;
+}
+
+/* 20-SEP-22  FOR BITS*/
+div.book-part div.ref {
+    margin-left: 0.5em !important;
+}
+
+div.ref {
+    font: 14px "Inter UI", sans-serif;
+    margin-left: 3em;
+    line-height: 20pt;
+    margin-bottom: 11px;
+}
+
+div.ref span.label {
+    float: left;
+    margin-left: -2.5em;
+}
+
+div.mixed-citation {
+    display: inline;
+}
+
+div.ref span.label[data-val-class="fDigit"] {
+    margin-left: -2.95em;
+}
+
+div.ref span.label[data-val-class="hDigit"] {
+    margin-left: -2.75em;
+}
+
+div.ref span.label[data-val-class="tDigit"] {
+    margin-left: -2.5em;
+}
+
+div.ref[data-sort],
+[data-track-code="ref-sort-01"] {
+    background: lightskyblue;
+}
+
+div.notes>div.p {
+    text-indent: 1em;
+    font-size: 13px;
+}
+
+.ack .title {
+    font-style: normal;
+    font-family: "Inter UI", sans-serif;
+    font-size: 12pt;
+    line-height: 14pt;
+    margin-bottom: 8px;
+}
+
+/* 
+! 04_JULY_2024 - FIND MODULE BACK-GROUND
+a>span {
+    background-color: white !important;
+}
+ */
+
+
+[data-name="thead"] {
+    background: lightskyblue;
+}
+
+.ack,
+.ref-list {
+    margin-top: 6px !important
+}
+
+.fn-group {
+    font-size: 11pt;
+    line-height: 13pt;
+    padding: 3pt;
+    border: 0.5pt solid black;
+}
+
+
+.fn-group .fn .p {
+    padding-left: 3.75rem;
+}
+
+
+.corresp[data-label]::before,
+.fn[data-label]::before,
+.fn [data-label]:not([data-class="ckcommentsfull"])::before {
+    content: attr(data-label);
+}
+
+
+[data-del-label]::before {
+    content: attr(data-del-label);
+    color: red;
+    text-decoration: line-through;
+}
+
+.corresp[data-label]::before,
+.fn[data-label]::before,
+.fn [data-label]::before,
+[data-del-label]::before {
+    vertical-align: super;
+    display: inline !important;
+    position: relative !important;
+}
+
+a.xref[data-role="table-fn"] {
+    vertical-align: super;
+}
+
+.contrib:last-child {
+    vertical-align: bottom !important;
+}
+
+/* For Superscript */
+.contrib a.xref+span.pistart {
+    vertical-align: super;
+}
+
+.contrib span[lastpi] {
+    vertical-align: bottom !important;
+}
+
+
+
+/************EDITOR PART START**************************/
+span.x~insert.ice-ins:hover,
+span.x~insert.ice-ins:active,
+span.x~insert.ice-ins:focus,
+span.x~insert.ice-ins:focus-within {
+    border-style: dashed !important;
+    border-width: 1px !important;
+    border-color: #D4A606 !important;
+}
+
+/* AQ Information details */
+
+[data-class="pi_info"]>span,
+[data-class="ckcommentsfull"]:not([data-show-text])>span,
+[data-class="ckcommentsfull"]>img,
+[data-ignore-comment="ignored"],
+[data-class="ckcommentsfull"][data-deleted="true"] {
+    display: none !important;
+}
+
+[data-class="ckcommentsfull"],
+[data-class="pi_info"] {
+    display: inline;
+    cursor: pointer;
+}
+
+[data-class="pi_info"]::after {
+    background: #F68A33 !important;
+    color: #fff !important;
+    content: attr(data-label);
+    border-radius: 10%;
+    display: inline;
+    position: relative;
+}
+
+
+[data-class="ckcommentsfull"]+[data-class="ckcommentsfull"]::before,
+[data-class="ckcommentsfull"]+insert [data-class="ckcommentsfull"]::before,
+insert+insert [data-class="ckcommentsfull"]::before,
+insert [data-class="ckcommentsfull"]+[greyscale="true"]::before,
+[data-class="ckcommentsfull"]+[greyscale="true"]::before {
+    content: "\2009";
+}
+
+[data-class="ckcommentsfull"]:not([data-show-text]):after {
+    background: #F68A33 !important;
+    color: white !important;
+    content: attr(data-label);
+    border-radius: 2px;
+    display: inline;
+    position: relative;
+    padding: 2px 5px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+[data-class="ckcommentsfull"][data-show-text]>span:not([data-show-text]) {
+    display: none !important;
+}
+
+span[data-show-text] {
+    color: white !important;
+    border-radius: 2px;
+    display: inline !important;
+    position: relative;
+    padding: 2px 5px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+[data-status="open"]>span[data-show-text] {
+    background: #F68A33;
+}
+
+[data-status="closed"]>span[data-show-text] {
+    background: #339924 !important;
+}
+
+[data-class="ckcommentsfull"][data-status="closed"]:not([data-show-text]):after {
+    background: #339924 !important;
+}
+
+.cke_editable::-webkit-scrollbar {
+    width: 14px;
+}
+
+.cke_menubutton__myheadLvl {
+    background: yellowgreen;
+}
+
+.cke_menubutton_off {
+    background: transparent !important;
+}
+
+.cke_editable::-webkit-scrollbar-thumb {
+    background-color: #C4C4C4;
+    border: 4px solid transparent;
+    border-radius: 8px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    cursor: pointer !important;
+}
+
+.cke_editable::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
+    cursor: pointer !important;
+}
+
+.cke_editable::-webkit-scrollbar-track {
+    border-radius: 50%;
+    /* box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+}
+
+span.backref .xref {
+    color: darkviolet;
+}
+
+.impactdeltag>del,
+insert.ice-ins>a[rid^="un"] {
+    /* 08_JUNE_2023 - ,div.ref[data-remove][data-new] - command */
+    display: none !important;
+}
+
+.testshow {
+    visibility: hidden;
+}
+
+.testshow:after {
+    content: attr(data-show);
+    position: relative !important;
+    display: inline !important;
+    visibility: visible;
+}
+
+/* For Name Alternative view */
+div.name-alternatives {
+    display: inline;
+}
+
+.TrackOff insert[data-del-val]::before {
+    display: none;
+}
+
+
+insert[data-del-val][data-del-style="sup"]::before,
+/* ::after for elements without data-interest-level */
+insert[data-del-val]:not([data-interest-level])::after,
+a[data-del-val]:not([data-remove]):not([data-interest-level])::after,
+
+/* ::before for elements with data-interest-level */
+insert[data-del-val][data-interest-level]::before,
+a[data-del-val][data-interest-level]:not([data-remove])::before {
+    content: attr(data-del-val);
+    display: inline;
+    color: red;
+    position: relative;
+    text-decoration: line-through;
+}
+
+insert[data-del-val][data-del-style="sup"]::before {
+    font-size: 8pt;
+    vertical-align: super;
+}
+
+
+.TrackChangesList,
+#TrackChangesListABR,
+.TrackChangesListKW {
+    cursor: pointer;
+    display: inline;
+    margin-left: 10px;
+    background-color: #f6bdef;
+}
+
+body.cke_editable[contenteditable="false"] div.TrackChangesList {
+    display: block !important;
+    margin-left: 10px !important;
+    background-color: white;
+}
+
+body.cke_editable[contenteditable="false"] div.TrackChangesList span.tc {
+    background-color: #f6bdef;
+}
+
+body.cke_editable[contenteditable="false"] #AuthorAffTrackChanges,
+#TrackChangesListKW,
+#TrackChangesListABR {
+    display: block !important;
+}
+
+body.cke_editable[contenteditable="false"] .pop_up {
+    display: block;
+    float: none;
+    position: static;
+}
+
+body.cke_editable[contenteditable="false"] .oldStructure {
+    padding: 0 1.5rem;
+    font-weight: bold;
+}
+
+.contrib-group [data-name="email"] {
+    padding-left: 4px !important;
+}
+
+/*Impact Tracking formatting css*/
+.email[xlink\:href],
+.uri,
+.ext-link {
+    color: #0645AD;
+    font-size: 11pt;
+    cursor: pointer;
+}
+
+/* Extract */
+div.disp-quote,
+div.disp-quote[content-type="dialogue_extract"],
+div.disp-quote[content-type="extract"] {
+    margin: 1em 0 1em 2em !important;
+}
+
+div.disp-quote[content-type=dialogue_extract]>div.speech span[class=speaker] {
+    text-align: left !important;
+    min-width: .5rem !important;
+    display: inline !important;
+    white-space: nowrap !important;
+    /* keeps speaker + em together */
+    clear: left !important;
+    z-index: auto !important;
+    padding-right: 1em !important;
+    font-variant: small-caps !important;
+}
+
+div.disp-quote[content-type="dialogue_extract"]>div.speech span[class="p"] {
+    /* text-indent: -0.5em !important; */
+    text-align: left !important;
+    display: inline !important;
+    width: 100% !important;
+    z-index: 2 !important;
+}
+
+div.disp-quote[content-type="dialogue_extract"]>div.speech {
+    display: block !important;
+    padding-left: 6em !important;
+    /* indent all lines after the first */
+    text-indent: -5.25em !important;
+    /* pull first line back to the left edge */
+    margin-bottom: 0.25em !important;
+}
+
+div.attrib .italic[data-name="italic"] {
+    font-style: italic;
+    text-align: right;
+    font-size: 100%;
+    margin: 0 0 1em 0;
+    width: 100%;
+}
+
+div.disp-quote>div.attrib,
+div.p[content-type="source"],
+p.p[content-type="source"] {
+    text-align: right !important;
+}
+
+
+/* AQ Information details */
+
+
+
+insert.ice-ins>a[rid^="un"] {
+    display: none !important;
+}
+
+.Tracking {
+    background-color: #E0FFFF !important;
+}
+
+
+/* [data-class="para-merge"]::after {
+  background: #F68A33!important;
+  color: #fff!important;
+  content: attr(data-label);
+  border-radius: 10%;
+  display: inline;
+  position: relative;
+} */
+/* 08-JUN-2022 YATH_UPDATE */
+/* 
+  06-OCT-2022 SIVA POINTS
+  https://yoksel.github.io/url-encoder/
+  fill="blue"
+  fill="red"
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="blue" d="M192 32h64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384l0 352c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-352H288V448c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H192c-88.4 0-160-71.6-160-160s71.6-160 160-160z"/></svg>
+*/
+[data-para-merge="next"]:not([data-action="Rejected"]):not(li)::after,
+[data-para-merge="prev"]:not([data-action="Rejected"]):not(li)::before,
+[data-split-parent="yes"]:not([data-action="Rejected"]):not(li)::after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    background-size: 12px 24px;
+    width: 12px;
+    height: 18px;
+    background-repeat: no-repeat;
+    padding: 0 5px;
+}
+
+[data-para-merge="next"]:not([data-action="Rejected"])::after,
+[data-para-merge="prev"]:not([data-action="Rejected"])::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='red' d='M192 32h64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384l0 352c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-352H288V448c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H192c-88.4 0-160-71.6-160-160s71.6-160 160-160z'/%3E%3C/svg%3E") !important;
+}
+
+[data-split-parent="yes"]:not([data-action="Rejected"])::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='blue' d='M192 32h64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384l0 352c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-352H288V448c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H192c-88.4 0-160-71.6-160-160s71.6-160 160-160z'/%3E%3C/svg%3E") !important;
+}
+
+/* 
+
+[data-para-merge="prev"]:not([data-action="Rejected"])::before {
+  background: #F68A33 !important;
+  color: #fff !important;
+  content: ' PM ';
+  border-radius: 10%;
+  display: inline;
+  position: relative;
+}
+
+[data-para-merge="next"]:not([data-action="Rejected"])::after {
+  background: #F68A33 !important;
+  color: #fff !important;
+  content: ' PM ';
+  border-radius: 10%;
+  display: inline;
+  position: relative;
+} */
+
+[data-column="new"] {
+    width: 10px;
+}
+
+/* ? TRACKING CITATION 07-Dec-21  YA*/
+a[data-track]::after {
+    content: attr(data-track);
+    color: #e21b21;
+    text-decoration: line-through;
+}
+
+div.back>.title>div.p {
+    text-indent: 0 !important;
+    text-align: left !important;
+}
+
+
+/* .table-wrap .label>.caption>.p {
+  font-size: 11pt;
+  line-height: 12pt;
+  font-weight: bold;
+  padding: 2pt;
+  display: inline;
+} */
+/* For Reference  */
+/* .ref-list .title {
+  font-size: 14pt;
+  line-height: 16pt;
+} */
+/* div.back div.title {
+  font-size: 12pt;
+  line-height: 14pt;
+  font-style: normal;
+  font-weight: bold;
+  text-align: left;
+  margin: 1rem 0;
+
+} */
+/* Test for  */
+/* [data-name="surname"]::after {
+  content: attr(sAfter);
+} */
+/* div.contrib::after{
+content: attr(delimiter)
+}
+div.name::after{
+content: attr(afflabel);
+vertical-align: super;
+font-size: 80%;
+} */
+
+/* Title For Books */
+/* div.sec[data-levels="1"]>span.label,
+div.sec[data-levels="1"]>div.title,
+div.heading {
+  font-size: 16.5pt;
+  line-height: 18.5pt;
+  font-style: normal;
+  font-weight: bold;
+  text-align: left;
+  display: inline;
+  margin-top: 20pt;
+  margin-bottom: 2pt;
+}
+
+div.sec[data-levels="2"]>span.label,
+div.sec[data-levels="2"]>div.title,
+div.heading {
+  font-size: 14.5pt;
+  line-height: 16.5pt;
+  font-style: normal;
+  display: inline;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 10pt;
+  margin-bottom: 5pt;
+}
+
+div.sec[data-levels="3"]>span.label,
+div.sec[data-levels="3"]>div.title,
+div.heading {
+  font-size: 12.5pt;
+  line-height: 14.5pt;
+  font-style: italic;
+  display: inline;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 10pt;
+  margin-bottom: 5pt;
+} */
+
+/* div[alt-title-type="lrh"]::before {
+  content: 'Left Running Head: ';
+}
+
+div[alt-title-type="rrh"]::before {
+  content: 'Right Running Head: ';
+} */
+/* .fig .label {
+  font-weight: bold;
+} */
+
+/* For All Label Books and Journals */
+
+
+/* div[fig-type="figure"] {
+  margin-top: 1em;
+  margin-bottom: 1em;
+} */
+
+
+/*
+[data-name="superscript"]{
+  vertical-align: super;
+}
+[data-name="subscript"]{
+  vertical-align:bottom!important;
+}
+[data-name="underline"]{
+  text-decoration: underline!important;
+}
+[data-name="strike"]{
+  text-decoration: line-through;
+}
+[data-name="bold"]{
+  font-weight: bold;
+}
+[data-name="italic"]{
+  font-style: italic;
+}
+ */
+.notes>.title {
+    font-size: 16px;
+    line-height: 18.5pt;
+    font-style: normal;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 20pt;
+    margin-bottom: 2pt;
+}
+
+[contrib-id]::after {
+    content: " ";
+    background: url('../../../assets/images/svg/ORCID_ID.svg') no-repeat;
+    background-size: 100% 100%;
+    width: 20px;
+    display: inline-block;
+    height: 20px;
+    margin-right: 5px;
+}
+
+[greyscale="true"]::before {
+    background: #f68a33 !important;
+    color: #fff !important;
+    content: "Click here to view Black and White version";
+    border-radius: 2px;
+    display: inline;
+    position: relative;
+    padding: 3px 6px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer !important;
+    margin-left: 2px;
+}
+
+span[greyscale="true"]>img {
+    margin-top: 2em !important;
+}
+
+.def {
+    margin-left: 8px;
+    display: inline-flex;
+}
+
+span.scolor_start::first-line {
+    background-color: red;
+}
+
+/* Grey back-ground for restrict elements for OUP  - 01_MAR_21*/
+[data-restrict-bgcolor] {
+    background-color: #E3E3E3;
+}
+
+/* 29_APR_2023 */
+[data-name="break"] {
+    display: block;
+}
+
+div.alt-text {
+    margin-top: 5px;
+}
+
+/* For Figure and Table Alt-text */
+.alt-text[data-template]::before {
+    content: "ALT-TEXT: ";
+    color: red;
+}
+
+.alt-text,
+[data-template] .term,
+[data-template] .p {
+    color: gray;
+}
+
+.para-locked,
+[data-locked-by] {
+    border: 2px dashed #f70b0b;
+    background: rgb(76 72 72 / 15%);
+    position: relative;
+    display: inline-block !important;
+}
+
+.para-locked::after,
+[data-locked-by]::after {
+    content: attr(data-locked-by) ' is editing\2026';
+    font-size: 11px;
+    left: 0;
+    color: #b94a48;
+    /* dark red – accessible on light gray */
+    margin-top: 2px;
+    opacity: 0.95;
+}
+
+
+[data-show-id="true"] .front .title-group div[id]::before,
+[data-show-id="true"] .front .contrib-group div[id]::before,
+[data-show-id="true"] .front .author-notes div[id]::before,
+[data-show-id="true"] .front .abstract div[id]::before,
+[data-show-id="true"] .body div[id]::before,
+[data-show-id="true"] .back div[id]::before {
+    content: attr(id) ' \2023 ';
+    /* position: absolute; */
+    top: -1.2em;
+    left: 0;
+    font-size: 11px;
+    color: #fd077a;
+    opacity: 0.9;
+}

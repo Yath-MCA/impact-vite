@@ -1,0 +1,364 @@
+/* ****
+* NO STYLES FOUND IN PDF ***
+* 21_SEP_2024 _YA   **
+* */
+
+.table-wrap-foot .fn .label,
+.contrib .x,
+.contrib .xref .x {
+    vertical-align: super !important;
+}
+
+/* PLOS CSS Update - 27_SEP_24-RJ */
+
+.processing-meta {
+    display: none;
+}
+
+.elocation-id {
+    display: none;
+}
+
+.contrib-group {
+    .contrib {
+
+        [data-name="given-names"] {
+            color: #2c2d33;
+        }
+
+        [data-name="surname"] {
+            color: #2c2d33;
+            padding: 3.5px;
+            border: 4px solid #C14F97 !important;
+
+            &[aria-label].active:after {
+                top: -14px;
+                left: -12px;
+            }
+
+        }
+
+        .role[content-type][data-name="role"] {
+            display: none;
+        }
+
+    }
+}
+
+
+.contrib-group {
+
+    .editor,
+    .contrib[contrib-type="editor"] {
+
+        [data-name="given-names"] {
+            color: #2c2d33;
+        }
+
+        [data-name="surname"] {
+            color: #2c2d33;
+            padding: 3.5px;
+            border: 4px solid #C14F97 !important;
+
+            &[aria-label].active:after {
+                top: -14px;
+                left: -12px;
+            }
+
+        }
+
+        .role[data-name="role"] {
+            font-size: 14px;
+            margin-right: 5px;
+            font-style: normal;
+            float: left;
+            font-weight: 700;
+            text-align: left;
+            margin-bottom: .5em;
+        }
+    }
+}
+
+
+span[data-pistart="Competing interests: "] {
+    font-size: 14px;
+    line-height: 22px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+
+.fn .pistart::after {
+    content: attr(data-pistart);
+}
+
+.ack .pistart::after {
+    content: attr(data-pistart);
+}
+
+.ack span[data-pistart] {
+    display: block;
+    font-size: 16px;
+    line-height: 18.5pt;
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 2pt;
+}
+
+.funding-group {
+    display: block !important;
+
+    .award-group {
+        display: none !important;
+    }
+
+    .funding-statement {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+
+    &[data-name] .pistart::before {
+        // ? Removed CSS content -  17_OCT_24_RJ
+        // ! UPDATED - 28_OCT_25-YA  ||  21_FEB_26-YA - FONT-SIZE UPDATE
+        content: attr(data-pistart);
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+        font-size: 14px;
+    }
+}
+
+
+
+div.sec>div.title[data-levels="3"] {
+    font-size: 12.496px;
+    line-height: 0.906rem;
+    font-style: normal;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.sub-article {
+    display: none;
+}
+
+.fig {
+    .graphic {
+        img {
+            // visibility: hidden;
+
+            &.Wirisformula {
+                // visibility: visible;
+            }
+
+            &:not(.Wirisformula) {
+                // display: inline-block !important;
+                // margin: 1em 0 1.5em;
+            }
+        }
+    }
+
+    .object-id {
+        display: block !important;
+    }
+}
+
+
+
+.table-wrap .object-id {
+    display: block !important;
+}
+
+
+.custom-meta-group {
+    display: block !important;
+}
+
+.custom-meta#data-availability {
+    display: block !important;
+    line-height: 22px !important;
+    margin-bottom: 0.5em;
+    text-align: left !important;
+    font-size: 14px;
+
+    .meta-name {
+        font-weight: bold;
+        padding-right: 4px;
+
+        .pistart::after {
+            content: attr(data-pistart);
+        }
+    }
+
+    // ? Removed content -  17_OCT_24_RJ
+}
+
+
+
+.history,
+.permissions {
+
+    display: block !important;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 15px;
+    line-height: 22px;
+
+    &[data-name]::before {
+        content: attr(data-name);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+    }
+
+    .day[data-name]::before,
+    .month[data-name]::before,
+    .year[data-name]::before,
+    .copyright-statement[data-name]::before,
+    .license[data-name]::before,
+    .copyright-year[data-name]::before {
+        content: attr(data-name) ': ';
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+    }
+
+    .copyright-year[data-name] {
+        margin-bottom: 5px;
+    }
+
+    .date[data-name]::before {
+        content: attr(date-type) ': ';
+        font-weight: bold;
+        // display: block;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+    }
+
+    /* Styling for better visualization */
+    [date-type="received"],
+    [date-type="revised"],
+    [date-type="accepted"],
+    [date-type="copyright-statement"] {
+        display: block !important;
+        margin-bottom: 20px;
+    }
+
+    .date,
+    .copyright-statement,
+    .license {
+        margin-bottom: 10px;
+    }
+
+    .date span {
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
+
+.aff .label {
+    font-weight: bold;
+}
+
+.underline,
+.xref[ref-type="bibr"],
+.xref[ref-type="fig"],
+.xref[ref-type="table"],
+.article-meta .article-id[pub-id-type="doi"],
+.ext-link,
+.author-notes .corresp .email,
+.object-id {
+    text-decoration: underline;
+}
+
+.ref-list .ref {
+    .object-id {
+        color: blue !important;
+        text-decoration: underline;
+    }
+
+    .pistart::after {
+        content: attr(data-pistart);
+    }
+}
+
+
+.disp-formula .label {
+    float: right;
+}
+
+
+.sec[sec-type='supplementary-material'] {
+    
+    .title[data-levels="1"] {
+        font-size: 16px;
+        line-height: 1.2;
+        font-style: normal;
+        font-weight: bold;
+        text-align: left;
+        margin-top: 20px;
+        margin-bottom: 2px;
+    }
+
+    &>.title::after {
+        background: #f68a33 !important;
+        color: #fff !important;
+        content: "Click to View Supplementary Files";
+        cursor: pointer !important;
+        border-radius: 2px;
+        display: inline;
+        position: relative;
+        padding: 3px 6px;
+        font-weight: 600;
+        font-size: 12px;
+        margin-left: 2px;
+    }
+
+    .supplementary-material {
+        display: block !important;
+        font-weight: 700;
+
+        .caption {
+
+            .p {
+                margin-bottom: 0;
+
+            }
+
+        }
+
+        &:after {
+            content: attr(xlink\:href);
+            display: inline-block;
+            font-style: italic;
+            text-decoration: underline;
+            color: #0645AD;
+            font-size: 11pt;
+            cursor: pointer;
+        }
+    }
+
+    /* Apply margin-top only from the second onwards */
+    .supplementary-material:not(:first-child) {
+        margin-top: 1rem;
+        /* adjust as needed */
+    }
+
+    /* Alternative syntax */
+    .supplementary-material:nth-of-type(n+2) {
+        margin-top: 1rem;
+    }
+}
+
+
+// ? Unwanted img update CSS content -  21_FEB_25_YA
+.table-wrap>.alternatives>.graphic img[role="graphic"] {
+    display: none !important;
+}

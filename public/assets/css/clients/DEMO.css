@@ -1,0 +1,17 @@
+/* EJCP Journal */
+/* For Frontmatter Xref value  */
+.contrib a.xref {
+    vertical-align: super !important;
+    /* background-color: none !important;
+    cursor: pointer !important; */
+}
+/* Reference Part */
+/* div.ref .mixed-citation .source, div.ref .mixed-citation .person-group .etal {
+    font-style: italic !important;
+} */
+
+div.ref .mixed-citation .year {
+    font-weight: 750;
+    /* font-style: bold !important; */
+}
+
