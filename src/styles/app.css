@@ -1,28 +1,60 @@
-@import "tailwindcss";
+@import "tailwindcss" prefix(tw);
 
+/* IMPACT tokens — used as bg-primary, text-primary-600, border-brand-navy, etc. */
 @theme {
-  --color-primary: #ff8635;
-  --color-primary-dark: #e06f22;
-  --color-primary-600: #e06f22;
-  --color-primary-500: #ff8635;
-  --color-brand-navy: #1a2689;
-  --font-sans: "Segoe UI", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
+    --color-primary: #ff8635;
+    --color-primary-hover: #ff9b55;
+    --color-primary-dark: #e46e22;
+    --color-primary-50: #fff3e8;
+    --color-primary-100: #ffe2c3;
+    --color-primary-500: #ff8635;
+    --color-primary-600: #e46e22;
+    --color-primary-700: #c95f1d;
+    --color-brand-navy: #1a2689;
+    --font-sans: "Segoe UI", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
 }
 
 html,
 body,
 #app {
-  min-height: 100%;
+    min-height: 100%;
 }
 
 body {
-  margin: 0;
-  font-family: var(--font-sans);
-  color: #1e293b;
-  background: #f8fafc;
+    margin: 0;
+    font-family: var(--font-sans);
+    color: #0f172a;
+    background: #f8fafc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/*
+ * Do not redefine Bootstrap class names here (.btn-primary, .btn-secondary, .card).
+ * app.css loads after bootstrap.min.css, so those would override Bootstrap.
+ * Prefer Tailwind utilities (bg-primary, rounded-lg, …) or im-* prefixed helpers.
+ */
+.im-segment-highlight {
+    background-color: #fef9c3;
+    border-left: 4px solid #eab308;
+}
+
+/* 3. Your custom v4 utility class abstractions (with fixed syntax spaces) */
+.btn-primary,
+.bg-primary {
+    @apply px-4 py-2 bg-primary-600 text-white rounded-lg hover: bg-primary-700 transition-colors;
+}
+
+.btn-secondary,
+.bg-secondary {
+    @apply px-4 py-2 bg-gray-200 dark: bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors;
+}
+
+.card {
+    @apply bg-white dark: bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700;
 }

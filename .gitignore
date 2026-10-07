@@ -14,4 +14,9 @@ playwright-report/
 test-results/
 playwright-report/
 
-env/
+# Keep env/ tracked; ignore only real secret overlays (not the example)
+env/*.secrets.js
+!env/env.secrets.example.js
+
+# Generated runtime env (may contain merged secrets) — recreate via npm run env:generate
+public/env.js

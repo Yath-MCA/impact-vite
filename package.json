@@ -4,12 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "env:generate": "node scripts/generate-env.js",
+    "predev": "npm run env:generate",
     "dev": "vite",
+    "prebuild": "npm run env:generate",
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest run tests/unit",
     "test:unit:watch": "vitest tests/unit",
     "test:harness": "playwright test tests/e2e/harness-document-head.spec.js",
+    "pretest:e2e": "npm run env:generate",
     "test:e2e": "playwright test tests/e2e"
   },
   "devDependencies": {
