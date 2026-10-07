@@ -52,7 +52,7 @@ const Login = () => {
 
   return (
     <div
-      className="login-page min-h-screen flex items-center justify-center px-4 bg-slate-50"
+      className="login-page tw:min-h-screen tw:flex tw:items-center tw:justify-center tw:px-4 tw:bg-slate-50"
       style={{
         backgroundImage: `linear-gradient(180deg, rgba(248,250,252,0.92), rgba(248,250,252,0.96)), url(${BRANDING.companyLogo})`,
         backgroundSize: 'cover, 40em',
@@ -60,33 +60,33 @@ const Login = () => {
         backgroundRepeat: 'no-repeat, no-repeat',
       }}
     >
-      <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md border border-orange-100">
-        <div className="text-center mb-8">
-          <div className="mb-4 flex items-center justify-center gap-3">
+      <div className="tw:bg-white tw:p-8 tw:rounded-xl tw:shadow-lg tw:w-full tw:max-w-md tw:border tw:border-orange-100">
+        <div className="tw:text-center tw:mb-8">
+          <div className="tw:mb-4 tw:flex tw:items-center tw:justify-center tw:gap-3">
             <img
               src={BRANDING.productIcon}
               alt="IMPACT"
               data-brand="login-logo"
-              className="h-8 w-auto"
+              className="tw:h-8 tw:w-auto"
               loading="lazy"
             />
-            <span className="text-2xl font-bold tracking-tight text-slate-900">
+            <span className="tw:text-2xl tw:font-bold tw:tracking-tight tw:text-slate-900">
               {BRANDING.productName}
             </span>
           </div>
-          <h1 className="text-xl font-semibold text-slate-800 mb-2">Sign in</h1>
-          <p className="text-slate-600 text-sm">Access your IMPACT account</p>
+          <h1 className="tw:text-xl tw:font-semibold tw:text-slate-800 tw:mb-2">Sign in</h1>
+          <p className="tw:text-slate-600 tw:text-sm">Access your IMPACT account</p>
         </div>
 
         {(error || localError) && (
-          <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded" role="alert">
+          <div className="tw:mb-4 tw:p-3 tw:bg-red-100 tw:border tw:border-red-400 tw:text-red-700 tw:rounded" role="alert">
             {error || localError}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="tw:space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">
+            <label htmlFor="email" className="tw:block tw:text-sm tw:font-medium tw:text-slate-700 tw:mb-1">
               Email
             </label>
             <input
@@ -95,15 +95,15 @@ const Login = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="tw:w-full tw:px-4 tw:py-2 tw:border tw:border-slate-300 tw:rounded-lg tw:focus:ring-2 tw:focus:ring-primary tw:focus:border-transparent"
               placeholder="Enter your email"
               disabled={loading}
               autoComplete="username"
             />
           </div>
 
-          <div className="relative">
-            <label htmlFor="password" className="block text-sm font-medium text-slate-700 mb-1">
+          <div className="tw:relative">
+            <label htmlFor="password" className="tw:block tw:text-sm tw:font-medium tw:text-slate-700 tw:mb-1">
               Password
             </label>
             <input
@@ -112,7 +112,7 @@ const Login = () => {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full pr-10 px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="tw:w-full tw:pr-10 tw:px-4 tw:py-2 tw:border tw:border-slate-300 tw:rounded-lg tw:focus:ring-2 tw:focus:ring-primary tw:focus:border-transparent"
               placeholder="Enter your password"
               disabled={loading}
               autoComplete="current-password"
@@ -123,15 +123,15 @@ const Login = () => {
               onClick={() => setShowPassword((prev) => !prev)}
               aria-label={showPassword ? 'Hide password' : 'Show password'}
               disabled={loading}
-              className="absolute right-2 top-[2.1rem] text-slate-500 hover:text-slate-700"
+              className="tw:absolute tw:right-2 tw:top-[2.1rem] tw:text-slate-500 tw:hover:text-slate-700"
             >
               {showPassword ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="tw:h-5 tw:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M17.94 17.94A10.97 10.97 0 0 1 12 20c-5 0-9.27-3-11-7 1.02-2.36 2.8-4.32 4.91-5.61" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M1 1l22 22" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="tw:h-5 tw:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" strokeLinecap="round" strokeLinejoin="round" />
                   <circle cx="12" cy="12" r="3" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -142,13 +142,13 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2 px-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="tw:w-full tw:py-2 tw:px-4 tw:bg-primary tw:hover:bg-primary-dark tw:text-white tw:font-semibold tw:rounded-md tw:focus:outline-none tw:focus:ring-2 tw:focus:ring-primary tw:focus:ring-offset-2 tw:disabled:opacity-50 tw:disabled:cursor-not-allowed tw:transition-colors"
           >
             {loading ? (
-              <span className="flex items-center justify-center">
-                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+              <span className="tw:flex tw:items-center tw:justify-center">
+                <svg className="tw:animate-spin tw:-ml-1 tw:mr-3 tw:h-5 tw:w-5 tw:text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="tw:opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="tw:opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                 </svg>
                 Signing in...
               </span>
@@ -158,8 +158,8 @@ const Login = () => {
           </button>
         </form>
 
-        <div className="mt-6 text-center">
-          <p className="text-sm text-slate-600">Contact your administrator for access</p>
+        <div className="tw:mt-6 tw:text-center">
+          <p className="tw:text-sm tw:text-slate-600">Contact your administrator for access</p>
         </div>
       </div>
     </div>

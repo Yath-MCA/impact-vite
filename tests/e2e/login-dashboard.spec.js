@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 test('login with mocked API reaches dashboard shell', async ({ page }) => {
-  await page.route('**/api/**userlogin**', async (route) => {
+  // Match Vite /api proxy and absolute API_PATH from generated window.ENV
+  await page.route('**/*userlogin*', async (route) => {
     await route.fulfill({
       status: 200,
       contentType: 'application/json',
