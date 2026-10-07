@@ -71,7 +71,7 @@ const Login = () => {
               loading="lazy"
             />
             <span className="tw:text-2xl tw:font-bold tw:tracking-tight tw:text-slate-900">
-              {BRANDING.productName}
+              {/* {BRANDING.productName} */}
             </span>
           </div>
           <h1 className="tw:text-xl tw:font-semibold tw:text-slate-800 tw:mb-2">Sign in</h1>
