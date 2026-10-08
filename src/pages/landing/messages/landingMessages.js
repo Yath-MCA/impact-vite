@@ -43,6 +43,10 @@ export const LANDING_MESSAGES = Object.freeze({
     button1: 'OK',
     button2: '',
   }),
+  [LandingMessageKey.SCHEDULED_MAINTENANCE]: Object.freeze({
+    text:
+      "Kindly note that we will be experiencing server downtime due to scheduled maintenance from <span class='font-weight-bold'>{{T1}}&#x000a0;{{T1A}}</span> to <span class='font-weight-bold'>{{T2}}&#x000a0;{{T2A}}</span> (in your local time).",
+  }),
 });
 
 export default LANDING_MESSAGES;
