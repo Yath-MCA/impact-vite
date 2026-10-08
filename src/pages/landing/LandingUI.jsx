@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { FiFileText } from 'react-icons/fi';
-import { fireMaintenanceAlert, initMaintenance } from './maintenanceGuard.js';
+import { fireMaintenanceAlert, initMaintenance } from '../../shared/maintenanceGuard.js';
 
 export default function LandingUI({ docData }) {
   useEffect(() => {

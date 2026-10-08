@@ -12,7 +12,7 @@ import {
   initMaintenance,
   parseEpoch,
   resetMaintenanceState,
-} from '../../src/pages/landing/maintenanceGuard.js';
+} from '../../src/shared/maintenanceGuard.js';
 
 describe('parseEpoch', () => {
   it('parses numeric strings and objects', () => {

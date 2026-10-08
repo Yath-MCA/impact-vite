@@ -3,8 +3,11 @@
  * informational toast. Never blocks urlvalidity.
  */
 import Swal from 'sweetalert2';
-import { apiService, API_ENDPOINTS } from '../../middleware/providers/apiService';
-import { getLandingMessage, LandingMessageKey } from './messages/index.js';
+import { apiService, API_ENDPOINTS } from '../middleware/providers/apiService';
+import {
+  getLandingMessage,
+  LandingMessageKey,
+} from '../pages/landing/messages/index.js';
 
 /** Minutes. Legacy END_TIMER = 2 * 60. */
 export const END_TIMER_MINUTES = 2 * 60;
