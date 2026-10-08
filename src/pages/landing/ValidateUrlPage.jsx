@@ -1,8 +1,7 @@
 /**
- * Validate shared-mail proof links (browser check → urlvalidity).
- * Client LandingUI is deferred to a later slice.
+ * Validate shared-mail proof links (browser check → urlvalidity → thin landing).
  */
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { FiCheckCircle, FiLoader, FiXCircle } from 'react-icons/fi';
 import { apiService, API_ENDPOINTS } from '../../middleware/providers/apiService';
@@ -13,6 +12,8 @@ import {
   setPendingValidateResponse,
 } from '../../shared/utils/normalizeValidateResponse.js';
 import { LandingMessageKey, showLandingMessage } from './messages/index.js';
+
+const LandingUI = lazy(() => import('./LandingUI.jsx'));
 
 const validateKeyInflight = new Map();
 
@@ -37,9 +38,11 @@ function ValidateUrlView({ accessKey }) {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState('');
   const [docData, setDocData] = useState(null);
+  const [showLanding, setShowLanding] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
+    let landingTimer;
 
     async function run() {
       if (!accessKey) {
@@ -89,6 +92,10 @@ function ValidateUrlView({ accessKey }) {
         setProgress(100);
         setStatus('success');
         setStatusLabel('Link validated!');
+
+        landingTimer = setTimeout(() => {
+          if (!cancelled) setShowLanding(true);
+        }, 800);
       } catch (err) {
         if (cancelled) return;
 
@@ -111,8 +118,26 @@ function ValidateUrlView({ accessKey }) {
 
     return () => {
       cancelled = true;
+      if (landingTimer) clearTimeout(landingTimer);
     };
   }, [accessKey]);
+
+  if (showLanding && docData) {
+    return (
+      <Suspense
+        fallback={
+          <div className="tw:min-h-screen tw:flex tw:items-center tw:justify-center">
+            <FiLoader
+              className="tw:h-8 tw:w-8 tw:animate-spin tw:text-primary"
+              aria-label="Loading landing"
+            />
+          </div>
+        }
+      >
+        <LandingUI docData={docData} />
+      </Suspense>
+    );
+  }
 
   const iconBg =
     status === 'success' ? '#10b981' : status === 'error' ? '#ef4444' : '#ff8635';
@@ -139,7 +164,7 @@ function ValidateUrlView({ accessKey }) {
             </h1>
             <p className="tw:text-slate-600">
               {status === 'loading' && statusLabel}
-              {status === 'success' && 'Your shared link is active. Landing opens in a later phase.'}
+              {status === 'success' && 'Redirecting to your proof…'}
               {status === 'error' && error}
             </p>
           </div>
@@ -168,17 +193,10 @@ function ValidateUrlView({ accessKey }) {
                       Document: <strong>{docData.title}</strong>
                     </>
                   ) : (
-                    'Access verified. Client landing configuration will load in the next slice.'
+                    'Access verified — opening landing…'
                   )}
                 </p>
               </div>
-              <button
-                type="button"
-                disabled
-                className="tw:inline-flex tw:w-full tw:items-center tw:justify-center tw:rounded-md tw:overflow-hidden tw:bg-primary tw:px-5 tw:py-2.5 tw:font-semibold tw:text-white tw:opacity-70 tw:cursor-not-allowed"
-              >
-                Continue to Landing (soon)
-              </button>
             </div>
           )}
 
@@ -201,17 +219,6 @@ function ValidateUrlView({ accessKey }) {
                 >
                   Go Home
                 </a>
-              </div>
-            </div>
-          )}
-
-          {accessKey && (
-            <div className="tw:mt-6 tw:border-t tw:border-slate-200 tw:pt-6">
-              <div className="tw:flex tw:items-center tw:justify-between tw:gap-2 tw:text-sm">
-                <span className="tw:text-slate-500">Access Key</span>
-                <span className="tw:max-w-[220px] tw:truncate tw:rounded tw:bg-slate-100 tw:px-2 tw:py-1 tw:font-mono tw:text-slate-900">
-                  {`${String(accessKey).slice(0, 16)}…`}
-                </span>
               </div>
             </div>
           )}
