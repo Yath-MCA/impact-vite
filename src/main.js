@@ -12,28 +12,37 @@ import { mountReactApp, unmountReactApp } from './app/mountReactApp.jsx';
 import { applyDocumentHead } from './shared/documentHead.js';
 import loginConfig from './pages/login/page.config.js';
 import dashboardConfig from './pages/dashboard/page.config.js';
+import landingConfig from './pages/landing/page.config.js';
 
-const PAGE_IDS = ['home', 'login', 'editor', 'dashboard'];
+const PAGE_IDS = ['home', 'login', 'editor', 'dashboard', 'landing'];
+const REACT_HASH_IDS = new Set(['login', 'dashboard', 'validateurl']);
 
 function appEl() {
   return document.getElementById('app');
+}
+
+function reactDocumentConfig(id) {
+  if (id === 'login') return loginConfig;
+  if (id === 'dashboard') return dashboardConfig;
+  if (id === 'validateurl') return landingConfig;
+  return loginConfig;
 }
 
 async function routeFromHash() {
   const raw = (location.hash.replace(/^#\/?/, '') || 'home').split('?')[0];
   const id = raw.split('/')[0] || 'home';
 
-  if (id === 'login' || id === 'dashboard') {
+  if (REACT_HASH_IDS.has(id)) {
     unmountReactApp();
     const el = appEl();
     if (el) el.innerHTML = '';
-    applyDocumentHead(id === 'login' ? loginConfig : dashboardConfig);
+    applyDocumentHead(reactDocumentConfig(id));
     mountReactApp(el);
     return;
   }
 
   unmountReactApp();
-  const pageId = PAGE_IDS.includes(id) && id !== 'login' && id !== 'dashboard' ? id : 'home';
+  const pageId = PAGE_IDS.includes(id) && !REACT_HASH_IDS.has(id) ? id : 'home';
   await loadPage(pageId === 'editor' ? 'home' : pageId);
 }
 

@@ -13,6 +13,9 @@ export const pages = {
   dashboard: {
     loadConfig: () => import('../pages/dashboard/page.config.js'),
   },
+  landing: {
+    loadConfig: () => import('../pages/landing/page.config.js'),
+  },
 };
 
 export function getPage(id) {

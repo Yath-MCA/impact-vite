@@ -4,6 +4,7 @@ import { store } from '../middleware/redux/store.js';
 import { AuthProvider } from '../middleware/providers/AuthProvider';
 import Login from '../pages/login';
 import { DashboardShell } from '../pages/dashboard';
+import ValidateUrlPage from '../pages/landing/ValidateUrlPage.jsx';
 
 export default function ReactApp() {
   return (
@@ -13,6 +14,8 @@ export default function ReactApp() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard/*" element={<DashboardShell />} />
+            <Route path="/validateurl" element={<ValidateUrlPage />} />
+            <Route path="/validateurl/:client" element={<ValidateUrlPage />} />
             <Route path="*" element={<Navigate to="/login" replace />} />
           </Routes>
         </HashRouter>
