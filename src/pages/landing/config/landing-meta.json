@@ -1,0 +1,192 @@
+{
+  "help": {
+    "faqUrl": "/assets/help/IMPACT_FAQ.pdf",
+    "guideUrl": "/assets/help/IMPACT_User_Guide.pdf"
+  },
+  "logo": {
+    "default": {
+      "theme": "primary",
+      "header-logo": {
+        "name": "/assets/logo/IMPACT_5_4.svg",
+        "alt": "IMPACT",
+        "width": 120,
+        "height": 40
+      },
+      "footer-logo": {
+        "name": "/assets/logo/IMPACT_5_4.svg",
+        "alt": "IMPACT",
+        "width": 100,
+        "height": 32
+      },
+      "favicon": { "name": "/assets/logo/favicon.ico" }
+    },
+    "plos": {
+      "theme": "plos",
+      "header-logo": {
+        "name": "PLOS_WHITE.svg",
+        "alt": "PLOS",
+        "width": 120,
+        "height": 40
+      },
+      "footer-logo": {
+        "name": "PLOS_COLOR_BOTTOM.svg",
+        "alt": "PLOS",
+        "width": 100,
+        "height": 32
+      },
+      "favicon": { "name": "PLOS_FAVICON.png" }
+    },
+    "lww": {
+      "theme": "lww",
+      "header-logo": {
+        "name": "LWW.svg",
+        "alt": "LWW",
+        "width": 120,
+        "height": 40
+      },
+      "footer-logo": {
+        "name": "LWW_WHITE_BOTTOM.svg",
+        "alt": "LWW",
+        "width": 100,
+        "height": 32
+      },
+      "favicon": { "name": "LWW_FAVICON.svg" }
+    },
+    "oup": {
+      "theme": "oxford",
+      "header-logo": {
+        "name": "OUP_WHITE.svg",
+        "alt": "OUP",
+        "width": 120,
+        "height": 40
+      },
+      "footer-logo": {
+        "name": "OUP_BLUE.svg",
+        "alt": "OUP",
+        "width": 100,
+        "height": 32
+      },
+      "favicon": { "name": "OUP_FAVICON.svg" }
+    },
+    "nihr": {
+      "theme": "nihr",
+      "header-logo": {
+        "name": "NIHR.svg",
+        "alt": "NIHR",
+        "width": 120,
+        "height": 40
+      },
+      "footer-logo": {
+        "name": "NIHR.png",
+        "alt": "NIHR",
+        "width": 100,
+        "height": 32
+      },
+      "favicon": { "name": "NIHR_FAVICON.svg" }
+    },
+    "brill": {
+      "theme": "brill",
+      "header-logo": {
+        "name": "BRILL.svg",
+        "alt": "Brill",
+        "width": 120,
+        "height": 40
+      },
+      "footer-logo": {
+        "name": "BRILL_BOTTOM.png",
+        "alt": "Brill",
+        "width": 100,
+        "height": 32
+      },
+      "favicon": { "name": "BRILL_FAVICON.png" }
+    },
+    "medknow": {
+      "theme": "medknow",
+      "header-logo": {
+        "name": "MEDKNOW.png",
+        "alt": "Medknow",
+        "width": 120,
+        "height": 40
+      },
+      "footer-logo": {
+        "name": "MEDKNOW_WHITE.png",
+        "alt": "Medknow",
+        "width": 100,
+        "height": 32
+      },
+      "favicon": { "name": "MEDKNOW_FAVICON.svg" }
+    },
+    "tnf": {
+      "theme": "tnf",
+      "header-logo": {
+        "name": "tnf.svg",
+        "alt": "T&F",
+        "width": 120,
+        "height": 40
+      },
+      "footer-logo": {
+        "name": "tfgroup.svg",
+        "alt": "T&F",
+        "width": 100,
+        "height": 32
+      },
+      "favicon": { "name": "TNF_FAVICON.svg" },
+      "journal-header-logo": {
+        "name": "TNF_JORUNAL.svg",
+        "alt": "T&F Journals",
+        "width": 120,
+        "height": 40
+      }
+    },
+    "acs": {
+      "theme": "acs",
+      "header-logo": {
+        "name": "ACS_WHITE.svg",
+        "alt": "ACS",
+        "width": 120,
+        "height": 40
+      },
+      "footer-logo": {
+        "name": "ACS_WHITE.svg",
+        "alt": "ACS",
+        "width": 100,
+        "height": 32
+      },
+      "favicon": { "name": "ACS_FAVICON.ico" }
+    },
+    "oho": {
+      "theme": "oho",
+      "header-logo": {
+        "name": "OHO_WHITE.svg",
+        "alt": "OHO",
+        "width": 120,
+        "height": 40
+      },
+      "footer-logo": {
+        "name": "OHO_BLUE.svg",
+        "alt": "OHO",
+        "width": 100,
+        "height": 32
+      },
+      "favicon": { "name": "OHO_FAVICON.svg" }
+    }
+  },
+  "copy": {
+    "common": {
+      "disclaimer": "By continuing you agree to use IMPACT for proofing collaboration as instructed by your publisher."
+    },
+    "clients": {
+      "default": {
+        "welcome": "",
+        "subtitle": "The online proofing tool for collaborating on journal content",
+        "title": "Instructions",
+        "instructions": [
+          "Review the proof carefully for accuracy.",
+          "Use the tools provided to mark corrections.",
+          "Submit your changes when complete."
+        ],
+        "supportEmail": "impact.helpdesk@newgen.co"
+      }
+    }
+  }
+}
