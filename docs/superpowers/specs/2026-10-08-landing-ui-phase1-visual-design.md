@@ -52,7 +52,7 @@ flowchart TD
 | `landingDocumentInfo.js` | Cover URL + publication title |
 | `landingAccess.js` | `isPlosClient` (UI branches only; no PLOS panel) |
 | `landingConfigService.js` | Branding override from `docData.branding` / optional wrapper |
-| `config/landing-meta.json` | Client logo/theme map; port if found, else minimal `default` + known clients |
+| `config/landing-meta.json` | Client logo/theme map: search paste/sibling React repos for full JSON; if missing, author minimal `default` + clients that match `public/assets/logo/clients` |
 
 ### Shared
 
@@ -70,7 +70,7 @@ flowchart TD
 
 - Keep lazy LandingUI + auto `showLanding`
 - Keep fail messages (`INVALID`, etc.)
-- Extend e2e selectors for visual chrome as needed; preserve `data-testid="landing-shell"` on root (or equivalent stable test id)
+- Extend e2e selectors for visual chrome as needed; keep `data-testid="landing-shell"` on the LandingUI root
 
 ## Adaptations
 
