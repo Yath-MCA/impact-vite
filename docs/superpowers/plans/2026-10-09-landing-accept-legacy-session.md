@@ -323,11 +323,14 @@ export function buildLandingAcceptContext(docData, handlers = {}) {
     redirectUrl: editorHash,
     landingUrl: typeof window !== 'undefined' ? window.location.href : '',
     onCommitStorage: (data) => {
-      // localStorage share keys; dual-guard session keys written in onRedirect
-      const { saveLegacyShareLocalStorage } = require('./landingSessionStorage.js');
+      saveLegacyShareLocalStorage(data || resData);
     },
     onRedirect: async (ctx) => {
-      const skipVerify = !!(ctx.skipVerify || ctx.grantOptions?.skipVerify || ctx.grantOptions?.canforceClose);
+      const skipVerify = !!(
+        ctx.skipVerify ||
+        ctx.grantOptions?.skipVerify ||
+        ctx.grantOptions?.canforceClose
+      );
       const mod = window.LinkSessionModule.getInstance();
       const result = await commitLandingStorageAndVerify({
         docId: ctx.docId || docId,
@@ -338,9 +341,7 @@ export function buildLandingAcceptContext(docData, handlers = {}) {
         confirmFn: (expected) => mod.confirmSessionOnServer(expected),
       });
       if (!result.ok) {
-        if (typeof handlers.onVerifyFailed === 'function') {
-          handlers.onVerifyFailed(result);
-        }
+        handlers.onVerifyFailed?.(result);
         return;
       }
       window.location.hash = editorHash;
@@ -349,14 +350,10 @@ export function buildLandingAcceptContext(docData, handlers = {}) {
     onRequestError: (err) => handlers.onError?.(err),
     onAccessDeniedWithRemarks: (msg) => handlers.onDenied?.(msg),
     ui: {
-      sendPrompt: (response, ctx) => {
-        if (handlers.onBlocked) return handlers.onBlocked(response, ctx);
-        return Promise.resolve();
-      },
-      showPollWaiting: (ctx) => {
-        if (handlers.onWaiting) return handlers.onWaiting(ctx);
-        return Promise.resolve();
-      },
+      sendPrompt: (response, ctx) =>
+        handlers.onBlocked ? handlers.onBlocked(response, ctx) : Promise.resolve(),
+      showPollWaiting: (ctx) =>
+        handlers.onWaiting ? handlers.onWaiting(ctx) : Promise.resolve(),
     },
   };
 }
@@ -365,21 +362,12 @@ export async function startLandingAccept(docData, handlers = {}) {
   await loadLandingSessionOnce();
   const mod = window.LinkSessionModule.getInstance();
   const ctx = buildLandingAcceptContext(docData, handlers);
-  // Fix onCommitStorage without require:
-  ctx.onCommitStorage = (data) => {
-    import('./landingSessionStorage.js').then(({ saveLegacyShareLocalStorage }) => {
-      saveLegacyShareLocalStorage(data || docData);
-    });
-  };
-  // Prefer sync import at top — implementer must use top-level import for saveLegacyShareLocalStorage
   await mod.accessFromLanding(ctx);
   return { status: 'started', docId: ctx.docId, sessionId: ctx.sessionId };
 }
 ```
 
-**Implementer note:** Use top-level ESM imports only (no `require`). Make `onCommitStorage` call `saveLegacyShareLocalStorage` synchronously. `startLandingAccept` should return after `accessFromLanding` settles; grant path navigates inside `onRedirect`.
-
-For blocked path without Send UI yet: `handlers.onBlocked` should set LandingUI message “Access request required (Phase 1: send-request UI deferred)” and resolve — do not navigate.
+For blocked path without Send UI yet: `handlers.onBlocked` sets a LandingUI message and resolves — do not navigate.
 
 - [ ] **Step 4: Tests PASS**
 
