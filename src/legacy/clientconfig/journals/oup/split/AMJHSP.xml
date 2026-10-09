@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="AMJHSP" abbr="" journal-title="American Journal of Hypertension" batch="22" by="AK" qcby="YA">
+				<!-- ?author  -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="optional" author-comment="no" degrees="yes" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="optional" corresp-quees="no" crosslink="no" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="" seperator="," contribsep="" contrib-last-sep=" and " pattern="aftercomma" notallowed="yes" />
+				<!-- ?affiliation:  Affiliation designators = NA -->
+				<affiliation data-name="aff" department="no" institution="no" city="no" state="np" country="no" postbox="no" postcode="no" street="no" seperator="" designators="" single-aff="true" autoReNumber="false" notallowed="yes" />
+				<!-- ?corresp  Not used-->
+				<corresp data-name="corresp" email="no" address="no" corresp-quees="" maximum="1" minimum="1" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ?  -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<!-- ?abstract: structured -->
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!-- ?separated by comma (unless they are MeSH terms with commas, which are separated by a semicolon) -->
+				<keywords data-name="keywords" seperator=", " endperiod="false" minimum="3" maximum="" limit="no" notallowed="no" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure" notallowed="no">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="-" openwrap="" closewrap="" />
+					<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="-" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<!-- ? No Style Point – Follow author -->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="-" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="-" openwrap="(" closewrap=")" />
+				</Table>
+				<!-- ?  -->
+				<notes footnote="notallowed" endnote="notallowed" note="" />
+				<!-- ? Follow AMA 2.8–2.8.3 -->
+				<heading data-name="title" numbered="no" label="" label_suffix="" maximum="3" label_between_delim="">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+					<h3 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+				</heading>
+				<!-- ? -->
+				<dictionary spelling="us" name="Merriam-Webster’s 11th Collegiate Dictionary" note="" />
+				<!-- ? -->
+				<list label="1|(a)|(i)" bullet="allowed" note="" />
+				<!-- ? -->
+				<equation label="" note="Follow AMA chapter 21 and should remain linear" />
+				<!-- ?BackMatter:  -->
+				<BackMatter ack="allowed" act="allowed" coi="allowed" fund="allowed" das="allowed" supp="allowed" suppcap="notallowed" app="notallowed" />
+				<!-- ? Superscript numerical references -->
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered" text-format="sup">
+					<dircite double_sep="," range_sep="–" openwrap="" closewrap="" />
+					<indircite double_sep="," range_sep="–" openwrap="" closewrap="" />
+				</Reference>
+			</journal>

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journals>
+  <journal short="LSE" editor-comes-first="true" client="lse" split="LSE.xml" split_master="master_split.xml" />
+</journals>

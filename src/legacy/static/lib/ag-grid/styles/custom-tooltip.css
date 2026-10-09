@@ -1,0 +1,24 @@
+.custom-tooltip {
+  width: 325px;
+  height: 70px;
+  border: 1px solid cornflowerblue;
+  overflow: hidden;
+  position: absolute;
+}
+.custom-tooltip p {
+  margin: 5px;
+  white-space: nowrap;
+}
+.custom-tooltip p:first-of-type {
+  font-weight: bold;
+}
+
+.fa-hourglass-half {
+  color: navy;
+  font-size: 18px;
+}
+
+.fa-frown {
+  color: navy;
+  font-size: 18px;
+}

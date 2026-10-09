@@ -1,0 +1,76 @@
+div.dummyCheck {
+    cursor: pointer;
+}
+
+#ApplyStyleDialog:not(.maxiview) {
+    width: 55rem !important;
+}
+
+/* OUP_J_MP_016 Maxiview css fixed DR_72_02_23 */
+#ApplyStyleDialog.maxiview {
+    width: 250px !important;
+}
+
+#ApplyStyleDialog #StyleListDiv {
+    margin: 0;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    line-height: 1.4;
+    font-size: 14px;
+    color: #4f4e4e;
+}
+
+#ApplyStyleDialog #StyleListDiv .iStyle.active {
+    border-radius: 2px;
+}
+
+#ApplyStyleDialog #StyleListDiv span {
+    line-height: 1.4;
+    padding: 4px;
+}
+
+#ApplyStyleDialog #StyleListDiv span:not(:last-child) {
+    margin-bottom: 1px;
+}
+
+#ApplyStyleDialog #StyleListDiv span[data-content]::after {
+    content: attr(data-content);
+    margin-left: 1.5rem !important;
+    margin-bottom: 1px;
+}
+
+#ApplyStyleDialog #StyleListDiv span.disabled {
+    pointer-events: auto;
+    cursor: not-allowed !important;
+    color: #d7d7d7;
+}
+
+#ApplyStyleDialog #StyleListDiv span:hover:not(.disabled) {
+    background: #f4eeee !important;
+    color: #191919 !important;
+    line-height: 1.4;
+    padding: 4px;
+}
+
+#ApplyStyleDialog #StyleListDiv span.active:not(.disabled) {
+    background: rgba(246, 138, 51, .15) !important;
+    color: #f68a33 !important;
+    line-height: 1.4;
+    padding: 4px;
+}
+
+#ApplyStyleDialog #StyleListDiv span .fa,
+#ApplyStyleDialog #StyleListDiv span .fas {
+    position: absolute;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 7.5px;
+    height: 3.73px;
+    font-size: 14px;
+    margin-top: 3.7px;
+}

@@ -1,0 +1,21 @@
+{
+  "en": {
+    "labels": {
+      "Panel_title": "Edit Affiliation",
+      "close_title": "Close",
+      "label_edit_field": "Edit Field",
+      "label_add_affiliation": "Add Another Affiliation",
+      "label_paste_html": "Paste one affiliation HTML element",
+      "label_preview": "Preview",
+      "btn_cancel": "Cancel",
+      "btn_fire": "Update",
+      "btn_revert": "Revert",
+      "btn_apply": "Apply",
+      "btn_clear_paste": "Clear",
+      "btn_stage_paste": "Add to Preview",
+      "placeholder_paste_html": "<div class=\"aff\" data-name=\"aff\">...</div>",
+      "preview_seg_label": "Select an affiliation element below to edit it."
+    },
+    "runtime": {}
+  }
+}

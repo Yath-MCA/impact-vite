@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="PETHIC" abbr="" journal-title="Public Health Ethics" batch="19" by="YA">
+				<!-- ?author  -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="no" orcid="optional" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="no" corresp-quees="no" crosslink="yes" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=", " pattern="aftercomma" notallowed="yes" />
+				<!-- ?affiliation:  superscript Asterisk -->
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="" single-aff="false" autoReNumber="false" />
+				<!-- ?corresp  Not used-->
+				<corresp data-name="corresp" email="yes" address="yes" corresp-quees="" maximum="" minimum="" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ?  -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<!-- ?abstract: Unstructured abstracts (only one paragraph)  -->
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!-- ?Keywords:  No Keywords -->
+				<keywords data-name="keywords" seperator=", " endperiod="." minimum="3" maximum="5" limit="no" notallowed="yes" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<!-- ?  -->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<!-- ?  -->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<!-- ? notes: Endnotes allowed. These are denoted by superscript numbers in text and defined in Notes section (before Acknowledgements) -->
+				<notes footnote="notallowed" endnote="allowed" note="" />
+				<heading data-name="title" numbered="no" label="" label_suffix="" maximum="3" label_between_delim="">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="Title case" label_format="" label_end_delim="" label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+					<h3 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+				</heading>
+				<dictionary spelling="" name="Concise Oxford Dictionary" note="" />
+				<list label="(i)|(a)" bullet="allowed" note="" />
+				<equation label="" note="Optional" />
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false">
+					<!-- ? More than three authors: Smith et al. (2018) -->
+					<citation type="CHRON_ASCEND" name_sep=" and " name_last_sep=", |, " name_year_sep=", " direct_sep=", " indirect_sep="; " double_sep="; " range_sep="" openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="italic" />
+				</Reference>
+				<!-- ?BackMatter: Not specified style sheet -->
+				<BackMatter ack="allowed" act="allowed" coi="notused" fund="allowed" das="allowed" supp="allowed" suppcap="allowed" app="allowed" />
+			</journal>

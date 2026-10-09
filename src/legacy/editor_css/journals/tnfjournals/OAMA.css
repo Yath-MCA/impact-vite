@@ -1,0 +1,13 @@
+span[data-pistart="Plain Language Summary "] {
+    display: block;
+    font-size: 16px;
+    line-height: 18.5pt;
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 2pt;
+}
+.permissions{
+display: none!important;
+}

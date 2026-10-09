@@ -1,0 +1,343 @@
+{
+  "common_role": {
+    "showForAU":     ["true", "false"],
+    "showForCO":     ["true", "false"],
+    "showForCE":     ["true", "false"],
+    "showForPM":     ["true", "false"],
+    "showForED":     ["true", "false"],
+    "showForPE":     ["true", "false"],
+    "showForJM":     ["true", "false"],
+    "showForPR":     ["true", "false"],
+    "showForCoRole": ["true", "false"]
+  },
+  "sections": {
+    "dialogs": {
+      "xmlAttr": { "name": "ModuleDialogs" },
+      "functionalityGroups": [
+        { "name": "GuideTour",              "attributes": ["show", "common_role"], "desc": "Guided Tour", "data-shown-type": "superadmin"},
+        { "name": "AlertDialogModule",      "attributes": ["show", "common_role"], "desc": "IMPACT Custom alert confirmation", "data-shown-type": "superadmin" },
+        { "name": "WordCountDialog",        "attributes": ["show", "common_role"], "desc": "" },
+        { "name": "QueryGroup",             "attributes": ["show", "common_role"], "desc": "Query insertion and query handling", "data-shown-type": "superadmin"},
+        { "name": "NoteDialogModule",       "attributes": ["show", "common_role"], "desc": "", "data-shown-type": "superadmin"},
+        { "name": "trackDialogModule",      "attributes": ["show", "common_role"], "desc": "", "data-shown-type": "superadmin"},
+        { "name": "sendMailDialogModule",    "attributes": ["show", "common_role"], "desc": "Email and notification dialogs", "data-shown-type": "superadmin" },
+        { "name": "LinkShareDialog",        "attributes": ["show", "common_role", { "showForCoRole": ["true", "false"] }] , "desc": "Email and notification dialogs", "data-shown-type": "superadmin" },
+        { "name": "AuthorGroupNewModule",   "attributes": ["show", "common_role"] },
+        { "name": "AuthorEditDialog",       "attributes": ["show", "common_role"] },
+        { "name": "CrossCitationModule",    "attributes": ["show", "common_role"] , "desc": "Email and notification dialogs", "data-shown-type": "superadmin" },
+        { "name": "SymbolsDialog",          "attributes": ["show", "common_role"] },
+        { "name": "ApplyStyleDialog",       "attributes": ["show", "common_role"] },
+        { "name": "PI_MODULE",              "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "InsertFloatDialogNew",   "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "InsertNotesGroup",       "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "ImageAnnotateDialogModule", "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "GrayscaleDialog",        "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "xToolTip",               "desc": "Tooltip helper module", "data-shown-type": "superadmin", "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "DocumentRestoreDialog",  "desc": "Restore previous document state", "data-shown-type": "superadmin", "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "shareInviteDialogModule","desc": "Share invite and template mail", "data-shown-type": "superadmin", "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "IndexDialog", "desc": "Mark index entries (separate indexing layer)", "data-shown-type": "superadmin", "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "FinalizingDialog",       "desc": "Finalize and sign-off step", "data-shown-type": "superadmin", "attributes": ["show", "common_role"] },
+        { "name": "StylePanelDialog",       "attributes": ["show", "common_role"] },
+        { "name": "ApplyHyperLinkDialog",   "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "qualityCheckerDialog",    "desc": "Internal validation checks", "data-shown-type": "superadmin", "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "SupplimentaryDialog",    "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "REF_SORT_DIALOG",        "attributes": ["show", "common_role"] },
+        { "name": "MultiRefDialog",         "attributes": ["show", "common_role"] }
+      ]
+    },
+    "menuoption": {
+      "xmlAttr": { "type": "menuOptions" },
+      "functionalityGroups": [
+        { "name": "helpGroup",       "attributes": ["common_role", { "showTrackView": ["true", "false"] }, { "showForCoRole": ["true", "false"] }] },
+        { "name": "faqGroup",        "attributes": ["common_role", { "showTrackView": ["true", "false"] }, { "showForCoRole": ["true", "false"] }] },
+        { "name": "lTitleGroup",     "attributes": ["common_role", { "showTrackView": ["true", "false"] }, { "showForCoRole": ["true", "false"] }] },
+        { "name": "rTitleGroup",     "attributes": ["common_role", { "showTrackView": ["true", "false"] }, { "showForCoRole": ["true", "false"] }] },
+        { "name": "showRevisionBtn", "attributes": ["common_role", { "showForCoRole": ["true", "false"] }], "desc": "Show Revision trigger", "data-shown-type": "superadmin"},
+        { "name": "Generate_XML",    "attributes": ["common_role", { "showForCoRole": ["true", "false"] }, { "ignoreUsers": ["true", "false"] }] },
+        { "name": "Generate_HTML",   "attributes": ["common_role", { "showForCoRole": ["true", "false"] }] },
+        { "name": "proof_pdf",       "attributes": ["common_role", { "showForCoRole": ["true", "false"] }] },
+        { "name": "i_track_pdf",     "attributes": ["common_role", { "showForCoRole": ["true", "false"] }] },
+        { "name": "ce_track_pdf",    "attributes": ["common_role", { "showForCoRole": ["true", "false"] }] },
+        { "name": "restoreHTML",     "attributes": ["common_role", { "showForCoRole": ["true", "false"] }], "desc": "Document restore trigger", "data-shown-type": "superadmin"},
+        { "name": "ShowTrackOnly",   "attributes": ["common_role", { "showForCoRole": ["true", "false"] }] },
+        { "name": "showSpellDiv",    "attributes": ["common_role", { "showForCoRole": ["true", "false"] }] },
+        { "name": "VideoTour",       "attributes": ["common_role", { "showForCoRole": ["true", "false"] }, { "external-open": ["true", "false"] }] },
+        { "name": "TipsTricks",      "attributes": ["common_role", { "showForCoRole": ["true", "false"] }] },
+        
+        { "name": "shareFileBtn",    "attributes": ["common_role", { "showForCoRole": ["true", "false"] }], "desc": "Share to co authors trigger", "data-shown-type": "superadmin"},
+        { "name": "finalize",        "attributes": ["common_role", { "showForCoRole": ["true", "false"] }], "desc": "finalize btn", "data-shown-type": "superadmin"},
+        { "name": "StylePanelDialog","attributes": ["show", "common_role"] },
+        { "name": "GenaratePDF",     "attributes": ["common_role", { "showForCoRole": ["true", "false"] }] },
+        { "name": "ChangeCaseMenu",  "attributes": ["common_role", { "showForCoRole": ["true", "false"] }] }
+      ]
+    },
+    "contextmenu": {
+      "xmlAttr": { "type": "contextMenus" },
+      "functionalityGroups": [
+        {
+          "name": "commentQueryGroup",
+          "type": "functiongroup",
+          "attributes": [{ "show": ["true", "false"] }],
+          "children": [
+            { "name": "AddCMD", "attributes": [{ "show": ["true", "false"] }, { "renumber": ["true", "false"] }] },
+            { "name": "AddQRY", "attributes": [{ "show": ["true", "false"] }, { "renumber": ["true", "false"] }, "common_role"] }
+          ]
+        },
+        { "name": "AuthorGroupModule", "attributes": ["show", "common_role", { "showForCoRole": ["true", "false"] }] },
+        { "name": "AuthorEditDialog",  "attributes": ["show", "common_role", { "showForCoRole": ["true", "false"] }] },
+        { "name": "Author_Notes",      "attributes": ["show", "common_role", { "showForCoRole": ["true", "false"] }] },
+        { "name": "Abstruct",          "attributes": ["show", "common_role", { "showForCoRole": ["true", "false"] }, { "showStatistics": ["true", "false"] }] },
+        { "name": "Keyword",           "attributes": [{ "show": ["true", "false"] }] },
+        { "name": "Abbreviations",     "attributes": [{ "show": ["true", "false"] }] },
+        {
+          "name": "ParaGroup",
+          "type": "functiongroup",
+          "attributes": ["show", "common_role", { "showForCoRole": ["true", "false"] }, { "ignoreUsers": ["true", "false"] }],
+          "children": [
+            { "name": "changecontentType", "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "MergeBeforePara",   "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "MergeAfterPara",    "attributes": [{ "show": ["true", "false"] }] }
+          ]
+        },
+        {
+          "name": "notesGroup",
+          "type": "functiongroup",
+          "attributes": [
+            { "show": ["true", "false"] },
+            { "renumberItemId": ["true", "false"] },
+            { "renumberCitationRid": ["true", "false"] },
+            { "renumberLabel": ["true", "false"] },
+            { "renumberCiteText": ["true", "false"] },
+            { "citeLookupByText": ["true", "false"] }
+          ],
+          "children": [
+            { "name": "Addfootnote", "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "delfootnote", "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "delendnote",  "attributes": [{ "show": ["true", "false"] }] }
+          ]
+        },
+        {
+          "name": "headgroup",
+          "type": "functiongroup",
+          "attributes": ["show", "common_role", { "ignoreUsers": ["true", "false"] }],
+          "children": [
+            { "name": "addNewSec",   "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "ChangeAbove", "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "myheadLvl",   "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "ChangeBelow", "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "DelSec",      "attributes": [{ "show": ["true", "false"] }] }
+          ]
+        },
+        {
+          "name": "floatGroup",
+          "type": "functiongroup",
+          "attributes": ["show", "common_role", { "networkDepend": ["true", "false"] }, { "ignoreUsers": ["true", "false"] }],
+          "children": [
+            { "name": "AddFigure", "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "AddTable",  "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "AddRef",    "attributes": [{ "show": ["true", "false"] }] }
+          ]
+        },
+        {
+          "name": "mathGroup",
+          "type": "functiongroup",
+          "attributes": [{ "show": ["true", "false"] }, { "networkDepend": ["true", "false"] }],
+          "children": [
+            { "name": "Inline",   "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "Number",   "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "UnNumber", "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "Edit",     "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "changeTo", "attributes": [{ "show": ["true", "false"] }] }
+          ]
+        },
+        {
+          "name": "PI_Group",
+          "type": "functiongroup",
+          "attributes": [{ "show": ["true", "false"] }],
+          "children": [
+            { "name": "Insert_PI", "attributes": [{ "show": ["true", "false"] }] }
+          ]
+        },
+        {
+          "name": "citeGroup",
+          "type": "functiongroup",
+          "attributes": [{ "show": ["true", "false"] }],
+          "children": [
+            { "name": "AddCite", "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "modCite", "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "delCite", "attributes": [{ "show": ["true", "false"] }] }
+          ]
+        },
+        {
+          "name": "linkGroup",
+          "type": "functiongroup",
+          "attributes": ["show", "common_role", { "ignoreUsers": ["true", "false"] }],
+          "children": [
+            { "name": "editLink",   "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "removeLink", "attributes": [{ "show": ["true", "false"] }] }
+          ]
+        },
+        {
+          "name": "TableAddOnGroup",
+          "type": "functiongroup",
+          "attributes": [{ "show": ["true", "false"] }],
+          "children": [
+            { "name": "AddTblHeadAbove",    "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "AddTblHeadBelow",    "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "RemoveTableHeader",  "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "AddTableRow",        "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "InsTblFootnote",     "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "InsTblNote",         "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "DelTblFootnote",     "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "AlignTblContent",    "attributes": [{ "show": ["true", "false"] }] }
+          ]
+        },
+        {
+          "name": "ReferenceGroup",
+          "type": "functiongroup",
+          "attributes": [{ "show": ["true", "false"] }],
+          "children": [
+            { "name": "DeleteReference",  "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "InsReference",     "attributes": [{ "show": ["true", "false"] }] },
+            { "name": "ReOrderReference", "attributes": [{ "show": ["true", "false"] }] }
+          ]
+        }
+      ]
+    },
+
+    "showItems": {
+      "_comment": "Controls what the Generate panel exposes. Values are CSS selectors.",
+      "xmlAttr": { "name": "Generate_Items" },
+      "fields": {
+        "auto":        { "type": "boolean", "default": "true" },
+        "show":        { "type": "boolean", "default": "true" },
+        "toc":         { "type": "string",  "default": "div.sec, div.ack, div.fn-group, div.ref-list, div.glossary" },
+        "figCap":      { "type": "string",  "default": ".caption .p" },
+        "tabCap":      { "type": "string",  "default": ".caption .p" },
+        "refCap":      { "type": "string",  "default": ".mixed-citation" },
+        "secCap":      { "type": "string",  "default": ".title" },
+        "fnCap":       { "type": "string",  "default": ".p" },
+        "authorText":  { "type": "string",  "default": ".contrib" }
+      }
+    },
+
+    "root": {
+      "_comment": "Root element selectors for article/book structure.",
+      "xmlAttr": { "name": "root-tags" },
+      "fields": {
+        "root-class":      { "type": "string", "default": "article" },
+        "subject-title":   { "type": "string", "default": "[subj-group-type] > .subject" },
+        "title":           { "type": "string", "default": ".title-group .article-title" }
+      }
+    },
+
+    "rules": {
+      "_comment": "Per-role CSS selectors for restricted editable elements.",
+      "xmlAttr": { "type": "keybinding-rules-set-by-client" },
+      "roles": ["ForAU", "ForPE", "ForED", "ForCO", "ForCE", "ForJM", "ForPR"],
+      "fields": {
+        "selector":               { "type": "string" },
+        "FindReplace":            { "type": "string" },
+        "history-date-editable":  { "type": "boolean" }
+      }
+    },
+
+    "styles": {
+      "_comment": "Maps style menu labels to JATS CSS classes.",
+      "xmlAttr": { "name": "style-list" },
+      "elements": [
+        { "tag": "title",   "class": "title",      "data-name": "title" },
+        { "tag": "h1",      "class": "sec",        "data-name": "sec", "data-levels": "1" },
+        { "tag": "h2",      "class": "sec",        "data-name": "sec", "data-levels": "2" },
+        { "tag": "h3",      "class": "sec",        "data-name": "sec", "data-levels": "3" },
+        { "tag": "h4",      "class": "sec",        "data-name": "sec", "data-levels": "4" },
+        { "tag": "h5",      "class": "sec",        "data-name": "sec", "data-levels": "5" },
+        { "tag": "h6",      "class": "sec",        "data-name": "sec", "data-levels": "6" },
+        { "tag": "p",       "class": "p",          "data-name": "p",   "content-type": "flush-left" },
+        { "tag": "extract", "class": "disp-quote", "data-name": "disp-quote" },
+        { "tag": "source",  "class": "p",          "data-name": "p",   "content-type": "source" },
+        { "tag": "email",   "class": "email",      "data-name": "email" },
+        { "tag": "link",    "class": "uri",        "data-name": "uri", "target": "_blank" }
+      ]
+    },
+
+    "templtaes-elements": {
+      "_comment": "HTML template strings stored as hex. Use the hex utility to encode/decode each field.",
+      "ref-site": "codebeautify.org/string-hex-converter",
+      "hexFields": true,
+      "shareInvite": {
+        "comment":          { "type": "hex", "description": "Note balloon HTML shown in note panel" },
+        "defaultShare":     { "type": "hex", "description": "Default share email body HTML (author)" },
+        "coroleShare":      { "type": "hex", "description": "Co-role share email body HTML" },
+        "emailSubject":     { "type": "string", "description": "Email subject line (plain text)" },
+        "coroleSignature":  { "type": "hex", "description": "Signature appended for co-role emails" }
+      },
+      "author-group": {
+        "author":      { "type": "hex", "description": "Author contributor block HTML template" },
+        "with_xref":   { "type": "hex", "description": "Author xref superscript HTML" },
+        "with_o_xref": { "type": "hex", "description": "Author xref without link HTML" }
+      },
+      "floats": {
+        "a":    { "type": "hex", "description": "Float anchor/xref wrapper HTML" },
+        "note": { "type": "hex", "description": "Float note paragraph HTML" },
+        "fig": {
+          "root":    { "type": "hex", "description": "Figure root div HTML template" },
+          "caption": { "type": "hex", "description": "Figure caption div HTML template" }
+        },
+        "table-wrap": {
+          "header":    { "type": "hex", "description": "Table header element tag (e.g. 'th' → '7468')" },
+          "body":      { "type": "hex", "description": "Table body cell tag (e.g. 'td' → '7464')" },
+          "root":      { "type": "hex", "description": "Table-wrap root div HTML" },
+          "caption":   { "type": "hex", "description": "Table caption div HTML" },
+          "row":       { "type": "hex", "description": "Table row HTML" },
+          "td":        { "type": "hex", "description": "Table data cell HTML" },
+          "th":        { "type": "hex", "description": "Table header cell HTML" },
+          "wrap_foot": { "type": "hex", "description": "Table wrap footer div HTML" },
+          "FootGroup": { "type": "hex", "description": "Table footer group div HTML" },
+          "colgroup":  { "type": "hex", "description": "Colgroup element HTML" },
+          "col":       { "type": "hex", "description": "Col element HTML" }
+        },
+        "notes": {
+          "sup_a":      { "type": "hex", "description": "Superscript anchor HTML for note xref" },
+          "fn":         { "type": "hex", "description": "Footnote/endnote entry HTML" },
+          "entry":      { "type": "hex", "description": "Note entry with label HTML" },
+          "footnotes":  { "root": { "type": "hex", "description": "Footnote group root HTML" } },
+          "endnotes":   { "root": { "type": "hex", "description": "Endnote group root HTML" } }
+        }
+      }
+    },
+
+    "alertInfo-message-redirectlink": {
+      "_comment": "Survey, sign-off, and spell-check service configuration.",
+      "items": {
+        "survey": {
+          "survey-before-prompt": { "type": "boolean", "default": "false" },
+          "google-form":          { "type": "boolean", "default": "false" },
+          "external-survey":      { "type": "string",  "description": "Survey URL" }
+         
+        },
+        "sign_off": {
+          "pass_msg":     { "type": "string", "description": "Toast message shown after sign-off" },
+          "default":      { "type": "string", "description": "Redirect URL template, e.g. validateurl{{customer}}.html?key=" },
+          "coRoleMail":   { "type": "hex",    "description": "Co-role mail body HTML (hex encoded)" },
+          "mail-body":    { "type": "hex",    "description": "Sign-off mail body HTML (hex encoded)" },
+          "emailSubject": { "type": "string", "description": "Email subject (plain text)" },
+          "mail-bcc":     { "type": "hex",    "description": "BCC email address (hex encoded)" },
+          "external-mail":{ "type": "hex",    "description": "External recipient email (hex encoded)" }
+        },
+        "Math_WSC": {
+          "ignore":  { "type": "string", "description": "Comma-separated JATS elements to exclude from spell-check" },
+          "script":  { "type": "string", "description": "WSC bundle script URL" }
+        }
+      }
+    },
+
+    "cross_ref_api": {
+      "_comment": "CrossRef API credentials. pid is the hex-encoded submitter email.",
+      "fields": {
+        "pid": { "type": "hex", "description": "Submitter email address (hex encoded)" }
+      }
+    }
+
+  }
+}

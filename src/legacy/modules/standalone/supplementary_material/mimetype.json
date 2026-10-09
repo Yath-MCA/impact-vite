@@ -1,0 +1,94 @@
+{
+    "documents": {
+        "doc": "application/msword",
+        "docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "document": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "epub": "application/epub+zip",
+        "html": "text/html",
+        "htm": "text/html",
+        "md": "text/markdown",
+        "odt": "application/vnd.oasis.opendocument.text",
+        "pdf": "application/pdf",
+        "rmd": "application/rmd",
+        "rtf": "application/rtf",
+        "tex": "application/x-tex",
+        "txt": "text/plain"
+    },
+
+    "spreadsheets": {
+        "csv": "text/csv",
+        "dta": "application/x-stata-dta",
+        "ods": "application/vnd.oasis.opendocument.spreadsheet",
+        "sav": "application/octet-stream",
+        "sheet": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "table": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "tsv": "text/tab-separated-values",
+        "xls": "application/vnd.ms-excel",
+        "xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+
+    "presentations": {
+        "odp": "application/vnd.oasis.opendocument.presentation",
+        "ppt": "application/vnd.ms-powerpoint",
+        "pptx": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+    },
+
+    "images": {
+        "bmp": "image/bmp",
+        "eps": "application/eps",
+        "fig": "image/png",
+        "gif": "image/gif",
+        "ico": "image/x-icon",
+        "jpeg": "image/jpeg",
+        "jpg": "image/jpeg",
+        "png": "image/png",
+        "svg": "image/svg+xml",
+        "tif": "image/tiff",
+        "tiff": "image/tiff",
+        "webp": "image/webp"
+    },
+
+    "audio": {
+        "aac": "audio/aac",
+        "flac": "audio/flac",
+        "m4a": "audio/mp4",
+        "mp3": "audio/mpeg",
+        "ogg": "audio/ogg",
+        "wav": "audio/wav"
+    },
+
+    "video": {
+        "avi": "video/avi",
+        "mkv": "video/x-matroska",
+        "mov": "video/quicktime",
+        "movie": "video/mp4",
+        "mp4": "video/mp4",
+        "mpeg": "video/mpeg",
+        "mpg": "video/mpeg",
+        "webm": "video/webm",
+        "wmv": "video/x-ms-wmv"
+    },
+
+    "archives": {
+        "7z": "application/x-7z-compressed",
+        "gz": "application/gzip",
+        "rar": "application/vnd.rar",
+        "tar": "application/x-tar",
+        "zip": "application/zip"
+    },
+
+    "data_and_code": {
+        "css": "text/css",
+        "geojson": "application/geo+json",
+        "js": "application/javascript",
+        "json": "application/json",
+        "xml": "application/xml",
+        "yaml": "application/x-yaml",
+        "yml": "application/x-yaml"
+    },
+
+    "generic": {
+        "data": "application/octet-stream",
+        "file": "application/octet-stream"
+    }
+}

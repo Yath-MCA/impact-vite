@@ -1,0 +1,75 @@
+<div class="mDialog wo-editor-access ds-none" id="IndexDialog">
+    <div class="dialog-container lg">
+        <div class="dialog-content">
+            <div class="dia_header_div ui-draggable-handle">
+                <div class="dia_header_text">Mark an Index Entry</div>
+                <div class="ml-auto closeIcons" title="Close"><img class="n_Img" src="assets/images/svg/dialogClose.svg" alt="Close"></div>
+            </div>
+            <div class="d-flex flex-column dialog-body" data-id="dialog-body">
+                <form id="indexMarkForm" onsubmit="return false;" spellcheck="false">
+                    <div class="form-group">
+                        <label class="labelText" for="index_display_text">Display Text</label>
+                        <input type="text" class="form-control form-control-sm" id="index_display_text" data-auto-focus autocomplete="off" placeholder="Social Context" maxlength="500">
+                    </div>
+                    <div class="form-group index-cross-ref-row">
+                        <div class="custom-control custom-checkbox d-inline-block">
+                            <input type="checkbox" class="custom-control-input" id="index_cross_ref_chk">
+                            <label class="custom-control-label" for="index_cross_ref_chk">Cross-reference</label>
+                        </div>
+                        <input type="text" class="form-control form-control-sm index-cross-ref-input ds-none" id="index_cross_ref_text" value="See" autocomplete="off" aria-label="Cross-reference prefix">
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="index_include_all">
+                            <label class="custom-control-label" for="index_include_all">Include all instances</label>
+                        </div>
+                    </div>
+                    <div class="index-hint-banner" id="index_selection_hint" role="note">
+                        Select text in the editor, then insert. Leave Main unselected to create a new main entry.
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-6">
+                            <label class="labelText" for="index_main_entry">Main</label>
+                            <select class="form-control form-control-sm" id="index_main_entry">
+                                <option value="">Please select a main entry</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label class="labelText" for="index_sub_entry">Sub</label>
+                            <select class="form-control form-control-sm" id="index_sub_entry" disabled>
+                                <option value="">No sub-entries available for selected main-entry</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group mb-0 ds-none" id="index_selection_meta">
+                        <span class="labelText">Paragraph ID:</span>
+                        <span class="index-para-id" id="index_para_id_label">—</span>
+                    </div>
+                </form>
+            </div>
+            <div class="dialog-footer" data-id="dialog-footer">
+                <button type="button" title="Preview generated index" id="index_preview_btn" class="btn secondary-btn btn-sm">Preview</button>
+                <button type="button" title="Cancel" id="index_cancel_btn" class="btn secondary-btn btn-sm ml-auto">Cancel</button>
+                <button type="button" title="Insert index entry" id="index_insert_btn" class="btn primary-btn btn-sm">Insert</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mDialog wo-editor-access ds-none" id="IndexPreviewDialog">
+    <div class="dialog-container lg">
+        <div class="dialog-content">
+            <div class="dia_header_div ui-draggable-handle">
+                <div class="dia_header_text">Index Preview</div>
+                <div class="ml-auto closeIcons" title="Close"><img class="n_Img" src="assets/images/svg/dialogClose.svg" alt="Close"></div>
+            </div>
+            <div class="dialog-body index-preview-body">
+                <p class="index-preview-note">Alphabetical index (separate layer). Paragraph IDs shown for navigation.</p>
+                <div class="index-preview-list" id="index_preview_list" tabindex="0"></div>
+            </div>
+            <div class="dialog-footer">
+                <button type="button" id="index_preview_close_btn" class="btn secondary-btn btn-sm ml-auto">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

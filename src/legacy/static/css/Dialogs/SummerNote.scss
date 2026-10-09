@@ -1,0 +1,85 @@
+div.dummyCheck {
+    cursor: pointer
+}
+
+.collapse.show {
+    // display: inline-block !important;
+}
+
+.note-editable {
+
+    font-size: 14px;
+    line-height: 1.3;
+    overflow-y: auto;
+    scrollbar-width: thin;
+
+    b {
+        font-weight: bold !important;
+    }
+}
+
+/* --- Summernote height tokens (reuse across modules) --- */
+.sn-h-2xs .note-editable,
+.sn-h-2xs.note-editable {
+    height: 40px !important;
+    min-height: 40px !important;
+}
+
+.sn-h-xs .note-editable,
+.sn-h-xs.note-editable {
+    height: 50px !important;
+    min-height: 50px !important;
+}
+
+.sn-h-sm .note-editor .note-editable {
+    height: 65px !important;
+    min-height: 65px !important;
+}
+
+.sn-h-md .note-editor .note-editable,
+.sn-h-md.note-editable {
+    height: 100px !important;
+    min-height: 100px !important;
+}
+
+.sn-h-lg .note-editor .note-editable,
+.sn-h-lg.note-editable {
+    height: 130px !important;
+    min-height: 130px !important;
+}
+
+.sn-h-xl .note-editor .note-editable,
+.sn-h-xl.note-editable {
+    height: 160px !important;
+    min-height: 160px !important;
+}
+
+.sn-h-2xl .note-editable,
+.sn-h-2xl.note-editable {
+    height: 200px !important;
+    min-height: 200px !important;
+}
+
+.sn-h-3xl .note-editable,
+.sn-h-3xl.note-editable {
+    height: 260px !important;
+    min-height: 260px !important;
+}
+
+.sn-h-4xl .note-editor .note-editable,
+.sn-h-4xl.note-editable {
+    height: 320px !important;
+    min-height: 320px !important;
+}
+
+.sn-h-5xl .note-editor .note-editable,
+.sn-h-5xl.note-editable {
+    height: 480px !important;
+    min-height: 480px !important;
+}
+
+.sn-h-6xl .note-editor .note-editable,
+.sn-h-6xl.note-editable {
+    height: 640px !important;
+    min-height: 640px !important;
+}

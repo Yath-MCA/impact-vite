@@ -1,0 +1,276 @@
+{
+    "default": {
+        "extra_content": "",
+        "instructions_section": "instructions_default_journal",
+        "disclaimer_section": "disclaimer_standard",
+        "navbar": {
+            "theme": "white"
+        },
+        "footer": {
+            "logo_section": "footer_empty_brand"
+        }
+    },
+    "acs": {
+        "client_favicon": "ACS",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span>, the online proofing tool that permits authors to directly edit and collaborate on journal content for American Chemical Society.",
+        "extra_content": "",
+        "instructions_section": "instructions_default_journal",
+        "disclaimer_section": "disclaimer_standard",
+        "navbar": {
+            "href": "https://www.acs.org/about.html",
+            "logo_src": "assets/images/client_logo/ACS_WHITE.svg",
+            "logo_alt": "Logo",
+            "logo_height": "60",
+            "logo_width": "186",
+            "theme": "white"
+        },
+        "footer": {
+            "logo_section": "footer_empty_brand"
+        }
+    },
+    "brill": {
+        "client_favicon": "BRILL",
+        "client_web_url": "https://brill.com/",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span> the online proofing tool for collaborating on proofing journal content for BRILL.",
+        "instructions_body": "<ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">Log in to Impact in a single browser window at a time (but if you would like your co-authors to review the article as well, please share it with them by selecting the sharing option in Impact).</li>\n                            <li class=\"list-item\">Review your proof carefully, making any necessary amendments directly into the article.</li>\n                            <li class=\"list-item\">Save your changes if you want to pause reviewing and use the logout option before closing the browser window. You may log in again later to resume reviewing using your log-in link.</li>\n                            <li class=\"list-item\">Only finish your review in Impact when you are sure you have no additional changes to add as the review will be closed and not be accessible after reviewing has been completed.</li>\n                            <li class=\"list-item\">Note that the images in IMPACT are low resolution to optimise the performance of the tool.</li>\n                            <li class=\"list-item\">Submit the article when you have reviewed the entire article and resolved all author queries.</li>\n                            <li class=\"list-item\">You will receive a copy of the proof with your changes tracked via email for your own records.</li>\n                            <li class=\"list-item\">Upon submission of your corrections, you will be asked to complete a short survey on this proofing tool, the results of which will be used to inform future improvements. We appreciate your feedback.</li>\n                            <span class=\"list-item\">If you require any assistance with IMPACT, please review the <a class=\"blue-text font-weight-bold\" title=\"Click to download the FAQs\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a> and <a class=\"blue-text font-weight-bold\" title=\"Click to download the User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a> here or contact our support team at <a id=\"support_mail_id\" class=\"font-weight-bold email-text\" href=\"mailto:impact.helpdesk@newgen.co\">impact.helpdesk@newgen.co</a></span>\n                        </ul>",
+        "disclaimer_body": "",
+        "navbar": {
+            "logo_src": "assets/images/client_logo/BRILL.svg",
+            "logo_height": "60",
+            "logo_width": "100",
+            "theme": "white"
+        },
+        "footer": {
+            "container_class": "container mw-100",
+            "logo_section": "footer_empty_brand"
+        }
+    },
+    "intellect": {
+        "client_title": "INTELLECT",
+        "client_favicon": "INTELLECT",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span>, the online proofing tool for collaborating on proofing journal content for INTELLECT.",
+        "instructions_body": "<ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">Log in to IMPACT in a single browser window at a time (but if you would like your co-authors to review the article as well, please share it with them by selecting the sharing option in IMPACT).</li>\n                            <li class=\"list-item\">Review your proof carefully, making any necessary amendments directly into the article.</li>\n                            <li class=\"list-item\">Save your changes if you want to pause reviewing and use the logout option before closing the browser window. You may log in again later to resume reviewing using your log-in link.</li>\n                            <li class=\"list-item\">Only finish your review in IMPACT when you are sure you have no additional changes to add as the review will be closed and not be accessible after reviewing has been completed.</li>\n                            <li class=\"list-item\">Note that the images in IMPACT are low resolution to optimize the performance of the tool.</li>\n                            <li class=\"list-item\">Submit the article when you have reviewed the entire article and resolved all author queries.</li>\n                            <li class=\"list-item\">You will receive a copy of the proof with your changes tracked via email for your own records.<br><br>\n                                <span class=\"list-item\">If you need assistance with IMPACT, please review the <a class=\"blue-text font-weight-bold\" title=\"Click to download the FAQs\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a> and <a class=\"blue-text font-weight-bold\" title=\"Click to download the User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a> here, or contact our support team at <a id=\"support_mail_id\" class=\"font-weight-bold email-text\" href=\"mailto:impact.helpdesk@newgen.co\">impact.helpdesk@newgen.co</a></span>\n                            <!-- <li class=\"list-item\">Upon submission of your corrections, you will be asked to complete a short survey on this proofing tool, the results of which will be used to inform future improvements. We appreciate your feedback.</li> -->\n                        </ul>",
+        "disclaimer_body": "<p class=\"card-text\">These proofs are for checking purposes only. They should not be considered as final publication format and must not be used for any other purpose. Please do not post them on your personal/institutional website, and do not print and distribute copies. Neither excerpts nor the whole article in its entirety should be included in other publications until the final version has been published and citation details are available.</p>",
+        "client_web_url": "https://www.intellectbooks.com/journals",
+        "navbar": {
+            "theme": "dark-blue",
+            "logo_src": "INTELLECT.png",
+            "logo_alt": "Intellect logo",
+            "logo_height": "25"
+        },
+        "footer": {
+            "container_class": "container mw-100",
+            "logo_section": "footer_empty_brand"
+        }
+    },
+    "lww": {
+        "client_favicon": "LWW",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span>, the online proofing tool for collaborating on proofing journal content for Wolters Kluwer Health, LLC.",
+        "instructions_body": "<ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">Log in to IMPACT in a single browser window at a time (but if you would like your co-authors to review the article as well, please share it with them by selecting the sharing option in IMPACT).</li>\n                            <li class=\"list-item\">Review your proof carefully, making any necessary amendments directly into the article.</li>\n                            <li class=\"list-item\">Save your changes if you want to pause reviewing and use the logout option before closing the browser window. You may log in again later to resume reviewing using your log-in link.</li>\n                            <li class=\"list-item\">Only finish your review in IMPACT when you are sure you have no additional changes to add as the review will be closed and not be accessible after reviewing has been completed.</li>\n                            <li class=\"list-item\">Note that the images in IMPACT are low resolution to <span id=\"UKUS\"></span> the performance of the tool.</li>\n                            <li class=\"list-item\">Submit the article when you have reviewed the entire article and resolved all author queries.</li>\n                            <li class=\"list-item\">You will receive a copy of the proof with your changes tracked via email for your own records.</li>\n                            <li class=\"list-item\">Upon submission of your corrections, you will be asked to complete a short survey on this proofing tool, the results of which will be used to inform future improvements. We appreciate your feedback.<br><br>\n                                <span class=\"list-item\">If you need assistance with IMPACT, please review the <a class=\"blue-text font-weight-bold\" title=\"Click to download the FAQs\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a> and <a class=\"blue-text font-weight-bold\" title=\"Click to download the User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a> here, or contact our support team at <a id=\"support_mail_id\" class=\"font-weight-bold email-text\" href=\"mailto:impact.helpdesk@newgen.co\">impact.helpdesk@newgen.co</a></span>\n                        </ul>",
+        "disclaimer_body": "<p class=\"card-text\">These proofs are for checking purposes only. They should not be considered as final publication format and must not be used for any other purpose. Please do not post them on your personal/institutional website, and do not print and distribute copies. Neither excerpts nor the whole article in its entirety should be included in other publications until the final version has been published and citation details are available.</p>",
+        "extra_sections": [
+            "third_party_plugins"
+        ],
+        "navbar": {
+            "href": "https://journals.lww.com/",
+            "logo_src": "assets/images/client_logo/LWW.svg",
+            "logo_alt": "LWW logo",
+            "theme": "white"
+        },
+        "footer": {
+            "container_class": "container mw-100",
+            "logo_section": "footer_empty_brand"
+        }
+    },
+    "medknow": {
+        "client_favicon": "LWW",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span>, the online proofing tool for collaborating on proofing journal content for Wolters Kluwer - Medknow.",
+        "instructions_body": "<ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">Log in to IMPACT in a single browser window at a time (but if you would like your co-authors to review the article as well, please share it with them by selecting the sharing option in IMPACT).</li>\n                            <li class=\"list-item\">Review your proof carefully, making any necessary amendments directly into the article.</li>\n                            <li class=\"list-item\">Save your changes if you want to pause reviewing and use the logout option before closing the browser window. You may log in again later to resume reviewing using your log-in link.</li>\n                            <li class=\"list-item\">Only finish your review in IMPACT when you are sure you have no additional changes to add as the review will be closed and not be accessible after reviewing has been completed.</li>\n                            <li class=\"list-item\">Note that the images in IMPACT are low resolution to optimize the performance of the tool.</li>\n                            <li class=\"list-item\">Submit the article when you have reviewed the entire article and resolved all author queries.</li>\n                            <li class=\"list-item\">You will receive a copy of the proof with your changes tracked via email for your own records.<br><br>\n                                <span class=\"list-item\">If you need assistance with IMPACT, please review the <a class=\"blue-text font-weight-bold\" title=\"Frequently Asked Questions\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a> and <a class=\"blue-text font-weight-bold\" title=\"User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a> here, or contact our support team at <a id=\"support_mail_id\" class=\"font-weight-bold email-text\" href=\"mailto:impact.helpdesk@newgen.co\">impact.helpdesk@newgen.co</a></span>\n                        </ul>",
+        "disclaimer_body": "<p class=\"card-text\">These proofs are for checking purposes only. They should not be considered as final publication format and must not be used for any other purpose. Please do not post them on your personal/institutional website, and do not print and distribute copies. Neither excerpts nor the whole article in its entirety should be included in other publications until the final version has been published and citation details are available.</p>",
+        "extra_sections": [
+            "third_party_plugins"
+        ],
+        "navbar": {
+            "theme": "dark-blue",
+            "href": "https://www.wolterskluwer.com/en-in/solutions/medknow",
+            "logo_src": "assets/images/client_logo/MEDKNOW_WHITE.png",
+            "logo_alt": "MEDKNOW logo"
+        },
+        "footer": {
+            "container_class": "container mw-100",
+            "logo_section": "footer_empty_brand"
+        }
+    },
+    "nihr": {
+        "client_favicon": "NIHR",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span>, the online proofing tool for collaborating on proofing journal content for National Institute for Health and Care Research.",
+        "instructions_body": "<ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">Review your proof carefully, making any necessary amendments directly into the reports/article.</li>\n                            <li class=\"list-item\">Note that the images in IMPACT are low resolution to optimise the performance of the tool.</li>\n                            <li class=\"list-item\">Submit the article when you have reviewed the entire report and resolved all author queries.</li>\n                            <li class=\"list-item\">You will receive a copy of the proof with your changes tracked via email for your own records.</li>\n                            <li class=\"list-item\">Upon submission of your corrections, you will be asked to complete a short survey on this proofing tool, the results of which will be used to inform future improvements. We appreciate your feedback.<br><br>\n                                <span class=\"list-item\">If you need assistance with IMPACT, please review the <a class=\"blue-text font-weight-bold\" title=\"Click to download the FAQs\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a> and <a class=\"blue-text font-weight-bold\" title=\"Click to download the User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a> here, or contact our support team at <a id=\"support_mail_id\" class=\"font-weight-bold email-text\" href=\"mailto:impact.helpdesk@newgen.co\">impact.helpdesk@newgen.co</a>\n                            </li>\n                        </ul>",
+        "disclaimer_body": "<p class=\"card-text\">These proofs are for checking purposes only. They should not be considered as final publication format and must not be used for any other purpose. Please do not post them on your personal/institutional website, and do not print and distribute copies. Neither excerpts nor the whole article in its entirety should be included in other publications until the final version has been published and citation details are available.</p>",
+        "extra_sections": [
+            "third_party_plugins"
+        ],
+        "navbar": {
+            "href": "https://www.nihr.ac.uk/",
+            "logo_src": "assets/images/client_logo/NIHR.svg",
+            "logo_alt": "NIHR logo",
+            "theme": "white"
+        },
+        "footer": {
+            "container_class": "container mw-100",
+            "logo": "<a class=\"navbar-brand\" href=\"https://www.nihr.ac.uk/\" target=\"_blank\">\n                            <!-- <img src=\"assets/images/client_logo/NIHR.svg\" height=\"50\" /> -->\n                        </a>"
+        }
+    },
+    "tnfjournals": {
+        "page_title": "T&F - Online Correction Tool",
+        "client_favicon": "TNFJOURNALS",
+        "welcome_heading": "Welcome to <span>T&amp;F’s</span> Online Correction Tool (OCT)",
+        "instructions_body": "<ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">Take a thorough look at your proof and make any necessary modifications directly within the reports or article.</li>\n                            <li class=\"list-item\">It should be noted that the images in OCT have a low resolution to enhance the performance of the tool.</li>\n                            <li class=\"list-item\">Once you have reviewed the entire report and resolved all author queries, submit the article.</li>\n                            <li class=\"list-item\">An email will be sent to you with a copy of the proof containing your tracked changes for your own records.</li>\n                            <span class=\"list-item\">If you require any assistance with OCT, please refer to the FAQs and User Guide here or reach out to our support team at <a id=\"support_mail_id\" class=\"fw-700 email-text\" href=\"mailto:impact.helpdesk@newgen.co\">impact.helpdesk@newgen.co</a></span>\n                        </ul>",
+        "disclaimer_section": "disclaimer_standard",
+        "extra_sections": [
+            "third_party_plugins"
+        ],
+        "navbar": {
+            "logo_src": "assets/images/client_logo/TNF_JORUNAL.svg",
+            "logo_height": "55",
+            "theme": "white"
+        },
+        "footer": {
+            "logo": "<a class=\"navbar-brand\" href=\"\" target=\"_blank\"></a>",
+            "browser": "browser_opera"
+        }
+    },
+    "oup": {
+        "client_favicon": "OUP",
+        "client_web_url": "https://global.oup.com",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span>, the online proofing tool that permits authors to directly edit and collaborate on journal content for Oxford University Press.",
+        "instructions_body": "<ol class=\"list-group mb-4\">\n                            <li class=\"list-item\"><span class=\"fw-600\">Proof for Review:</span> To access the article proof click “Agree and Continue” below.</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Respond to Queries:</span> Ensure all copyeditor’s queries are addressed via “Queries” (left panel), or AQ symbols in the Editor View (centre panel).</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Edit Proof:</span> Make all required corrections to your article in the Editor View (centre panel).</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Proof for Layout:</span> Review the typeset proof layout (right panel) and instruct any layout-related corrections as comments in the Editor View (centre panel).</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Finalize:</span> To approve the proof and proceed with the article’s publication select “Finalize” (top-right).</li>\n                        </ol>\n\n                        <h4 class=\"blue-text font-18px fw-600\">Notes</h4>\n                        <ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">The images displayed in the Editor View are low resolution to optimise the performance of the tool. Please view the typeset proof layout to view images in high resolution.</li>\n                            <li class=\"list-item\">The comment functionality allows you to provide instruction to the production editor or typesetting team to include the ability to supply files as attachments.</li>\n                            <li class=\"list-item\">Post finalisation you will:\n                                <ul class=\"list-group mt-1\">\n                                    <li class=\"list-item\">Receive a copy of the proof with your changes tracked via email for your own records.</li>\n                                    <li class=\"list-item\">Be requested to complete a short survey on the proofing tool, the results of which will be used to inform future improvements.</li>\n                                </ul>\n                            </li>\n                            <li class=\"list-item\">For the smooth operation of our system, we recommend an internet connection speed of at least 10mbps.<br><br>\n                                <span class=\"list-item\">If you need assistance with IMPACT, please review the <a class=\"blue-text fw-700\" title=\"Click to view the Guided Tour\" href=\"javascript:GuidedTourLanding();\">Guided Tour</a>, <a class=\"blue-text fw-700\" title=\"Click to download the FAQs\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a>, <a class=\"blue-text font-weight-bold\" title=\"Click to download the User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a>, and <a id=\"video_tour\" class=\"blue-text font-weight-bold\" title=\"Click to watch the Video Tutorial\" href=\"\" target=\"_blank\">Video Tutorial</a> here, or contact our support team at <a id=\"support_mail_id\" class=\"font-weight-bold email-text\" href=\"mailto:impact.notification@newgen.co\">impact.notification@newgen.co</a>\n                            </li>\n                        </ul>",
+        "disclaimer_second_para": "<p class=\"card-text\">For further information, please see our online advice at</p>\n                        <a rel=\"noopener\" class=\"link my-5\" target=\"_blank\" href=\"https://academic.oup.com/pages/authoring/journals/production_and_publication/online_licensing\">https://academic.oup.com/pages/authoring/journals/production_and_publication/online_licensing</a>",
+        "navbar": {
+            "theme": "dark-blue",
+            "logo_src": "assets/images/client_logo/OUP_WHITE.svg",
+            "logo_alt": "OUP Logo"
+        },
+        "footer": {
+            "container_class": "container mw-100",
+            "logo": "<a class=\"navbar-brand\" href=\"https://global.oup.com\" rel=\"noopener\" target=\"_blank\"><img alt=\"OUP Logo\" src=\"assets/images/client_logo/OUP_WHITE.svg\" height=\"50\" /></a>"
+        }
+    },
+    "plos": {
+        "client_favicon": "PLOS",
+        "client_web_url": "https://plos.org/",
+        "authenticator_script": "<script type=\"text/javascript\" src=\"assets/${{VERSION}}$/modules/authenticator/index.js?_${{TIMESTAMP}}$\"></script>",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span>, the online proofing tool for collaborating on proofing journal content for Public Library of Science.",
+        "instructions_body": "<ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">Log in to IMPACT in a single browser window at a time (but if you would like your co-authors to review the article as well, please share it with them by selecting the sharing option in IMPACT).</li>\n                            <li class=\"list-item\">Review your proof carefully, making any necessary amendments directly into the article.</li>\n                            <li class=\"list-item\">Save your changes if you want to pause reviewing and use the logout option before closing the browser window. You may log in again later to resume reviewing using your log-in link.</li>\n                            <li class=\"list-item\">Only finish your review in IMPACT when you are sure you have no additional changes to add as the review will be closed and not be accessible after reviewing has been completed.</li>\n                            <li class=\"list-item\">Note that the images in IMPACT are low resolution to optimize the performance of the tool.</li>\n                            <li class=\"list-item\">Submit the article when you have reviewed the entire article and resolved all author queries.</li>\n                            <li class=\"list-item\">You will receive a copy of the proof with your changes tracked via email for your own records.<br><br>\n                                <span class=\"list-item\">If you need assistance with IMPACT, please review the <a class=\"blue-text font-weight-bold\" title=\"Click to download the FAQs\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a> and <a class=\"blue-text font-weight-bold\" title=\"Click to download the User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a> here, or contact our support team at <a id=\"support_mail_id\" class=\"font-weight-bold email-text\" href=\"mailto:impact.helpdesk@newgen.co\">impact.helpdesk@newgen.co</a></span>\n                        </ul>",
+        "disclaimer_body": "<p class=\"card-text\">These proofs are for checking purposes only. They should not be considered as final publication format and must not be used for any other purpose. Please do not post them on your personal/institutional website, and do not print and distribute copies. Neither excerpts nor the whole article in its entirety should be included in other publications until the final version has been published and citation details are available.</p>",
+        "extra_content": "<div class=\"tranlate\">\n                            <h4 class=\"card-subtitle my-2 blue-text font-18px fw-600 mb-3\">Third Party Plug-Ins:</h4>\n                            <p>Using any third-party plug-in to translate the content or make any changes in the editor is not recommended as it might affect the content quality and the underlying metadata, which will delay publication.</p><span class=\"blue-text fw-600 font-14px\">Chinese Version:</span>\n                            <p>请不要使用任何第三方插件翻译或者修改编辑器中的内容，因为这样可能会影响内容质量和底层元数据，从而导致发表延迟。</p>\n                        </div>\n                        <!--reCaptcha_google-->",
+        "navbar": {
+            "theme": "dark-blue",
+            "logo_src": "assets/images/client_logo/PLOS_WHITE.svg",
+            "logo_alt": "PLOS logo",
+            "logo_height": "40",
+            "logo_width": "60"
+        },
+        "footer": {
+            "container_class": "container mw-100",
+            "logo_section": "footer_empty_brand"
+        }
+    },
+    "lse": {
+        "client_favicon": "assets/images/logo/LSE_FAVICON.ico",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span>, an online proofing tool that allows authors to directly edit and collaborate on book content.",
+        "instructions_body": "<ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">Please carefully review your proof and make any necessary changes directly within the chapter or book.</li>\n                            <li class=\"list-item\">Note that images in IMPACT are displayed in low resolution to improve the tool’s performance.</li>\n                            <li class=\"list-item\">After reviewing the entire book and resolving all author queries, click the “Finalize” button located at the top-right.</li>\n\n                            <span class=\"list-item\">If you need assistance with IMPACT, refer to the <a class=\"blue-text fw-700\" title=\"Click to download the FAQs\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a> and <a class=\"blue-text fw-700\" title=\"Click to download the User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a> or contact our support team at <a id=\"support_mail_id\" class=\"fw-700 email-text\" href=\"mailto:impact.helpdesk.lse@newgen.co\">impact.helpdesk.lse@newgen.co</a></span>\n                        </ul>",
+        "disclaimer_body": "<p class=\"card-text\">The proofs provided are for review purposes only and should not be considered the final published version or used for any other purpose. They must not be shared on personal or institutional websites, nor printed or distributed. No part or the entirety of the book should be used in other publications until the final version is published and citation details are available.</p>",
+        "extra_content": "",
+        "navbar": {
+            "theme": "crimson-red",
+            "href": "https://press.lse.ac.uk/",
+            "logo_src": "assets/images/client_logo/LSE_TRANS.png",
+            "logo_alt": "LSE Logo",
+            "logo_height": "40"
+        },
+        "footer": {
+            "row_class": "bg-gray",
+            "logo": "<a class=\"navbar-brand\" href=\"https://press.lse.ac.uk/\" rel=\"noopener\" target=\"_blank\"><img alt=\"OUP Logo\" src=\"assets/images/client_logo/LSE_TRANS.png\" width=\"150\" /></a>"
+        }
+    },
+    "oho": {
+        "client_favicon": "OUP",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span>, the online proofing tool that permits authors to directly edit and collaborate on book content for Oxford University Press.",
+        "left_side_col_class": "col-sm-12 col-md-9 col-lg-9",
+        "right_side_col_class": "col-sm-12 col-md-3 col-lg-3",
+        "instructions_body": "<ol class=\"list-group mb-4\">\n                            <li class=\"list-item\"><span class=\"fw-600\">Proof for Review:</span> To access the proof click “Agree and Continue” below.</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Respond to Queries:</span> Ensure all copyeditor’s queries are addressed via “Queries” (left panel), or AQ symbols in the Editor View (centre panel).</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Edit Proof:</span> Make all required corrections in the Editor View (centre panel).</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Proof for Layout:</span> Review the typeset proof layout (right panel) and instruct any layout-related corrections as comments in the Editor View (centre panel).</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Finalize:</span> To approve the proof and proceed publication select “Finalize” (top-right).</li>\n                        </ol>\n\n                        <h4 class=\"blue-text font-18px fw-600\">Notes</h4>\n                        <ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">The images displayed in the Editor View are low resolution to optimise the performance of the tool. Please view the typeset proof layout to view images in high resolution.</li>\n                            <li class=\"list-item\">The comment functionality allows you to provide instruction to the production editor or typesetting team to include the ability to supply files as attachments.</li>\n                            <li class=\"list-item\">Post finalisation you will:\n                                <ul class=\"list-group mt-1\">\n                                    <li class=\"list-item\">Receive a copy of the proof with your changes tracked via email for your own records.</li>\n                                    <li class=\"list-item\">Be requested to complete a short survey on the proofing tool, the results of which will be used to inform future improvements.</li>\n                                </ul>\n                            </li>\n                            <li class=\"list-item\">For the smooth operation of our system, we recommend an internet connection speed of at least 10mbps.<br><br>\n                                <span class=\"list-item\">If you need assistance with IMPACT, please review the <a class=\"blue-text fw-700\" title=\"Click to view the Guided Tour\" href=\"javascript:GuidedTourLanding();\">Guided Tour</a>, <a class=\"blue-text fw-700\" title=\"Click to download the FAQs\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a>, <a class=\"blue-text font-weight-bold\" title=\"Click to download the User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a>, and <a id=\"video_tour\" class=\"blue-text font-weight-bold\" title=\"Click to watch the Video Tutorial\" href=\"\" target=\"_blank\">Video Tutorial</a> here, or contact our support team at <a id=\"support_mail_id\" class=\"font-weight-bold email-text\" href=\"mailto:impact.helpdesk@newgen.co\">impact.helpdesk@newgen.co</a>\n                            </li>\n                        </ul>",
+        "disclaimer_body": "<p class=\"card-text\">These proofs are for checking purposes only. They should not be considered as final publication format and must not be used for any other purpose. Please do not post them on your personal/institutional website, and do not print and distribute copies. Neither excerpts nor the whole article in its entirety should be included in other publications until the final version has been published and citation details are available</p>",
+        "extra_sections": [
+            "third_party_plugins"
+        ],
+        "navbar": {
+            "theme": "dark-blue",
+            "href": "https://global.oup.com",
+            "logo_src": "assets/images/client_logo/OUP_WHITE.svg",
+            "logo_alt": "OHO logo"
+        },
+        "footer": {
+            "container_class": "container mw-100",
+            "logo": "<a class=\"navbar-brand\" href=\"https://global.oup.com\" rel=\"noopener\" target=\"_blank\"><img alt=\"OHO Logo\" src=\"assets/images/client_logo/OUP_WHITE.svg\" height=\"50\" /></a>"
+        }
+    },
+    "oso": {
+        "client_favicon": "OUP",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span>, the online proofing tool that permits authors to directly edit and collaborate on book content for Oxford University Press.",
+        "left_side_col_class": "col-sm-12 col-md-9 col-lg-9",
+        "right_side_col_class": "col-sm-12 col-md-3 col-lg-3",
+        "instructions_body": "<ol class=\"list-group mb-4\">\n                            <li class=\"list-item\"><span class=\"fw-600\">Proof for Review:</span> To access the proof click “Agree and Continue” below.</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Respond to Queries:</span> Ensure all copyeditor’s queries are addressed via “Queries” (left panel), or AQ symbols in the Editor View (centre panel).</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Edit Proof:</span> Make all required corrections in the Editor View (centre panel).</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Proof for Layout:</span> Review the typeset proof layout (right panel) and instruct any layout-related corrections as comments in the Editor View (centre panel).</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Finalize:</span> To approve the proof and proceed publication select “Finalize” (top-right).</li>\n                        </ol>\n\n                        <h4 class=\"blue-text font-18px fw-600\">Notes</h4>\n                        <ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">The images displayed in the Editor View are low resolution to optimise the performance of the tool. Please view the typeset proof layout to view images in high resolution.</li>\n                            <li class=\"list-item\">The comment functionality allows you to provide instruction to the production editor or typesetting team to include the ability to supply files as attachments.</li>\n                            <li class=\"list-item\">Post finalisation you will:\n                                <ul class=\"list-group mt-1\">\n                                    <li class=\"list-item\">Receive a copy of the proof with your changes tracked via email for your own records.</li>\n                                    <li class=\"list-item\">Be requested to complete a short survey on the proofing tool, the results of which will be used to inform future improvements.</li>\n                                </ul>\n                            </li>\n                            <li class=\"list-item\">For the smooth operation of our system, we recommend an internet connection speed of at least 10mbps.<br><br>\n                                <span class=\"list-item\">If you need assistance with IMPACT, please review the <a class=\"blue-text fw-700\" title=\"Guided Tour\" href=\"javascript:GuidedTourLanding();\">Guided Tour</a>, <a class=\"blue-text fw-700\" title=\"Frequently Asked Questions\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a>, <a class=\"blue-text font-weight-bold\" title=\"User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a>, and <a id=\"video_tour\" class=\"blue-text font-weight-bold\" title=\"Video Tutorial\" href=\"\" target=\"_blank\">Video Tutorial</a> here, or contact our support team at <a id=\"support_mail_id\" class=\"font-weight-bold email-text\" href=\"mailto:impact.notification.oup@newgen.co\">impact.notification.oup@newgen.co</a>\n                            </li>\n                        </ul>",
+        "disclaimer_body": "<p class=\"card-text\">These proofs are for checking purposes only. They should not be considered as final publication format and must not be used for any other purpose. Please do not post them on your personal/institutional website, and do not print and distribute copies. Neither excerpts nor the whole article in its entirety should be included in other publications until the final version has been published and citation details are available</p>",
+        "doi_component": "doi_info_books",
+        "extra_sections": [
+            "third_party_plugins"
+        ],
+        "navbar": {
+            "theme": "dark-blue",
+            "href": "https://global.oup.com",
+            "logo_src": "assets/images/client_logo/OUP_WHITE.svg",
+            "logo_alt": "logo"
+        },
+        "footer": {
+            "container_class": "container mw-100",
+            "logo": "<a class=\"navbar-brand\" href=\"https://global.oup.com\" rel=\"noopener\" target=\"_blank\"><img alt=\"logo\" src=\"assets/images/client_logo/OUP_WHITE.svg\" height=\"50\" /></a>"
+        }
+    },
+    "oxmedo": {
+        "client_favicon": "OUP",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span>, the online proofing tool that permits authors to directly edit and collaborate on book content for Oxford Medical Online.",
+        "left_side_col_class": "col-sm-12 col-md-9 col-lg-9",
+        "right_side_col_class": "col-sm-12 col-md-3 col-lg-3",
+        "instructions_body": "<ol class=\"list-group mb-4\">\n                            <li class=\"list-item\"><span class=\"fw-600\">Proof for Review:</span> To access the proof click “Agree and Continue” below.</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Respond to Queries:</span> Ensure all copyeditor’s queries are addressed via “Queries” (left panel), or AQ symbols in the Editor View (main panel).</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Edit Proof:</span> Make all required corrections in the Editor View (main panel).</li>\n                            <li class=\"list-item\"><span class=\"fw-600\">Finalize:</span> To approve the proof and proceed publication select “Finalize” (top-right).</li>\n                        </ol>\n\n                        <h4 class=\"blue-text font-18px fw-600\">Notes</h4>\n                        <ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">The images displayed in the Editor View are low resolution to optimise the performance of the tool.</li>\n                            <li class=\"list-item\">The comment functionality allows you to provide instruction to the production editor or typesetting team to include the ability to supply files as attachments.</li>\n                            <li class=\"list-item\">Post finalisation you will:\n                                <ul class=\"list-group mt-1\">\n                                    <li class=\"list-item\">Receive a copy of the proof with your changes tracked via email for your own records.</li>\n                                    <li class=\"list-item\">Be requested to complete a short survey on the proofing tool, the results of which will be used to inform future improvements.</li>\n                                </ul>\n                            </li>\n                            <li class=\"list-item\">For the smooth operation of our system, we recommend an internet connection speed of at least 10mbps.<br><br>\n                                <span class=\"list-item\">If you need assistance with IMPACT, please review the <a class=\"blue-text fw-700\" title=\"Guided Tour\" href=\"javascript:GuidedTourLanding();\">Guided Tour</a>, <a class=\"blue-text fw-700\" title=\"Frequently Asked Questions\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a>, <a class=\"blue-text font-weight-bold\" title=\"User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a>, and <a id=\"video_tour\" class=\"blue-text font-weight-bold\" title=\"Video Tutorial\" href=\"\" target=\"_blank\">Video Tutorial</a> here, or contact our support team at <a id=\"support_mail_id\" class=\"font-weight-bold email-text\" href=\"mailto:impact.notification.oup@newgen.co\">impact.notification.oup@newgen.co</a>\n                            </li>\n                        </ul>",
+        "disclaimer_body": "<p class=\"card-text\">These proofs are for checking purposes only. They should not be considered as final publication format and must not be used for any other purpose. Please do not post them on your personal/institutional website, and do not print and distribute copies. Neither excerpts nor the whole article in its entirety should be included in other publications until the final version has been published and citation details are available</p>",
+        "doi_component": "doi_info_books",
+        "extra_sections": [
+            "third_party_plugins"
+        ],
+        "navbar": {
+            "theme": "dark-blue",
+            "href": "https://global.oup.com",
+            "logo_src": "assets/images/client_logo/OUP_WHITE.svg",
+            "logo_alt": "logo"
+        },
+        "footer": {
+            "container_class": "container mw-100",
+            "logo": "<a class=\"navbar-brand\" href=\"https://global.oup.com\" rel=\"noopener\" target=\"_blank\"><img alt=\"logo\" src=\"assets/images/client_logo/OUP_WHITE.svg\" height=\"50\" /></a>"
+        }
+    },
+    "tnf": {
+        "client_favicon": "assets/images/logo/TNF_FAVICON.ico",
+        "welcome_heading": "Welcome to <span class=\"impact-title\">IMPACT</span>, the online proofing tool that permits authors to directly edit and collaborate on book content.",
+        "instructions_body": "<ul class=\"list-group mb-4\">\n                            <li class=\"list-item\">Take a thorough look at your proof and make any necessary modifications directly within the chapter or book.</li>\n                            <li class=\"list-item\">It should be noted that the images in IMPACT have a low resolution to enhance the performance of the tool.</li>\n                            <li class=\"list-item\">Once you have reviewed the entire book and resolved all author queries, click on the 'finalize' button on the top-right.</li>\n                            <!-- <li class=\"list-item\">An email will be sent to you with a copy of the proof containing your tracked changes for your own records.</li> -->\n                            <span class=\"list-item\">If you require any assistance with IMPACT, please refer to the <a class=\"blue-text fw-700\" title=\"Click to download the FAQs\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a> and <a class=\"blue-text fw-700\" title=\"Click to download the User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a> here or reach out to our support team at <a id=\"support_mail_id\" class=\"fw-700 email-text\" href=\"mailto:impact.helpdesk.tnf@newgen.co\">impact.helpdesk.tnf@newgen.co</a></span>\n                        </ul>",
+        "disclaimer_body": "<p class=\"card-text\">The proofs provided are intended solely for checking purposes and should not be regarded as the final publication format, nor should they be utilized for any other reason. It is crucial that they are not posted on personal or institutional websites or printed and distributed. Until the final version has been published and citation details are obtainable, no excerpts or the entire book in its entirety should be included in any other publications.</p>",
+        "extra_content": "",
+        "navbar": {
+            "href": "#",
+            "logo_alt": "T & F Logo",
+            "theme": "white"
+        },
+        "footer": {
+            "logo_section": "footer_empty_brand"
+        }
+    }
+}

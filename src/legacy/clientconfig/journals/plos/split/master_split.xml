@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journals>
+  <journal short="PAGE" abbr="PLOS Aging and Health" journal-title="PLOS Aging and Health" client="plos" split="PAGE.xml" split_master="master_split.xml" />
+  <journal short="PBIO" abbr="PLOS Biology" journal-title="PLOS Biology" batch="2" by="AK" copyby="YA_21_SEP_2024" qcby="" client="plos" split="PBIO.xml" split_master="master_split.xml" />
+  <journal short="PCBI" abbr="PLOS Computational Biology" journal-title="PLOS Computational Biology" batch="2" by="AK" copyby="YA_21_SEP_2024" qcby="" client="plos" split="PCBI.xml" split_master="master_split.xml" />
+  <journal short="PCLM" abbr="PLOS Computational Biology" journal-title="PLOS Computational Biology" batch="2" by="AK" copyby="YA_21_SEP_2024" qcby="" client="plos" split="PCLM.xml" split_master="master_split.xml" />
+  <journal short="PCSY" abbr="PLOS Complex Systems" journal-title="PLOS Complex Systems" batch="2" by="YA" copyby="YA_07_APR_2025" qcby="" client="plos" split="PCSY.xml" split_master="master_split.xml" />
+  <journal short="PDIG" abbr="PLOS Digital Health" journal-title="PLOS Digital Health" batch="2" by="AK" copyby="YA_21_SEP_2024" qcby="" client="plos" split="PDIG.xml" split_master="master_split.xml" />
+  <journal short="PESY" abbr="PLOS Ecosystems" journal-title="PLOS Ecosystems" client="plos" split="PESY.xml" split_master="master_split.xml" />
+  <journal short="PGEN" abbr="PLoS Genetics" journal-title="PLOS Genetics" client="plos" split="PGEN.xml" split_master="master_split.xml" />
+  <journal short="PGPH" abbr="PLOS Glob Public Health" journal-title="PLOS Glob Public Health" batch="2" by="AK" copyby="YA_21_SEP_2024" qcby="" client="plos" split="PGPH.xml" split_master="master_split.xml" />
+  <journal short="PMED" abbr="PLOS Medicine" journal-title="PLOS Medicine" batch="2" by="AK" copyby="YA_21_SEP_2024" qcby="" client="plos" split="PMED.xml" split_master="master_split.xml" />
+  <journal short="PMEN" abbr="PLOS Mental Health" journal-title="PLOS Mental Health" batch="2" by="AK" copyby="YA_21_SEP_2024" qcby="" client="plos" split="PMEN.xml" split_master="master_split.xml" />
+  <journal short="PNTD" abbr="PLOS Neglected Tropical Diseases" journal-title="PLOS Neglected Tropical Diseases" batch="2" by="AK" copyby="YA_21_SEP_2024" qcby="" client="plos" split="PNTD.xml" split_master="master_split.xml" />
+  <journal short="PONE" abbr="PLoS One" journal-title="PLOS ONE" client="plos" split="PONE.xml" split_master="master_split.xml" />
+  <journal short="PPAT" abbr="PLOS Pathogens" journal-title="PLOS Pathogens" batch="2" by="AK" copyby="YA_21_SEP_2024" qcby="" client="plos" split="PPAT.xml" split_master="master_split.xml" />
+  <journal short="PSTR" abbr="PLOS Sustainability and Transformation" journal-title="PLOS Sustainability and Transformation" batch="2" by="AK" copyby="YA_21_SEP_2024" qcby="" client="plos" split="PSTR.xml" split_master="master_split.xml" />
+  <journal short="PWAT" abbr="PLoS Water" journal-title="PLOS WATER" client="plos" split="PWAT.xml" split_master="master_split.xml" />
+</journals>

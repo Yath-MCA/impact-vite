@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParaLockSync Workflow Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            background: white;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            page-break-before: always;
+        }
+        
+        h1:first-of-type {
+            page-break-before: auto;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        
+        .workflow-box {
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .current-workflow {
+            border-color: #e74c3c;
+            background-color: #fff5f5;
+        }
+        
+        .proposed-workflow {
+            border-color: #27ae60;
+            background-color: #f0fff4;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        .comparison-table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .step-number {
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .process-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .highlight-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .benefit-list {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .risk-list {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 15mm;
+            }
+            .workflow-box {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>ParaLockSync Workflow Documentation</h1>
+    
+    <div class="highlight-box">
+        <h2>Executive Summary</h2>
+        <p><strong>Current State:</strong> Single-user proofing system with exclusive access enforced through request-response dialogs</p>
+        <p><strong>Proposed State:</strong> Flexible collaborative platform supporting both single-user and multi-user workflows with real-time editing capabilities</p>
+        <p><strong>Key Transformation:</strong> From sequential editing with access conflicts to parallel collaborative editing with intelligent conflict prevention</p>
+    </div>
+
+    <div class="page-break"></div>
+    <h1>Current Single-User Workflow</h1>
+    
+    <div class="workflow-box current-workflow">
+        <h2>Access Process Overview</h2>
+        
+        <div class="process-flow">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Link Distribution</strong><br>
+                    User receives unique email link containing authentication credentials and proof metadata. Each proof supports only one active user at any time.
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Landing Page</strong><br>
+                    System displays proof information, user details, project metadata, and deadlines. Central "ACCEPT & CONTINUE" button initiates session validation process.
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Session Evaluation</strong><br>
+                    System performs three-way check to determine appropriate action based on current proof and session status.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Session State Scenarios</h2>
+    
+    <div class="workflow-box">
+        <h3>Scenario A: Completed Proof</h3>
+        <ul>
+            <li><strong>Condition:</strong> Proof has been finalized and approved</li>
+            <li><strong>Action:</strong> Redirect to read-only viewing mode</li>
+            <li><strong>User Experience:</strong> Access to complete proof history without editing capabilities</li>
+            <li><strong>Business Impact:</strong> Maintains proof integrity after completion</li>
+        </ul>
+    </div>
+    
+    <div class="workflow-box">
+        <h3>Scenario B: Available Session</h3>
+        <ul>
+            <li><strong>Condition:</strong> No other users currently accessing the proof</li>
+            <li><strong>Action:</strong> Direct access to full proofing editor</li>
+            <li><strong>User Experience:</strong> Immediate editing capabilities with complete feature access</li>
+            <li><strong>Business Impact:</strong> Optimal productivity with no delays</li>
+        </ul>
+    </div>
+    
+    <div class="workflow-box">
+        <h3>Scenario C: Session Conflict</h3>
+        <ul>
+            <li><strong>Condition:</strong> Another user currently has an active editing session</li>
+            <li><strong>Action:</strong> Activation of request-response dialog system</li>
+            <li><strong>User Experience:</strong> Temporary access restriction pending conflict resolution</li>
+            <li><strong>Business Impact:</strong> Potential delays but ensures data integrity</li>
+        </ul>
+    </div>
+
+    <h2>Request-Response Dialog System</h2>
+    
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>User Role</th>
+                <th>Dialog Experience</th>
+                <th>Available Actions</th>
+                <th>Outcome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Request Sender<br/>(New User)</strong></td>
+                <td>Modal dialog on landing page with countdown timer showing remaining wait time</td>
+                <td>
+                    • Wait for response<br/>
+                    • Cancel request<br/>
+                    • Monitor timer countdown
+                </td>
+                <td>Gains access based on current user response or timeout</td>
+            </tr>
+            <tr>
+                <td><strong>Request Receiver<br/>(Current User)</strong></td>
+                <td>Overlay dialog on active proofing page showing requester information</td>
+                <td>
+                    • Accept (transfer session)<br/>
+                    • Reject (with optional reason)<br/>
+                    • Ignore (leads to timeout)
+                </td>
+                <td>Controls whether to transfer session or maintain current work</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Resolution Outcomes</h3>
+    
+    <div class="workflow-box">
+        <h4>Accept Response</h4>
+        <ul>
+            <li>Current user's work automatically saved to prevent data loss</li>
+            <li>Session gracefully transferred to requesting user</li>
+            <li>Current user redirected to landing page with confirmation</li>
+            <li>Requesting user gains immediate full editing access</li>
+        </ul>
+    </div>
+    
+    <div class="workflow-box">
+        <h4>Reject Response</h4>
+        <ul>
+            <li>Rejection message with optional reason sent to requesting user</li>
+            <li>Current user maintains session and continues working</li>
+            <li>Requesting user sees rejection note and reason</li>
+            <li>New access request possible after configured delay period</li>
+        </ul>
+    </div>
+    
+    <div class="workflow-box">
+        <h4>Ignore/Timeout Response</h4>
+        <ul>
+            <li>System assumes current user is unavailable or inactive</li>
+            <li>Session automatically marked as stale after timeout period</li>
+            <li>Requesting user receives immediate access to proofing editor</li>
+            <li>Previous session logged as interrupted for audit purposes</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+    <h1>Proposed Collaborative Workflow</h1>
+    
+    <div class="workflow-box proposed-workflow">
+        <h2>Enhanced Access Model</h2>
+        
+        <div class="process-flow">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Smart Detection</strong><br>
+                    System automatically analyzes proof configuration to determine workflow type. Email count triggers appropriate access model without manual intervention.
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Dynamic Routing</strong><br>
+                    Single email maintains current exclusive workflow. Multiple emails activate collaborative features with enhanced user interface elements.
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Seamless Access</strong><br>
+                    Authorized users gain immediate access without conflict dialogs. Real-time collaboration features initialize automatically.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Workflow Configuration Types</h2>
+    
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Configuration</th>
+                <th>Access Pattern</th>
+                <th>Dialog System</th>
+                <th>Features Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Single Email</strong></td>
+                <td>Exclusive single-user access with session validation</td>
+                <td>Request-response dialogs enabled</td>
+                <td>Current workflow maintained</td>
+            </tr>
+            <tr>
+                <td><strong>Multiple Emails</strong></td>
+                <td>Simultaneous multi-user access with immediate entry</td>
+                <td>Dialogs completely disabled</td>
+                <td>Collaborative features activated</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Real-Time Collaboration Features</h2>
+    
+    <div class="workflow-box">
+        <h3>Paragraph-Level Locking</h3>
+        <ul>
+            <li><strong>Smart Selection:</strong> Individual paragraphs automatically lock when user begins editing</li>
+            <li><strong>Visual Indicators:</strong> Clear visual cues show which user is editing specific content sections</li>
+            <li><strong>Automatic Release:</strong> Locks automatically release when user moves to different paragraph</li>
+            <li><strong>Conflict Prevention:</strong> Prevents simultaneous editing of same content by multiple users</li>
+        </ul>
+    </div>
+    
+    <div class="workflow-box">
+        <h3>Live Content Synchronization</h3>
+        <ul>
+            <li><strong>Real-Time Updates:</strong> Changes appear instantly across all active user sessions</li>
+            <li><strong>Conflict-Free Editing:</strong> Intelligent coordination prevents content overwrites</li>
+            <li><strong>Version Control:</strong> Advanced tracking system maintains content history and sync status</li>
+            <li><strong>Automatic Distribution:</strong> Content changes automatically propagate to all collaborative users</li>
+        </ul>
+    </div>
+    
+    <div class="workflow-box">
+        <h3>User Presence Awareness</h3>
+        <ul>
+            <li><strong>Active User Display:</strong> Real-time list showing all currently active users</li>
+            <li><strong>Status Indicators:</strong> Live updates showing user activity (editing, viewing, idle)</li>
+            <li><strong>Activity Tracking:</strong> Timestamps and activity indicators for user awareness</li>
+            <li><strong>Join/Leave Notifications:</strong> Seamless notifications when users enter or exit sessions</li>
+        </ul>
+    </div>
+
+    <h2>Eliminated Features</h2>
+    
+    <div class="risk-list">
+        <h3>No More Access Conflicts</h3>
+        <ul>
+            <li>Request-sender dialogs completely eliminated from user experience</li>
+            <li>Request-receiver interruptions removed from workflow</li>
+            <li>No waiting periods or queuing for proof access</li>
+            <li>No forced session transfers or timeout-based conflicts</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+    <h1>Additional Proposed Features</h1>
+    
+    <div class="workflow-box">
+        <h2>Link Sharing Module</h2>
+        
+        <h3>Dynamic Access Control</h3>
+        <ul>
+            <li><strong>Temporary Links:</strong> Generate time-limited access links for additional collaborators</li>
+            <li><strong>Permission Levels:</strong> Define specific access levels (view-only, edit, comment, admin)</li>
+            <li><strong>Usage Tracking:</strong> Monitor access patterns and link utilization</li>
+            <li><strong>Expiration Management:

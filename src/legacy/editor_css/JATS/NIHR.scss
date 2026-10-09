@@ -1,0 +1,17 @@
+.contrib-group {
+    .contrib {
+        [data-name=given-names] {
+            color: #173F75;
+        }
+
+        [data-name="surname"] {
+            color: #173F75;
+            padding: 3.5px;
+
+            &.active {
+                border: 1px dashed #355789 !important;
+            }
+        
+        }
+    }
+}

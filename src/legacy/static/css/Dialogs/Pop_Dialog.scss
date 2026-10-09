@@ -1,0 +1,105 @@
+div.dummyCheck{cursor:pointer}
+.pop_up {
+    position: absolute;
+    top: 10%;
+    left: 100%;
+    width: 100%;
+    margin-left: 15px;
+    z-index: 1000;
+    display: block;
+    float: left;
+    min-width: 160px;
+    font-size: 14px;
+    text-align: left;
+    overflow: hidden;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    padding: 5px;
+
+
+    &.ds-none {
+        display: none !important;
+    }
+
+    &.maxiview {
+        display: block;
+        position: absolute !important;
+        top: -5rem;
+        left: 40rem !important;
+        z-index: 9999 !important;
+        margin-top: 199px !important;
+        width: 40rem !important;
+    }
+
+    .panel-heading.track-header {
+        font-weight: bold;
+    }
+
+    #AuthorAffTrackChangesShow {
+        overflow-y: auto !important;
+        max-height: 50vh !important;
+    }
+}
+
+#TrackChangesListKW,
+#TrackChangesListABR {
+    list-style-type: none;
+    padding: 1px 10px;
+}
+
+
+#TrackChangesList,
+#TrackChangesHolder {
+    list-style-type: none;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* 17-SEP-22 AUTH_MODULE UPDATE */
+#TrackChangesList .sub_list {
+    text-indent: 2rem;
+}
+
+.TrackChangesList {
+    display: inline;
+    margin-left: 10px;
+    background-color: #f6bdef;
+}
+
+#TrackChangesHolder>li,
+#TrackChangesHolder {
+    width: 100%;
+}
+
+.panel-heading {
+    font-weight: bold;
+}
+
+.border-tc {
+    border-bottom: 0.5px solid #BEBEBE;
+    margin: 0 -5px;
+    padding: 5px 16px;
+}
+
+#oldStructure,
+#oldStructureabr,
+#oldStructurekw {
+    margin-left: 10px;
+    font-weight: bolder;
+    padding: .35rem 0;
+}
+
+#closetc .far:hover {
+    color: orange
+}
+
+.singleviewpopup {
+    left: 50%;
+    width: 48.5%;
+}

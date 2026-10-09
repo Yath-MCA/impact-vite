@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<journals>
+  <journal short="AMJM" abbr="" journal-title="Amrita Journal of Medicine" batch="1" copy_by="YA_08_MAY_25" client="medknow" split="AMJM.xml" split_master="master_split.xml" />
+  <journal short="ICRS" abbr="" journal-title="Indian Journal of Cataract and Refractive Surgery" batch="1" copy_by="YA_08_MAY_25" client="medknow" split="ICRS.xml" split_master="master_split.xml" />
+  <journal short="IJMH" abbr="" journal-title="International Journal of Medicine and Health Development" batch="1" copy_by="YA_08_MAY_25" client="medknow" split="IJMH.xml" split_master="master_split.xml" />
+  <journal short="ACCR" abbr="J Acute Care Resusc" journal-title="Journal of Acute Care and Resuscitation" batch="2" copy-by="YA_10_JUN_25" client="medknow" split="ACCR.xml" split_master="master_split.xml" />
+  <journal short="AMSR" abbr="" journal-title="Annals of Medical Science &amp; Research" batch="2" by="AK_08_Mar_25" client="medknow" split="AMSR.xml" split_master="master_split.xml" />
+  <journal short="BJOA" abbr="Bali J Anesthesiol" journal-title="Bali Journal of Anesthesiology" batch="2" copy-by="YA_10_JUN_25" client="medknow" split="BJOA.xml" split_master="master_split.xml" />
+  <journal short="DYPJ" abbr="" journal-title="D Y Patil Journal of Health Sciences" batch="2" by="AK_08_Mar_25" client="medknow" split="DYPJ.xml" split_master="master_split.xml" />
+  <journal short="HFJI" abbr="" journal-title="Heart Failure Journal of India" batch="2" by="AK_08_Mar_25" client="medknow" split="HFJI.xml" split_master="master_split.xml" />
+  <journal short="JIMH" abbr="" journal-title="Journal of Indian Medical Heritage" batch="2" by="AK_08_Mar_25" client="medknow" split="JIMH.xml" split_master="master_split.xml" />
+  <journal short="JIMP" abbr="" journal-title="Journal of Integrative Medicine and Public Health" batch="2" by="AK_08_Mar_25" client="medknow" split="JIMP.xml" split_master="master_split.xml" />
+  <journal short="JIOH" abbr="J Int Oral Health" journal-title="Journal of International Oral Health" batch="2" copy-by="YA_10_JUN_25" client="medknow" split="JIOH.xml" split_master="master_split.xml" />
+  <journal short="JISPCD" abbr="J Int Soc Prev Community Dent" journal-title="Journal of International Society of Preventive and Community Dentistry" batch="2" copy-by="YA_10_JUN_25" client="medknow" split="JISPCD.xml" split_master="master_split.xml" />
+  <journal short="JODB" abbr="J Diabetol" journal-title="Journal of Diabetology" batch="2" copy-by="YA_10_JUN_25" client="medknow" split="JODB.xml" split_master="master_split.xml" />
+  <journal short="JOMM" abbr="J Mod Med" journal-title="Journal of Modern Medicine" batch="2" copy-by="YA_10_JUN_25" client="medknow" split="JOMM.xml" split_master="master_split.xml" />
+  <journal short="JOPP" abbr="J Pediatr Pulmonol" journal-title="Journal of Pediatric Pulmonology" batch="2" copy-by="YA_10_JUN_25" client="medknow" split="JOPP.xml" split_master="master_split.xml" />
+  <journal short="JOR" abbr="J Resusc" journal-title="Journal of Resuscitation" batch="2" copy-by="YA_10_JUN_25" client="medknow" split="JOR.xml" split_master="master_split.xml" />
+  <journal short="TOPH" abbr="Trop Ophthalmol" journal-title="Tropical Ophthalmology" batch="2" copy-by="YA_10_JUN_25" client="medknow" split="TOPH.xml" split_master="master_split.xml" />
+  <journal short="AJIM" abbr="" journal-title="Assam Journal of Internal Medicine" batch="3" by="AK_24_Jun_25" copy-by="YA_25_Jun_25" client="medknow" split="AJIM.xml" split_master="master_split.xml" />
+  <journal short="AOHN" abbr="" journal-title="Ann Indian Acad Otorhinolaryngol Head Neck Surg" batch="3" by="AK_24_Jun_25" copy-by="YA_25_Jun_25" client="medknow" split="AOHN.xml" split_master="master_split.xml" />
+  <journal short="AORA" abbr="" journal-title="Annals of Rheumatology and Autoimmunity" batch="3" by="AK_24_Jun_25" copy-by="YA_25_Jun_25" client="medknow" split="AORA.xml" split_master="master_split.xml" />
+  <journal short="HJHS" abbr="" journal-title="Hail Journal of Health Sciences" batch="3" by="AK_24_Jun_25" copy-by="YA_25_Jun_25" client="medknow" split="HJHS.xml" split_master="master_split.xml" />
+  <journal short="HJOP" abbr="" journal-title="Himalayan Journal of Ophthalmology" batch="3" by="AK_24_Jun_25" copy-by="YA_25_Jun_25" client="medknow" split="HJOP.xml" split_master="master_split.xml" />
+  <journal short="IJDD" abbr="" journal-title="Indian Journal of Dermatopathology and Diagnostic Dermatology" batch="3" by="AK_24_Jun_25" copy-by="YA_25_Jun_25" client="medknow" split="IJDD.xml" split_master="master_split.xml" />
+  <journal short="INJO" abbr="" journal-title="International Journal of Neurooncology" batch="3" by="AK_24_Jun_25" copy-by="YA_25_Jun_25" client="medknow" split="INJO.xml" split_master="master_split.xml" />
+  <journal short="JBJD" abbr="" journal-title="Journal of Bone and Joint Diseases" batch="3" by="AK_24_Jun_25" copy-by="YA_25_Jun_25" client="medknow" split="JBJD.xml" split_master="master_split.xml" />
+  <journal short="MGMJ" abbr="" journal-title="MGM Journal of Medical Sciences" batch="3" by="AK_24_Jun_25" copy-by="YA_25_Jun_25" client="medknow" split="MGMJ.xml" split_master="master_split.xml" />
+  <journal short="SJCP" abbr="" journal-title="Saudi Journal of Clinical Pharmacy" batch="3" by="AK_24_Jun_25" copy-by="YA_25_Jun_25" client="medknow" split="SJCP.xml" split_master="master_split.xml" />
+  <journal short="AJEM" abbr="" journal-title="African Journal of Endocrinology and Metabolism" batch="4" by="AK_04_July_25" copy-by="YA_04_July_25" client="medknow" split="AJEM.xml" split_master="master_split.xml" />
+  <journal short="AMAS" abbr="" journal-title="Annals of Minimal Access Surgery &amp; Allied Science" batch="4" by="AK_04_July_25" copy-by="YA_04_July_25" client="medknow" split="AMAS.xml" split_master="master_split.xml" />
+  <journal short="EJRJ" abbr="" journal-title="Egyptian Retina Journal" batch="4" by="AK_04_July_25" client="medknow" split="EJRJ.xml" split_master="master_split.xml" />
+  <journal short="EYEQuest" abbr="" journal-title="EyeQuest" batch="4" by="AK_04_July_25" client="medknow" split="EYEQuest.xml" split_master="master_split.xml" />
+  <journal short="IJEMCR" abbr="" journal-title="IJEM Case Reports" batch="4" by="AK_04_July_25" client="medknow" split="IJEMCR.xml" split_master="master_split.xml" />
+  <journal short="IJORS" abbr="" journal-title="International Journal of Orthopaedic Surgery" batch="4" by="AK_04_July_25" client="medknow" split="IJORS.xml" split_master="master_split.xml" />
+  <journal short="IJRU" abbr="" journal-title="International Journal of Reconstructive Urology" batch="4" by="AK_04_July_25" client="medknow" split="IJRU.xml" split_master="master_split.xml" />
+  <journal short="INSJ" abbr="" journal-title="Indian Spine Journal" batch="4" by="AK_04_July_25" client="medknow" split="INSJ.xml" split_master="master_split.xml" />
+  <journal short="JCOS" abbr="" journal-title="Journal of Cornea and Ocular Surface" batch="4" by="AK_04_July_25" client="medknow" split="JCOS.xml" split_master="master_split.xml" />
+  <journal short="JLV" abbr="" journal-title="Journal of Laryngology and Voice" batch="4" by="AK_04_July_25" client="medknow" split="JLV.xml" split_master="master_split.xml" />
+  <journal short="JMSO" abbr="" journal-title="Journal of Medical Society" batch="4" by="AK_04_July_25" client="medknow" split="JMSO.xml" split_master="master_split.xml" />
+  <journal short="JOPN" abbr="" journal-title="Journal of Pediatric Neurosciences" batch="4" by="AK_04_July_25" client="medknow" split="JOPN.xml" split_master="master_split.xml" />
+  <journal short="JSIP" abbr="" journal-title="Journal of Society of Indian Physiotherapists" batch="4" by="AK_04_July_25" client="medknow" split="JSIP.xml" split_master="master_split.xml" />
+  <journal short="JTOS" abbr="" journal-title="Journal of Trauma and Orthopaedic Surgery" batch="4" by="AK_04_July_25" client="medknow" split="JTOS.xml" split_master="master_split.xml" />
+  <journal short="MLDN" abbr="" journal-title="Malaysian Dental Journal" batch="4" by="AK_04_July_25" client="medknow" split="MLDN.xml" split_master="master_split.xml" />
+  <journal short="NJVD" abbr="" journal-title="Nigerian Journal of Vitreoretinal Diseases" batch="4" by="AK_04_July_25" client="medknow" split="NJVD.xml" split_master="master_split.xml" />
+  <journal short="PEDC" abbr="" journal-title="Pediatric Companion" batch="4" by="AK_04_July_25" client="medknow" split="PEDC.xml" split_master="master_split.xml" />
+  <journal short="PNJB" abbr="" journal-title="Paediatric Nephrology Journal of Bangladesh" batch="4" by="AK_04_July_25" client="medknow" split="PNJB.xml" split_master="master_split.xml" />
+  <journal short="RHAW" abbr="" journal-title="International Journal of Abdominal Wall and Hernia Surgery" batch="4" by="AK_04_July_25" client="medknow" split="RHAW.xml" split_master="master_split.xml" />
+  <journal short="RRPE" abbr="" journal-title="Research and Reviews in Pediatrics" batch="4" by="AK_04_July_25" client="medknow" split="RRPE.xml" split_master="master_split.xml" />
+  <journal short="AJRGE" abbr="" journal-title="African Journal of Reproduction and Gynaecological Endoscopy" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="AJRGE.xml" split_master="master_split.xml" />
+  <journal short="AOMD" abbr="" journal-title="Annals of Movement Disorders" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="AOMD.xml" split_master="master_split.xml" />
+  <journal short="BGJ" abbr="" journal-title="Breast Global Journal" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="BGJ.xml" split_master="master_split.xml" />
+  <journal short="BJOC" abbr="" journal-title="Bengal Journal of Cancer" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="BJOC.xml" split_master="master_split.xml" />
+  <journal short="IJHR" abbr="" journal-title="International Journal of Heart Rhythm" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="IJHR.xml" split_master="master_split.xml" />
+  <journal short="IJYN" abbr="" journal-title="International Journal of Heart Rhythm" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="IJYN.xml" split_master="master_split.xml" />
+  <journal short="JAHAS" abbr="" journal-title="DPU’s Journal of Ayurved, Homeopathy and Allied Health Sciences" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="JAHAS.xml" split_master="master_split.xml" />
+  <journal short="JDRA" abbr="" journal-title="Journal of Drug Research in Ayurvedic Sciences" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="JDRA.xml" split_master="master_split.xml" />
+  <journal short="JMUPM" abbr="" journal-title="Journal on Musculoskeletal Ultrasound and Pain Medicine" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="JMUPM.xml" split_master="master_split.xml" />
+  <journal short="JOASIS" abbr="" journal-title="Journal of Orthopaedic Association of South Indian States" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="JOASIS.xml" split_master="master_split.xml" />
+  <journal short="JOCY" abbr="" journal-title="Journal of Cytology" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="JOCY.xml" split_master="master_split.xml" />
+  <journal short="JPBI" abbr="" journal-title="Journal of Pharmaceutical and BioSciences" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="JPBI.xml" split_master="master_split.xml" />
+  <journal short="JRAS" abbr="" journal-title="Journal of Research in Ayurvedic Sciences" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="JRAS.xml" split_master="master_split.xml" />
+  <journal short="JRSM" abbr="" journal-title="Journal of Research in Siddha Medicine" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="JRSM.xml" split_master="master_split.xml" />
+  <journal short="JUOA" abbr="" journal-title="Journal of the Uttaranchal Orthopaedic Association" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="JUOA.xml" split_master="master_split.xml" />
+  <journal short="KHJ" abbr="" journal-title="Kerala Heart Journal" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="KHJ.xml" split_master="master_split.xml" />
+  <journal short="MJBL" abbr="" journal-title="Medical Journal of Babylon" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="MJBL.xml" split_master="master_split.xml" />
+  <journal short="MTSP" abbr="" journal-title="Matrix Science Pharma" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="MTSP.xml" split_master="master_split.xml" />
+  <journal short="NJCT" abbr="" journal-title="Nigerian Journal of Cardiovascular &amp; Thoracic Surgery" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="NJCT.xml" split_master="master_split.xml" />
+  <journal short="PRCM" abbr="" journal-title="Pediatric Respirology and Critical Care Medicine" batch="5" by="AK_23_Jul_25" copy-by="YA_24_Jul_25" client="medknow" split="PRCM.xml" split_master="master_split.xml" />
+  <journal short="IJNO" abbr="" journal-title="International Journal of Neurooncology" batch="6" by="AK_31_Jul_25" copy-by="YA_01_Aug_25" client="medknow" split="IJNO.xml" split_master="master_split.xml" />
+  <journal short="JCDM" abbr="" journal-title="Journal of Cardio-Diabetes and Metabolic Disorders" batch="6" by="AK_31_Jul_25" copy-by="YA_01_Aug_25" client="medknow" split="JCDM.xml" split_master="master_split.xml" />
+  <journal short="JNAM" abbr="" journal-title="Journal of the Nigerian Academy of Medicine" batch="6" by="AK_31_Jul_25" copy-by="YA_01_Aug_25" client="medknow" split="JNAM.xml" split_master="master_split.xml" />
+  <journal short="JOPS" abbr="" journal-title="Journal of Oncoplastic Surgery" batch="6" by="AK_31_Jul_25" copy-by="YA_01_Aug_25" client="medknow" split="JOPS.xml" split_master="master_split.xml" />
+  <journal short="JOSH" abbr="" journal-title="Journal of All India Institute of Speech and Hearing" batch="6" by="AK_31_July_25" copy-by="YA_01_Aug_25" client="medknow" split="JOSH.xml" split_master="master_split.xml" />
+  <journal short="JSPF" abbr="" journal-title="Journal of SAARC Psychiatric Federation" batch="6" by="AK_31_Jul_25" copy-by="YA_01_Aug_25" client="medknow" split="JSPF.xml" split_master="master_split.xml" />
+  <journal short="SJOB" abbr="" journal-title="Saudi Journal of Obesity" batch="6" by="AK_31_Jul_25" copy-by="YA_01_Aug_25" client="medknow" split="SJOB.xml" split_master="master_split.xml" />
+  <journal short="TUMJ" abbr="" journal-title="Tungs’ Medical Journal" batch="6" by="AK_31_Jul_25" copy-by="YA_01_Aug_25" client="medknow" split="TUMJ.xml" split_master="master_split.xml" />
+  <journal short="BJEM" abbr="" journal-title="Bangladesh J Endocrinol Metab" batch="7" by="AK_19_Sep_25" client="medknow" split="BJEM.xml" split_master="master_split.xml" />
+  <journal short="EHSJ" abbr="" journal-title="Emergency Health Services Journal" batch="7" by="AK_15_Sep_25" client="medknow" split="EHSJ.xml" split_master="master_split.xml" />
+  <journal short="JASU" abbr="" journal-title="Journal of Association of Southern Urologists" batch="7" by="AK_15_Sep_25" client="medknow" split="JASU.xml" split_master="master_split.xml" />
+  <journal short="JOMS" abbr="" journal-title="Journal of Medical Sciences" batch="7" by="AK_15_Sep_25" client="medknow" split="JOMS.xml" split_master="master_split.xml" />
+  <journal short="NJOM" abbr="" journal-title="Nigerian Journal of Medicine" batch="7" by="AK_15_Sep_25" client="medknow" split="NJOM.xml" split_master="master_split.xml" />
+  <journal short="AOHA" abbr="J Acad Hosp Adm" journal-title="Journal of Academy of Hospital Administration" copy-by="YA_28_Jan_26" batch="8" client="medknow" split="AOHA.xml" split_master="master_split.xml" />
+  <journal short="JCOT" abbr="J Curr Oncol Trends" journal-title="Journal of Current Oncological Trends" copy-by="YA_28_Jan_26" batch="8" client="medknow" split="JCOT.xml" split_master="master_split.xml" />
+  <journal short="OHNS" abbr="Orissa J OHNS" journal-title="Orissa Journal of Otolaryngology and Head &amp; Neck Surgery" copy-by="YA_28_Jan_26" batch="8" client="medknow" split="OHNS.xml" split_master="master_split.xml" />
+  <journal short="IJNC" abbr="Int J Non-Commun Dis" journal-title="International Journal of Noncommunicable Diseases" mantis="3460935" batch="9" by="Yasar-9104228" copy-by="YA_26_Feb_26" qc-by="" data-created="ADMIN_UI_2026-02-26T05:22:17.602Z" client="medknow" split="IJNC.xml" split_master="master_split.xml" />
+  <journal short="JBCB" abbr="J Acad Biol Innov Surg" journal-title="Journal of the Academy for Biological Innovations in Surgery" mantis="3460935" batch="9" by="YA_26_Feb_26" copy-by="YA_26_Feb_26" qc-by="" data-created="ADMIN_UI_2026-02-26T05:22:17.602Z" client="medknow" split="JBCB.xml" split_master="master_split.xml" />
+  <journal short="JMER" abbr="J Med Res" journal-title="The Journal of Medical Research" mantis="" batch="9" by="YA_26_Feb_26" copy-by="YA_26_Feb_26" qc-by="" data-created="ADMIN_UI_2026-02-26T05:41:38.965Z" client="medknow" split="JMER.xml" split_master="master_split.xml" />
+  <journal short="OJMP" abbr="Othop J MPC" journal-title="Orthopaedic Journal of Madhya Pradesh Chapter" mantis="" batch="9" by="YA_26_Feb_26" copy-by="YA_26_Feb_26" qc-by="" data-created="ADMIN_UI_2026-02-26T05:42:32.218Z" client="medknow" split="OJMP.xml" split_master="master_split.xml" />
+  <journal short="TIMA" abbr="Telangana J IMA" journal-title="Telangana Journal of IMA" mantis="3460935" batch="9" by="YA_26_Feb_26" copy-by="YA_26_Feb_26" qc-by="" data-created="ADMIN_UI_2026-02-26T05:43:13.309Z" client="medknow" split="TIMA.xml" split_master="master_split.xml" />
+  <journal short="JJIR" abbr="" journal-title="JSS Journal of Interdisciplinary Research" batch="10" by="AK_06_May_26" copy-by="YA_13_May_26" client="medknow" split="JJIR.xml" split_master="master_split.xml" />
+  <journal short="NSSP" abbr="" journal-title="Journal of Nursing Science and Professional Practice" batch="10" by="AK_06_May_26" copy-by="YA_13_May_26" client="medknow" split="NSSP.xml" split_master="master_split.xml" />
+  <journal short="JMCU" abbr="J Microsc Ultrastruct" journal-title="Journal of Microscopy and Ultrastructure" client="medknow" split="JMCU.xml" split_master="master_split.xml" />
+  <journal short="JWAS" abbr="J West Afr Coll Surg" journal-title="Journal of the West African College of Surgeons" client="medknow" split="JWAS.xml" split_master="master_split.xml" />
+</journals>

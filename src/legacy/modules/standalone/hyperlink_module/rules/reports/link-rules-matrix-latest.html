@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Link-rules matrix — area-first (random urls_list + HTML leaf)</title>
+<style>
+  :root { font-family: Segoe UI, system-ui, sans-serif; color: #1a1a1a; }
+  body { margin: 0; background: #eef0f3; }
+  .page { max-width: 1100px; margin: 0 auto; padding: 1.25rem 1.5rem 3rem; }
+  h1 { margin: 0 0 .25rem; font-size: 1.4rem; }
+  .meta { color: #555; margin-bottom: 1rem; font-size: .88rem; }
+  .toc { display: flex; gap: .75rem; margin: 1rem 0 1.25rem; flex-wrap: wrap; }
+  .toc a { display: inline-block; padding: .55rem 1rem; border-radius: 6px; color: #fff; text-decoration: none; font-weight: 600; }
+  .toc .jats { background: #1a56a8; }
+  .toc .bits { background: #0d7a4f; }
+  .split-note { background: #fff8e6; border: 1px solid #e6d9a8; border-radius: 6px; padding: .65rem .85rem; font-size: .85rem; }
+  .stats { display: flex; gap: .75rem; margin: .75rem 0; flex-wrap: wrap; }
+  .stat { background: #f7f8fa; border: 1px solid #ddd; border-radius: 6px; padding: .5rem .8rem; }
+  .stat strong { display: block; font-size: 1.2rem; }
+  .stat.ok strong { color: #0a7a32; }
+  .stat.bad strong { color: #b00020; }
+  .dtd-block { background: #fff; border: 2px solid var(--accent); border-radius: 10px; padding: 1rem 1.1rem 1.4rem; margin: 1.75rem 0; }
+  .dtd-header h2 { margin: 0; font-size: 1.35rem; color: var(--accent); letter-spacing: .04em; }
+  .dtd-sub { color: #555; font-size: .88rem; margin: .35rem 0 .75rem; }
+  .area-nav { display: flex; flex-wrap: wrap; gap: .35rem; margin: .5rem 0 1rem; }
+  .area-nav a { background: #f0f2f5; border: 1px solid #ccc; padding: .2rem .55rem; border-radius: 4px; text-decoration: none; color: #0645ad; font-size: .8rem; }
+  .area { margin: 1.1rem 0 1.4rem; }
+  .area h3 { margin: 0 0 .5rem; font-size: 1.05rem; display: flex; align-items: baseline; gap: .75rem; }
+  .area h3 .counts { font-size: .75rem; font-weight: 500; color: #666; }
+  .area h3 .hint { font-size: .75rem; font-weight: 500; color: #666; }
+  table { border-collapse: collapse; width: 100%; font-size: .8rem; }
+  th, td { border: 1px solid #e0e0e0; padding: .4rem .5rem; vertical-align: top; text-align: left; }
+  th { background: #f0f2f5; }
+  tr.pass td:last-child { color: #0a7a32; font-weight: 600; }
+  tr.fail td:last-child { color: #b00020; font-weight: 600; }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-all; font-size: .72rem; }
+  .token { margin-top: .25rem; color: #666; font-size: .7rem; }
+  code { font-size: .72rem; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Link-rules matrix (area-first)</h1>
+  <p class="meta">Generated 2026-09-26T11:09:17.198Z from <code>link-rules.json</code> + random <code>urls_list.json</code>.
+  Output = editor <strong>HTML leaf</strong> (<code>&lt;span&gt;</code> attrs), not XML. Fresh random Inputs each run.</p>
+
+  <p class="split-note">
+    <strong>JATS</strong> (journal): ACS, BRILL, INTELLECT, LWW, MEDKNOW, NIHR, OUP, PLOS, TNFJOURNALS<br/>
+    <strong>BITS</strong> (book): TNF, OSO, OXMEDO, LSE<br/>
+    <strong>Pools:</strong> body/ref ← news∪government∪other · doi* ← doi_ids · email fixed<br/>
+    <strong>special-case:</strong> allowlisted client × journal only (e.g. LWW × GOX/PRS/XCS).
+  </p>
+
+  <div class="stats">
+    <div class="stat"><span>Total cases</span><strong>68</strong></div>
+    <div class="stat ok"><span>Pass</span><strong>68</strong></div>
+    <div class="stat bad"><span>Fail</span><strong>0</strong></div>
+  </div>
+
+  <div class="toc">
+    <a class="jats" href="#dtd-JATS">JATS — 9 clients</a>
+    <a class="bits" href="#dtd-BITS">BITS — 4 clients</a>
+  </div>
+
+  
+  <section class="dtd-block" id="dtd-JATS" style="--accent:#1a56a8">
+    <header class="dtd-header">
+      <h2>JATS</h2>
+      <p class="dtd-sub">Journal clients · <code>isJournal: true</code> · random Inputs from <code>urls_list.json</code> · HTML leaf Output.</p>
+      <div class="stats">
+        <div class="stat"><span>Clients</span><strong>9</strong></div>
+        <div class="stat"><span>Cases</span><strong>48</strong></div>
+        <div class="stat ok"><span>Pass</span><strong>48</strong></div>
+        <div class="stat bad"><span>Fail</span><strong>0</strong></div>
+      </div>
+      <nav class="area-nav">
+        <a href="#dtd-JATS-body-url">body-url</a><a href="#dtd-JATS-reference-url">reference-url</a><a href="#dtd-JATS-doi-full">doi-full</a><a href="#dtd-JATS-doi-partial">doi-partial</a><a href="#dtd-JATS-email">email</a>
+        <a href="#JATS-special-case">special-case</a>
+      </nav>
+    </header>
+    
+  <section class="area" id="dtd-JATS-body-url">
+    <h3>body-url <span class="counts">9 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output (HTML leaf)</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>ACS</strong></td>
+      <td><code>https://www.ucl.ac.uk/bartlett/sites/bartlett/files/reclaiming-digital-sovereignty.pdf</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://www.ucl.ac.uk/bartlett/sites/bartlett/files/reclaiming-digital-sovereignty.pdf&quot;&gt;https://www.ucl.ac.uk/bartlett/sites/bartlett/files/reclaiming-digital-sovereignty.pdf&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>BRILL</strong></td>
+      <td><code>https://iwwage.org/iwwage-at-the-second-edition-of-the-asia-pacific-care-forum-in-bangkok/</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://iwwage.org/iwwage-at-the-second-edition-of-the-asia-pacific-care-forum-in-bangkok/&quot;&gt;https://iwwage.org/iwwage-at-the-second-edition-of-the-asia-pacific-care-forum-in-bangkok/&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>INTELLECT</strong></td>
+      <td><code>https://www.bbc.com/news/world-africa-51532829</code></td>
+      <td><pre>&lt;span data-name=&quot;uri&quot; class=&quot;uri&quot; xlink:href=&quot;https://www.bbc.com/news/world-africa-51532829&quot;&gt;https://www.bbc.com/news/world-africa-51532829&lt;/span&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td><code>https://theintercept.com/2016/10/17/muslim-students-speak-out-against-fbi-informant-plan-exposed-by-the-intercept/</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://theintercept.com/2016/10/17/muslim-students-speak-out-against-fbi-informant-plan-exposed-by-the-intercept/&quot;&gt;https://theintercept.com/2016/10/17/muslim-students-speak-out-against-fbi-informant-plan-exposed-by-the-intercept/&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>MEDKNOW</strong></td>
+      <td><code>https://health-e.org.za/2006/03/22/health-%20officials-promote-untested-ubhejane/</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://health-e.org.za/2006/03/22/health-%20officials-promote-untested-ubhejane/&quot;&gt;https://health-e.org.za/2006/03/22/health-%20officials-promote-untested-ubhejane/&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>NIHR</strong></td>
+      <td><code>https://data.unwomen.org/features/covid-19-pandemic-has-increased-care-burden-how-much-0</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://data.unwomen.org/features/covid-19-pandemic-has-increased-care-burden-how-much-0&quot;&gt;https://data.unwomen.org/features/covid-19-pandemic-has-increased-care-burden-how-much-0&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OUP</strong></td>
+      <td><code>https://www.coleurope.eu/sites/default/files/uploads/page/collegium_50_lowres.pdf</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://www.coleurope.eu/sites/default/files/uploads/page/collegium_50_lowres.pdf&quot;&gt;https://www.coleurope.eu/sites/default/files/uploads/page/collegium_50_lowres.pdf&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>PLOS</strong></td>
+      <td><code>https://www.philanthropy.com/article/we-disagree-on-many-things-but-we-speak-with-one-voice-in-support-of-philanthropic-pluralism</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://www.philanthropy.com/article/we-disagree-on-many-things-but-we-speak-with-one-voice-in-support-of-philanthropic-pluralism&quot;&gt;https://www.philanthropy.com/article/we-disagree-on-many-things-but-we-speak-with-one-voice-in-support-of-philanthropic-pluralism&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>TNFJOURNALS</strong></td>
+      <td><code>https://globalenergymonitor.org/report/chinas-solar-and-onshore-wind-capacity-reaches-new-heights-while-offshore-wind-shows-promise/</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://globalenergymonitor.org/report/chinas-solar-and-onshore-wind-capacity-reaches-new-heights-while-offshore-wind-shows-promise/&quot;&gt;https://globalenergymonitor.org/report/chinas-solar-and-onshore-wind-capacity-reaches-new-heights-while-offshore-wind-shows-promise/&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-JATS-reference-url">
+    <h3>reference-url <span class="counts">9 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output (HTML leaf)</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>ACS</strong></td>
+      <td><code>https://www.trai.gov.in/sites/default/files/2024-09/CP_16122021_0.pdf</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://www.trai.gov.in/sites/default/files/2024-09/CP_16122021_0.pdf&quot;&gt;https://www.trai.gov.in/sites/default/files/2024-09/CP_16122021_0.pdf&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>BRILL</strong></td>
+      <td><code>https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html&quot;&gt;https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>INTELLECT</strong></td>
+      <td><code>https://www.govtechreview.com.au/content/gov-cloud/news/netskope-to-invest-in-australia-s-first-indigenous-sovereign-cloud-1434851036</code></td>
+      <td><pre>&lt;span data-name=&quot;uri&quot; class=&quot;uri&quot; xlink:href=&quot;https://www.govtechreview.com.au/content/gov-cloud/news/netskope-to-invest-in-australia-s-first-indigenous-sovereign-cloud-1434851036&quot;&gt;https://www.govtechreview.com.au/content/gov-cloud/news/netskope-to-invest-in-australia-s-first-indigenous-sovereign-cloud-1434851036&lt;/span&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td><code>https://www.linkedin.com/pulse/equipping-indian-defence-comprehensive-look-products-/</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://www.linkedin.com/pulse/equipping-indian-defence-comprehensive-look-products-/&quot;&gt;https://www.linkedin.com/pulse/equipping-indian-defence-comprehensive-look-products-/&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>MEDKNOW</strong></td>
+      <td><code>https://mg.co.za/article/2018-12-17-ramaphosa-under-pressure-to-support-reparations-for-apartheid-victims</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://mg.co.za/article/2018-12-17-ramaphosa-under-pressure-to-support-reparations-for-apartheid-victims&quot;&gt;https://mg.co.za/article/2018-12-17-ramaphosa-under-pressure-to-support-reparations-for-apartheid-victims&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>NIHR</strong></td>
+      <td><code>https://www.nbcnews.com/feature/nbc-out/trump-s-controversial-transgender-military-policy-goes-effect-n993826</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://www.nbcnews.com/feature/nbc-out/trump-s-controversial-transgender-military-policy-goes-effect-n993826&quot;&gt;https://www.nbcnews.com/feature/nbc-out/trump-s-controversial-transgender-military-policy-goes-effect-n993826&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OUP</strong></td>
+      <td><code>https://www.theguardian.com/world/2020/mar/18/white-nationalist-hate-groups-southern-poverty-law-center</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://www.theguardian.com/world/2020/mar/18/white-nationalist-hate-groups-southern-poverty-law-center&quot;&gt;https://www.theguardian.com/world/2020/mar/18/white-nationalist-hate-groups-southern-poverty-law-center&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>PLOS</strong></td>
+      <td><code>https://bioethicsarchive.georgetown.edu/pcsbi/sites/default/files/Ethics-and-Ebola_PCSBI_508.pdf</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://bioethicsarchive.georgetown.edu/pcsbi/sites/default/files/Ethics-and-Ebola_PCSBI_508.pdf&quot;&gt;https://bioethicsarchive.georgetown.edu/pcsbi/sites/default/files/Ethics-and-Ebola_PCSBI_508.pdf&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>TNFJOURNALS</strong></td>
+      <td><code>https://www.scmp.com/news/china/diplomacy/article/3314663/huawei-and-bytedance-plan-major-investments-tech-sectors-brazil</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://www.scmp.com/news/china/diplomacy/article/3314663/huawei-and-bytedance-plan-major-investments-tech-sectors-brazil&quot;&gt;https://www.scmp.com/news/china/diplomacy/article/3314663/huawei-and-bytedance-plan-major-investments-tech-sectors-brazil&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-JATS-doi-full">
+    <h3>doi-full <span class="counts">9 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output (HTML leaf)</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>ACS</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>BRILL</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>INTELLECT</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>MEDKNOW</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;uri&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>NIHR</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OUP</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>PLOS</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>TNFJOURNALS</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-JATS-doi-partial">
+    <h3>doi-partial <span class="counts">9 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output (HTML leaf)</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>ACS</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;pub-id&quot; class=&quot;pub-id&quot; pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>BRILL</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;pub-id&quot; class=&quot;pub-id&quot; pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>INTELLECT</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>doiPartialExtDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;pub-id&quot; class=&quot;pub-id&quot; pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>MEDKNOW</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;pub-id&quot; class=&quot;pub-id&quot; pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>NIHR</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;pub-id&quot; class=&quot;pub-id&quot; pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OUP</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;pub-id&quot; class=&quot;pub-id&quot; pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>PLOS</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;pub-id&quot; class=&quot;pub-id&quot; pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>TNFJOURNALS</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;pub-id&quot; class=&quot;pub-id&quot; pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-JATS-email">
+    <h3>email <span class="counts">9 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output (HTML leaf)</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>ACS</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>BRILL</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>INTELLECT</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>MEDKNOW</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>NIHR</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OUP</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>PLOS</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>TNFJOURNALS</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="JATS-special-case">
+    <h3>special-case <span class="hint">(allowlisted client × journal only)</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Journal</th><th>Input</th><th>Output</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td>GOX</td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td>PRS</td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td>XCS</td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr></tbody>
+    </table>
+  </section>
+  </section>
+  
+  <section class="dtd-block" id="dtd-BITS" style="--accent:#0d7a4f">
+    <header class="dtd-header">
+      <h2>BITS</h2>
+      <p class="dtd-sub">BITS clients TNF · OSO · OXMEDO · LSE · <code>isJournal: false</code> · random Inputs · HTML leaf Output.</p>
+      <div class="stats">
+        <div class="stat"><span>Clients</span><strong>4</strong></div>
+        <div class="stat"><span>Cases</span><strong>20</strong></div>
+        <div class="stat ok"><span>Pass</span><strong>20</strong></div>
+        <div class="stat bad"><span>Fail</span><strong>0</strong></div>
+      </div>
+      <nav class="area-nav">
+        <a href="#dtd-BITS-body-url">body-url</a><a href="#dtd-BITS-reference-url">reference-url</a><a href="#dtd-BITS-doi-full">doi-full</a><a href="#dtd-BITS-doi-partial">doi-partial</a><a href="#dtd-BITS-email">email</a>
+        
+      </nav>
+    </header>
+    
+  <section class="area" id="dtd-BITS-body-url">
+    <h3>body-url <span class="counts">4 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output (HTML leaf)</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>TNF</strong></td>
+      <td><code>https://www.washingtonpost.com/sports/2020/06/01/colin-kaepernick-kneeling-history/</code></td>
+      <td><pre>&lt;span data-name=&quot;uri&quot; class=&quot;uri&quot; xlink:href=&quot;https://www.washingtonpost.com/sports/2020/06/01/colin-kaepernick-kneeling-history/&quot;&gt;https://www.washingtonpost.com/sports/2020/06/01/colin-kaepernick-kneeling-history/&lt;/span&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OSO</strong></td>
+      <td><code>https://rootsofprogress.org/nonprofit-announcement</code></td>
+      <td><pre>&lt;span data-name=&quot;uri&quot; class=&quot;uri&quot; xlink:href=&quot;https://rootsofprogress.org/nonprofit-announcement&quot;&gt;https://rootsofprogress.org/nonprofit-announcement&lt;/span&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OXMEDO</strong></td>
+      <td><code>www.prisonadvice.org.uk/media/m4ebyvqm/preventing-homelessness-former-prisoners.pdf</code></td>
+      <td><pre>&lt;span data-name=&quot;uri&quot; class=&quot;uri&quot; xlink:href=&quot;www.prisonadvice.org.uk/media/m4ebyvqm/preventing-homelessness-former-prisoners.pdf&quot;&gt;www.prisonadvice.org.uk/media/m4ebyvqm/preventing-homelessness-former-prisoners.pdf&lt;/span&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LSE</strong></td>
+      <td><code>https://content.forensic-architecture.org/wp-content/uploads/2019/06/FO-report.pdf</code></td>
+      <td><pre>&lt;span data-name=&quot;uri&quot; class=&quot;uri&quot; xlink:href=&quot;https://content.forensic-architecture.org/wp-content/uploads/2019/06/FO-report.pdf&quot;&gt;https://content.forensic-architecture.org/wp-content/uploads/2019/06/FO-report.pdf&lt;/span&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-BITS-reference-url">
+    <h3>reference-url <span class="counts">4 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output (HTML leaf)</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>TNF</strong></td>
+      <td><code>https://www.amant.org/exhibitions/11-jayne-cortez-a-poet-s-guide-to-the-world</code></td>
+      <td><pre>&lt;span data-name=&quot;uri&quot; class=&quot;uri&quot; xlink:href=&quot;https://www.amant.org/exhibitions/11-jayne-cortez-a-poet-s-guide-to-the-world&quot;&gt;https://www.amant.org/exhibitions/11-jayne-cortez-a-poet-s-guide-to-the-world&lt;/span&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OSO</strong></td>
+      <td><code>https://www.sundaypost.com/news/uk-news/public-want-smokers-pay-nhs-health-care/</code></td>
+      <td><pre>&lt;span data-name=&quot;uri&quot; class=&quot;uri&quot; xlink:href=&quot;https://www.sundaypost.com/news/uk-news/public-want-smokers-pay-nhs-health-care/&quot;&gt;https://www.sundaypost.com/news/uk-news/public-want-smokers-pay-nhs-health-care/&lt;/span&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OXMEDO</strong></td>
+      <td><code>https://prisonreformtrust.org.uk/wp-content/uploads/2021/11/human-rights-bookletdigital.pdf</code></td>
+      <td><pre>&lt;span data-name=&quot;uri&quot; class=&quot;uri&quot; xlink:href=&quot;https://prisonreformtrust.org.uk/wp-content/uploads/2021/11/human-rights-bookletdigital.pdf&quot;&gt;https://prisonreformtrust.org.uk/wp-content/uploads/2021/11/human-rights-bookletdigital.pdf&lt;/span&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LSE</strong></td>
+      <td><code>www.theguardian.com/society/2023/aug/05/three-quarters-of-prisons-in-england-and-wales-in-appalling-conditions-as-overcrowding-fears-grow</code></td>
+      <td><pre>&lt;span data-name=&quot;uri&quot; class=&quot;uri&quot; xlink:href=&quot;www.theguardian.com/society/2023/aug/05/three-quarters-of-prisons-in-england-and-wales-in-appalling-conditions-as-overcrowding-fears-grow&quot;&gt;www.theguardian.com/society/2023/aug/05/three-quarters-of-prisons-in-england-and-wales-in-appalling-conditions-as-overcrowding-fears-grow&lt;/span&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-BITS-doi-full">
+    <h3>doi-full <span class="counts">4 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output (HTML leaf)</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>TNF</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OSO</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OXMEDO</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LSE</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-BITS-doi-partial">
+    <h3>doi-partial <span class="counts">4 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output (HTML leaf)</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>TNF</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OSO</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OXMEDO</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LSE</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;span data-name=&quot;ext-link&quot; class=&quot;ext-link&quot; ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/span&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS<br><small>fallback sample</small></td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-BITS-email">
+    <h3>email <span class="counts">4 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output (HTML leaf)</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>TNF</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OSO</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OXMEDO</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LSE</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;span data-name=&quot;email&quot; class=&quot;email&quot;&gt;author@example.com&lt;/span&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  </section>
+</div>
+</body>
+</html>

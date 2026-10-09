@@ -1,0 +1,36 @@
+{
+    "page_title": "IMPACT - Landing Page",
+    "client_favicon": "Newgen",
+    "disclaimer_second_para": "",
+    "content_container_class": "",
+    "welcome_heading": {
+        "defualt": "Welcome to <span class=\"impact-title\">IMPACT</span> an Online Proofing System"
+    },
+    "left_side_col_class": {
+        "default": "col-sm-12 col-md-6 col-lg-6",
+        "journals": "col-sm-12 col-md-6 col-lg-6",
+        "books": "col-sm-12 col-md-9 col-lg-9"
+    },
+    "right_side_col_class": {
+        "default": "col-sm-12 col-md-6 col-lg-6",
+        "journals": "col-sm-12 col-md-6 col-lg-6",
+        "books": "col-sm-12 col-md-3 col-lg-3"
+    },
+    "instructions_section": "instructions_default_journal",
+    "disclaimer_section": "disclaimer_standard",
+    "extra_sections": [],
+    "doi_component": "doi_info",
+    "navbar": {
+        "logo_src": "assets/images/svg/logo/IMPACT_5_4.svg",
+        "logo_alt": "IMPACT Logo",
+        "logo_height": "30",
+        "logo_width": "150",
+        "theme": "white"
+    },
+    "footer": {
+        "row_class": "text-light bg-blue",
+        "container_class": "container",
+        "logo_section": "footer_empty_brand",
+        "browser": "browser"
+    }
+}

@@ -1,0 +1,32 @@
+<Styles>
+    <Style find="‡ref_auSurname" replace="surname"/>
+	<Style find="‡ref_auGivenName" replace="given name"/>
+	<Style find="‡ref_auCollab" replace="collab"/>
+	<Style find="‡ref_titleArticle" replace="article title"/>
+    <Style find="‡ref_pubdateYear" replace="year of publication"/>
+	<Style find="‡ref_titleJournal" replace="journal title"/>
+	<Style find="‡ref_volumeNumber" replace="volume number"/>
+	<Style find="‡ref_supplement" replace="supplement"/>
+	<Style find="‡ref_issueNumber" replace="issue number"/>
+	<Style find="‡ref_pageFirst" replace="page range"/>
+	<Style find="‡ref_pageLast" replace="page range"/>
+	<Style find="‡ref_idDOI" replace="doi number"/>
+	<Style find="‡ref_URL" replace="URL"/>
+	<Style find="‡ref_accessDate" replace="accessed date"/>
+	<Style find="‡ref_titleBook" replace="book title"/>
+	<Style find="‡ref_edition" replace="edition"/>
+	<Style find="‡ref_publisherLocation" replace="publisher location"/>
+	<Style find="‡ref_publisherName" replace="publisher name"/>
+	<Style find="‡ref_titleChapter" replace="chapter title"/>
+	<Style find="‡ref_conferenceName" replace="conference name"/>
+	<Style find="‡ref_conferenceDate" replace="conference date"/>
+	<Style find="‡ref_conferencePlace" replace="conference place"/>
+	<Style find="‡ref_titleThesis" replace="thesis title"/>
+	<Style find="‡ref_titleTransThesis" replace="transthesis title"/>
+	<Style find="‡ref_titleWebsite" replace="website title"/>
+	<Style find="‡ref_inventorSuffix" replace="inventor suffix"/>
+	<Style find="‡ref_inventorPrefix" replace="inventor prefix"/>
+	<Style find="‡ref_assigneeCollab" replace="assignee collab"/>
+	<Style find="‡ref_titlePatent" replace="patent title"/>
+	<Style find="‡ref_pubdateMonth" replace="pubdatemonth"/>
+</Styles>

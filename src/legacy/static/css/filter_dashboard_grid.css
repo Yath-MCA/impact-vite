@@ -1,0 +1,81 @@
+
+#clientname option:disabled {
+    background-color: #dcdcdc
+}
+
+.toprow {
+    background: #f1f1f1 !important
+}
+
+.toprow .header {
+    /*07-08-2023*/
+    cursor: default;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+    color: #686868 !important
+}
+
+.toprow ul>li>a {
+    color: #7b7b7b !important
+}
+
+.toprow ul>li>a.right {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 16px;
+    color: rgba(55, 57, 75, .65)
+}
+
+.card-body {
+    padding: .75rem !important
+}
+
+@media(min-height: 360px) {
+    #myGrid {
+        height: 435px
+    }
+}
+
+@media(min-height: 650px)and (max-height: 749px) {
+    #myGrid {
+        height: 475px
+    }
+}
+
+@media(min-height: 750px) {
+    #myGrid {
+        height: 745px
+    }
+}
+
+
+#Chart_DIV {
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 2%;
+    left: 1%;
+    border: 3px solid #73ad21;
+    background-color: #fff
+}
+
+
+
+button:disabled:hover {
+    background: none !important;
+    color: #8080806b !important;
+}
+
+
+.ag-row-level-0 {
+    /* font-weight: bold; */
+}
+
+.number-cell {
+    /* text-align: right; */
+}

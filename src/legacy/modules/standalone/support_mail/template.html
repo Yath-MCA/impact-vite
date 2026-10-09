@@ -1,0 +1,64 @@
+<div class="mDialog wo-editor-access ds-none" id="SupportMailDialog">
+    <div class="dialog-container lg">
+        <div class="dialog-content">
+            <div class="dia_header_div ui-draggable-handle">
+                <div class="dia_header_text">Contact Support - Email</div>
+                <div class="ml-auto closeIcons" title="Close"><img class="n_Img" src="assets/images/svg/dialogClose.svg" alt="Close Icon"></div>
+            </div>
+            <div class="d-flex flex-column dialog-body" data-id="dialog-body">
+                <form class="contactBody" id="contactBody" onsubmit="return false;" spellcheck="false">
+                    <div class="form-group mb-3">
+                        <div class="row">
+                            <div class="col"><span class="fromMail">From</span><span id="FromMail" class="mail_text">Usermail</span></div>
+                            <div class="col-4"><span class="toMail">To</span><span id="To_Mail" title="impact helpdesk" class="mail_text">IMPACT</span></div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <div class="d-flex">
+                            <label for="CCMail">CC</label>
+                            <div class="col email-id-row">
+                                <input type="text" class="form-control form-control-sm" id="CCMail" placeholder="someone@domain.com" autocomplete="off">
+                                <span class="dom_text" data-id='dom_text'><img class="n_Img" src="assets/images/svg/dialogClose.svg" alt="Close Icon"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="sub_value">Subject</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text form-control form-control-sm" id="basic-addon3" for="Prefix_text"></span></div>
+                        <input type="text" class="form-control form-control-sm mt-1" aria-describedby="basic-addon3" id="sub_value" aria-label="subject" placeholder="Subject">
+                    </div>
+                    <div class="form-group mb-3 bodyText" data-id="bodyText">
+                        <div class="row">
+                            <div class="col sn-h-lg">
+                                <div id="body_text" class="summernote" placeholder="Compose your mail here" contenteditable="false"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="MailAttach">
+                        <div class="col-3 d-flex align-items-center">
+                            <button type="button" class="btn btn-sm primary-btn mailattachNoteBtn" btn-id="attachNoteBtn" title="Attachment" id="SendImg" onclick=""><i class="fas fa-paperclip"></i> Attach</button>
+                        </div>
+                        <div id="mailbody_attach" class="col d-flex align-items-center">
+                            <input type="file" aria-label="attachment" accept="image/*" id="inputAttachMail" class="form-control-file form-control-sm ds-none">
+                            <input type="label" aria-label="label" placeholder="No file chosen..." value="" class="form-control form-control-sm disabled" id="insert_file_mail">
+                        </div>
+                        <div class="col-2">
+                            <span id="spinner-contact-supp" class="spinner-border iSpin_border text-primary ds-none" role="status"><span class="sr-only">Loading...</span></span>
+                            <i class="fas fa-trash ds-none" id="fa-trash-send" title="Delete"></i>
+                        </div>
+                    </div>
+                    <div class="input-group last_chk_box" id="fetch_browser_div">
+                        <input class="btn btn-primary" aria-label="Check Box" id="send_browser_check" type="checkbox" data-toggle="collapse" data-target="#fetch_browser_information" aria-controls="fetch_browser_information">Include Browser Information</input>
+                        <div class="collapse" id="fetch_browser_information">
+                            <div class="card card-body">We respect and value the privacy of all of our users. To locate the problem easily, we request you to furnish browser information along with the mail. If you have concerns about to permit, please uncheck the box.</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="dialog-footer" data-id="dialog-footer">
+                <button type="submit" title="Click to Cancel" id="Cancel_send" class="btn secondary-btn btn-sm ml-auto">Cancel</button>
+                <button type="submit" title="Click to Send" id="Submit_send" class="btn primary-btn btn-sm">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

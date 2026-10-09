@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journals>
+  <journal short="IFSO" abbr="" journal-title="IFSO" batch="3" by="AK" qcby="YA" client="tnfjournals" split="IFSO.xml" split_master="master_split.xml" />
+  <journal short="OAMA" abbr="" journal-title="OAMA" batch="3" by="AK" qcby="YA" client="tnfjournals" split="OAMA.xml" split_master="master_split.xml" />
+  <journal short="YTCR" abbr="" journal-title="YTCR" batch="7" by="AK" qcby="YA" client="tnfjournals" split="YTCR.xml" split_master="master_split.xml" />
+</journals>

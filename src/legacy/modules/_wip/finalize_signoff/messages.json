@@ -1,0 +1,177 @@
+{
+    "stages": {
+        "loading": {
+            "title": "Checking document",
+            "icon": "INFO",
+            "text": "...",
+            "spin": true,
+            "btn1": {},
+            "btn2": {}
+        },
+        "query_open": {
+            "title": "",
+            "icon": "WARNING",
+            "text": "There are <span class=\"open_count\">{{openAQCount}}</span> author queries awaiting your response. Prior to finalizing the task, it is important to address all the raised queries in a suitable manner. To provide answers to the pending queries, kindly click on the \"Reply to query\" button, which will open the \"Queries\" section.",
+            "spin": "",
+            "btn1": {
+                "id": "gotoquery",
+                "tabindex": "0",
+                "title": "Reply to query",
+                "text": "Reply to query"
+            },
+            "btn2": {}
+        },
+        "query_open_co_user": {
+            "title": "",
+            "icon": "WARNING",
+            "text": "There are <span class=\"open_count\">{{openAQCount}}</span> author queries awaiting your response. If you wish to respond to the queries, please click the \"Query Response\" button. Otherwise, click the \"Submit\" button to send the {{docType}} back to the corresponding author.",
+            "spin": "",
+            "btn1": {
+                "id": "finaliz",
+                "title": "Submit",
+                "text": "Submit"
+            },
+            "btn2": {
+                "id": "gotoquery",
+                "tabindex": 0,
+                "title": "Query Response",
+                "text": "Query Response"
+            }
+        },
+        "finalize": {
+            "title": "Are you ready to finalize and submit your {{docType}}?",
+            "icon": "WARNING",
+            "text": "Please note that once you finalize, you will not be able to make any further changes. Click &ldquo;Yes&rdquo; to proceed with finalizing your {{docType}}.",
+            "spin": "",
+            "btn1": {
+                "id": "finaliz",
+                "title": "Confirm",
+                "text": "Yes"
+            },
+            "btn2": {
+                "id": "Cancelfina",
+                "title": "Cancel",
+                "text": "Cancel"
+            }
+        },
+        "finalize_next": {
+            "title": "Processing . . . ",
+            "icon": "WARNING",
+            "text": "",
+            "spin": true,
+            "btn1": {},
+            "btn2": {}
+        },
+        "finalize_pass": {
+            "title": "Success!",
+            "icon": "SUCCESS",
+            "text": {
+                "JATS": {
+                    "default": "Your article has been successfully moved to the next stage.",
+                    "CO_ROLE": "The proof has been finalized and sent back to the corresponding author"
+                },
+                "BITS": {
+                    "default": "Your book/chapters has been successfully moved to the next stage.",
+                    "CO_ROLE": "Your book/chapters has been successfully moved to the next stage."
+                }
+            },
+            "spin": false,
+            "btn1": {
+                "id": "Cancelfina",
+                "title": "OK",
+                "text": "OK"
+            },
+            "btn2": {}
+        },
+        "finalize_retry": {
+            "title": "Retry . . .",
+            "icon": "ERROR.svg",
+            "text": "Error while processing the document. Please try after some time.",
+            "spin": true,
+            "btn1": {},
+            "btn2": {}
+        },
+        "query_mismatch": {
+            "title": "",
+            "icon": "ERROR",
+            "text": "Your document Query count is mismatched and you are unable to proceed. Kindly contact the support team for assistance.",
+            "spin": "",
+            "btn1": {
+                "id": "logOff",
+                "title": "logOff",
+                "text": "Click to Logoff"
+            },
+            "btn2": {}
+        },
+        "collaborative_status": {
+            "title": "Processing . . . ",
+            "icon": "WARNING",
+            "text": "",
+            "spin": true,
+            "btn1": {},
+            "btn2": {}
+        }
+    },
+    "collaborative_stages": {
+        "active": {
+            "header": "The document can’t be finalized right now because the following co-author(s) are currently working on it and haven’t submitted their changes yet:",
+            "footer": "Please wait until all collaborators have completed their review before proceeding.",
+            "btn1": {
+                "id": "Cancelfina",
+                "title": "Close",
+                "text": "Close"
+            },
+            "btn2": {
+                "id": "logOff",
+                "title": "Logoff",
+                "text": "Click to Logoff"
+            },
+            "icon": "ERROR"
+        },
+        "non_active": {
+            "header": "The document has been shared with the following co-author(s), but they haven’t submitted their changes yet:",
+            "footer": "Since they are currently inactive, you may choose to finalize now or wait for their submission. Would you like to proceed with finalizing the document?",
+            "btn1": {
+                "id": "finaliz",
+                "title": "Confirm",
+                "text": "Yes"
+            },
+            "btn2": {
+                "id": "Cancelfina",
+                "title": "Cancel",
+                "text": "Cancel"
+            },
+            "icon": "WARNING"
+        },
+        "finalize": {
+            "header": "Please note that once you finalize, you will not be able to make any further changes. Click “Yes” to proceed with finalizing your proof. Below is the access log of co-authors along with their review status:",
+            "footer": "",
+            "btn1": {
+                "id": "finaliz",
+                "title": "Confirm",
+                "text": "Yes"
+            },
+            "btn2": {
+                "id": "Cancelfina",
+                "title": "Cancel",
+                "text": "Cancel"
+            },
+            "icon": "WARNING"
+        },
+        "finalize_co": {
+            "header": "Please note that once you submit, you will not be able to make any further changes. Click “Submit” button to send the book/chapters back to the corresponding author. Below is the access log of co-authors along with their review status:",
+            "footer": "",
+            "btn1": {
+                "id": "finaliz",
+                "title": "Submit",
+                "text": "Submit"
+            },
+            "btn2": {
+                "id": "Cancelfina",
+                "title": "Cancel",
+                "text": "Cancel"
+            },
+            "icon": "WARNING"
+        }
+    }
+}

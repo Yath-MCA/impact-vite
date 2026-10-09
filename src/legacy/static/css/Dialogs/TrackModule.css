@@ -1,0 +1,434 @@
+div.dummyCheck {
+    cursor: pointer
+}
+
+#TrackEntryIndex {
+    background: #FFFFFF;
+    border: none !important;
+    box-sizing: border-box;
+    border-radius: 3px;
+    opacity: inherit;
+    cursor: default;
+    margin-top: -1px;
+    margin-right: -10px;
+    /*
+    font-size: .875rem;
+    line-height: 1.5;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25); 
+    width: 3.5rem; 
+    margin-top: -7px;
+    padding: .20rem;*/
+
+}
+
+.dia_body {
+    /* font-family: "Open Sans"; */
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.OptionsList>.pb-3 {
+    /* font-size: 16px; */
+    /* line-height: 18px;
+    font-weight: 500;
+    margin-left: 0px; */
+    /* margin-right: -47px; */
+}
+
+.track-history:not(.trackView) {
+    margin: 10px 0px;
+    padding: 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 265px;
+    /* width: 23rem; 05_JAN_23*/
+    scrollbar-width: thin;
+}
+
+/* #trackcomparediv .track-history {
+    height: 390px !important;
+  } */
+#trackDialogModule span {
+    font-size: 12px !important;
+}
+
+.track-history .track-entry-div {
+    padding: 5px 6px;
+    margin: 0px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.track-entry-div>div>div:nth-of-type(2) {
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 2px;
+}
+
+.OptionsList select {
+    font-weight: 500 !important;
+    box-sizing: border-box;
+    border-radius: 2px;
+    z-index: 99999;
+    padding: 0 8px;
+    color: #575757;
+    -webkit-appearance: none;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAMAAACtdX32AAAAdVBMVEUAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhMdQaAAAAJ3RSTlMAAAECAwQGBwsOFBwkJTg5RUZ4eYCHkJefpaytrsXGy8zW3+Do8vNn0bsyAAAAYElEQVR42tXROwJDQAAA0Ymw1p9kiT+L5P5HVEi3qJn2lcPjtIuzUIJ/rhIGy762N3XaThqMN1ZPALsZPEzG1x8LrFL77DHBnEMxBewz0fJ6LyFHTPL7xhwzWYrJ9z22AqmQBV757MHfAAAAAElFTkSuQmCC) !important;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: 1.5rem;
+}
+
+.track-history .track-entry-div:hover {
+    background: #f4eeee !important;
+    color: #191919 !important;
+    /* background: rgba(246, 138, 51, 0.15); */
+    border-radius: 2px;
+}
+
+.track-entry-div.active {
+    /*background: rgba(246,138,51,.15)!important;*/
+    background: #F8F8F8 !important;
+    /* color: #f68a33 !important; WCAG - Contrast Color Issue - 30 Nov 23 */
+    color: #BA5808 !important;
+    border-radius: 2px;
+}
+
+/* Confirmation need from srini */
+.track-history .entry {
+    margin: 0px;
+}
+
+/* Confirmation need from srini */
+.track-history .entry:not(:last-child) {
+    border-bottom: 0.5px solid #CACACA;
+    padding-bottom: 0px;
+}
+
+.t-user {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.t-text-ins {
+    color: #000F98;
+    padding-top: 1px;
+    font-size: 13px;
+}
+
+.t-text-del {
+    /* color: #FF0009; WCAG - Contrast Color Issue - 30 Nov 23 */
+    color: #EB0008;
+    padding-top: 1px;
+    font-size: 13px;
+}
+
+.t-text-for {
+    color: #008069;
+    padding-top: 1px;
+    font-size: 13px;
+}
+
+.t-text-for-re {
+    color: #008069;
+    padding-top: 1px;
+    font-size: 13px;
+}
+
+.t-text-for.format,
+.t-text-for-re.format {
+    color: #000000;
+    padding-top: 3px;
+    font-size: 11px;
+    line-height: 13px;
+}
+
+.OptionsList>li .countText {
+    color: #424242;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+#userAction {
+    font-size: 13px;
+    margin-top: 2.5px;
+}
+
+#userAction span:nth-of-type(1) {
+    margin-right: 5px;
+}
+
+#userAction span:nth-of-type(3) {
+    margin-left: 5px;
+}
+
+#userAction span.middle {
+    padding: 0 1em;
+    border-color: #cacaca;
+    border-style: solid;
+    border-width: 0 2px 0 2px;
+}
+
+.close-tdialog {
+    width: 24px;
+    height: 24px;
+    padding-left: 10px;
+    border-radius: 50%;
+    margin-left: auto !important;
+    /* background: rgba(246, 138, 51, 0.1)!important; */
+}
+
+.close-tdialog:hover {
+    border-radius: 50%;
+    padding-left: 10px;
+    cursor: pointer;
+    background: rgba(246, 138, 51, 0.1) !important;
+}
+
+.close-tdialog>.icons-new {
+    visibility: visible;
+}
+
+.close-tdialog>img {
+    width: 10px;
+    height: 10px;
+    margin: -2px 0 0 -3px;
+}
+
+.close-tdialog>img.icons-new.hover {
+    width: 23px;
+    height: 23px;
+    margin: -3.5px 0 0 -10px;
+}
+
+#TrackViewPanel {
+    height: calc(100vh - 5.3rem) !important;
+}
+
+#trackListGroup.trackView {
+    height: calc(100vh - 9rem) !important;
+    overflow-y: auto;
+    font-family: 'Inter UI', sans-serif !important;
+}
+
+#trackListGroup.trackView .query-by[data-label][data-role]::after,
+#trackListGroup.trackView .query-meta [data-role]::before {
+    background: #f68a33 !important;
+    color: #fff !important;
+    /* content: attr(data-label); */
+    border-radius: 2px;
+    display: inline;
+    position: relative;
+    padding: 2px 5px;
+    font-weight: 600;
+    font-size: 11px;
+    margin-right: 5px;
+
+    /* content: attr(data-label);
+    background: #f68a33!important;
+    color: #fff!important;
+    border-radius: 10%;
+    display: inline;
+    position: relative;
+    margin-left: 1em; */
+}
+
+.trackView .query-item {
+    border: none !important;
+}
+
+/* 28_JUNE_NEED_SEAN_APPROVAL */
+#trackListGroup .query-by[data-label][data-status]::before {
+    background: #f68a33 !important;
+    color: #fff !important;
+    content: attr(data-label);
+    border-radius: 2px;
+    display: inline;
+    position: relative;
+    padding: 2px 5px;
+    font-weight: 600;
+    font-size: 11px;
+    margin-right: 16px;
+}
+
+
+.trackOptionDiv span {
+    font-size: 12px !important;
+}
+
+.trackOptionDiv.trackView {
+    margin: 0 -7px;
+    border-top: 0.5px solid #cacaca;
+}
+
+.trackOptionDiv:not(.trackView) {
+    margin: 0 -18px;
+}
+
+#TrackEntryCounts,
+#TrackEntryCounts>div {
+    cursor: default !important;
+    margin-right: -2px;
+}
+
+.OptionsList {
+    cursor: default;
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 10px 21px 10px 13px;
+    border-radius: 3px 3px 0px 0px;
+    -webkit-box-shadow: 0px 4px 10px -6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 4px 10px -6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+.f14 {
+    font-size: 12px !important;
+    line-height: 15px;
+    color: #383838 !important;
+    font-weight: 700 !important;
+}
+
+select#TrackSelectOpt {
+    cursor: pointer;
+    line-height: 1 !important;
+    height: calc(1.8125rem + .5px) !important;
+    /* background: #F6F6F6!important; */
+    color: #656262 !important;
+    border: 0.5px solid #B8B8B8 !important;
+    box-sizing: border-box !important;
+    border-radius: 2px !important;
+    font-size: 12px !important;
+    /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);   */
+}
+
+select#TrackSelectOpt.custom-select:focus {
+    /* border-color: #F6F6F6 !important; */
+    /* outline: 0; */
+    /* box-shadow: inset 0 1px 2px rgba(0, 0, 0, .075), none */
+}
+
+select#TrackSelectOpt.custom-select option:focus::-ms-value {
+    /* color: #656262 !important; */
+    /* background-color: #F6F6F6 !important; */
+}
+
+select#TrackSelectOpt option:not(:hover) {
+    background: #FFFFFF !important;
+    color: #656262 !important;
+}
+
+select#TrackSelectOpt option.user:hover {
+    background-color: rgba(246, 138, 51, 0.15) !important;
+    color: #F1612C !important;
+    /* box-shadow: 0 0 10px 100px #FED20F inset !important; */
+    /* transition: all .2s ease-in-out!important; */
+}
+
+.t-ColorGray {
+    color: #656262;
+}
+
+.TrackCount {
+    font-weight: 500;
+    line-height: 16px;
+}
+
+#TrackinsCount {
+    color: #000F98;
+    padding-left: 0.25em;
+}
+
+#TrackdelCount {
+    /* color: #FF0009; WCAG - Contrast Color Issue - 30 Nov 23 */
+    color: #EB0008;
+    padding-left: 0.25em;
+}
+
+#TrackformatCount {
+    /* color: #1EA77B; WCAG - Contrast Color Issue - 30 Nov 23 */
+    color: #168360;
+    padding-left: 0.25em;
+}
+
+#track_select {
+    width: 57.59%;
+    font-size: 14px !important;
+}
+
+.text-track {
+    margin-left: 5px;
+    border-radius: 2px;
+    padding: 3px;
+    font-size: 12px;
+}
+
+.text-track.insert {
+    color: #000f98 !important;
+    background-color: rgba(30, 167, 123, 0.15);
+}
+
+.text-track.del {
+    color: #FF4242 !important;
+    background-color: rgba(255, 114, 0, 0.15);
+}
+
+.text-track.for {
+    color: #008069 !important;
+    background-color: rgba(0, 107, 203, 0.15);
+}
+
+.text-track.for-re {
+    color: #006BCB !important;
+    background-color: rgba(30, 167, 123, 0.15);
+}
+
+.t-text-ins.empty:after {
+    content: '\23B5';
+}
+
+#OptionsListOpt3 .primary-btn {
+    margin-right: 0.6em !important;
+    /* padding: 2px 7px 2px 7px !important; */
+}
+
+#OptionsListOpt2 {
+    margin-left: 1px;
+    margin-right: 2px;
+}
+
+#OptionsListOpt3 {
+    margin-left: 2px;
+}
+
+.third-btn {
+    background: white !important;
+    /* WCAG - Contrast Color Issue */
+    color: #C25700 !important;
+    padding: 2px 7px 2px 7px !important;
+}
+
+.third-btn:hover {
+    background: rgba(255, 179, 118, 0.24) !important;
+    /* padding: 2px 7px 2px 7px !important; */
+    /* border-radius: 2px; */
+}
+
+/* #btnNextTrack:focus, */
+.third-btn:focus {
+    background: rgba(255, 179, 118, 0.24) !important;
+    box-shadow: none;
+}
+
+.btnNxtTrackimg,
+.btnPrevTrackimg {
+    margin-top: -4px;
+}
+
+.track-history span.showHide {
+    padding-left: 8px;
+}

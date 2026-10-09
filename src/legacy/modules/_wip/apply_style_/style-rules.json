@@ -1,0 +1,168 @@
+{
+  "version": "1.0.0",
+  "meta": {
+    "description": "Apply-style enable/active rules for div.body",
+    "journal": "plos"
+  },
+  "scope": {
+    "rootSelector": "div.body[data-name='body']",
+    "rootXPath": "//div[@class='body' and @data-name='body']",
+    "mustBeInsideBody": true,
+    "restrictedParentClasses": [
+      "caption",
+      "boxed-text",
+      "fig",
+      "td",
+      "tr",
+      "disp-formula",
+      "inline-formula",
+      "table-wrap",
+      "table-wrap-foot"
+    ],
+    "restrictedTags": ["LI"]
+  },
+  "indexRules": {
+    "siblingIndex": {
+      "description": "Index among parent element children; 0 = first child"
+    },
+    "quoteParaIndex": {
+      "description": "Index among direct div.p children of div.disp-quote"
+    },
+    "quoteParaCount": {
+      "description": "Count of direct div.p in div.disp-quote"
+    }
+  },
+  "styles": [
+    { "code": "H1", "label": "Heading 1", "panelId": "li1", "targetClass": "sec", "dataLevels": 1, "wrap": true },
+    { "code": "H2", "label": "Heading 2", "panelId": "li2", "targetClass": "sec", "dataLevels": 2, "wrap": true },
+    { "code": "H3", "label": "Heading 3", "panelId": "li3", "targetClass": "sec", "dataLevels": 3, "wrap": true },
+    { "code": "P", "label": "Paragraph", "panelId": "li4", "targetClass": "p", "wrap": false },
+    { "code": "EXTRACT", "label": "Extract", "panelId": "li5", "targetClass": "disp-quote", "wrap": true },
+    { "code": "SOURCE", "label": "Source Line", "panelId": "li6", "targetClass": "p", "contentType": "source", "wrap": false }
+  ],
+  "contexts": [
+    {
+      "id": "CTX_RESTRICTED",
+      "match": { "insideBody": true, "inRestrictedParent": true },
+      "active": [],
+      "enabled": { "H1": false, "H2": false, "H3": false, "P": false, "EXTRACT": false, "SOURCE": false }
+    },
+    {
+      "id": "CTX_LIST",
+      "match": { "tagName": "LI", "insideBody": true },
+      "active": [],
+      "enabled": { "H1": false, "H2": false, "H3": false, "P": false, "EXTRACT": false, "SOURCE": false }
+    },
+    {
+      "id": "CTX_OUTSIDE_BODY",
+      "match": { "insideBody": false },
+      "active": [],
+      "enabled": { "H1": false, "H2": false, "H3": false, "P": false, "EXTRACT": false, "SOURCE": false }
+    },
+    {
+      "id": "CTX_ATTRIB_QUOTE",
+      "match": { "elementClass": "attrib", "parentClass": "disp-quote", "insideBody": true },
+      "active": ["SOURCE"],
+      "enabled": {
+        "H1": false,
+        "H2": false,
+        "H3": false,
+        "P": false,
+        "EXTRACT": true,
+        "SOURCE": true
+      }
+    },
+    {
+      "id": "CTX_P_QUOTE",
+      "match": { "elementClass": "p", "parentClass": "disp-quote", "insideBody": true },
+      "active": ["EXTRACT"],
+      "enabled": {
+        "H1": false,
+        "H2": false,
+        "H3": false,
+        "P": {
+          "when": [
+            { "field": "quoteParaCount", "op": "gt", "value": 1 },
+            { "field": "quoteParaIndex", "op": "gt", "value": 0 }
+          ]
+        },
+        "EXTRACT": true,
+        "SOURCE": {
+          "when": [
+            { "field": "quoteParaCount", "op": "gt", "value": 1 },
+            { "field": "quoteParaIndex", "op": "gt", "value": 0 }
+          ]
+        }
+      }
+    },
+    {
+      "id": "CTX_P_BODY",
+      "match": { "elementClass": "p", "parentClass": "body", "insideBody": true },
+      "active": ["P"],
+      "enabled": {
+        "H1": true,
+        "H2": false,
+        "H3": false,
+        "P": true,
+        "EXTRACT": {
+          "when": [
+            { "field": "siblingIndex", "op": "gt", "value": 0 },
+            { "field": "inRestrictedParent", "op": "eq", "value": false },
+            { "field": "isListItem", "op": "eq", "value": false },
+            { "field": "inFormula", "op": "eq", "value": false },
+            { "field": "inTableFoot", "op": "eq", "value": false }
+          ]
+        },
+        "SOURCE": false
+      }
+    },
+    {
+      "id": "CTX_P_SEC",
+      "match": { "elementClass": "p", "parentClass": "sec", "insideBody": true },
+      "active": ["P"],
+      "enabled": {
+        "H1": false,
+        "H2": { "rule": "headLevelValidation", "params": { "targetLevel": 2 } },
+        "H3": { "rule": "headLevelValidation", "params": { "targetLevel": 3 } },
+        "P": true,
+        "EXTRACT": {
+          "when": [
+            { "field": "siblingIndex", "op": "gt", "value": 0 },
+            { "field": "inRestrictedParent", "op": "eq", "value": false },
+            { "field": "isListItem", "op": "eq", "value": false },
+            { "field": "inFormula", "op": "eq", "value": false },
+            { "field": "inTableFoot", "op": "eq", "value": false }
+          ]
+        },
+        "SOURCE": false
+      }
+    },
+    {
+      "id": "CTX_TITLE_SEC",
+      "match": { "elementClass": "title", "parentClass": "sec", "insideBody": true },
+      "active": { "rule": "dynamicHeadingLevel" },
+      "enabled": {
+        "H1": { "rule": "headingLevelChange", "params": { "direction": "up" } },
+        "H2": { "rule": "headingLevelChange", "params": { "direction": "current" } },
+        "H3": { "rule": "headingLevelChange", "params": { "direction": "down" } },
+        "P": false,
+        "EXTRACT": false,
+        "SOURCE": false
+      }
+    }
+  ],
+  "validation": {
+    "firstMatchWins": true,
+    "contextOrder": [
+      "CTX_RESTRICTED",
+      "CTX_LIST",
+      "CTX_OUTSIDE_BODY",
+      "CTX_ATTRIB_QUOTE",
+      "CTX_P_QUOTE",
+      "CTX_P_BODY",
+      "CTX_P_SEC",
+      "CTX_TITLE_SEC"
+    ],
+    "operators": ["eq", "neq", "gt", "gte", "lt", "lte", "in", "notIn"]
+  }
+}

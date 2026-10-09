@@ -1,0 +1,326 @@
+// Meta elements
+.collection-meta,
+.book-meta {
+    display: none;
+}
+
+[book-part-type="chapter"] {
+
+
+    .book-part-meta {
+
+
+        .custom-meta-group {
+
+            display: none;
+
+        }
+
+
+    }
+
+
+}
+
+// Keyword group formatting
+.kwd-group {
+    &::before {
+        content: "Keywords (Online Only) ";
+        font-weight: bold;
+    }
+
+    &[specific-use="online"] {
+        display: block !important;
+        background-color: #E6F3FF;
+        padding: 3px 6px 6px 6px;
+    }
+
+    .kwd:first-child {
+        display: none !important;
+    }
+
+    .kwd {
+        margin-right: 2px;
+
+        &:not(:last-child)::after {
+            content: ", ";
+        }
+    }
+}
+
+
+/*
+	Siva updated on 18th June'26
+	[specific-use="online"] added below, because other type Abstract will not come Abstract (Online Only) heading
+    3517920	Graphical Abstract display
+  */
+.abstract[specific-use="online"] {
+    display: grid;
+    background-color: #E6F3FF;
+    padding: 9px;
+
+    &::before {
+        content: "Abstract (Online Only) ";
+        font-weight: bold;
+        margin-bottom: 2pt;
+    }
+
+    //paragraph need to display
+    .p[data-enter-af="yes"] {
+        //display: none !important;
+    }
+
+    .p {
+        margin-top: .5em;
+    }
+
+}
+
+.abstract[abstract-type="graphical"] {
+    padding-top: 18px;
+}
+
+.front-matter-part {
+
+    .half-title-title,
+    .title-page-title,
+    .title-page-subtitle,
+    .title-page-author,
+    .title-group .title {
+        text-align: center !important;
+    }
+
+    .title-group {
+        .title {
+            font-size: 20pt;
+            line-height: 22pt;
+            font-weight: 400;
+            margin-top: 18pt;
+        }
+    }
+}
+
+// TOC Entry Styling
+.toc {
+
+    .toc-title-group {
+        font-size: 20pt;
+        line-height: 22pt;
+        font-weight: 400;
+        text-align: center;
+        margin-top: 18pt;
+    }
+
+    .toc-entry {
+        display: block;
+        margin-left: 2em;
+        text-indent: -2em;
+
+
+        .title {
+            display: inline;
+            padding: 0 !important;
+        }
+
+        .contrib-group {
+            display: block;
+            text-indent: 0px;
+            padding: 0 !important;
+        }
+
+        &[content-type="sec1"] {
+            margin-left: 1rem;
+        }
+
+        &[content-type="sec2"] {
+            margin-left: 1.25rem;
+        }
+
+        &[content-type="sec3"] {
+            margin-left: 1.5rem;
+        }
+
+        &[content-type="sec4"] {
+            margin-left: 1.75rem;
+        }
+
+        &:last-of-type {
+            // margin-bottom: 50px !important;
+        }
+
+        .title::before {
+            margin-right: 10px !important;
+        }
+    }
+
+    div.toc-entry[content-type] {
+        // margin-bottom: 30px !important;
+        // margin-top: 30px !important;
+        margin-top: 5px;
+    }
+
+    // Nav pointer styling
+    span.nav-pointer {
+        // float: right;
+        display: none;
+    }
+}
+
+// Book metadata typography
+div.book-part-meta {
+    font-family: "Inter UI", sans-serif !important;
+
+    >div.title-group>div.subtitle {
+        font-size: 17pt !important;
+        line-height: 25px !important;
+        color: maroon;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 300 !important;
+        margin-top: 15px !important;
+    }
+}
+
+// Title roles
+[data-role="half-title-title"] {
+    font-size: 20pt !important;
+    line-height: 22pt !important;
+    font-weight: normal;
+    margin-top: 18pt !important;
+}
+
+[data-role="title-page-title"] {
+    font-size: 25pt !important;
+    line-height: 25pt !important;
+    font-weight: 500 !important;
+    margin-bottom: 30px !important;
+}
+
+[data-role="title-page-subtitle"] {
+    font-weight: 550 !important;
+    font-size: 17px !important;
+    margin-bottom: 40pt !important;
+}
+
+[data-role="title-page-author"] {
+    font-size: 16pt !important;
+    font-weight: 500 !important;
+    display: block !important;
+}
+
+
+
+// Section spacing
+.front-matter>div,
+.book-body .book-part,
+.book-back>div {
+    margin-top: 30px;
+}
+
+// List indentation override
+.p,
+div.body div.sec div.p {
+
+    ol,
+    ul {
+        text-indent: 0 !important;
+    }
+
+    &[content-type="indent"],
+    &[content-type="indented"] {
+
+        ol,
+        ul {
+            text-indent: 0 !important;
+        }
+    }
+}
+
+// Running titles
+div[alt-title-type="left-running"],
+div[alt-title-type="right-running"] {
+    font-size: 15px;
+    line-height: 22px;
+}
+
+// Section headings
+div.sec {
+    >div.title[data-levels] {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        text-align: left;
+
+        &[data-levels="2"] {
+            font-size: 15.5px;
+            line-height: 16.5px;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        &[data-levels="3"] {
+            font-size: 15px;
+            line-height: 0.906rem;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        &[data-levels="4"] {
+            font-size: 14.75px;
+            font-weight: 500;
+        }
+    }
+}
+
+span[data-name="graphic"][specific-use="online"]::before {
+    content: "Online Graphic: ";
+    display: inline-block;
+    font-weight: bold;
+    color: #2a7ae2;
+    margin-right: 4px;
+    background-color: #eef4ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.related-object,
+div.fn .p {
+    display: inline;
+}
+
+[book-part-type="endNotes"] .sec,
+div[class="back"]>.fn-group {
+
+    &>.p {
+        text-indent: 0 !important;
+    }
+
+    .fn {
+
+        position: relative;
+        padding-left: 2em;
+        /* Space for the label */
+
+        .label {
+            left: 0;
+            top: 0;
+
+        }
+
+        .p {
+            text-indent: -0.1em;
+            /* Pull first line back */
+            padding-left: 3.75em;
+            /* Push rest of lines forward */
+            margin: 0 0 0.5em 0;
+            /* Spacing between paras */
+            display: block;
+
+        }
+    }
+}
+
+img[src*="WEB_Icon.png"] {
+    width: 20px;
+    height: auto;
+}

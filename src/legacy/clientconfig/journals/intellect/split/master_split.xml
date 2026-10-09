@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journals>
+  <journal short="AJR" abbr="" journal-title="Australian Journalism Review" batch="2" by="AK" qcby="" client="intellect" split="AJR.xml" split_master="master_split.xml" />
+  <journal short="EJAC" abbr="" journal-title="European Journal of American Culture" batch="2" by="AK" qcby="" client="intellect" split="EJAC.xml" split_master="master_split.xml" />
+  <journal short="FSPC" abbr="" journal-title="Fashion, Style &amp; Popular Culture" batch="1" by="AK" qcby="" client="intellect" split="FSPC.xml" split_master="master_split.xml" />
+  <journal short="IJFD" abbr="" journal-title="International Journal of Food Design" batch="2" by="AK" qcby="" client="intellect" split="IJFD.xml" split_master="master_split.xml" />
+  <journal short="JGS" abbr="" journal-title="Journal of Gulf Studies" batch="2" by="AK" qcby="" client="intellect" split="JGS.xml" split_master="master_split.xml" />
+  <journal short="JGVW" abbr="J GAMING VIRTUAL WOR" journal-title="Journal of Gaming &amp; Virtual Worlds" batch="2" by="YA_10_FEB_2026" qcby="" copyby="YA_10_FEB_2026" mantis="3457454" client="intellect" split="JGVW.xml" split_master="master_split.xml" />
+  <journal short="JMTE" abbr="" journal-title="Journal of Music, Technology &amp; Education" batch="2" by="AK" qcby="" client="intellect" split="JMTE.xml" split_master="master_split.xml" />
+  <journal short="JWCP" abbr="" journal-title="Journal of Writing in Creative Practice" batch="3" by="AK" qcby="" copyby="YA_2_SEP_2024" client="intellect" split="JWCP.xml" split_master="master_split.xml" />
+  <journal short="VI" abbr="" journal-title="Visual Inquiry: Learning &amp; Teaching Art" batch="3" by="AK" qcby="" copyby="YA_2_SEP_2024" client="intellect" split="VI.xml" split_master="master_split.xml" />
+</journals>

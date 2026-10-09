@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="JWAS" abbr="J West Afr Coll Surg" journal-title="Journal of the West African College of Surgeons">
+	<author data-name="contrib" surname="yes" given-names="yes" prefix="yes" suffix="yes" orcid="yes" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="yes" corresp-quees="yes" crosslink="yes" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep=", " seperator=", " contribsep=", " contrib-last-sep=", " pattern="aftercomma" notallowed="yes" />
+	<affiliation data-name="aff" seperator=", " designators="ArabicNumber" single-aff="false" autoReNumber="false" />
+	<corresp data-name="corresp" email="yes" address="yes" maximum="1" telephone="yes" fax="yes" indicators="no" />
+	<author-notes data-name="fn" indicators="yes" author-notes-quees="FootNote_1" />
+	<abstract data-name="abstract" GA="No" />
+	<keywords data-name="keywords" seperator=", " minimum="3" maximum="10" endperiod="false" notallowed="no" />
+	<heading data-name="title" numbered="no" label="no" maximum="3">
+		<h1 style="bold" type="sentence case" />
+		<h2 style="bold" type="sentence case" />
+		<h3 style="bold" type="sentence case" />
+	</heading>
+	<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+	<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,back" />
+	<Figure data-name="fig" sentence="Figure " ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+		<caption label="yes" label_end_sep=":" end_sep="." limit="3" />
+		<dircite single_prefix="Figure " double_prefix="Figures " multi_sep=", " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" part_lab_prefix_num="no" part_lab_case="lower" part_lab_double_sep=" and " />
+		<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" multi_sep="," part_lab_prefix_num="no" part_lab_case="lower" part_lab_double_sep=" and " />
+	</Figure>
+	<Table data-name="table" sentence="Table " ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+		<caption label="yes" label_end_sep=":" end_sep="." limit="3" />
+		<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+		<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+	</Table>
+	<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered_with_dot" text-format="sup">
+		<dircite double_sep="," range_sep="–" openwrap="[" closewrap="]" />
+		<indircite double_sep="," range_sep="–" openwrap="[" closewrap="]" />
+	</Reference>
+</journal>

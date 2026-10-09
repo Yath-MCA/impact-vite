@@ -1,0 +1,13 @@
+/* Reference Part */
+div.ref .mixed-citation .source {
+    font-style: italic !important;
+}
+
+div.ref .mixed-citation .volume {
+    font-style: bold !important;
+}
+
+tr th .italic {
+    font-style: italic !important;
+    font-weight: bold !important;
+}

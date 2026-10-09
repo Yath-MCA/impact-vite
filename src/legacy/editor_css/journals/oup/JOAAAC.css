@@ -1,0 +1,10 @@
+.contrib a.xref {
+    vertical-align: super !important;
+    /* background-color: none !important;
+    cursor: pointer !important; */
+}
+
+div.ref .mixed-citation .year {
+    /*font-weight: 750;
+     font-style: bold !important; */
+}

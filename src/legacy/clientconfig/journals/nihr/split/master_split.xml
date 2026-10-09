@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journals>
+  <journal short="EME" abbr="" journal-title="Efficacy and Mechanism Evaluation" client="nihr" split="EME.xml" split_master="master_split.xml" />
+  <journal short="GHR" abbr="" journal-title="Global Health Research" client="nihr" split="GHR.xml" split_master="master_split.xml" />
+  <journal short="HSDR" abbr="" journal-title="Health and Social Care Delivery Research" client="nihr" split="HSDR.xml" split_master="master_split.xml" />
+  <journal short="HTA" abbr="" journal-title="Health Technology Assessment" client="nihr" split="HTA.xml" split_master="master_split.xml" />
+  <journal short="PGfAR" abbr="" journal-title="Programme Grants for Applied Research" client="nihr" split="PGfAR.xml" split_master="master_split.xml" />
+  <journal short="PHR" abbr="" journal-title="Public Health Research" client="nihr" split="PHR.xml" split_master="master_split.xml" />
+</journals>

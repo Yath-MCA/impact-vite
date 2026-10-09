@@ -1,0 +1,62 @@
+<div class="mDialog wo-editor-access ds-none" id="shareInviteDialogModule">
+    <div class="dialog-container lg">
+        <div class="dialog-content">
+            <div class="dia_header_div ui-draggable-handle">
+                <div class="dia_header_text">Share &amp; Invite</div>
+                <div class="ml-auto closeIcons" title="Close"><img class="n_Img" src="assets/images/svg/dialogClose.svg" alt="Close Icon"></div>
+            </div>
+            <div class="d-flex flex-column dialog-body" data-id="dialog-body">
+                <form class="shareBody" data-id="shareBody" onsubmit="return false;" spellcheck="false">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col"><span class="labelText">From</span><span class="mail_text" id="share_to_ad">IMPACT</span></div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <div class="d-flex flex-wrap align-items-start">
+                            <label for="InputMail" class="mb-0 mr-2 pt-1">To</label>
+                            <div class="col email-id-row flex-grow-1" id="share_to_mail_row">
+                                <input type="text" class="form-control form-control-sm border-0" id="InputMail" placeholder="someone@domain.com" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <div class="help-block">An email will be sent to the email address with a link to access this proof. The user will be able to view the corrections you have made and will have the same functionality as you. However, they can only submit corrections and will not have access to finalize the proof.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text form-control form-control-sm" id="basic-subject">Subject</span></div><input type="text" class="form-control form-control-sm" aria-label="Subject" id="subject_value" aria-describedby="basic-subject" autocomplete="off" placeholder="Sample Subject Text" disabled>
+                    </div>
+                    <div class="form-group mb-0">
+                        <div class="row">
+                            <div class="col sn-h-md"><span class="labelText">Comments</span>
+                                <div id="sharecmt_text" class="summernote" placeholder="comments" contenteditable="false"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group last_chk_box ds-none" id="ready_only_div">
+                        <input class="btn btn-primary ds-none" id="ready_only_chk" aria-label="checkbox" type="checkbox" data-toggle="collapse" data-target="#read_only_input" aria-controls="read_only_input" title="Check Box">Comments only view</input>
+                        <div class="collapse ds-none" id="read_only_input">
+                            <div class="card card-body">Users can access to insert only comments in shared link</div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-1 ds-none" id="rolelist">
+                        <div class="row">
+                            <div class="col"><label for="role_list_opt">Role</label>
+                                <select class="form-control form-control-sm" id="role_list_opt" name="role" required="required">
+                                    <option value="5b53536b4c4a803e9a5abf70">Author</option>
+                                </select></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="dialog-footer" data-id="dialog-footer">
+                <button type="submit" title="Click to Cancel" id="Cancel_share" class="btn secondary-btn btn-sm ml-auto">Cancel</button>
+                <button type="submit" title="Click to Share" id="Submit_share" class="btn primary-btn btn-sm">Share</button>
+            </div>
+        </div>
+    </div>
+</div>

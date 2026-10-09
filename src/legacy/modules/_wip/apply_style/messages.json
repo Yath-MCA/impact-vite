@@ -1,0 +1,36 @@
+{
+  "config": {
+    "dialogId": "ApplyStyleDialog",
+    "styleListId": "StyleListDiv"
+  },
+  "en": {
+    "labels": {
+      "Panel_title": "Apply Style",
+      "close_title": "Close",
+      "style_H1": "Heading 1",
+      "style_H2": "Heading 2",
+      "style_H3": "Heading 3",
+      "style_P": "Para",
+      "style_EXTRACT": "Extract",
+      "style_SOURCE": "Source Line",
+      "head_add": "Add Section",
+      "head_delete": "Delete Section",
+      "head_prefix": "Head"
+    }
+  },
+  "fr": {
+    "labels": {
+      "Panel_title": "Appliquer le style",
+      "close_title": "Fermer",
+      "style_H1": "Titre 1",
+      "style_H2": "Titre 2",
+      "style_H3": "Titre 3",
+      "style_P": "Paragraphe",
+      "style_EXTRACT": "Extrait",
+      "style_SOURCE": "Ligne source",
+      "head_add": "Ajouter une section",
+      "head_delete": "Supprimer la section",
+      "head_prefix": "Titre"
+    }
+  }
+}

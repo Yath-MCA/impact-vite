@@ -1,0 +1,9 @@
+/* EJGH Journal */
+/* For Frontmatter Xref value  */
+/* Reference Part */
+div.ref .mixed-citation .source, div.ref .mixed-citation .person-group .etal {
+    font-style: italic !important;
+}
+div.ref .mixed-citation .volume {
+    font-weight: 750; 
+}

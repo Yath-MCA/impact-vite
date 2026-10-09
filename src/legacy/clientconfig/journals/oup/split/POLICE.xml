@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="POLICE" abbr="" journal-title="Policing: A Journal Of Policy And Practice" batch="20" by="YA">
+				<!-- ?  -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="no" orcid="no" author-comment="no" degrees="optional" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="yes" corresp-quees="no" crosslink="yes" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=" and " pattern="aftercomma" notallowed="yes" />
+				<!-- ? For four or more authors use one asterisk for all authors and then list at the bottom -->
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="custom_increase_order_*" single-aff="false" autoReNumber="true" />
+				<corresp data-name="corresp" email="yes" address="yes" corresp-quees="" maximum="" minimum="" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!--?  -->
+				<author-notes data-name="fn" indicators="yes" author-notes-quees="FootNote_1" notallowed="yes" />
+				<!-- ? One paragraph, not bold | Citation = Reference should be given in full-->
+				<abstract data-name="abstract" GA="true" laysummery="true" />
+				<!-- ? Not used -->
+				<keywords data-name="keywords" seperator="—" endperiod="false" minimum="" maximum="" limit="no" notallowed="no" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<caption label="yes" label_end_sep=":" end_sep="" limit="3" />
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Fig. " double_prefix="Figs " double_sep=", " last_sep=" and " multi_prefix="Figs " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<caption label="yes" label_end_sep=":" end_sep="" limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<notes footnote="allowed" endnote="noallowed" />
+				<heading data-name="title" numbered="no" label="" label_suffix="" maximum="3" label_between_delim="">
+					<h1 style="bold" type="sentence case" />
+					<h2 style="bold" type="sentence case" />
+					<h3 style="bold" type="sentence case" />
+				</heading>
+				<dictionary spelling="UK" name="Concise Oxford Dictionary" />
+				<list style="1.|a." bullet="●|○" />
+				<equation label="" note="Follow author" />
+				<BackMatter ack="allowed" act="allowed" coi="notallowed" fund="allowed" das="allowed" supp="allowed" suppcap="allowed" app="allowed" />
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false" notallowed="no">
+					<!-- ? Name and Year -->
+					<citation type="CHRON_ASCEND" name_sep=" and " name_year_sep=" " direct_sep=", " indirect_sep="; " double_sep="; " range_sep="" openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="italic" />
+				</Reference>
+			</journal>

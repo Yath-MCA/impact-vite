@@ -1,0 +1,53 @@
+<div class="mDialog ds-none wo-editor-access" id="AddEditAffiliationDialog">
+    <div class="dialog-container xl">
+        <div class="dialog-content">
+            <div class="dia_header_div">
+                <div class="dia_header_text" data-lang-lab="Panel_title">Edit Affiliation</div>
+                <div class="ml-auto closeIcons" title="Close" tabindex="0" data-lang-lab="close_title"><img alt="Close" class="n_Img" src="assets/images/svg/dialogClose.svg"></div>
+            </div>
+
+            <div class="d-flex flex-column w80 dialog-body" data-id="dialog-body" style="max-height: 70vh; overflow-y: auto;">
+                <form id="editAffiliationBody" onsubmit="return false;" spellcheck="false">
+                    <section id="aff_edit_field_section" class="ref-section" aria-labelledby="aff_edit_field_heading">
+                        <div class="ref-section-title-row">
+                            <h3 id="aff_edit_field_heading" class="ref-section-title" data-lang-lab="label_edit_field">Edit Field</h3>
+                            <div class="ref-field-actions">
+                                <button type="button" id="aff_field_revert" class="btn btn-sm secondary-btn" disabled data-lang-lab="btn_revert">Revert</button>
+                                <button type="button" id="aff_field_apply" class="btn btn-sm primary-btn" disabled data-lang-lab="btn_apply">Apply</button>
+                            </div>
+                        </div>
+                        <p id="aff_edit_idle_hint" class="ref-empty-hint" data-lang-lab="preview_seg_label">Select an affiliation element below to edit it.</p>
+                        <div id="aff_edit_collapse" class="collapse">
+                            <label id="aff_active_label" for="aff_active_editor"></label>
+                            <textarea id="aff_active_editor" class="form-control" rows="3"></textarea>
+                        </div>
+                    </section>
+
+                    <section id="aff_add_section" class="ref-section d-none" aria-labelledby="aff_add_heading">
+                        <div class="ref-section-title-row">
+                            <h3 id="aff_add_heading" class="ref-section-title" data-lang-lab="label_add_affiliation">Add Another Affiliation</h3>
+                            <div class="ref-field-actions">
+                                <button type="button" id="aff_clear_paste" class="btn btn-sm secondary-btn" data-lang-lab="btn_clear_paste">Clear</button>
+                                <button type="button" id="aff_stage_paste" class="btn btn-sm primary-btn" data-lang-lab="btn_stage_paste">Add to Preview</button>
+                            </div>
+                        </div>
+                        <label for="aff_paste_input" class="ref-input-label" data-lang-lab="label_paste_html">Paste one affiliation HTML element</label>
+                        <textarea id="aff_paste_input" class="form-control" rows="4" data-lang-placeholder="placeholder_paste_html"></textarea>
+                        <p id="aff_paste_error" class="aff-paste-error d-none" role="alert"></p>
+                    </section>
+
+                    <section id="aff_preview_section" class="ref-section" aria-labelledby="aff_preview_heading">
+                        <h3 id="aff_preview_heading" class="ref-section-title" data-lang-lab="label_preview">Preview</h3>
+                        <div id="aff_preview_host" class="aff-preview-host" aria-live="polite"></div>
+                    </section>
+                </form>
+            </div>
+
+            <div class="default dialog-footer" data-id="dialog-footer">
+                <button type="button" id="cancel_affiliation" class="btn btn-sm secondary-btn" data-lang-lab="btn_cancel">Cancel</button>
+                <button type="button" id="fire_affiliation" class="btn btn-sm primary-btn disabled" disabled data-lang-lab="btn_fire">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+

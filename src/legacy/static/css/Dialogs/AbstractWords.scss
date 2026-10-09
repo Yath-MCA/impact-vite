@@ -1,0 +1,13 @@
+#AbstractWordCounterDialog{
+    .counts{
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: 700;
+    }
+}
+
+#AbstractWordCounterDialog.abstractInfo{
+    position: static !important;
+    width: fit-content !important;
+    justify-content: center;
+}

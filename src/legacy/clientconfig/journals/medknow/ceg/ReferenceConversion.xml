@@ -1,0 +1,18 @@
+<config>
+   <process name="nametonumber">
+		<citation type="number" hyperlinktype="_BIB_" outputstyle="‡BibXref_online" outputseperator=", " outputformat="square" refidstyle="‡ref_number" refidformat="1." refidseperator="tab"/>
+                       
+		<citation type="name" inputstyle="‡BibXref_online" />
+		<reference surname="‡ref_auSurname" collab="" year="‡ref_pubdateYear" etal="‡ref_etal">
+			<refstyle name="†Reference"/>
+		</reference>
+	</process>
+	<process name="numbertoname">
+		<citation type="number" hyperlinktype="_BIB_" outputstyle="‡BibXref_online" outputseperator=", " outputformat="square" refidstyle="‡ref_number" refidformat="[1]" refidseperator="spacetab"/>
+                       
+		<citation type="name" inputstyle="‡BibXref_online" hyperlinktype="_BIB_"/>
+		<reference surname="‡ref_auSurname" collab="‡ref_auCollab" year="‡ref_pubdateYear" etal="‡ref_etal">
+			<refstyle name="†Reference"/>
+		</reference>
+	</process>	
+</config>

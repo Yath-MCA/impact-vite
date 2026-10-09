@@ -6,7 +6,7 @@
 
 **Architecture:** `main.js` routes `#/editor` to `src/pages/editor/index.js`. That orchestrator injects the body skeleton, idempotently loads CKEditor/CSS, then executes an ordered unique file list. Legacy gulp JS is classic (globals + `${{…}}$` placeholders), so resolution uses Vite `?url` imports and classic `<script>` injection (same global scope as gulp concat)—not ESM `import` of each file (that would module-scope `var` and break the editor).
 
-**Tech Stack:** Vite 8, existing jQuery/Bootstrap from `main.js`, `public/ckeditor4`, sources under `temp/legacy/src/`.
+**Tech Stack:** Vite 8, existing jQuery/Bootstrap from `main.js`, `public/ckeditor4`, sources under `src/legacy/`.
 
 ## Global Constraints
 
@@ -15,7 +15,7 @@
 - Dedupe: each JS/CSS path loaded at most once
 - No session CHECK/CLOSE, SocketBridge, dialog_module / module_main / single_module graphs
 - Do not commit unrelated `temp/` churn beyond what Vite must resolve
-- Pipeline order source: `temp/legacy/gulp/pipeline.js` keys `e6_common`, `e6_main`, `QUERY_COMMENT_SYSTEM_JS`
+- Pipeline order source: `src/legacy/gulp/pipeline.js` keys `e6_common`, `e6_main`, `QUERY_COMMENT_SYSTEM_JS`
 
 ---
 
@@ -31,7 +31,7 @@
 | `src/pages/editor/index.html` | Strip gulp vendor/ckeditor head tags; keep body skeleton |
 | `src/pages/editor/page.config.js` | Already exists |
 | `src/main.js` | Route `#/editor` to orchestrator |
-| `vite.config.js` | Alias `@legacy` → `temp/legacy/src` |
+| `vite.config.js` | Alias `@legacy` → `src/legacy` |
 | `tests/unit/editorManifest.test.js` | Uniqueness of manifest paths |
 | `tests/e2e/editor-boot.spec.js` | `#/editor` shell + CKEDITOR |
 
@@ -90,7 +90,7 @@ export default defineConfig({
   // ...existing plugins/server/build
   resolve: {
     alias: {
-      '@legacy': path.resolve(root, 'temp/legacy/src'),
+      '@legacy': path.resolve(root, 'src/legacy'),
     },
   },
 });
@@ -98,10 +98,10 @@ export default defineConfig({
 
 - [ ] **Step 4: Create `manifest.js`**
 
-Do **not** import raw `temp/legacy/src/js/index.js` (it contains gulp `${{…}}$` placeholders). Start JS list after that file; globals come from Task 2’s `legacyGlobals.js`.
+Do **not** import raw `src/legacy/js/index.js` (it contains gulp `${{…}}$` placeholders). Start JS list after that file; globals come from Task 2’s `legacyGlobals.js`.
 
 ```js
-/** Deduped e6_common + e6_main paths relative to @legacy (= temp/legacy/src). */
+/** Deduped e6_common + e6_main paths relative to @legacy (= src/legacy). */
 const E6_COMMON = [
   // skip js/index.js — placeholders; use legacyGlobals.js instead
   'js/_initialGlobalVaribale.js',
@@ -436,7 +436,7 @@ Run: `npm run dev` → browse `http://127.0.0.1:5173/#/editor`
 
 Expected issues and responses:
 - Missing `${{…}}$` → extend `applyLegacyGlobals`
-- 404 on a JS path → verify file exists under `temp/legacy/src`
+- 404 on a JS path → verify file exists under `src/legacy`
 - Syntax error in classic script → fix minimal syntax or stub that file temporarily with a comment in commit message
 - Query-comment files missing → confirm paths from pipeline; do not pull entire `single_module` graph
 

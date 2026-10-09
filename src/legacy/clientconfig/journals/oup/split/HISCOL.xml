@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="HISCOL" abbr="" journal-title="Journal Of The History Of Collections" batch="19" editor-only="true">
+				<!-- ? No indicator -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="no" orcid="optional" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="no" corresp-quees="no" crosslink="no" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=" and " pattern="aftercomma" notallowed="yes" />
+				<!-- ? No indicator -->
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="" single-aff="false" autoReNumber="false" />
+				<!-- ? NA -->
+				<corresp data-name="corresp" email="yes" address="yes" corresp-quees="" maximum="" minimum="" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ? NA -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<!-- ?abstract:One paragraph, italic -->
+				<abstract data-name="abstract" GA="true" laysummery="true" />
+				<!-- ?Keywords: Not allowed  -->
+				<keywords data-name="keywords" seperator="; " endperiod="." minimum="3" maximum="5" limit="no" notallowed="yes" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Fig. " ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<!-- ? Caption end dot = Run-on with figure ID. Can have more than one sentence -->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<!-- ? = Not given in stylesheet/issue -->
+					<dircite beginpara="Figure " single_prefix="Fig. " double_prefix="Figs. " double_sep=", " last_sep=" and " multi_prefix="Figs. " range_sep="–" openwrap="" closewrap="" />
+					<!-- ? two Figures with Parts = Not given in stylesheet/issue -->
+					<indircite single_prefix="Fig. " double_prefix="Figs. " double_sep=", " last_sep=" and " multi_prefix="Figs. " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<!-- ? Caption end dot = Run-on with table ID -->
+					<caption label="yes" label_end_sep=":" end_sep="" limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<notes footnote="Allowed" endnote="Allowed" note="Article note ‘*’ used" />
+				<heading data-name="title" numbered="no" label="" label_suffix="" maximum="3" label_between_delim="">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="Title case" label_format="" label_end_delim="" label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+					<h3 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+				</heading>
+				<dictionary spelling="UK" name="" note="ize spellings (but yse)" />
+				<list label="(1)" bullet="allowed" note="followauthor" />
+				<equation label="" note="followauthor" />
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered" text-format="false" notallowed="yes">
+					<!-- ? All references should be as numbered footnotes.  -->
+					<citation type="FOOTNOTE" name_sep=" &amp; " name_last_sep=", |, " name_year_sep=", " direct_sep=", " indirect_sep="; " double_sep="; " range_sep="" openwrap="(" closewrap=")" max-author="4" etal="et al." etal_format="italic" />
+				</Reference>
+				<!-- ?BackMatter: no clear inputs -->
+				<BackMatter ack="allowed" act="allowed" coi="notallowed" fund="allowed" das="allowed" supp="allowed" suppcap="allowed" app="allowed" />
+			</journal>

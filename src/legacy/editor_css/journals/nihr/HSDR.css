@@ -1,0 +1,16 @@
+/* HSDR Journal */
+/* For Frontmatter Xref value  */
+.contrib a.xref {
+    vertical-align: super !important;
+    /* background-color: none !important;
+    cursor: pointer !important; */
+}
+
+.mixed-citation [data-name="volume"] {
+    font-weight: 750;
+     font-style: bold !important;
+}
+
+.mixed-citation [data-name="source"],.mixed-citation [data-name="etal"] {
+    font-style: italic !important;
+}

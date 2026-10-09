@@ -1,0 +1,74 @@
+{
+    "version": 1,
+    "DEFAULT": {
+        "body-url": "extUri",
+        "reference-url": "extUri",
+        "doi-full": "extDoi",
+        "doi-partial": "extDoi",
+        "email": "email",
+        "special-case": {
+            "builder": "specialCase"
+        }
+    },
+    "DEFAULT_JOURNAL": {
+        "doi-partial": "pubId"
+    },
+    "clients": {
+        "MEDKNOW": {
+            "dtd": "JATS",
+            "doi-partial": "pubId",
+            "doi-full": "extUri"
+        },
+        "LWW": {
+            "dtd": "JATS",
+            "doi-partial": "pubId",
+            "doi-full": "extUri",
+            "special-case": {
+                "builder": "specialCase",
+                "journals": ["GOX", "PRS", "XCS"]
+            }
+        },
+        "INTELLECT": {
+            "dtd": "JATS",
+            "body-url": "uri",
+            "reference-url": "uri",
+            "doi-full": "extDoi",
+            "doi-partial": "doiPartialExtDoi"
+        },
+        "TNF": {
+            "dtd": "BITS",
+            "body-url": "uri",
+            "reference-url": "uri",
+            "doi-full": "extDoi",
+            "doi-partial": "extDoi"
+        },
+        "OSO": {
+            "dtd": "BITS",
+            "body-url": "uri",
+            "reference-url": "uri",
+            "doi-full": "extDoi",
+            "doi-partial": "extDoi"
+        },
+        "OHO": {
+            "dtd": "BITS",
+            "body-url": "uri",
+            "reference-url": "uri",
+            "doi-full": "extDoi",
+            "doi-partial": "extDoi"
+        },
+        "OXMEDO": {
+            "dtd": "BITS",
+            "body-url": "uri",
+            "reference-url": "uri",
+            "doi-full": "extDoi",
+            "doi-partial": "extDoi"
+        },
+        "LSE": {
+            "dtd": "BITS",
+            "body-url": "uri",
+            "reference-url": "uri",
+            "doi-full": "extDoi",
+            "doi-partial": "extDoi"
+        }
+    }
+}

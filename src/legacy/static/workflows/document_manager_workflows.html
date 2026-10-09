@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocumentManager Workflow Diagrams</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .diagram-section {
+            margin-bottom: 50px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e6ed;
+        }
+
+        .diagram-title {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            display: flex;
+            align-items: center;
+        }
+
+        .diagram-title::before {
+            content: "📊";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .diagram {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e1e8ed;
+            overflow-x: auto;
+            min-height: 400px;
+        }
+
+        .description {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+            padding: 5px;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .tab {
+            flex: 1;
+            min-width: 140px;
+            padding: 12px 20px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            background: white;
+        }
+
+        .tab.active {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        .tab:hover:not(.active) {
+            background: #bdc3c7;
+            transform: translateY(-1px);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .mermaid {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                margin-bottom: 5px;
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>DocumentManager Workflow Diagrams</h1>
+
+        <div class="tabs">
+            <div class="tab active" data-target="initialization" onclick="showTab('initialization', event)">Initialization</div>
+            <div class="tab" data-target="id-generation" onclick="showTab('id-generation', event)">ID Generation</div>
+            <div class="tab" data-target="element-processing" onclick="showTab('element-processing', event)">Element Processing</div>
+            <div class="tab" data-target="new-elements" onclick="showTab('new-elements', event)">New Elements</div>
+            <div class="tab" data-target="buffer-strategy" onclick="showTab('buffer-strategy', event)">Buffer Strategy</div>
+            <div class="tab" data-target="chapter-fallback" onclick="showTab('chapter-fallback', event)">Chapter Fallback</div>
+        </div>
+
+        <!-- Initialization Tab -->
+        <div id="initialization" class="tab-content active">
+            <div class="diagram-section">
+                <h2 class="diagram-title">DocumentManager Initialization Flow</h2>
+                <div class="diagram">
+                    <div class="mermaid">
+                        graph TD
+                        Start([Application Loads]) --> CheckInstance{DocumentManager<br/>instance exists?}
+                        CheckInstance -->|Yes| ReturnExisting[Return existing<br/>singleton instance]
+                        CheckInstance -->|No| CreateNew[Create new instance]
+                        CreateNew --> InitProps[Initialize Properties:<br/>processedElements<br/>elements Map<br/>globalRegistry]
+                        InitProps --> InitConfig[Initialize Configuration:<br/>elementTypes<br/>idPatterns<br/>skippedElements]
+                        InitConfig --> SetDebug[Set debug mode<br/>based on IS_LOCAL_HOST]
+                        SetDebug --> WaitInit{User calls<br/>initialize()?}
+                        ReturnExisting --> WaitInit
+                        WaitInit -->|No| Ready1([Instance ready<br/>for manual operations])
+                        WaitInit -->|Yes| SetupEditor[Setup editor instance<br/>& document references]
+                        SetupEditor --> ApplyConfig{Custom config<br/>provided?}
+                        ApplyConfig -->|Yes| MergeConfig[Merge processing<br/>& error config]
+                        ApplyConfig -->|No| FindSections[Find document sections:<br/>front, body, back]
+                        MergeConfig --> FindSections
+                        FindSections --> ValidateSections{Body section<br/>found?}
+                        ValidateSections -->|No| Error1[Throw error:<br/>body not found]
+                        ValidateSections -->|Yes| DiscoverChapters[discoverChapterBaseIds]
+                        DiscoverChapters --> GetElements[Get all existing elements<br/>in document]
+                        GetElements --> CreateProgress[Create progress modal]
+                        CreateProgress --> ProcessChunks[Process elements<br/>in 20-element chunks]
+                        ProcessChunks --> ChunkLoop{More<br/>chunks?}
+                        ChunkLoop -->|Yes| ProcessChunk[Process chunk<br/>& update progress]
+                        ProcessChunk --> UpdateBar[Update progress bar]
+                        UpdateBar --> YieldUI[Yield to browser<br/>0ms timeout]
+                        YieldUI --> CheckCancel{User cancelled<br/>processing?}
+                        CheckCancel -->|Yes| CancelOp[Stop processing]
+                        CheckCancel -->|No| ChunkLoop
+                        ChunkLoop -->|No| CloseProgress[Close progress modal]
+                        CancelOp --> CloseProgress
+                        Error1 --> End1([Initialization failed])
+                        CloseProgress --> LogSuccess[Log success message]
+                        LogSuccess --> Ready2([Initialization complete<br/>All elements processed])
+
+                        style Start fill:#e3f2fd
+                        style Ready1 fill:#c8e6c9
+                        style Ready2 fill:#c8e6c9
+                        style Error1 fill:#ffcdd2
+                        style End1 fill:#ffcdd2
+                    </div>
+                </div>
+                <div class="description">
+                    Complete initialization lifecycle from singleton creation through document scanning and element processing. Shows the chunked processing strategy with progress modal and cancellation support.
+                </div>
+            </div>
+        </div>
+
+        <!-- ID Generation Tab -->
+        <div id="id-generation" class="tab-content">
+            <div class="diagram-section">
+                <h2 class="diagram-title">Unique ID Generation Process</h2>
+                <div class="diagram">
+                    <div class="mermaid">
+                        graph TD
+                        Start([Generate ID requested]) --> GetChapterNum[Get chapter number<br/>from element]
+                        GetChapterNum --> GetCounters[Get chapter counters]
+                        GetCounters --> GetBaseIds[Get chapter base IDs<br/>with fallback logic]
+                        GetBaseIds --> IncrementCounter[Increment counter<br/>for element type]
+                        IncrementCounter --> BuildMainId{Element type<br/>== target?}
+                        BuildMainId -->|Yes| BuildTargetId["Build: baseTargetId-target-value<br/>Example: workid-ABC-book-part-1-target-42"]
+                        BuildMainId -->|No| BuildRegularId["Build: CchapterPvalue<br/>Example: C1P25"]
+                        BuildTargetId --> CheckSpecial{Is special type?<br/>fig/table-wrap/box}
+                        BuildRegularId --> CheckSpecial
+                        CheckSpecial -->|Yes| BuildFloatId["Build float ID:<br/>baseTargetId-type-value<br/>Example: workid-ABC-book-part-1-fig-5"]
+                        CheckSpecial -->|No| NoFloatId["No float ID needed"]
+                        BuildFloatId --> CheckMainIdUnique{Main ID unique<br/>in registry?}
+                        NoFloatId --> CheckMainIdUnique
+                        CheckMainIdUnique -->|Yes| CheckFloatUnique{Float ID unique?}
+                        CheckMainIdUnique -->|No| ApplyBuffer1[Apply progressive buffer]
+                        ApplyBuffer1 --> IncValue[Increment value<br/>by buffer amount]
+                        IncValue --> RebuildId[Rebuild ID with<br/>new value]
+                        RebuildId --> CheckMainIdUnique
+                        CheckFloatUnique -->|Yes| ReturnResult[Return result object:<br/>id, finalValue<br/>floatId, chapterBaseIds]
+                        CheckFloatUnique -->|No| ApplyBuffer2[Apply progressive buffer<br/>for float ID]
+                        ApplyBuffer2 --> IncFloatValue[Increment floatVal<br/>by buffer amount]
+                        IncFloatValue --> RebuildFloat[Rebuild float ID]
+                        RebuildFloat --> CheckMainIdUnique
+                        ReturnResult --> Log[Log generation details<br/>if debug mode]
+                        Log --> End([ID generation complete])
+
+                        style Start fill:#e3f2fd
+                        style BuildTargetId fill:#fff3e0
+                        style BuildRegularId fill:#fff3e0
+                        style BuildFloatId fill:#fff3e0
+                        style ApplyBuffer1 fill:#ffe0b2
+                        style ApplyBuffer2 fill:#ffe0b2
+                        style ReturnResult fill:#c8e6c9
+                        style End fill:#a5d6a7
+                    </div>
+                </div>
+                <div class="description">
+                    Detailed ID generation process including chapter detection, counter management, ID building for different types, and collision detection with progressive buffering. Shows fallback strategies for chapter base IDs.
+                </div>
+            </div>
+        </div>
+
+        <!-- Element Processing Tab -->
+        <div id="element-processing" class="tab-content">
+            <div class="diagram-section">
+                <h2 class="diagram-title">Element Processing with Batching</h2>
+                <div class="diagram">
+                    <div class="mermaid">
+                        graph TD
+                        Start([processElements called]) --> GetElements[Get elements array]
+                        GetElements --> FilterUnprocessed[Filter unprocessed elements]
+                        FilterUnprocessed --> CalcCounts[Calculate initial counts<br/>by type & chapter]
+                        CalcCounts --> ApplyInitialBuffers[Apply initial buffers<br/>based on batch size]
+                        ApplyInitialBuffers --> CreateProgress{Large batch?<br/>> 10 elements}
+                        CreateProgress -->|Yes| ShowModal[Create progress modal<br/>with cancel button]
+                        CreateProgress -->|No| NoModal[Skip progress UI]
+                        ShowModal --> ProcessLoop[Start processing loop]
+                        NoModal --> ProcessLoop
+                        ProcessLoop --> CheckCancel{User cancelled?}
+                        CheckCancel -->|Yes| StopProcessing[Stop processing]
+                        CheckCancel -->|No| GetElement[Get element i]
+                        GetElement --> GetType[Get element type<br/>& chapter number]
+                        GetType --> GetCounters[Get chapter counters]
+                        GetCounters --> CheckNew{Is new<br/>element?}
+                        CheckNew -->|Yes| GenParaId[Generate paragraph ID<br/>with unique check]
+                        CheckNew -->|No| GetExisting[Get existing paraId<br/>from element]
+                        GenParaId --> GenTargetId[Generate target ID]
+                        GetExisting --> RegisterExisting[Register existing IDs<br/>update counters to max]
+                        GenTargetId --> ApplyIds[Apply IDs to element<br/>set data-para-id<br/>set data-target-id]
+                        ApplyIds --> RegisterIds[Register IDs in<br/>global & chapter registries]
+                        RegisterIds --> UpdateTracking[Update processed elements<br/>& type elements]
+                        RegisterExisting --> UpdateTracking
+                        UpdateTracking --> UpdateHighest[Update highest numbers<br/>by type]
+                        UpdateHighest --> CheckYield{Every 10th element<br/>or end?}
+                        CheckYield -->|Yes| Yield[Yield to browser<br/>0ms setTimeout]
+                        CheckYield -->|No| NextElement[Continue to next]
+                        Yield --> UpdateProgressUI[Update progress bar]
+                        UpdateProgressUI --> NextElement
+                        NextElement --> LoopCheck{More elements?}
+                        LoopCheck -->|Yes| CheckCancel
+                        LoopCheck -->|No| CloseProgress{Progress modal<br/>exists?}
+                        CloseProgress -->|Yes| CloseIt[Close progress modal]
+                        CloseProgress -->|No| SkipClose
+                        CloseIt --> CallBatchComplete{Callback<br/>defined?}
+                        SkipClose --> CallBatchComplete
+                        CallBatchComplete -->|Yes| FireCallback[Fire onBatchComplete]
+                        CallBatchComplete -->|No| End1
+                        StopProcessing --> CloseProgress
+                        FireCallback --> End1([Processing complete])
+
+                        style Start fill:#e3f2fd
+                        style GenParaId fill:#fff3e0
+                        style GenTargetId fill:#fff3e0
+                        style RegisterIds fill:#c8e6c9
+                        style Yield fill:#f3e5f5
+                        style End1 fill:#a5d6a7
+                    </div>
+                </div>
+                <div class="description">
+                    Element processing pipeline showing batch operations, chunked processing with yield points to prevent UI freezing, progress modal management, and ID registration. Handles both new and existing elements.
+                </div>
+            </div>
+        </div>
+
+        <!-- New Elements Tab -->
+        <div id="new-elements" class="tab-content">
+            <div class="diagram-section">
+                <h2 class="diagram-title">New Elements Processing with Alert</h2>
+                <div class="diagram">
+                    <div class="mermaid">
+                        graph TD
+                        Start([processNewElementsWithAlert called]) --> Snapshot1[IMPACT_SELECTION._SNAPSHOT<br/>lock: true, save: true]
+                        Snapshot1 --> GetNewElements{newElements<br/>provided?}
+                        GetNewElements -->|Yes| UseProvided[Use provided elements]
+                        GetNewElements -->|No| FindNew[getNewElements<br/>from document]
+                        UseProvided --> CheckEmpty{Array<br/>empty?}
+                        FindNew --> CheckEmpty
+                        CheckEmpty -->|Yes| CheckFinalize1{finalize<br/>option?}
+                        CheckEmpty -->|No| StartLoop[Start processing loop]
+                        CheckFinalize1 -->|Yes| OpenDialog1[openFinalizeDialog]
+                        CheckFinalize1 -->|No| Return1([Return empty array])
+                        OpenDialog1 --> Return1
+                        StartLoop --> LoopElement[For each element i]
+                        LoopElement --> GetType[Get element type]
+                        GetType --> GetChapter[Get chapter number]
+                        GetChapter --> GenParaId[Generate paragraph ID<br/>with uniqueness check]
+                        GenParaId --> GenTargetId[Generate target ID]
+                        GenTargetId --> CollectIds["Collect IDs object:<br/>paraId, targetId, floatId"]
+                        CollectIds --> CheckDirect{directApply<br/>== true?}
+                        CheckDirect -->|Yes| ApplyDirect[Apply IDs directly<br/>to element]
+                        CheckDirect -->|No| Focus[focusElm<br/>scroll & select]
+                        ApplyDirect --> AddProcessed[Add to processed array]
+                        AddProcessed --> LoopEnd{More<br/>elements?}
+                        Focus --> ShowDialog[promptForIds<br/>Swal dialog]
+                        ShowDialog --> WaitUser{User<br/>confirmed?}
+                        WaitUser -->|No| Skip[Skip element]
+                        WaitUser -->|Yes| GetModified[Get modified IDs<br/>from dialog]
+                        Skip --> LoopEnd
+                        GetModified --> ApplyConfirmed[Apply IDs to element]
+                        ApplyConfirmed --> AddProcessed
+                        LoopEnd -->|Yes| LoopElement
+                        LoopEnd -->|No| Snapshot2[IMPACT_SELECTION._SNAPSHOT<br/>unlock: true, save: true]
+                        Snapshot2 --> CheckFinalize2{finalize<br/>option?}
+                        CheckFinalize2 -->|Yes| OpenDialog2[openFinalizeDialog]
+                        CheckFinalize2 -->|No| ReturnProcessed[Return processed array]
+                        OpenDialog2 --> ReturnProcessed
+
+                        style Start fill:#e3f2fd
+                        style ApplyDirect fill:#c8e6c9
+                        style ShowDialog fill:#fff3e0
+                        style ApplyConfirmed fill:#c8e6c9
+                        style ReturnProcessed fill:#a5d6a7
+                    </div>
+                </div>
+                <div class="description">
+                    New element processing with two modes: direct apply (immediate ID assignment) and confirmation (user dialog verification). Includes focus/scroll for user reference and finalize dialog opening.
+                </div>
+            </div>
+        </div>
+
+        <!-- Buffer Strategy Tab -->
+        <div id="buffer-strategy" class="tab-content">
+            <div class="diagram-section">
+                <h2 class="diagram-title">Progressive Buffer Application Strategy</h2>
+                <div class="diagram">
+                    <div class="mermaid">
+                        graph TD
+                        Start([ID collision detected]) --> GetCounters[Get chapter counters<br/>for element type]
+                        GetCounters --> GetApps[Get buffer applications<br/>count for type]
+                        GetApps --> SelectAmount{Application<br/>count?}
+                        SelectAmount -->|0 - First time| Amount1[Select buffer: 25]
+                        SelectAmount -->|1 - Second time| Amount2[Select buffer: 50]
+                        SelectAmount -->|2+ - Third+ time| Amount3[Select buffer: 100]
+                        Amount1 --> ApplyBuffer[Apply buffer amount<br/>to counter]
+                        Amount2 --> ApplyBuffer
+                        Amount3 --> ApplyBuffer
+                        ApplyBuffer --> RecordApplication[Increment application<br/>count for type]
+                        RecordApplication --> UpdateLastApplied[Store in lastApplied<br/>map with buffer amount]
+                        UpdateLastApplied --> CalcNewValue[newValue = currentValue<br/>+ bufferAmount]
+                        CalcNewValue --> Log[Log buffer application<br/>if debug mode]
+                        Log --> Return[Return new value<br/>for ID generation]
+                        Return --> RebuildId[Rebuild ID with<br/>new value]
+                        RebuildId --> CheckUnique{New ID<br/>unique?}
+                        CheckUnique -->|Yes| Success([ID accepted])
+                        CheckUnique -->|No| ApplyAgain[Apply buffer again<br/>recursively]
+                        ApplyAgain --> GetCounters
+
+                        style Start fill:#ffe0b2
+                        style Amount1 fill:#fff3e0
+                        style Amount2 fill:#fff3e0
+                        style Amount3 fill:#fff3e0
+                        style ApplyBuffer fill:#ffe0b2
+                        style Success fill:#c8e6c9
+                    </div>
+                </div>
+                <div class="description">
+                    Progressive buffer strategy showing three-tier buffer amounts (25, 50, 100) applied in sequence when ID collisions occur. Tracks application count per type and chapter to determine which buffer to apply.
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter Fallback Tab -->
+        <div id="chapter-fallback" class="tab-content">
+            <div class="diagram-section">
+                <h2 class="diagram-title">Chapter Base ID Fallback Strategy</h2>
+                <div class="diagram">
+                    <div class="mermaid">
+                        graph TD
+                        Start([Get chapter base IDs<br/>for chapter number]) --> TryDirect[Try direct match<br/>chapterBaseIds.get<br/>chapterNumber]
+                        TryDirect --> Found1{Data<br/>found?}
+                        Found1 -->|Yes| Validate{chapterBaseId<br/>provided?}
+                        Found1 -->|No| StartFallback[Start fallback<br/>strategies]
+                        Validate -->|Yes| CheckMatch{baseId matches<br/>provided?}
+                        Validate -->|No| ReturnDirect[Return direct match<br/>foundViaStrategy: direct_match]
+                        CheckMatch -->|Yes| ReturnDirect
+                        CheckMatch -->|No| StartFallback
+                        StartFallback --> S1{Strategy 1:<br/>Find by baseId<br/>match?}
+                        S1 -->|Found| ReturnS1[Return result<br/>foundViaStrategy: baseId_match]
+                        S1 -->|Not found| S2{Strategy 2:<br/>Check previous<br/>chapter?}
+                        S2 -->|Found & matches| ReturnS2[Return result<br/>foundViaStrategy: previous_chapter]
+                        S2 -->|Not found/no match| S3{Strategy 3:<br/>Check next<br/>chapter?}
+                        S3 -->|Found & matches| ReturnS3[Return result<br/>foundViaStrategy: next_chapter]
+                        S3 -->|Not found/no match| S4{Strategy 4:<br/>Range search<br/>±2 chapters?}
+                        S4 -->|Found| ReturnS4[Return result<br/>foundViaStrategy: range_search]
+                        S4 -->|Not found| S5{Strategy 5:<br/>First available<br/>chapter?}
+                        S5 -->|Found| ReturnS5[Return result<br/>foundViaStrategy: first_available]
+                        S5 -->|Not found| NoMatch[No chapter data<br/>found via strategies]
+                        NoMatch --> UseDefaults[Use default fallback<br/>values]
+                        UseDefaults --> ReturnDefault[Return defaults<br/>foundViaStrategy: default_fallback<br/>isDefault: true]
+                        ReturnDirect --> Format[Format return object:<br/>baseId, baseTargetId<br/>isMultiChapter, chapterNumber<br/>prefix, foundViaStrategy<br/>originalChapterNumber]
+                        ReturnS1 --> Format
+                        ReturnS2 --> Format
+                        ReturnS3 --> Format
+                        ReturnS4 --> Format
+                        ReturnS5 --> Format
+                        ReturnDefault --> Format
+                        Format --> End([Return formatted<br/>chapter base IDs])
+
+                        style Start fill:#e3f2fd
+                        style TryDirect fill:#fff3e0
+                        style S1 fill:#ffe0b2
+                        style S2 fill:#ffe0b2
+                        style S3 fill:#ffe0b2
+                        style S4 fill:#ffe0b2
+                        style S5 fill:#ffe0b2
+                        style ReturnDefault fill:#ffcdd2
+                        style End fill:#a5d6a7
+                    </div>
+                </div>
+                <div class="description">
+                    Five-level fallback strategy for finding chapter base IDs. Tries direct match first, then progressively checks by baseId matching, adjacent chapters, range search, first available chapter, and finally default values. Each strategy includes match validation.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                rankSpacing: 50,
+                nodeSpacing: 30
+            }
+        });
+
+        function showTab(tabId, event) {
+            document.querySelectorAll('.tab-content')
+                .forEach(content => content.classList.remove('active'));
+
+            document.querySelectorAll('.tab')
+                .forEach(tab => tab.classList.remove('active'));
+
+            const tabContent = document.getElementById(tabId);
+            if (tabContent) {
+                tabContent.classList.add('active');
+            }
+
+            if (event) {
+                event.currentTarget.classList.add('active');
+            }
+
+            setTimeout(() => {
+                const diagrams = tabContent.querySelectorAll('.mermaid');
+                diagrams.forEach(block => {
+                    if (!block.dataset.rendered) {
+                        mermaid.init(undefined, block);
+                        block.dataset.rendered = "true";
+                    }
+                });
+            }, 50);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const activeTab = document.querySelector('.tab-content.active');
+            if (activeTab) {
+                const diagrams = activeTab.querySelectorAll('.mermaid');
+                diagrams.forEach(block => {
+                    mermaid.init(undefined, block);
+                    block.dataset.rendered = "true";
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

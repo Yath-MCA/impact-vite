@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="LIFMED" abbr="" journal-title="Life Medicine">
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="yes" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="yes" corresp-quees="yes" crosslink="yes" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contrib-last-sep=", " pattern="aftercomma" contribsep=", " />
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="ArabicNumber" single-aff="false" autoReNumber="true" />
+				<corresp data-name="corresp" email="true" address="no" corresp-quees="FootNote_1" maximum="yes" minimum="1" telephone="no" fax="no" indicators="yes" degrees="no" />
+				<author-notes data-name="fn" indicators="yes" author-notes-quees="FootNote_1" />
+				<abstract data-name="abstract" GA="true" laysummery="true">
+				</abstract>
+				<keywords data-name="keywords" seperator="; " endperiod="false" minimum="1" maximum="8" limit="yes" />
+				<heading data-name="title" numbered="no" label="no" maximum="3">
+					<h1 style="bold" type="sentence case" />
+					<h2 style="bold" type="sentence case" />
+					<h3 style="bold" type="sentence case" />
+				</heading>
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,back" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite beginpara="Figure " single_prefix="Fig. " double_prefix="Figs. " double_sep=", " last_sep=" and " multi_prefix="Figs. " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Fig. " double_prefix="Figs. " double_sep=", " last_sep=" and " multi_prefix="Figs. " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<caption label="yes" label_end_sep="." end_sep="" limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered_with_dot" text-format="false">
+					<dircite double_sep=", " range_sep="–" openwrap="[" closewrap="]" />
+					<indircite double_sep=", " range_sep="–" openwrap="[" closewrap="]" />
+				</Reference>
+			</journal>

@@ -1,0 +1,55 @@
+<div class="mDialog ds-none wo-editor-access" id="PI_MODULE">
+    <div class="dialog-container xl">
+        <div class="dialog-content">
+            <!--Header-->
+            <div class="dia_header_div">
+                <span class="dia_header_text">Processing Instruction</span>
+                <span class="ml-auto closeIcons" title="Close"><img class="n_Img" src="assets/images/svg/dialogClose.svg" alt="Close Icon"></span>
+            </div>
+            <!--body-->
+            <div class="pi-bdoy dialog-body" data-id="dialog-body">
+                <div class="pi-bdoy" id="PI_Body">
+                    <div id="inputDiv" class="d-flex flex-wrap align-items-center justify-content-start showFileName" data-label="PI Syntax..."></div>
+                    <!--<span class="label-item">Font size <span id="beforespace_label">2</span></span>-->
+                    <div id="inputEditDiv" class="d-flex flex-wrap align-items-center justify-content-start showFileName" data-label="Edit Syntax..."></div>
+                    <!--<div class="edit-item d-flex">Font size <input class="form-control form-control-sm editlabel" min="-15" max="15" step="1" id="beforespace_edit" type="number" value='5' onkeypress='return event.charCode> 48 && event.charCode <= 57;'/></div>-->
+                    <div id="PI_list" class="row">
+                        <div class="col row">
+                            <div class="col-6 d-flex flex-column">
+                                <div id="Break_list" class="d-flex flex-column">
+                                    <span class="listhead">Break</span><span class="listEntry" id="pagebreak">Page break</span><span class="listEntry" id="colbreak">Column break</span>
+                                </div>
+                                <div id="Space_list" multiselector class="d-flex flex-column">
+                                    <span class="listhead">Space</span><span class="listEntry" SignAttr="+" id="afterspace">After space +6</span><span class="listEntry" SignAttr="+" id="beforespace">Before space +6</span>
+                                </div>
+                            </div>
+                            <div class="col-6 d-flex flex-column">
+                                <div id="Page_list" class="d-flex flex-column">
+                                    <span class="listhead">Page</span><span class="listEntry" id="pageblank">Page blank 5</span><span class="listEntry" id="pagedeep">Page deep 10</span><span class="listEntry" id="pageshort">Page short 10</span>
+                                </div>
+                                <div id="Font_list" class="d-flex flex-column">
+                                    <span class="listhead">Font</span><span class="listEntry" SignAttr="+" id="fontsize">Font size +2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col row">
+                            <div class="col-7 d-flex flex-column">
+                                <div id="Indent_list" class="d-flex flex-column">
+                                    <span class="listhead">Indent</span><span class="listEntry" id="leftind">Left indent +6</span><span class="listEntry" SignAttr="+" id="rightind">Right indent +10</span><span class="listEntry" SignAttr="+" id="fistlineindplus">Firstline indent +10</span><span class="listEntry" SignAttr="+" id="fistlineindmin">Firstline indent -10</span><span class="listEntry" SignAttr="=" id="fistlineindequ">Firstline indent =10</span>
+                                </div>
+                            </div>
+                            <div class="col-5 d-flex flex-column">
+                                <div id="Tracking_list" class="d-flex flex-column">
+                                    <span class="listhead">Tracking</span><span class="listEntry" SignAttr="+" id="trackplus">Tracking +5</span><span class="listEntry" SignAttr="+" id="trackminus">Tracking -5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="default dialog-footer" data-id="dialog-footer">
+                <button type="button" class="btn btn-sm secondary-btn cancel_btn" id="" title="Clear">Cancel</button>
+                <button type="button" class="btn btn-sm primary-btn submit_btn" id="" title="insert">Insert</button>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,128 @@
+div.toc-entry[content-type] {
+    /* margin-bottom: 30px !important; */
+    /* margin-top: 30px !important; */
+    margin-top: 5px;
+}
+
+div.toc-entry[content-type="sec1"] {
+    margin-left: 1rem;
+}
+
+div.toc-entry[content-type="sec2"] {
+    margin-left: 1.25rem;
+}
+
+div.toc-entry[content-type="sec3"] {
+    margin-left: 1.5rem;
+}
+
+div.toc-entry[content-type="sec4"] {
+    margin-left: 1.75rem;
+}
+
+/*  CSS SPACING - 27_Feb_24 -RJ   */
+div.toc-entry .title::before {
+    margin-right: 10px !important;
+}
+
+div.book-part-meta {
+    font-family: "Inter UI", sans-serif !important;
+}
+
+div.book-part-meta>div.title-group>div.subtitle {
+    font-size: 17pt !important;
+    line-height: 25px !important;
+    color: maroon;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 300 !important;
+    margin-top: 15px !important;
+}
+
+/* ?  Main title for TNF Books - 27/02/24 - RJ - START*/
+[data-role="half-title-title"] {
+    font-size: 20pt !important;
+    line-height: 22pt !important;
+    font-weight: normal;
+    margin-top: 18pt !important;
+}
+
+
+[data-role="title-page-title"] {
+    font-size: 25pt !important;
+    line-height: 25pt !important;
+    font-weight: 500 !important;
+    margin-bottom: 30px !important;
+}
+
+
+[data-role="title-page-subtitle"] {
+    font-weight: 550 !important;
+    font-size: 17px !important;
+    margin-bottom: 40pt !important;
+}
+
+[data-role="title-page-author"] {
+    font-size: 16pt !important;
+    font-weight: 500 !important;
+    display: inline-block !important;
+}
+
+/* ?  Main title for TNF Books - 27/02/24 - RJ - END*/
+div.toc-entry[content-type]:last-of-type {
+    /* margin-bottom: 50px !important; */
+}
+
+span.nav-pointer {
+    /* float: right; */
+    display: none;
+}
+
+.front-matter>div,
+.book-body .book-part,
+.book-back>div {
+    margin-top: 30px;
+}
+
+.p ol,
+.p ul,
+.p[content-type=indent] ol,
+.p[content-type=indent] ul,
+div.body div.sec div.p ol,
+div.body div.sec div.p ul {
+    text-indent: 0 !important;
+}
+
+
+
+div[alt-title-type="left-running"],
+div[alt-title-type="right-running"] {
+    font-size: 15px;
+    line-height: 22px
+}
+
+div.sec>div.title[data-levels] {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+div.sec>div.title[data-levels="2"] {
+    font-size: 15.5px;
+    line-height: 16.5px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+div.sec>div.title[data-levels="3"] {
+    font-size: 15px;
+    line-height: 0.906rem;
+    font-style: italic;
+    font-weight: 600;
+
+}
+
+div.sec>div.title[data-levels="4"] {
+    font-size: 14.75px;
+    font-weight: 500;
+}

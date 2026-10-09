@@ -1,0 +1,52 @@
+/* Auto-generated CSS for cover: JJIR.png */
+/* Generated on: 2026-05-13 22:46:50 */
+/* Mantis Ticket: 3481849 MEDKNOW - Batch 10 Configurations */
+
+div.ref .mixed-citation .source {
+  font-style: italic !important;
+}
+
+div.ref .mixed-citation .etal {
+  font-style: italic !important;
+}
+
+div.ref .mixed-citation .volume {}
+
+div.ref .mixed-citation .year {}
+
+
+/* Converted XPath Rules */
+.table-wrap tr th .italic {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.table-wrap-foot .fn .label {
+  vertical-align: super;
+  font-size: 0.8em;
+}
+
+.contrib .xref .sup {
+  /* vertical-align: super;
+  font-size: 0.8em; */
+}
+
+.contrib .xref .x {
+  vertical-align: super;
+  font-size: 0.8em;
+}
+
+.aff .label {
+  vertical-align: super;
+  font-size: 0.8em;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.disp-formula .label {
+  float: right;
+  text-align: right;
+  white-space: nowrap;
+}

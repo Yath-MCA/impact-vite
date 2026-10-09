@@ -1,0 +1,21 @@
+{
+    "impact": [
+        {
+            "version": "2.00.000",
+            "releaseDate": "2024-03-25",
+            "features": [
+                {
+                    "id": 3470157,
+                    "description": "Default landing view: Query Panel instead of TOC",
+                    "details": "Users will now land on the Query Panel by default, providing quicker access to queries and comments. This change enhances user experience by reducing the number of clicks needed to access important information."
+                },
+                {
+                    "id": 3470157,
+                    "description": "Space required after inserting inline equation",
+                    "details": "When users insert an inline equation, a space will now be automatically added after the equation. This improvement ensures better readability and formatting of the document, preventing equations from being cramped against subsequent text."
+                }
+            ],
+            "bugFixes": []
+        }
+    ]
+}

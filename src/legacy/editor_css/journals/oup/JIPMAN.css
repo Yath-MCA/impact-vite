@@ -1,0 +1,18 @@
+/* FAMPRJ Journal */
+/* For Frontmatter Xref value  */
+/* .contrib a.xref {
+    vertical-align: super !important;
+    background-color: none !important;
+    cursor: pointer !important; 
+}*/
+
+/* Reference Part  
+tr th .italic {
+    font-style: italic !important;
+    font-weight: bold !important;
+}*/
+
+div.ref .mixed-citation .source {
+    font-weight: 750;
+    font-style: bold !important;
+}

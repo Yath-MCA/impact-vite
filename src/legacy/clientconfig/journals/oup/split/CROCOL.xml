@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="CROCOL" abbr="" journal-title="Crohn's &amp; Colitis 360">
+				<author data-name="contrib" surname="yes" given-names="yes" role="no" collab="yes" on-behalf-of="no" author-comment="no" string-name="no" prefix="no" suffix="yes" orcid="yes" degrees="yes" author-notes-quees="yes" corresp-quees="no" contribsep=" " surnameSep=", " altername_start="(" altername_end=")" givennamesep=" " crosslinksep="," seperator="," pattern="beforecomma" contrib-last-sep=" and " crosslink="yes" />
+				<affiliation data-name="aff" seperator=", " designators="FootNote_4" single-aff="false" autoReNumber="true" />
+				<corresp data-name="corresp" email="true" address="true" maximum="1" telephone="true" fax="false" indicators="false" degrees="true" />
+				<author-notes data-name="fn" indicators="true" author-notes-quees="Alphabets" />
+				<abstract data-name="abstract" GA="true" laysummery="true">
+				</abstract>
+				<keywords data-name="keywords" seperator=", " endperiod="false" minimum="3" maximum="10" />
+				<heading data-name="title" numbered="no" label="no" maximum="3">
+					<h1 style="bold" type="sentence case" />
+					<h2 style="bold" type="sentence case" />
+					<h3 style="bold" type="sentence case" />
+				</heading>
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,back" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<label Patteren="Figure #." Addbefore="" Addafter="." />
+					<dircite single_prefix="Figure " double_prefix="Figures " multi_sep=", " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" multi_sep="," />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<label Patteren="Table #." Addbefore="" Addafter="." />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered_with_dot" text-format="sup">
+					<dircite double_sep="," range_sep="–" openwrap="" closewrap="" />
+					<indircite double_sep="," range_sep="–" openwrap="" closewrap="" />
+				</Reference>
+			</journal>

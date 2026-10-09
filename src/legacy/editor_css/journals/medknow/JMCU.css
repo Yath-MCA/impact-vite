@@ -1,0 +1,41 @@
+.table-wrap-foot .fn .label sup {
+    font-style: italic;
+    font-weight: bold;
+}
+
+table-wrap-foot .fn tr th {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.contrib .xref sup {
+    font-style: italic;
+}
+
+.contrib .xref .x {
+    font-style: italic;
+}
+
+.contrib .xref .x {
+    font-style: italic;
+}
+
+underline {
+    text-decoration: underline;
+}
+
+.aff .label .sup {
+    font-style: italic;
+}
+
+.disp-formula .label .eqnlabel {
+    text-align: right;
+}
+
+.kwd {
+    font-style: italic;
+}
+
+.ref .etal {
+    font-style: italic;
+}

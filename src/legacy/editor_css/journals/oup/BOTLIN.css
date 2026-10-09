@@ -1,0 +1,21 @@
+/* EMPHEA Journal */
+/* For Frontmatter Xref value  */
+/* .contrib a.xref {
+    vertical-align: super !important;
+    background-color: none !important;
+    cursor: pointer !important; 
+}*/
+
+/* Reference Part */
+div.ref .mixed-citation .source {
+    font-style: italic !important;
+}
+
+div.ref .mixed-citation .volume,
+div.ref .mixed-citation .year,
+div.ref .mixed-citation .surname,
+div.ref .mixed-citation .given-names,
+div.ref .mixed-citation .volume {
+    font-weight: 750;
+    font-style: bold !important;
+}

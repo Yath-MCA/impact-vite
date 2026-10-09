@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="DESIGN" abbr="" journal-title="Journal Of Design History" batch="19">
+				<!-- ? Mostly Single author files only received -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="optional" suffix="optional" orcid="no" author-comment="no" degrees="optional" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="yes" corresp-quees="no" crosslink="yes" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=", " pattern="aftercomma" notallowed="" />
+				<!-- ? When all authors share one common affiliation there will be no affiliation indicator-->
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="ArabicNumber" single-aff="true" autoReNumber="false" />
+				<corresp data-name="corresp" email="yes" address="yes" corresp-quees="" maximum="" minimum="" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!--Author Follow in config so added in Default symbol -->
+				<author-notes data-name="fn" indicators="yes" author-notes-quees="FootNote_1" notallowed="yes" />
+				<abstract data-name="abstract" GA="true" laysummery="true" />
+				<keywords data-name="keywords" seperator="—" endperiod="false" minimum="" maximum="" limit="no" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<caption label="yes" label_end_sep="" end_sep="." limit="3" />
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<notes footnote="notallowed" endnote="allowed" />
+				<heading data-name="title" numbered="no" label="" label_suffix="" maximum="4" label_between_delim="">
+					<h1 style="bold" type="sentence case" />
+					<h2 style="bold" type="sentence case" />
+					<h3 style="bold" type="sentence case" />
+					<h4 style="bold" type="sentence case" />
+				</heading>
+				<dictionary spelling="US" name="Merriam-Webster’s 11th Collegiate Dictionary" />
+				<list style="(1)|(a)" />
+				<equation label="" note="Follow author" />
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false" notallowed="yes">
+					<!-- ? Reference as Endnotes -->
+					<citation type="FOOTNOTE" name_sep=" and " name_year_sep=" " direct_sep=", " indirect_sep="; " double_sep="; " range_sep="" openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="roman" />
+				</Reference>
+				<BackMatter ack="allowed" act="allowed" coi="allowed" fund="allowed" das="allowed" supp="allowed" suppcap="allowed" app="allowed" />
+			</journal>

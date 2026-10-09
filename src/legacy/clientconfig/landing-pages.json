@@ -1,0 +1,8 @@
+{
+  "source": "src/clientconfig/landing-pages/",
+  "files": [
+    "common.json",
+    "sections.json",
+    "clients.json"
+  ]
+}

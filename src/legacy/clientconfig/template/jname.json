@@ -1,0 +1,222 @@
+{
+    "European Journal of Gastroenterology and Hepatology": {
+        "abbr": "Eur J Gastroenterol Hepatol",
+        "shorthand": "EJGH"
+    },
+    "European Journal of Emergency Medicine": {
+        "abbr": "Eur J Emerg Med",
+        "shorthand": "EJEM"
+    },
+    "NeuroReport": {
+        "abbr": "NeuroReport",
+        "shorthand": "NR"
+    },
+    "International Journal of Rehabilitation Research": {
+        "abbr": "Int J Rehabil Res",
+        "shorthand": "IJRR"
+    },
+    "Arteriosclerosis, Thrombosis, and Vascular Biology": {
+        "abbr": "Arterioscler Thromb Vasc Biol",
+        "shorthand": "ATV"
+    },
+    "Circulation": {
+        "abbr": "Circulation",
+        "shorthand": "CIR"
+    },
+    "Circulation: Arrhythmia and Electrophysiology": {
+        "abbr": "Circ Arrhythm Electrophysiol",
+        "shorthand": "HAE"
+    },
+    "Circulation: Genomic and Precision Medicine": {
+        "abbr": "Circ Genom Precis Med",
+        "shorthand": "HCG"
+    },
+    "Circulation: Cardiovascular Imaging": {
+        "abbr": "Circ Cardiovasc Imaging",
+        "shorthand": "HCI"
+    },
+    "Circulation: Cardiovascular Quality and Outcomes": {
+        "abbr": "Circ Cardiovasc Qual Outcomes",
+        "shorthand": "HCQ"
+    },
+    "Circulation: Cardiovascular Interventions": {
+        "abbr": "Circ Cardiovasc Interv",
+        "shorthand": "HCV"
+    },
+    "Circulation: Heart Failure": {
+        "abbr": "Circ Heart Fail",
+        "shorthand": "HHF"
+    },
+    "Hypertension": {
+        "abbr": "Hypertension",
+        "shorthand": "HYP"
+    },
+    "Circulation Research": {
+        "abbr": "Circ Res",
+        "shorthand": "RES"
+    },
+    "Stroke": {
+        "abbr": "Stroke",
+        "shorthand": "STR"
+    },
+    "Annals of Surgery": {
+        "abbr": "Ann Surg.",
+        "shorthand": "AS9"
+    },
+    "Academic Medicine": {
+        "abbr": "Acad Med",
+        "shorthand": "ACM"
+    },
+    "Anesthesiology": {
+        "abbr": "Anesthesiology",
+        "shorthand": "ALN"
+    },
+    "Anesthesia and Analgesia": {
+        "abbr": "Anesth Analg",
+        "shorthand": "ANE"
+    },
+    "Ear and Hearing": {
+        "abbr": "Ear Hearing",
+        "shorthand": "AUD"
+    },
+    "Journal of the Chinese Medical Association": {
+        "abbr": "J Chin Med Assoc",
+        "shorthand": "CA9"
+    },
+    "Critical Care Explorations": {
+        "abbr": "Crit Care Explor",
+        "shorthand": "CC9"
+    },
+    "Critical Care Medicine": {
+        "abbr": "Crit Care Med",
+        "shorthand": "CCM"
+    },
+    "Cardiology in Review": {
+        "abbr": "Cardiol Rev",
+        "shorthand": "CRD"
+    },
+    "Diseases of the Colon Rectum": {
+        "abbr": "Dis Colon Rectum",
+        "shorthand": "DCR"
+    },
+    "Epidemiology": {
+        "abbr": "Epidemiology",
+        "shorthand": "EDE"
+    },
+    "Environmental Epidemiology": {
+        "abbr": "Environ Epidemiol",
+        "shorthand": "EE9"
+    },
+    "Plastic and Reconstructive Surgery - Global Open": {
+        "abbr": "Plast Reconstr Surg Glob Open",
+        "shorthand": "GOX"
+    },
+    "Critical Pathways in Cardiology": {
+        "abbr": "Crit Pathw Cardiol",
+        "shorthand": "HPC"
+    },
+    "The Pediatric Infectious Disease Journal": {
+        "abbr": "Pediatr Infect Dis J",
+        "shorthand": "INF"
+    },
+    "Ophthalmic Plastic and Reconstructive Surgery": {
+        "abbr": "Ophthalmic Plast Reconstr Surg",
+        "shorthand": "IOP"
+    },
+    "ASAIO Journal": {
+        "abbr": "ASAIO J",
+        "shorthand": "MAT"
+    },
+    "Pediatric Critical Care Medicine": {
+        "abbr": "Pediat Care Med",
+        "shorthand": "PCC"
+    },
+    "Progress in Preventive Medicine": {
+        "abbr": "Prog Prev Med",
+        "shorthand": "PPM"
+    },
+    "Pediatric Quality and Safety": {
+        "abbr": "Pediatr Qual Saf",
+        "shorthand": "PQS"
+    },
+    "JPGN Reports": {
+        "abbr": "JPGN Reports",
+        "shorthand": "PG9"
+    },
+    "Plastic and Reconstructive Surgery": {
+        "abbr": "Plast Reconstr Surg",
+        "shorthand": "PRS"
+    },
+    "Transplantation": {
+        "abbr": "Transplantation",
+        "shorthand": "TP"
+    },
+    "Transplantation Direct": {
+        "abbr": "Transplant Direct",
+        "shorthand": "TXD"
+    },
+    "A and A Practice": {
+        "abbr": "A A Pract",
+        "shorthand": "XAA"
+    },
+    "Anti-Cancer Drugs": {
+        "abbr": "Anti-Cancer Drugs",
+        "shorthand": "ACD"
+    },
+    "Behavioural Pharmacology": {
+        "abbr": "Behav Pharmacol",
+        "shorthand": "BPHARM"
+    },
+    "Blood Pressure Monitoring": {
+        "abbr": "Blood Press Monit",
+        "shorthand": "BPMJ"
+    },
+    "Coronary Artery Disease": {
+        "abbr": "Coron Artery Dis",
+        "shorthand": "CAD"
+    },
+    "Cardiovascular Endocrinology  Metabolism": {
+        "abbr": "Cardiovasc Endocrinol Metab",
+        "shorthand": "CAEN"
+    },
+    "Clinical Dysmorphology": {
+        "abbr": "Clin Dysmorphol",
+        "shorthand": "CD"
+    },
+    "European Journal of Cancer Prevention": {
+        "abbr": "Eur J Cancer Prev",
+        "shorthand": "EJCP"
+    },
+    "International Clinical Psychopharmacology": {
+        "abbr": "Int Clin Psychopharmacol",
+        "shorthand": "ICP"
+    },
+    "Journal of Pediatric Orthopaedics B": {
+        "abbr": "J Pediatr Orthop B",
+        "shorthand": "JPOB"
+    },
+    "Melanoma Research": {
+        "abbr": "Melanoma Res",
+        "shorthand": "MR"
+    },
+    "Nuclear Medicine Communications": {
+        "abbr": "Nucl Med Commun",
+        "shorthand": "NMC"
+    },
+    "Psychiatric Genetics": {
+        "abbr": "Psychiatr Genet",
+        "shorthand": "PG"
+    },
+    "Pharmacogenetics and Genomics": {
+        "abbr": "Pharmacogenet Genomics",
+        "shorthand": "PGEN"
+    },
+    "Clinical Infectious Diseases": {
+        "abbr": "Clin Infect Dis",
+        "shorthand": "CLINID"
+    },
+    "The Business Lawyer": {
+        "abbr": "The Business Lawyer",
+        "shorthand": "TBL"
+    }
+}

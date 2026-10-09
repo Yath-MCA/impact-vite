@@ -1,0 +1,3 @@
+<IgnoreunstructureReference>
+    <Reference matchText="(\[Internet\]|\(?Publication\)?|\[?(Online )?Ahead of print\]?|Discussion(\s?[0-9]+)?|discussion(\s?[0-9]+)?|quiz|In Chinese|PMID\: [0-9]+\.?|PMC[0-9]+|MS Thesis|Editorial|Retraction|Retracted|CrossRef|Mismatch|CrossRefMismatch|JSTOR|Elsevier|\(?In eng\)?)|Accepted Manuscript(,?\s)In Press|Accepted Manuscript|In Press|Accepted"/>
+</IgnoreunstructureReference>

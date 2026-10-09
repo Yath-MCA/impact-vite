@@ -1,0 +1,96 @@
+<div class="mDialog ds-none wo-editor-access" id="qualityCheckerDialog">
+    <div class="dialog-container">
+        <div class="dialog-content">
+            <div class="dia_header_div">
+                <div class="dia_header_text" data-lang-lab="Panel_title">Internal Validation</div>
+                <div class="ml-auto closeIcons" title="Close"><img alt="Close" class="n_Img" src="assets/images/svg/dialogClose.svg"></div>
+            </div>
+            <div class="d-flex dialog-body" data-id="dialog-body">
+                <div class="d-flex flex-column inner-body-div">
+                    <ul class="nav nav-tabs qc-validation-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="qc-tab-citation" data-toggle="tab" href="#qc-pane-citation" role="tab" data-qc-tab="citation" data-lang-lab="tab_citation">Citation <span class="qc-tab-badge" aria-hidden="true"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="qc-tab-dtd-error" data-toggle="tab" href="#qc-pane-dtd-error" role="tab" data-qc-tab="dtd_error" data-lang-lab="tab_dtd_error">DTD Logs<span class="qc-tab-badge" aria-hidden="true"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="qc-tab-text-related" data-toggle="tab" href="#qc-pane-text-related" role="tab" data-qc-tab="text_related" data-lang-lab="tab_text_related">Text Related <span class="qc-tab-badge" aria-hidden="true"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="qc-tab-comments-queries" data-toggle="tab" href="#qc-pane-comments-queries" role="tab" data-qc-tab="comments_queries" data-lang-lab="tab_comments_queries">Comments &amp; Queries <span class="qc-tab-badge" aria-hidden="true"></span></a>
+                        </li>
+                    </ul>
+                    <div class="tab-content qc-validation-tab-content border border-top-0">
+                        <div class="tab-pane show active" id="qc-pane-citation" role="tabpanel" data-qc-tab="citation">
+                            <ul class="nav nav-pills qc-citation-subs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#qc-sub-missing-item" data-qc-sub="missing_citation" data-lang-lab="sub_missing_citation">Missing Item <span class="qc-tab-badge" aria-hidden="true"></span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#qc-sub-order" data-qc-sub="citation_order" data-lang-lab="sub_citation_order">Order <span class="qc-tab-badge" aria-hidden="true"></span></a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane show active" id="qc-sub-missing-item">
+                                    <div class="container qc-tab-container" data-qc-tab="missing_citation"></div>
+                                    <div class="form-check qc-tab-confirm ds-none mt-2 ml-2" data-qc-confirm="missing_citation">
+                                        <input class="form-check-input" type="checkbox" id="qc_confirm_missing_citation">
+                                        <label class="form-check-label" for="qc_confirm_missing_citation" data-lang-lab="confirm_missing_citation">I confirm I reviewed Missing Item</label>
+                                        <span class="qc-confirm-hint ds-none" data-lang-lab="hint_review_required">Review required</span>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="qc-sub-order">
+                                    <div class="container qc-tab-container" data-qc-tab="citation_order"></div>
+                                    <div class="form-check qc-tab-confirm ds-none mt-2 ml-2" data-qc-confirm="citation_order">
+                                        <input class="form-check-input" type="checkbox" id="qc_confirm_citation_order">
+                                        <label class="form-check-label" for="qc_confirm_citation_order" data-lang-lab="confirm_citation_order">I confirm I reviewed Order</label>
+                                        <span class="qc-confirm-hint ds-none" data-lang-lab="hint_review_required">Review required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="qc-pane-dtd-error" role="tabpanel" data-qc-tab="dtd_error">
+                            <div class="container qc-tab-container" data-qc-tab="dtd_error"></div>
+                            <div class="form-check qc-tab-confirm ds-none mt-2 ml-2" data-qc-confirm="dtd_error">
+                                <input class="form-check-input" type="checkbox" id="qc_confirm_dtd_error">
+                                <label class="form-check-label" for="qc_confirm_dtd_error" data-lang-lab="confirm_dtd_error">I confirm I reviewed DTD</label>
+                                <span class="qc-confirm-hint ds-none" data-lang-lab="hint_review_required">Review required</span>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="qc-pane-text-related" role="tabpanel" data-qc-tab="text_related">
+                            <div class="container qc-tab-container" data-qc-tab="text_related"></div>
+                            <div class="form-check qc-tab-confirm ds-none mt-2 ml-2" data-qc-confirm="text_related">
+                                <input class="form-check-input" type="checkbox" id="qc_confirm_text_related">
+                                <label class="form-check-label" for="qc_confirm_text_related" data-lang-lab="confirm_text_related">I confirm I reviewed Text Related</label>
+                                <span class="qc-confirm-hint ds-none" data-lang-lab="hint_review_required">Review required</span>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="qc-pane-comments-queries" role="tabpanel" data-qc-tab="comments_queries">
+                            <div class="container qc-tab-container" data-qc-tab="comments_queries"></div>
+                            <div class="form-check qc-tab-confirm ds-none mt-2 ml-2" data-qc-confirm="comments_queries">
+                                <input class="form-check-input" type="checkbox" id="qc_confirm_comments_queries">
+                                <label class="form-check-label" for="qc_confirm_comments_queries" data-lang-lab="confirm_comments_queries">I confirm I reviewed Comments &amp; Queries</label>
+                                <span class="qc-confirm-hint ds-none" data-lang-lab="hint_review_required">Review required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form onsubmit="return!1" spellcheck="false" class="mt-4">
+                        <div class="form-group mb-0 ds-none" data-id="force-submit-group">
+                            <label for="internal_audit" data-lang-lab="force_submit_label">Reason for force submit</label>
+                            <textarea id="internal_audit" class="form-control form-control-sm h-auto warn-icon" rows="3" aria-label="Comments" placeholder="Your comments here..." maxlength="1000" required data-lang-lab="force_submit_placeholder"></textarea>
+                            <div class="invalid-feedback" for="internal_audit" data-lang-lab="force_submit_invalid">Comments are mandatory. Please enter a minimum of 20 characters for this field, along with your collator name/mail ID.</div>
+                        </div>
+                    </form>
+                    <div class="ds-none progress">
+                        <div class="progress-bar" role="progressbar" aria-label="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="10"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex dialog-footer" data-id="dialog-footer">
+                <button type="submit" title="cancel" class="btn secondary-btn btn-sm ml-auto cancel_btn ml-auto" data-lang-lab="btn_cancel">Cancel</button>
+                <button type="submit" title="submit" class="btn primary-btn btn-sm submit_btn" data-lang-lab="btn_submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

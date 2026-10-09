@@ -1,0 +1,44 @@
+body {
+    background: #fff !important;
+}
+
+.content-wrapper {
+    background: #fff !important;
+}
+
+#myGrid {
+    bottom: 6%;
+    position: fixed;
+    width: 98.5%;
+}
+
+.clientlogo {
+    background: url("../images/oup-logo-blue.svg") no-repeat 6px center;
+    width: 200px;
+}
+
+.daterangepicker .ranges li.active {
+    background-color: #ff8635 !important;
+}
+
+.table-condensed thead {
+    background-color: bisque;
+    color: #000 !important;
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    background-color: #ff8635 !important;
+}
+
+.daterangepicker td.in-range {
+    background-color: bisque !important;
+}
+
+.daterangepicker td.end-date {
+    background-color: #ff8635 !important;
+}
+
+.btnCalendar {
+    background: #ff8635 !important;
+}

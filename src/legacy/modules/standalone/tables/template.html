@@ -1,0 +1,51 @@
+<div class="mDialog ds-none w-editor-access" id="tableNotesDialog">
+    <div class="dialog-container lg">
+        <div class="dialog-content">
+            <div class="dia_header_div">
+                <span class="dia_header_text" id="tblnote_dialog_title" data-lang-lab="tblFnDialogTitle">Insert Table Footnote</span>
+                <span class="ml-auto closeIcons" title="Close">
+                    <img class="n_Img" src="assets/images/svg/dialogClose.svg" alt="Close Icon">
+                </span>
+            </div>
+            <div class="d-flex flex-column dialog-body" data-id="dialog-body">
+                <div class="tbl-fn-cite-panel">
+                    <div class="d-flex align-items-center" id="OptionButRow1">
+                        <div class="flex-column w-100">
+                            <div class="cross-chk d-flex">
+                                <span class="d-flex col">
+                                    <input type="text" autocomplete="off" class="form-control form-control-sm" readonly id="tbl_note_fn_cite" aria-label="Input Text">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxShadow"></div>
+                    <div class="d-flex mt-2 float-item">
+                        <div class="d-flex flex-fill float-div" id="floats-div">
+                            <div class="flex-column flex-fill float-list-group" id="tfDiv"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tbl-fn-new-panel ds-none">
+                    <div class="form-group mb-2" id="tbl_fn_radios"></div>
+                    <div class="form-group mb-2 ds-none" id="tbl_fn_label_wrap">
+                        <label for="tbl_fn_label" data-lang-lab="tblFnLabel">Label</label>
+                        <select class="form-control form-control-sm" id="tbl_fn_label"></select>
+                        <div class="text-danger small ds-none" id="tbl_fn_label_warn"></div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="tbl_fn_body" data-lang-lab="tblFnContent">Content</label>
+                        <div id="tbl_fn_body" class="form-control" contenteditable="true" style="min-height:88px;"></div>
+                    </div>
+                </div>
+                <div class="tbl-fn-delete-panel ds-none">
+                    <div class="mb-2" data-lang-lab="tblFnDeletePreview">Footnote to delete</div>
+                    <div class="border p-2" id="tbl_fn_delete_preview"></div>
+                </div>
+            </div>
+            <div class="default dialog-footer" data-id="dialog-footer">
+                <button type="button" title="Cancel" id="cancel_tblnote" class="btn secondary-btn btn-sm cancel_btn" data-lang-lab="cancel">Cancel</button>
+                <button type="button" title="Insert" id="insert_tblnote" class="btn btn-sm primary-btn" data-lang-lab="insert">Insert</button>
+            </div>
+        </div>
+    </div>
+</div>

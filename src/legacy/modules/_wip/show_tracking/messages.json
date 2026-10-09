@@ -1,0 +1,36 @@
+{
+  "en": {
+    "labels": {
+      "Panel_title": "Review Changes",
+      "close_title": "Close",
+      "label_reviewers": "Reviewers:",
+      "btn_sort_time": "Time",
+      "label_insertions": "Insertions:",
+      "label_deletions": "Deletions:",
+      "label_formatting": "Formatting:",
+      "btn_accept": "Accept",
+      "btn_reject": "Reject",
+      "btn_prev": "Previous",
+      "btn_next": "Next",
+      "title_review_count": "Review Count"
+    },
+    "runtime": {}
+  },
+  "fr": {
+    "labels": {
+      "Panel_title": "Examiner les modifications",
+      "close_title": "Fermer",
+      "label_reviewers": "Relecteurs :",
+      "btn_sort_time": "Heure",
+      "label_insertions": "Insertions :",
+      "label_deletions": "Suppressions :",
+      "label_formatting": "Mise en forme :",
+      "btn_accept": "Accepter",
+      "btn_reject": "Rejeter",
+      "btn_prev": "Précédent",
+      "btn_next": "Suivant",
+      "title_review_count": "Nombre de révisions"
+    },
+    "runtime": {}
+  }
+}

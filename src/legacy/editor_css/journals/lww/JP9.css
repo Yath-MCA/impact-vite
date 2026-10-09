@@ -1,0 +1,45 @@
+
+/* 12_JULY_2024 */
+
+
+div.subj-group div.subject {
+    color: #401064 !important;
+}
+
+div.abstract [data-title]::before,
+.kwd-group>.pistart::after,
+.ref-list .title,
+.def-list>.title,
+span.related-article,
+.abstract .sec .title,
+div.boxed-text div.title,
+.caption[data-label]::before {
+    color: #401064 !important;
+    font-style: normal !important;
+}
+
+div.ref .mixed-citation .source {
+    font-style: italic !important
+}
+
+div.sec div.title {
+    color: #401064 !important;
+}
+
+tr th .italic,
+div.sec div.title[data-levels="3"],
+div.sec div.title[data-levels="4"] {
+    font-style: italic !important;
+    /* font-weight: 700 !important */
+}
+
+div.subj-group div.subject,
+.caption[data-label]::before {
+    font-weight: bold !important;
+}
+
+div.sec div.title[data-levels="1"],
+div.subj-group div.subject,
+div.boxed-text div.title {
+    text-transform: uppercase !important;
+}

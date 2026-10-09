@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="TNF">
+				<author data-name="contrib" surname="yes" given-names="yes" role="no" collab="no" on-behalf-of="no" author-comment="no" name-alternatives="no" prefix="yes" suffix="yes" orcid="no" degrees="no" author-notes-quees="yes" corresp-quees="no" seperator=", " crosslink="yes" />
+				<affiliation data-name="aff" seperator=", " contrib-last-sep=" and " designators="ArabicNumber" single-aff="false" autoReNumber="true" />
+				<corresp data-name="corresp" email="yes" address="yes" maximum="1" telephone="yes" fax="yes" indicators="no" />
+				<author-notes data-name="fn" indicators="yes" author-notes-quees="Alphabets" />
+				<abstract data-name="abstract" GA="No" />
+				<keywords data-name="keywords" seperator="; " endperiod="." minimum="3" maximum="10" />
+				<heading data-name="title" numbered="no" label="no" maximum="7">
+					<h1 style="bold" type="sentence case" />
+					<h2 style="bold" type="sentence case" />
+					<h3 style="bold" type="sentence case" />
+				</heading>
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,back" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<caption label_end_sep="" end_sep="." lable="yes" enddot="yes" limit="3" Addbefore="" Addafter="." />
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .title" new-item-key="data-table">
+					<caption lable="yes" label_end_sep="" end_sep="" enddot="no" limit="3" Addbefore="" Addafter="." />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false">
+					<citation type="CHRON_TYPE_1" name_year_sep=", " name_sep=" and " name_last_sep="" direct_sep=", " indirect_sep="; " double_sep="; " range_sep="" openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="roman" />
+					<ReferenceformatOrder data-name="ref">
+						<Journals author-group="author" article-title="title" Journals-title="Journals" year="year" volume="volume" issue="issue" page="page" />
+					</ReferenceformatOrder>
+				</Reference>
+			</journal>

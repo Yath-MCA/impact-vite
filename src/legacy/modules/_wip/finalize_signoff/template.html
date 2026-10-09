@@ -1,0 +1,28 @@
+<div class="mDialog ds-none wo-editor-access" id="FinalizingDialog" role="dialog" aria-modal="true" aria-labelledby="headerTitle" aria-describedby="bodyText">
+    <div class="dialog-container md-5">
+        <div class="dialog-content">
+            <div class="dia_header_div">
+                <span class="dia_header_text" id="headerTitle" role="heading" aria-level="1" tabindex="0">Finalize and Submit</span>
+                <div class="ml-auto closeIcons" tabindex="0" title="Close" role="button" aria-label="Close dialog">
+                    <img class="n_Img" src="assets/images/svg/dialogClose.svg" alt="Close">
+                </div>
+            </div>
+            <div class="d-flex flex-column dialog-body" data-id="dialog-body">
+                <div class="d-flex flex-column justify-content-center" id="dialogtop">
+                    <div class="d-flex justify-content-center align-self-center">
+                        <img id="headerImage" alt="Dialog Status Icon" class="d-flex align-self-center" style="width:40px;height:40px" src="assets/images/svg/alert/WARNING.svg">
+                    </div>
+                    <div class="d-flex align-self-center font-weight-bold headerTitle" tabindex="0" data-id="headerTitle" role="heading" aria-level="1"></div>
+                </div>
+                <div class="d-flex justify-content-center" id="dialogcenter">
+                    <div id="bodyText" role="alert" aria-live="polite" aria-atomic="true">Author queries have not been answered. Please answer all queries before submission.</div>
+                    <div class="spinner-border iSpin_border ds-none" role="status" id="bodySpinner" aria-label="Processing"></div>
+                </div>
+            </div>
+            <div class="ml-auto dialog-footer" data-id="dialog-footer">
+                <button type="button" id="" class="btn secondary-btn ml-auto" title="cancel" tabindex="0" aria-describedby="bodyText">Cancel</button>
+                <button type="button" id="" class="btn btn-sm primary-btn" tabindex="0" title="submit" aria-describedby="bodyText">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>

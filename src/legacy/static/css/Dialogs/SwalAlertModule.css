@@ -1,0 +1,62 @@
+div.dummyCheck {
+  cursor: pointer
+}
+
+.swal2-title {
+  font-size: 1em !important;
+}
+
+.swal2-image {
+  margin: .3em auto !important;
+}
+
+.swal2-popup {
+  font-size: 1rem !important;
+  padding: 0.75em !important;
+  font-family: 'Inter UI', sans-serif;
+  /* display: flex !important; */
+  /* handle custom class TOASTER ONLY  */
+}
+
+select.swal2-select-medium {
+  font-size: 0.75em !important;
+}
+
+#swal2-content {
+  color: #6C6C6C !important;
+  font-size: 15px !important;
+}
+
+.swal2-styled.swal2-cancel {
+  font-size: 13px !important;
+}
+
+.swal2-styled.swal2-confirm {
+  font-size: 13px !important;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4) !important;
+  background-image: linear-gradient(180deg, #F68A33 0%, #F68A33 100%) !important;
+}
+
+button.swal2-confirm.btn-success-auto.swal2-styled {
+  background-image: none !important;
+  border-left-color: #F68A33 !important;
+  border-right-color: #F68A33 !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* Added for Maximize view for Sweet alert */
+.swal2-container {
+  z-index: 999999 !important;
+  width: auto !important;
+}
+
+body.swal2-shown.blur>[aria-hidden="true"] {
+  filter: blur(10px);
+}
+
+
+.swal2-select-medium {
+  font-size: 0.95em !important;
+}

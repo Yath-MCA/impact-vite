@@ -1,0 +1,27 @@
+#AnntationDialog .dialog-body,
+#ImageAnnotateDialogModule .dialog-body {
+    min-width: 20em;
+    height: 23.5em;
+    margin: 0.6rem;
+    padding: 0;
+    overflow: scroll;
+}
+
+#AnntationDialog #ImageAnnotateBody,
+#ImageAnnotateDialogModule #ImageAnnotateBody,
+#ImageAnnotateDialogModule .ImageAreaLarge {
+
+    padding: 0;
+}
+
+
+/* 04_DEC_2023 - ADD EXISTING FUTURE "w40"  
+#ImageAnnotateDialogModule .dialog-container, #GrayscaleDialog .dialog-container{
+    width:40% !important;
+}*/
+
+
+#GrayscaleDialog #Grayscale,
+#GrayscaleDialog .gray_sclae_img {
+    width: 100%;
+}

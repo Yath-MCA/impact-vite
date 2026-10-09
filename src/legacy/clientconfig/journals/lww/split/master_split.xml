@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='utf-8'?>
+<journals>
+  <journal short="EDE" abbr="" journal-title="Epidemiology" client="lww" batch="0" split="EDE.xml" split_master="master_split.xml" />
+  <journal short="EJGH" abbr="Eur J Gastroenterol Hepatol" journal-title="European Journal of Gastroenterology &amp; Hepatology" batch="0" client="lww" split="EJGH.xml" split_master="master_split.xml" />
+  <journal short="INF" abbr="" journal-title="The Pediatric Infectious Disease Journal" batch="0" client="lww" split="INF.xml" split_master="master_split.xml" />
+  <journal short="MD" abbr="" journal-title="Medicine" client="lww" split="MD.xml" batch="0" split_master="master_split.xml" />
+  
+  <journal short="ACI" abbr="" journal-title="Current Opinion in Allergy and Clinical Immunology" batch="1" by="AK_023_Apr_25" client="lww" split="ACI.xml" split_master="master_split.xml" />
+  <journal short="BOR" abbr="" journal-title="Current Opinion in Rheumatology" batch="1" by="AK_022_Apr_25" client="lww" split="BOR.xml" split_master="master_split.xml" />
+  <journal short="CCO" abbr="" journal-title="Current Opinion in Oncology" batch="1" by="AK_023_Apr_25" client="lww" split="CCO.xml" split_master="master_split.xml" />
+  <journal short="COH" abbr="" journal-title="Current Opinion in HIV and AIDS" batch="1" by="AK_023_Apr_25" client="lww" split="COH.xml" split_master="master_split.xml" />
+  <journal short="EJCP" abbr="" journal-title="European Journal of Cancer Prevention" batch="1" by="AK" qcby="YA" client="lww" split="EJCP.xml" split_master="master_split.xml" />
+  <journal short="MBC" abbr="" journal-title="Blood Coagulation &amp; Fibrinolysis" batch="1" by="AK_022_Apr_25" client="lww" split="MBC.xml" split_master="master_split.xml" />
+  <journal short="MOG" abbr="" journal-title="Current Opinion in Gastroenterology" batch="1" by="AK_022_Apr_25" client="lww" split="MOG.xml" split_master="master_split.xml" />
+  <journal short="MR" abbr="" journal-title="Melanoma Research" batch="1" by="AK" qcby="" client="lww" split="MR.xml" split_master="master_split.xml" />
+  <journal short="MRM" abbr="" journal-title="Reviews and Research in Medical Microbiology" batch="1" by="AK_023_Apr_25" client="lww" split="MRM.xml" split_master="master_split.xml" />
+  <journal short="PG" abbr="" journal-title="Psychiatric Genetics" batch="1" by="AK" qcby="" client="lww" split="PG.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="HCO" abbr="" journal-title="Current Opinion in Cardiology" batch="2" by="AK_03_JUN_25" copy-by="04_JUN_25_YA" client="lww" split="HCO.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="ICU" abbr="" journal-title="Current Opinion in Ophthalmology" batch="2" by="AK_03_JUN_25" copy-by="04_JUN_25_YA" client="lww" split="ICU.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="MCC" abbr="" journal-title="Current Opinion in Critical Care" batch="2" by="AK_03_JUN_25" copy-by="YA_03_JUN_25" client="lww" split="MCC.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="MCO" abbr="" journal-title="Current Opinion in Clinical Nutrition and Metabolic Care" batch="2" by="AK_03_JUN_25" copy-by="04_JUN_25_YA" client="lww" split="MCO.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="MCP" abbr="" journal-title="Current Opinion in Pulmonary Medicine" batch="2" by="AK_03_JUN_25" copy-by="YA_03_JUN_25" client="lww" split="MCP.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="MED" abbr="" journal-title="Current Opinion in Endocrinology &amp; Diabetes and Obesity" batch="2" by="AK_03_JUN_25" copy-by="YA_03_JUN_25" client="lww" split="MED.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="MNH" abbr="" journal-title="Current Opinion in Nephrology and Hypertension" batch="2" by="AK_03_JUN_25" copy-by="YA_03_JUN_25" client="lww" split="MNH.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="MOH" abbr="" journal-title="Current Opinion in Hematology" batch="2" by="AK_03_JUN_25" copy-by="YA_03_JUN_25" client="lww" split="MOH.xml" split_master="master_split.xml" />
+  <journal short="ACD" abbr="" journal-title="Anti-Cancer Drugs" batch="3" by="AK" qcby="YA" client="lww" split="ACD.xml" split_master="master_split.xml" />
+  <journal short="BPMJ" abbr="" journal-title="Blood Pressure Monitoring" batch="3" by="AK" qcby="" client="lww" split="BPMJ.xml" split_master="master_split.xml" />
+  <journal short="CAEN" abbr="" journal-title="Cardiovascular Endocrinology &amp; Metabolism" batch="3" by="AK" qcby="" client="lww" split="CAEN.xml" split_master="master_split.xml" />
+  <journal short="IJRR" abbr="" journal-title="International Journal of Rehabilitation Research" batch="3" by="AK" qcby="" client="lww" split="IJRR.xml" split_master="master_split.xml" />
+  <journal short="JPOB" abbr="" journal-title="Journal of Pediatric Orthopaedics B" batch="3" by="AK" qcby="" client="lww" split="JPOB.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="MOL" abbr="" journal-title="Current Opinion in Lipidology" batch="3" by="AK_07_JUN_25" copy-by="YA_10_JUN_25" client="lww" split="MOL.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="MOO" abbr="" journal-title="Current Opinion in Otolaryngology &amp; Head and Neck Surgery" batch="3" by="AK_07_JUN_25" copy-by="YA_10_JUN_25" client="lww" split="MOO.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="MOP" abbr="" journal-title="Current Opinion in Pediatrics" batch="3" by="AK_07_JUN_25" copy-by="YA_10_JUN_25" client="lww" split="MOP.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="MOT" abbr="" journal-title="Current Opinion in Organ Transplantation" batch="3" by="AK_07_JUN_25" copy-by="YA_10_JUN_25" client="lww" split="MOT.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="MOU" abbr="" journal-title="Current Opinion in Urology" batch="3" by="AK_07_JUN_25" copy-by="YA_10_JUN_25" client="lww" split="MOU.xml" split_master="master_split.xml" />
+  <journal short="NR" abbr="" journal-title="NeuroReport" batch="3" by="AK" qcby="" client="lww" split="NR.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="PXH" abbr="Current Opin Epidemiol Public Health" journal-title="Current Opinion in Epidemiology and Public Health" batch="3" by="AK_07_JUN_25" copy-by="YA_10_JUN_25" client="lww" split="PXH.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="QCO" abbr="" journal-title="Current Opinion in Infectious Diseases" batch="3" by="AK_07_JUN_25" copy-by="YA_10_JUN_25" client="lww" split="QCO.xml" split_master="master_split.xml" />
+  <journal sub-journal="THOMSON" short="WCO" abbr="" journal-title="Current Opinion in Neurology" batch="3" by="AK_07_JUN_25" copy-by="YA_10_JUN_25" client="lww" split="WCO.xml" split_master="master_split.xml" />
+  <journal short="BPHARM" abbr="" journal-title="Behavioural Pharmacology" batch="4" by="AK" qcby="" client="lww" split="BPHARM.xml" split_master="master_split.xml" />
+  <journal short="CAD" abbr="" journal-title="Coronary Artery Disease" batch="4" by="AK" qcby="" client="lww" split="CAD.xml" split_master="master_split.xml" />
+  <journal short="CD" abbr="" journal-title="Clinical Dysmorphology" batch="4" by="AK" qcby="" client="lww" split="CD.xml" split_master="master_split.xml" />
+  <journal short="EJA" abbr="" journal-title="European Journal of Anaesthesiology" batch="4" by="AK_19_JUN_25" copy-by="YA_20_JUN_25" client="lww" split="EJA.xml" split_master="master_split.xml" />
+  <journal short="EJAIC" abbr="" journal-title="European Journal of Anaesthesiology and Intensive Care" batch="4" by="AK_19_JUN_25" copy-by="YA_20_JUN_25" client="lww" split="EJAIC.xml" split_master="master_split.xml" />
+  <journal short="EJEM" abbr="" journal-title="European Journal of Emergency Medicine" batch="4" by="AK" qcby="" client="lww" split="EJEM.xml" split_master="master_split.xml" />
+  <journal short="FAD" abbr="" journal-title="Adverse Drug Reaction Bulletin" batch="4" by="AK_19_JUN_25" copy-by="YA_20_JUN_25" client="lww" split="FAD.xml" split_master="master_split.xml" />
+  <journal short="HJH" abbr="" journal-title="Journal of Hypertension" batch="4" by="AK_19_JUN_25" copy-by="YA_20_JUN_25" client="lww" split="HJH.xml" split_master="master_split.xml" />
+  <journal short="ICP" abbr="" journal-title="International Clinical Psychopharmacology" batch="4" by="AK" qcby="" client="lww" split="ICP.xml" split_master="master_split.xml" />
+  <journal short="JCM" abbr="" journal-title="Journal of Cardiovascular Medicine" batch="4" by="AK_19_JUN_25" copy-by="YA_20_JUN_25" client="lww" split="JCM.xml" split_master="master_split.xml" />
+  <journal short="NMC" abbr="" journal-title="Nuclear Medicine Communications" batch="4" by="AK" qcby="" client="lww" split="NMC.xml" split_master="master_split.xml" />
+  <journal short="PGEN" abbr="" journal-title="Pharmacogenetics and Genomics" batch="4" by="AK" qcby="" client="lww" split="PGEN.xml" split_master="master_split.xml" />
+  <journal short="QAD" abbr="" journal-title="AIDS" batch="4" by="AK_19_JUN_25" copy-by="YA_20_JUN_25" client="lww" split="QAD.xml" split_master="master_split.xml" />
+  <journal short="XEB" abbr="" journal-title="JBI Evidence Implementation" batch="4" by="AK_19_JUN_25" copy-by="YA_20_JUN_25" client="lww" split="XEB.xml" split_master="master_split.xml" />
+  <journal short="YCO" abbr="" journal-title="Current Opinion in Psychiatry" batch="4" by="AK_19_JUN_25" copy-by="YA_20_JUN_25" client="lww" split="YCO.xml" split_master="master_split.xml" />
+<journal short="AS9" abbr="" journal-title="Annals of Surgery" batch="5" by="AK" qcby="DR" client="lww" split="AS9.xml" split_master="master_split.xml" />
+  <journal short="CCX" abbr="" journal-title="Critical Care Explorations" batch="5" by="AK" qcby="DR" client="lww" split="CCX.xml" split_master="master_split.xml" />
+  <journal short="CRD" abbr="" journal-title="Cardiology in Review" batch="5" by="AK" qcby="DR" client="lww" split="CRD.xml" split_master="master_split.xml" />
+  <journal short="EE9" abbr="" journal-title="Environmental Epidemiology" batch="5" by="AK" qcby="" client="lww" split="EE9.xml" split_master="master_split.xml" />
+  <journal short="HPC" abbr="" journal-title="Critical Pathways in Cardiology" batch="5" by="AK" qcby="DR" client="lww" split="HPC.xml" split_master="master_split.xml" />
+  <journal short="ON9" abbr="" journal-title="Otology &amp; Neurotology Open" batch="5" by="AK" qcby="DR" client="lww" split="ON9.xml" split_master="master_split.xml" />
+  <journal short="JV9" abbr="" journal-title="Journal of Vascular Anomalies" batch="6" by="AK" qcby="DR" client="lww" split="JV9.xml" split_master="master_split.xml" />
+  <journal short="JW9" abbr="" journal-title="International Journal of Women’s Dermatology" batch="6" by="AK" qcby="" client="lww" split="JW9.xml" split_master="master_split.xml" />
+  <journal short="MAT" abbr="" journal-title="ASAIO Journal" batch="6" by="AK" qcby="DR" client="lww" split="MAT.xml" split_master="master_split.xml" />
+  <journal short="PA9" abbr="" journal-title="Asia Pacific Allergy" batch="6" by="AK" qcby="DR" client="lww" split="PA9.xml" split_master="master_split.xml" />
+  <journal short="AUD" abbr="" journal-title="Ear &amp; Hearing" batch="7" by="AK" qcby="YA" editor-comes-first="true" client="lww" split="AUD.xml" split_master="master_split.xml" />
+  <journal short="BS9" abbr="" journal-title="Blood Science" batch="7" by="AK" qcby="" client="lww" split="BS9.xml" split_master="master_split.xml" />
+  <journal short="CR9" abbr="" journal-title="Cancer Care Research Online" batch="7" by="AK" qcby="" client="lww" split="CR9.xml" split_master="master_split.xml" />
+  <journal short="HAE" abbr="" journal-title="Circulation: Arrhythmia and Electrophysiology" sub-journal="AHA" batch="7" by="AK" qcby="" client="lww" split="HAE.xml" split_master="master_split.xml" />
+  <journal short="TPA" abbr="" journal-title="Transplantation" batch="7" by="AK" qcby="" editor-comes-first="true" client="lww" split="TPA.xml" split_master="master_split.xml" />
+  <journal short="HCI" abbr="" sub-journal="AHA" journal-title="Circulation: Cardiovascular Imaging" batch="8" by="AK" qcby="YA_08_JULY_2024" client="lww" split="HCI.xml" split_master="master_split.xml" />
+  <journal short="ANE" abbr="" sub-journal="NON-AHA" journal-title="Anesthesia &amp; Analgesia" batch="9" by="AK" qcby="YA" client="lww" split="ANE.xml" split_master="master_split.xml" />
+  <journal short="CCM" abbr="" journal-title="Critical Care Medicine" batch="9" by="AK" qcby="" client="lww" split="CCM.xml" split_master="master_split.xml" />
+  <journal short="DCR" abbr="" journal-title="Diseases of the Colon &amp; Rectum" batch="9" by="AK" qcby="YA" editor-comes-first="true" client="lww" split="DCR.xml" split_master="master_split.xml" />
+  <journal short="IA9" abbr="" journal-title="Journal of the Italian Surgical Association" batch="9" by="AK" qcby="YA" client="lww" split="IA9.xml" split_master="master_split.xml" />
+  <journal short="IOP" abbr="" journal-title="Ophthalmic Plastic and Reconstructive Surgery" batch="9" by="AK" qcby="YA" client="lww" split="IOP.xml" split_master="master_split.xml" />
+  <journal short="MD9" abbr="" journal-title="Medicine Case Reports and Study Protocols" batch="9" by="AK" qcby="YA" client="lww" split="MD9.xml" split_master="master_split.xml" />
+  <journal short="PCC" abbr="" journal-title="Pediatric Critical Care Medicine" batch="9" by="AK" qcby="YA" client="lww" split="PCC.xml" split_master="master_split.xml" />
+  <journal short="TXD" abbr="" journal-title="Transplantation Direct" batch="9" by="AK" qcby="YA" editor-comes-first="true" client="lww" split="TXD.xml" split_master="master_split.xml" />
+  <journal short="XCS" abbr="" journal-title="Journal of the American College of Surgeons" batch="9" by="AK" qcby="YA" client="lww" split="XCS.xml" split_master="master_split.xml" />
+  <journal short="GOX" abbr="" journal-title="Plastic &amp; Reconstructive Surgery-Global Open" batch="10" by="AK" qcby="YA" client="lww" split="GOX.xml" split_master="master_split.xml" />
+  <journal short="JMQ" abbr="" journal-title="American Journal of Medical Quality" batch="10" by="AK" qcby="YA" client="lww" split="JMQ.xml" split_master="master_split.xml" />
+  <journal short="PQS" abbr="" journal-title="Pediatric Quality and Safety" batch="10" by="AK" qcby="YA" client="lww" split="PQS.xml" split_master="master_split.xml" />
+  <journal short="XAA" abbr="" sub-journal="NON-AHA" journal-title="A &amp; A Practice" batch="10" by="AK" qcby="YA" client="lww" split="XAA.xml" split_master="master_split.xml" />
+  <journal short="ALN" abbr="" journal-title="Anesthesiology" batch="11" by="AK" qcby="YA_29_FEB_24" client="lww" split="ALN.xml" split_master="master_split.xml" />
+  <journal short="CP9" abbr="" journal-title="Cardiology Plus" batch="11" by="AK" qcby="YA_29_FEB_24" editor-only="true" client="lww" split="CP9.xml" split_master="master_split.xml" />
+  <journal short="IN9" sub-journal="NON-AHA" abbr="" journal-title="Immunometabolism" batch="11" by="AK" qcby="YA_29_FEB_24" client="lww" split="IN9.xml" split_master="master_split.xml" />
+  <journal short="PRS" abbr="" journal-title="Plastic and Reconstructive Surgery" batch="11" by="AK" qcby="YA_29_FEB_24" client="lww" split="PRS.xml" split_master="master_split.xml" />
+  <journal short="US9" abbr="" journal-title="Urological Science" batch="12" by="AK" qcby="DR" client="lww" split="US9.xml" split_master="master_split.xml" />
+  <journal short="ATV" abbr="" sub-journal="AHA" journal-title="Arteriosclerosis, Thrombosis, and Vascular Biology" batch="13" by="AK" qcby="YA_08_JULY_2024" client="lww" split="ATV.xml" split_master="master_split.xml" />
+  <journal short="CIR" abbr="" sub-journal="AHA" journal-title="Circulation" batch="13" by="AK" qcby="YA_15_JULY_2024" client="lww" split="CIR.xml" split_master="master_split.xml" />
+  <journal short="HCG" abbr="" sub-journal="AHA" journal-title="Circulation: Genomic and Precision Medicine" batch="13" by="AK" qcby="YA_08_JULY_2024" client="lww" split="HCG.xml" split_master="master_split.xml" />
+  <journal short="HCQ" abbr="" sub-journal="AHA" journal-title="Circulation: Cardiovascular Quality and Outcomes" batch="13" by="AK" qcby="YA_08_JULY_2024" client="lww" split="HCQ.xml" split_master="master_split.xml" />
+  <journal short="HCV" abbr="" sub-journal="AHA" journal-title="Circulation: Cardiovascular Interventions" batch="13" by="AK" qcby="YA_08_JULY_2024" client="lww" split="HCV.xml" split_master="master_split.xml" />
+  <journal short="HHF" abbr="" sub-journal="AHA" journal-title="Circulation: Heart Failure" batch="13" by="AK" qcby="YA_08_JULY_2024" client="lww" split="HHF.xml" split_master="master_split.xml" />
+  <journal short="HYP" abbr="" sub-journal="AHA" journal-title="Hypertension" batch="13" by="AK" qcby="YA_08_JULY_2024" client="lww" split="HYP.xml" split_master="master_split.xml" />
+  <journal short="RES" abbr="" sub-journal="AHA" journal-title="Circulation Research" batch="13" by="AK" qcby="YA_08_JULY_2024" client="lww" split="RES.xml" split_master="master_split.xml" />
+  <journal short="STR" abbr="" sub-journal="AHA" journal-title="Stroke" batch="13" by="AK" qcby="YA_08_JULY_2024" client="lww" split="STR.xml" split_master="master_split.xml" />
+  <journal short="JP9" abbr="" journal-title="Journal of Pancreatology" batch="14" by="AK" qcby="YA_09_JULY_2024" client="lww" split="JP9.xml" split_master="master_split.xml" />
+  <journal short="RD9" abbr="" journal-title="Reproductive and Developmental Medicine" batch="15" by="AK" qcby="DR_24_07_2024" client="lww" split="RD9.xml" split_master="master_split.xml" />
+  <journal short="CA9" abbr="" journal-title="Journal of the Chinese Medical Association" batch="16" by="AK" qcby="" copyby="YA_2_sep_2024" client="lww" split="CA9.xml" split_master="master_split.xml" />
+  <journal short="HM9" abbr="" journal-title="Acupuncture and Herbal Medicine" batch="16" by="AK" qcby="" copyby="YA_2_sep_2024" client="lww" split="HM9.xml" split_master="master_split.xml" />
+  <journal short="JD9" abbr="" journal-title="International Journal of Dermatology and Venereology" batch="16" by="AK" qcby="" copyby="YA_26_SEP_24" editor-comes-first="true" client="lww" split="JD9.xml" split_master="master_split.xml" />
+  <journal short="MM9" abbr="" journal-title="MedMat" batch="16" by="AK" qcby="" copyby="YA_2_sep_2024" client="lww" split="MM9.xml" split_master="master_split.xml" />
+  <journal short="PN9" abbr="" journal-title="Precision Nutrition" batch="16" by="AK" qcby="" copyby="YA_2_sep_2024" client="lww" split="PN9.xml" split_master="master_split.xml" />
+  <journal short="COAN" abbr="" journal-title="Current Opinion in Anesthesiology" batch="17" by="YA_29_JAN_25" client="lww" split="COAN.xml" split_master="master_split.xml" />
+  <journal short="COOG" abbr="" journal-title="Current Opinion in Obstetrics and Gynecolog" batch="17" by="YA_29_JAN_25" client="lww" split="COOG.xml" split_master="master_split.xml" />
+  <journal short="AH9" abbr="" journal-title="Asian Heart Journal" batch="18" by="AK_12_FEB_25" client="lww" split="AH9.xml" split_master="master_split.xml" />
+  <journal short="HD9" abbr="" journal-title="Hemodynamics" batch="18" by="AK_12_FEB_25" client="lww" split="HD9.xml" split_master="master_split.xml" />
+  <journal short="BR9" abbr="" journal-title="Spine Research" batch="19" by="AK_07_Mar_25" client="lww" split="BR9.xml" split_master="master_split.xml" />
+  <journal short="OPX" abbr="" journal-title="Optometry and Vision Science" batch="19" by="AK_07_Mar_25" client="lww" split="OPX.xml" split_master="master_split.xml" />
+  <journal short="RE9" abbr="" journal-title="Cardiac Research" batch="20" by="AK_04_Apr_25" client="lww" split="RE9.xml" split_master="master_split.xml" />
+  <journal short="NJH" abbr="" journal-title="Journal of Hospice &amp; Palliative Nursing" batch="21" by="AK_29_Mar_25" client="lww" split="NJH.xml" split_master="master_split.xml" />
+  <journal short="ST9" abbr="" journal-title="Science of Traditional Chinese Medicine" batch="21" by="AK_29_Mar_25" client="lww" split="ST9.xml" split_master="master_split.xml" />
+  <journal short="CO9" abbr="" journal-title="Journal of Cardio-oncology" batch="22" by="AK_24_Apr_25" copyby="YA_3_MAY_2025" client="lww" split="CO9.xml" split_master="master_split.xml" />
+  <journal short="HRP" abbr="" journal-title="Harvard Review of Psychiatry" batch="22" by="AK_24_Apr_25" copyby="YA_3_MAY_2025" client="lww" split="HRP.xml" split_master="master_split.xml" />
+  <journal short="EH9" abbr="" journal-title="Excellence and Credentialing in Health Care" batch="23" copy-by="19_MAT_25_YA" client="lww" split="EH9.xml" split_master="master_split.xml" />
+  <journal short="HP" abbr="" journal-title="Health Physics" batch="23" by="19_MAT_25_YA" client="lww" split="HP.xml" split_master="master_split.xml" />
+  <journal short="IM9" abbr="" journal-title="Infectious Microbes &amp; Diseases" batch="24" by="AK_31_May_25" copy-by="YA_10_Jun_25" client="lww" split="IM9.xml" split_master="master_split.xml" />
+  <journal short="JAN" abbr="" journal-title="Journal of Addictions Nursing" batch="24" by="AK_31_May_25" copy-by="YA_10_Jun_25" client="lww" split="JAN.xml" split_master="master_split.xml" />
+  <journal short="JES" abbr="" journal-title="Exercise and Sport Sciences Reviews" batch="24" by="AK_31_May_25" copy-by="YA_10_Jun_25" client="lww" split="JES.xml" split_master="master_split.xml" />
+  <journal short="BC9" abbr="" journal-title="Bone and Bone Related Research" batch="25" by="AK_17_Jul_25" copy-by="YA_18_Jul_25" client="lww" split="BC9.xml" split_master="master_split.xml" />
+  <journal short="FS9" abbr="" journal-title="Formosan Journal of Surgery" batch="25" by="AK_17_Jul_25" copy-by="YA_18_Jul_25" client="lww" split="FS9.xml" split_master="master_split.xml" />
+  <journal short="SHK" abbr="" journal-title="Shock" batch="25" by="AK_17_Jul_25" copy-by="YA_18_Jul_25" client="lww" split="SHK.xml" split_master="master_split.xml" />
+  <journal short="JCN" abbr="" journal-title="Journal of Cardiovascular Nursing" batch="26" by="AK_23_Jul_25" copy-by="YA_02_Sep_25" client="lww" split="JCN.xml" split_master="master_split.xml" />
+  <journal short="JDN" abbr="" journal-title="Journal of the Dermatology Nurses’ Association" batch="26" by="AK_23_Jul_25" copy-by="YA_02_Sep_25" client="lww" split="JDN.xml" split_master="master_split.xml" />
+  <journal short="MSS" abbr="" journal-title="Medicine &amp; Science in Sports &amp; Exercise" batch="26" by="AK_23_Jul_25" copy-by="YA_02_Sep_25" client="lww" split="MSS.xml" split_master="master_split.xml" />
+  <journal short="EM9" abbr="" journal-title="Exercise, Sport, and Movement" batch="27" by="AK_10_Sep_25" copy-by="YA_11_Sep_25" client="lww" split="EM9.xml" split_master="master_split.xml" />
+  <journal short="FIT" abbr="" journal-title="ACSM's Health and Fitness Journal" batch="27" by="AK_10_Sep_25" copy-by="YA_11_Sep_25" client="lww" split="FIT.xml" split_master="master_split.xml" />
+  <journal short="HCR" abbr="" journal-title="Journal of Cardiopulmonary Rehabilitation and Prevention" batch="28" by="AK_24_Sep_25" client="lww" split="HCR.xml" split_master="master_split.xml" />
+  <journal short="NEP" abbr="" journal-title="Nursing Education Perspectives" batch="28" by="AK_26_Sep_25" client="lww" split="NEP.xml" split_master="master_split.xml" />
+  <journal short="NCC" abbr="" journal-title="Cancer Nursing" batch="29" by="AK_30_OCT_25" client="lww" split="NCC.xml" split_master="master_split.xml" />
+  <journal short="SK9" abbr="" journal-title="Stroke: Vascular and Interventional Neurology" batch="29" by="AK_30_OCT_25" client="lww" split="SK9.xml" split_master="master_split.xml" />
+  <journal short="TJX" abbr="" journal-title="Translational Journal of the American College of Sports Medicine" batch="29" by="AK_30_OCT_25" client="lww" split="TJX.xml" split_master="master_split.xml" />
+  <journal short="CU9" abbr="" journal-title="Curr Urol" batch="30" by="AK_28_Nov_25" copy-by="YA_29_NOV_25" client="lww" split="CU9.xml" split_master="master_split.xml" />
+  <journal short="CV9" abbr="" journal-title="Cardiovascular Advances" batch="31" by="AK_04_Dec_25" copy-by="YA_06_Dec_25" client="lww" split="CV9.xml" split_master="master_split.xml" />
+  <journal short="EC9" abbr="" journal-title="Emergency and Critical Care Medicine" batch="31" by="AK_04_Dec_25" copy-by="YA_06_Dec_25" client="lww" split="EC9.xml" split_master="master_split.xml" />
+  <journal short="EU9" abbr="" journal-title="Endosc Ultrasound" batch="31" by="AK_04_Dec_25" copy-by="YA_06_Dec_25" client="lww" split="EU9.xml" split_master="master_split.xml" />
+  <journal short="JSR" abbr="" journal-title="Current Sports Medicine Reports" batch="31" by="AK_13_Dec_25" copy-by="YA_15_Dec_25" client="lww" split="JSR.xml" split_master="master_split.xml" />
+  <journal short="AO9" abbr="" journal-title="Anesthesiology Open" batch="33" by="AK_25_Dec_25" copy-by="YA_26_Dec_25" client="lww" split="AO9.xml" split_master="master_split.xml" />
+  <journal short="JOM" abbr="" journal-title="Journal of Occupational and Environmental Medicine" batch="33" by="AK_26_Dec_25" copy-by="YA_27_Dec_25" client="lww" split="JOM.xml" split_master="master_split.xml" />
+  <journal short="JPO" abbr="" journal-title="Journal of Occupational and Environmental Medicine" batch="33" by="AK_26_Dec_25" copy-by="YA_27_Dec_25" client="lww" split="JPO.xml" split_master="master_split.xml" />
+  <journal short="OLQ" abbr="Sexual Trans Dis" journal-title="Sexually Transmitted Diseases" batch="34" by="AK_02_Feb_26" copy-by="YA_06_Feb_26" client="lww" split="OLQ.xml" split_master="master_split.xml" />
+  <journal short="OT9" abbr="Oncol Transl Med" journal-title="Oncology and Translational Medicine" batch="34" by="AK_02_Feb_26" copy-by="YA_06_Feb_26" client="lww" split="OT9.xml" split_master="master_split.xml" />
+  <journal short="JAC" abbr="" journal-title="Journal of Ambulatory Care Management" batch="35" by="AK_20_Mar_26" copy-by="YA_07_Apr_26" client="lww" split="JAC.xml" split_master="master_split.xml" />
+  <journal short="NCQ" abbr="" journal-title="Journal of Nursing Care Quality" batch="35" by="AK_20_Mar_26" copy-by="YA_07_Apr_26" client="lww" split="NCQ.xml" split_master="master_split.xml" />
+  <journal short="NNE" abbr="" journal-title="Nurse Educator" batch="35" by="AK_20_Mar_26" copy-by="YA_07_Apr_26" client="lww" split="NNE.xml" split_master="master_split.xml" />
+  <journal short="NOR" abbr="" journal-title="Orthopaedic Nursing" batch="35" by="AK_20_Mar_26" copy-by="YA_07_Apr_26" client="lww" split="NOR.xml" split_master="master_split.xml" />
+  <journal short="PXT" abbr="" journal-title="The Journal of Aquatic Physical Therapy" batch="35" by="AK_20_Mar_26" copy-by="YA_07_Apr_26" client="lww" split="PXT.xml" split_master="master_split.xml" />
+  <journal short="ANS" abbr="" journal-title="Advances in Nursing Science" batch="36" by="AK_02_Jun_26" copy-by="YA_03_Jun_26" client="lww" split="ANS.xml" split_master="master_split.xml" />
+  <journal short="HNP" abbr="" journal-title="Journal of Nursing Care Quality" batch="36" by="AK_02_Jun_26" copy-by="YA_03_Jun_26" client="lww" split="HNP.xml" split_master="master_split.xml" />
+  <journal short="NAN" abbr="" journal-title="Journal of Infusion Nursing" batch="36" by="AK_02_Jun_26" copy-by="YA_03_Jun_26" client="lww" split="NAN.xml" split_master="master_split.xml" />
+  <journal short="NPT" abbr="" journal-title="Journal of Neurologic Physical Therapy" batch="36" by="AK_02_Jun_26" copy-by="YA_03_Jun_26" client="lww" split="NPT.xml" split_master="master_split.xml" />
+  <journal short="PEP" abbr="" journal-title="Pediatric Physical Therapy" batch="36" by="AK_02_Jun_26" copy-by="YA_03_Jun_26" client="lww" split="PEP.xml" split_master="master_split.xml" />
+  <journal short="SGA" abbr="" journal-title="Gastroenterology Nursing" batch="36" by="AK_02_Jun_26" copy-by="YA_03_Jun_26" client="lww" split="SGA.xml" split_master="master_split.xml" />
+  <journal short="DH9" abbr="" journal-title="Dartmouth Journal of Healthcare Delivery Science" batch="37" by="AK_26_May_26" copy-by="YA_26_May_26" client="lww" split="DH9.xml" split_master="master_split.xml" />
+  <journal short="AI9" abbr="" journal-title="AI Evidence-Based Medicine" batch="39" by="AK_08_Jun_26" copy-by="YA_09_Jun_26" client="lww" split="AI9.xml" split_master="master_split.xml" />
+  
+  </journals>

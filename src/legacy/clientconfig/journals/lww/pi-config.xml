@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pi-config dtd="JATS" version="1.1" status="draft">
+    <contrib id="master_001">
+        <!-- insert and edit mode within dialog -->
+        <elements>
+            <prefix allowed="no" alis="affix"/>
+            <suffix allowed="no" alis="affix"/>
+            <degrees allowed="yes" alis="affix"/>
+            <author-comment allowed="yes" alis="affix"/>
+            <role allowed="yes"/>
+            <altername allowed="yes"/>
+            <collab allowed="yes"/>
+            <on-behalf-of allowed="yes"/>
+        </elements>
+        <ques>
+            <author-notes allowed="no"/>
+            <corresp allowed="no"/>
+            <aff allowed="yes"/>
+        </ques>
+        <separators>
+            <!-- Always space after given-names -->
+            <given-names value="&#x00A0;" pos="inner"/>
+            <!-- Surname rules -->
+            <!-- Case 1: surname followed by xref → no PI -->
+            <surname value="" pos="" when="next-xref"/>
+            <!-- Case 2: surname followed by affix → insert PI inside surname -->
+            <surname value=",&#x00A0;" pos="inner" when="following-affix"/>
+            <!-- Affix rules -->
+            <!-- Case 3: second and subsequent affixes → insert PI inside affix element -->
+            <affixes value="," pos="inner" when="subsequent-affix"/>
+            <!-- Other separators -->
+            <between-xrefs value="," pos="after"/>
+            <between-contribs value=", " pos="inner"/>
+            <between-contribs when="last-before" value=", "/>
+        </separators>
+    </contrib>
+    <contrib id="master_002" data-master-alis="master_001">
+        <!-- insert and edit mode within dialog -->
+        <elements>
+            <orcid allowed="yes" type="optioanl" alis="attriubute"/>
+            <prefix allowed="no" alis="affix"/>
+            <suffix allowed="yes" type="optioanl" alis="affix"/>
+            <degrees allowed="no" alis="affix"/>
+            <author-comment allowed="yes" alis="affix"/>
+            <role allowed="yes"/>
+            <altername allowed="yes"/>
+            <collab allowed="yes"/>
+            <on-behalf-of allowed="yes"/>
+        </elements>
+        <ques>
+            <author-notes allowed="no"/>
+            <corresp allowed="no"/>
+            <aff allowed="yes"/>
+        </ques>
+        <separators>
+            <between-xrefs value="" pos="after"/>
+        </separators>
+    </contrib>
+
+</pi-config>

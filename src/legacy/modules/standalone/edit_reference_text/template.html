@@ -1,0 +1,77 @@
+<div class="mDialog ds-none wo-editor-access" id="EditReferenceTextDialog">
+    <div class="dialog-container xl">
+        <div class="dialog-content">
+            <div class="dia_header_div">
+                <div class="dia_header_text" data-lang-lab="Panel_title">Edit Reference Text</div>
+                <div class="ml-auto closeIcons" title="Close" tabindex="0" data-lang-lab="close_title"><img alt="Close" class="n_Img" src="assets/images/svg/dialogClose.svg"></div>
+            </div>
+
+            <div class="d-flex flex-column w80 dialog-body" data-id="dialog-body" style="max-height: 70vh; overflow-y: auto;">
+                <form id="editRefTextBody" onsubmit="return false;" spellcheck="false">
+                    <div class="form-group mb-2 d-none">
+                        <label for="ref_pubtype_ro" data-lang-lab="label_pubtype">Publication type</label>
+                        <input type="text" class="form-control form-control-sm" id="ref_pubtype_ro" readonly tabindex="-1" aria-label="Publication type">
+                    </div>
+
+                    <section id="ref_edit_field_section" class="ref-section" aria-labelledby="ref_edit_field_heading">
+                        <div class="ref-section-title-row">
+                            <h3 id="ref_edit_field_heading" class="ref-section-title" data-lang-lab="label_edit_field">Edit Field</h3>
+                            <div id="ref_field_actions" class="ref-field-actions">
+                                <button type="button" title="Revert field" id="ref_field_revert" class="btn btn-sm secondary-btn" disabled data-lang-lab="btn_revert">Revert</button>
+                                <button type="button" title="Apply field" id="ref_field_apply" class="btn btn-sm primary-btn" disabled data-lang-lab="btn_apply">Apply</button>
+                            </div>
+                        </div>
+                        <p id="ref_edit_idle_hint" class="ref-empty-hint" data-lang-lab="preview_seg_label">Click on the particular reference element below to edit it.</p>
+                        <div id="ref_edit_collapse" class="collapse">
+                            <div id="ref_active_editor" class="ref-active-editor"></div>
+                        </div>
+                    </section>
+
+                    <section id="ref_preview_section" class="ref-section" aria-labelledby="ref_preview_heading">
+                        <h3 id="ref_preview_heading" class="ref-section-title" data-lang-lab="label_preview">Preview</h3>
+                        <div id="ref_preview_host" class="ref-preview-host" aria-live="polite"></div>
+                    </section>
+
+                    <section id="ref_below_tabs_section" class="ref-section ref-tabs-section">
+                        <ul class="nav nav-tabs ref-below-tabs" role="tablist">
+                            <li class="nav-item">
+                                <button type="button" class="nav-link active" id="ref_tab_citation" data-ref-tab="citation" role="tab" aria-selected="true" aria-controls="ref_pane_citation" data-lang-lab="tab_citation">Citation Preview</button>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" class="nav-link" id="ref_tab_suggestion" data-ref-tab="suggestion" role="tab" aria-selected="false" aria-controls="ref_pane_suggestion" data-lang-lab="tab_suggestion">Suggestion</button>
+                            </li>
+                        </ul>
+                        <div class="ref-tab-panes">
+                            <div id="ref_pane_citation" class="ref-tab-pane active" role="tabpanel" aria-labelledby="ref_tab_citation">
+                                <h3 id="ref_citation_preview_heading" class="ref-visually-hidden" data-lang-lab="label_citation_preview_heading">Citation Preview</h3>
+                                <label class="ref-sync-cites-label d-none" id="ref_sync_citations_label" for="ref_sync_citations">
+                                    <input type="checkbox" id="ref_sync_citations" />
+                                    <span data-lang-lab="label_sync_citations">Update linked citations</span>
+                                </label>
+                                <p id="ref_citation_preview_empty" class="ref-empty-hint" data-lang-lab="ref-empty-hint">No citations for this reference in the document.</p>
+                                <div id="ref_citation_preview_list" class="ref-citation-preview-list" aria-live="polite"></div>
+                            </div>
+                            <div id="ref_pane_suggestion" class="ref-tab-pane d-none" role="tabpanel" aria-labelledby="ref_tab_suggestion">
+                                <div id="ref_person_shape_info" class="mb-1"></div>
+                                <div id="ref_suggestion_scroll" class="ref-suggestion-scroll">
+                                    <label class="mb-1 d-block" style="font-size:11px;" sugg-hint="" data-lang-lab="label_suggestion_hint">Available from current document analysis</label>
+                                    <div id="ref_suggestion_chips" class="ref-chip-host"></div>
+                                    <div id="ref_static_add_row" class="ref-static-add-row">
+                                        <button type="button" class="btn btn-sm secondary-btn" id="ref_add_author" data-lang-lab="btn_add_author">+ Add author</button>
+                                        <button type="button" class="btn btn-sm secondary-btn" id="ref_add_editor" data-lang-lab="btn_add_editor">+ Add editor</button>
+                                        <button type="button" class="btn btn-sm secondary-btn" id="ref_add_etal" data-lang-lab="btn_add_etal">+ Add et al.</button>
+                                    </div>
+                                    <div id="ref_staged_inserts" class="ref-chip-host mt-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+            </div>
+            <div class="default dialog-footer" data-id="dialog-footer">
+                <button type="button" title="Cancel" id="cancel_ref_text" class="btn btn-sm secondary-btn" data-lang-lab="btn_cancel">Cancel</button>
+                <button type="button" title="Update" id="fire_ref_text" class="btn btn-sm primary-btn disabled" data-lang-lab="btn_fire">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

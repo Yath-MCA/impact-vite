@@ -1,0 +1,7 @@
+Line 5: Missing semicolon. (W033)
+Line 32: Missing semicolon. (W033)
+Line 165: Missing semicolon. (W033)
+Line 168: Missing semicolon. (W033)
+Line 21: 'alert' is not defined. (W117)
+Line 27: 'alert' is not defined. (W117)
+Line 32: 'alert' is not defined. (W117)

@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "purposes": [
+    {
+      "purposeId": "early-detect-landing",
+      "channel": "presence",
+      "scope": "document",
+      "type": "EARLY_DETECT",
+      "direction": "send+receive",
+      "description": "Landing early-detect / presence handshake before editor open",
+      "examplePayload": {
+        "action": "join",
+        "source": "landing"
+      }
+    },
+    {
+      "purposeId": "user-dirty",
+      "channel": "collaboration",
+      "scope": "paraLock",
+      "type": "USER_DIRTY",
+      "direction": "send+receive",
+      "description": "Notify that a user has dirty paragraph content (metadata only)",
+      "aliases": ["user-{user}-dirty"],
+      "examplePayload": {
+        "user": "user-a@example.com",
+        "paraId": [],
+        "dirty": true
+      }
+    },
+    {
+      "purposeId": "lock-acquire",
+      "channel": "collaboration",
+      "scope": "paraLock",
+      "type": "LOCK_ACQUIRE",
+      "direction": "send",
+      "description": "Request paragraph lock for current cursor blocks",
+      "examplePayload": {
+        "paraId": ["p1"]
+      }
+    },
+    {
+      "purposeId": "lock-release",
+      "channel": "collaboration",
+      "scope": "paraLock",
+      "type": "LOCK_RELEASE",
+      "direction": "send",
+      "description": "Release paragraph lock",
+      "examplePayload": {
+        "paraId": ["p1"]
+      }
+    },
+    {
+      "purposeId": "lock-get-state",
+      "channel": "collaboration",
+      "scope": "paraLock",
+      "type": "LOCK_GET_STATE",
+      "direction": "send",
+      "description": "Request current lock state for the document",
+      "examplePayload": {}
+    },
+    {
+      "purposeId": "replacement-notice",
+      "channel": "collaboration",
+      "scope": "paraLock",
+      "type": "replacement",
+      "direction": "receive",
+      "description": "Metadata-only replacement notice; receiver fetches HTML by uniqueId",
+      "examplePayload": {
+        "uniqueId": "example-unique-id",
+        "paraId": "p1"
+      }
+    }
+  ]
+}

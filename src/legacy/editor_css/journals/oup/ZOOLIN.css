@@ -1,0 +1,16 @@
+/* ZOOLIN Journal */
+/* For Frontmatter Xref value  */
+/* .contrib a.xref {
+    vertical-align: super !important;
+    background-color: none !important;
+    cursor: pointer !important; 
+}*/
+
+/* Reference Part */
+div.ref .mixed-citation .source {
+    font-style: italic !important;
+}
+
+.mixed-citation [data-name="year"], .mixed-citation [data-name="surname"], .mixed-citation [data-name="given-names"], .mixed-citation [data-name="volume"] {
+font-weight: bold!important;
+}

@@ -1,0 +1,58 @@
+.tt-wrap {
+    border: 1px solid #d1d5db;
+    border-radius: .375rem;
+}
+
+.tt-toolbar {
+    display: flex;
+    gap: .25rem;
+    padding: .25rem;
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tt-btn {
+    padding: .15rem .5rem;
+    border: 1px solid transparent;
+    background: none;
+    cursor: pointer;
+    border-radius: .25rem;
+}
+
+.tt-btn:hover {
+    background: #e5e7eb;
+}
+
+.tt-btn.is-active {
+    background: #111827;
+    color: #fff;
+}
+
+.tt-btn:disabled {
+    opacity: .4;
+    cursor: default;
+}
+
+.tt-content {
+    padding: .4rem .6rem;
+    min-height: 3rem;
+    outline: none;
+}
+
+.tt-content p {
+    margin: 0;
+}
+
+.tt-wrap.is-tracking {
+    border-color: #2d5fce;
+}
+
+.tt-content ins {
+    background: #dcfce7;
+    text-decoration: none;
+}
+
+.tt-content del {
+    background: #fee2e2;
+    text-decoration: line-through;
+}

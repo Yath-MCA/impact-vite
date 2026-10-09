@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journals>
+  <journal short="OSO" client="oso" split="OSO.xml" split_master="master_split.xml" />
+</journals>

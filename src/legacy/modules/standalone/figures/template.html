@@ -1,0 +1,137 @@
+<div class="mDialog ds-none w-editor-access" id="floatsGroupDialog" role="dialog" aria-labelledby="dialogTitle" aria-modal="true">
+    <div class="dialog-container md-5">
+        <div class="dialog-content">
+
+            <!-- Dialog Header -->
+            <div class="dia_header_div d-flex align-items-center justify-content-between">
+                <div class="dia_header_text" id="dialogTitle">
+                    <h2 class="h6 mb-0 dia_header_text">
+                        <span id="label_process">Insert</span> <span id="label_type">Float</span>
+                    </h2>
+                </div>
+                <button type="button" class="btn closeIcons" aria-label="Close dialog" title="Close" id="closeDialogBtn">
+                    <img class="n_Img" src="assets/images/svg/dialogClose.svg" alt="Close Icon">
+                </button>
+            </div>
+
+            <!-- Dialog Body -->
+            <div class="dialog-body d-flex flex-column" data-id="dialog-body">
+
+                <!-- Float Type Menu -->
+                <nav class="d-flex justify-content-around ds-none" id="FloatTypeMenu" aria-label="Float Type Options">
+                    <button type="button" class="float-option-item btn btn-link" id="figure" data-div="fig" aria-pressed="false">Figure</button>
+                    <button type="button" class="float-option-item btn btn-link" id="table" data-div="table-wrap" aria-pressed="false">Table</button>
+                    <button type="button" class="float-option-item btn btn-link ds-none" id="box" data-div="box" aria-pressed="false">Box</button>
+                </nav>
+
+                <!-- Insert Fields -->
+                <div class="d-flex Insert-field" id="Insert-field">
+                    <form id="formFloats" onsubmit="return false" spellcheck="false" aria-describedby="dialogTitle">
+
+                        <!-- Label Input -->
+                        <fieldset class="form-group" id="label_group">
+                            <legend class="sr-only">Label</legend>
+
+                            <div class="row">
+                                <!-- First Column: Label Input -->
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="label">Label</label>
+                                        <input type="text" class="form-control form-control-sm" id="label" aria-describedby="labelHelp" readonly>
+                                    </div>
+                                </div>
+
+                                <!-- Second Column: Figure/Table Select (toggle one) -->
+                                <div class="col-4">
+                                    <label for="figSelectOpt" class="sr-only">Select Pattern</label>
+                                    <label for="figSelectOpt">Select Pattern</label>
+
+                                    <!-- Figure Select -->
+                                    <select id="figSelectOpt" class="form-control form-control-sm selectdropdown">
+                                        <option value="figure" selected>Figure</option>
+                                        <option value="image">Image</option>
+                                        <option value="pic">Picture</option>
+                                        <option value="map">Map</option>
+                                    </select>
+
+                                    <!-- Table Select (initially hidden) -->
+                                    <select id="tabSelectOpt" class="form-control form-control-sm selectdropdown d-none">
+                                        <option value="table" selected>Table</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+
+                        <!-- Caption Input -->
+                        <fieldset class="form-group sn-h-sm" id="caption_group">
+                            <legend class="sr-only">Caption</legend>
+                            <label for="caption-input">Caption</label>
+                            <div id="caption-input" class="form-control form-control-sm overflow-auto" role="textbox" aria-multiline="true" title="caption input" tabindex="0" onkeypress="return event.keyCode !== 13" contenteditable="true"></div>
+                        </fieldset>
+
+                        <!-- Figure/Table Specific Options -->
+                        <fieldset class="form-group" id="floatOptions">
+                            <!-- Figure Options -->
+                            <div class="row" id="figureOptions">
+                                <div class="col-3" id="FloatUploadButton">
+                                    <button type="button" class="btn btn-sm primary-btn" id="btnUploadImage" aria-label="Attach image">
+                                        <i class="fas fa-paperclip" aria-hidden="true"></i> Attach
+                                    </button>
+                                </div>
+                                <div class="col-7 d-flex" id="attachSection">
+                                    <input type="file" accept="image/*" aria-label="Choose image file" id="imageUploadInput" class="form-control-file form-control-sm ds-none">
+                                    <input type="text" readonly placeholder="No file chosen..." class="form-control form-control-sm disabled" aria-label="Selected file name" id="imageFileNameDisplay">
+                                </div>
+                                <div class="col-2 d-flex align-items-center">
+                                    <div id="FloatSpinner" class="spinner-border text-primary ds-none" role="status" aria-live="polite">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                    <button type="button" id="FloatTrashIcon" title="Delete Image" class="btn btn-link ds-none" aria-label="Delete image">
+                                        <img src="assets/images/svg/query_panel/qpTrash.svg" alt="Delete Icon">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Table Options -->
+                            <div class="row d-none" id="tableOptions" aria-label="Table configuration">
+                                <div class="col">
+                                    <label for="tabRow">Rows</label>
+                                    <input type="number" min="1" max="26" step="1" class="form-control form-control-sm" id="tabRow" value="3">
+                                </div>
+                                <div class="col">
+                                    <label for="tabCols">Columns</label>
+                                    <input type="number" min="1" max="26" step="1" class="form-control form-control-sm" id="tabCols" value="3">
+                                </div>
+                                <div class="col">
+                                    <label for="tabheader">Headers</label>
+                                    <select id="tabheader" class="form-control form-control-sm selectdropdown" title="Select table header row">
+                                        <option value="0">None</option>
+                                        <option value="1" selected>First Row</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <!-- Notes Checkbox -->
+                <fieldset class="form-group ds-none" id="fig_notes">
+                    <form id="fignoteOption">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="noteNumberCheck" checked>
+                            <label class="form-check-label" for="noteNumberCheck">Numbered</label>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+
+            <!-- Dialog Footer -->
+            <div class="dialog-footer d-flex justify-content-end" data-id="dialog-footer">
+                <button type="button" title="Cancel" id="cancel_btn" class="btn secondary-btn btn-sm">Cancel</button>
+                <button type="submit" title="Insert" id="insert_btn" class="btn primary-btn btn-sm">Insert</button>
+                <button type="submit" title="Replace" id="replace_btn" class="btn primary-btn btn-sm d-none">Replace</button>
+            </div>
+        </div>
+    </div>
+</div>

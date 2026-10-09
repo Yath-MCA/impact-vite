@@ -1,0 +1,82 @@
+<div class="mDialog ds-none wo-editor-access" id="AuthorEditDialog">
+    <div class="dialog-container xl">
+        <div class="dialog-content">
+            <!-- header -->
+            <div class="dia_header_div">
+                <div class="dia_header_text">Edit Author / Affiliation link</div>
+                <div class="ml-auto closeIcons" title="Close"><img alt="Close" class="n_Img" src="assets/images/svg/dialogClose.svg"></div>
+            </div>
+            <!--?  body -->
+            <div class="d-flex flex-column dialog-body" data-id="dialog-body">
+                <form class="" onsubmit="return false;" spellcheck="false">
+                    <div class="form-group">
+                        <div class="row" id="row_1">
+                            <div class="col-6 row" id="">
+                                <div class="col-6" id=""><label for="author_edit_given-names">Given Name</label><input type="text" class="form-control form-control-sm" id="author_edit_given-names" placeholder="" autocomplete="off"></div>
+                                <div class="col-6" id=""><label for="author_edit_surname">Surname</label><input type="text" class="form-control form-control-sm" id="author_edit_surname" placeholder="" autocomplete="off"></div>
+                            </div>
+                            <div class="col-6 row" id="optional_row">
+                                <div class="col" id=""><label for="author_edit_prefix">Prefix</label><input type="text" class="form-control form-control-sm" id="author_edit_prefix" placeholder="" autocomplete="off"></div>
+                                <div class="col" id=""><label for="author_edit_suffix">Suffix</label><input type="text" class="form-control form-control-sm" id="author_edit_suffix" placeholder="" autocomplete="off"></div>
+                                <div class="col-6" id=""><label for="author_edit_degrees">Degrees</label><input type="text" class="form-control form-control-sm" id="author_edit_degrees" placeholder="" autocomplete="off"></div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" id="row_2">
+                            <div class="col" id=""><label for="author_edit_alter-name">Alternative Name</label><input type="text" class="form-control form-control-sm" id="author_edit_alter-name" placeholder="" autocomplete="off"></div>
+                            <!--<div class="col"><label for="author_edit_author-comment">Author Comment</label><input type="text" class="form-control form-control-sm" id="author_edit_author-comment" placeholder="" autocomplete="off"></div>-->
+                            <div class="col-5">
+                                <fieldset>
+                                    <legend></legend>
+                                    <span class="form-check-label labelText" aria-labelledby="author_edit_correspond">Corresponding Author</span>
+                                    <div class="form-check d-flex mt-0">
+                                        <div class="col">
+                                            <input type="radio" class="form-check-input" id="author_edit_correspond" name="author_edit_correspond_radio" autocomplete="off" value="yes">
+                                            <label class="form-check-label" for="author_edit_correspond">Yes</label>
+                                        </div>
+                                        <div class="col">
+                                            <input type="radio" checked="checked" class="form-check-input" id="author_edit_correspond_no" name="author_edit_correspond_radio" autocomplete="off" value="no">
+                                            <label class="form-check-label" for="author_edit_correspond_no">No</label>
+                                        </div>
+                                    </div>
+                                    <fieldset>
+                            </div>
+                        </div>
+                        <div class="row mt-2" id="row_3">
+                            <div class="col-4"><label for="author_edit_xref">Xrefs</label><input type="text" class="form-control form-control-sm" id="author_edit_xref" placeholder="" autocomplete="off"></div>
+                            <div class="col">
+                                <label for="author_edit_orcid">ORCID</label>
+                                <div class="row">
+                                    <div class="col-4"><input name="orchid_label" type="text" aria-label="orchid" class="form-control form-control-sm" placeholder="https://orcid.org/" autocomplete="off" disabled value="https://orcid.org/"></div>
+                                    <div class="col"><input type="text" aria-label="orchid" class="form-control form-control-sm" id="author_edit_orcid" placeholder="XXXX-XXXX-XXXX-XXXX" autocomplete="off"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2 ds-none" id="row_4">
+                            <div class="col-4">
+                                <!--<div class="row d-flex"><div class="col" id="author_edit_xref_labels"></div></div>-->
+                                <div class="" id="author_edit_xref_labels_new">
+                                    <div id="author_edit_xref_inner_div"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="d-flex flex-column show" id="author_edit_warning_show">
+                    <span class="">Warning</span>
+                    <div class="" id="author_warning">
+                        <div class="warning"></div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column" id="author_edit_preview_group"><span class="labelText">Preview</span>
+                    <div class="" id="author_edit_preview"></div>
+                </div>
+            </div>
+            <!-- ? body end -->
+            <!-- ? Footer section start -->
+            <div class="default dialog-footer" data-id="dialog-footer">
+                <button type="submit" title="Cancel" id="author_edit_cancel" class="btn secondary-btn btn-sm">Cancel</button>
+                <button type="submit" title="Insert" id="author_edit_update" class="btn primary-btn btn-sm disabled">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

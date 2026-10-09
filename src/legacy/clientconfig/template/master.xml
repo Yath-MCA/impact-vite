@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<impact customer="template">
+	<project type="journals">
+		<pages name="pages" />
+		<!-- MODULES -->
+		<dialogs name="ModuleDialogs">
+			<!-- DEFAULT ITEMS -->
+			<functionality name="GuideTour" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<functionality name="AlertDialogModule" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<functionality name="WordCountDialog" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<functionality name="QueryGroup" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<functionality name="NoteDialogModule" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true">
+				<deleteIcon_CMD name="COMMEND" show="false" renumber="false" showSameUser="true" panelOrder="label" dataKey="comment" showForCoRole="false" showForED="true" showForPE="true" deleteAll="true" />
+				<deleteIcon_QRY name="QUERY" show="false" renumber="false" showSameUser="true" panelOrder="label" dataKey="query" showForCoRole="false" deleteAll="false" />
+				<quick name="QUERY_QUICK_REPLY" dataKey="quick_reply" items="OK" AddCmd="true" />
+			</functionality>
+			<functionality name="trackDialogModule" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true">
+				<dialog-body name="dialog-body" show="true" showTrackView="false" />
+				<btnAcceptTrack name="btnAcceptTrack" show="true" showForAU="false" showTrackView="false" />
+				<btnRejectTrack name="btnRejectTrack" show="true" showForAU="false" showTrackView="false" showSameUser="true" />
+				<OptionsList name="OptionsList" show="true" findshowTrackPage="true" />
+				<trackListGroup name="trackListGroup" show="true" findshowTrackPage="true" />
+			</functionality>
+			<functionality name="sendMailDialogModule" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<functionality name="LinkShareDialog" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="false" />
+			<!-- FRONT-MATTER -->
+			<functionality name="AuthorGroupNewModule" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<functionality name="AuthorEditDialog" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<!-- BODY-MATTER -->
+			<functionality name="CrossCitationModule" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<functionality name="SymbolsDialog" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<functionality name="ApplyStyleDialog" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<functionality name="PI_MODULE" alt-name="InsertPI" show="false" />
+			<functionality name="InsertFloatDialogNew" show="true" />
+			<functionality name="InsertNotesGroup" show="true" />
+			<functionality name="ImageAnnotateDialogModule" show="true" />
+			<functionality name="GrayscaleDialog" show="true" />
+			<functionality name="xToolTip" show="true" />
+			<functionality name="DocumentRestoreDialog" show="true" />
+			<functionality name="shareInviteDialogModule" show="true" />
+			<functionality name="IndexDialog" show="true" showForAU="false" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="false" />
+			<functionality name="FinalizingDialog" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<functionality name="StylePanelDialog" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<functionality name="ApplyHyperLinkDialog" show="true" />
+			<functionality name="qualityCheckerDialog" show="true" />
+			<functionality name="SupplimentaryDialog" show="true" />
+			<!-- BACK-MATTER -->
+			<functionality name="REF_SORT_DIALOG" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForJM="true" showForPR="true" />
+			<functionality name="MultiRefDialog" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForJM="true" showForPR="true" />
+		</dialogs>
+		<menuoption type="menuOptions">
+			<!-- UI Menus and Options -->
+			<functionality name="helpGroup" showTrackView="false" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="faqGroup" showTrackView="false" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="lTitleGroup" showTrackView="false" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="rTitleGroup" showTrackView="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="showRevisionBtn" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="Generate_XML" showForAU="false" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" ignoreUsers="true" />
+			<functionality name="Generate_HTML" showForAU="false" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="proof_pdf" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="i_track_pdf" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="ce_track_pdf" showForAU="false" showForCO="false" showForCE="false" showForPM="false" showForED="false" showForPE="false" showForJM="false" showForPR="false" showForCoRole="false" />
+			<functionality name="restoreHTML" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="ShowTrackOnly" showForAU="false" showForCO="false" showForCE="false" showForPM="false" showForED="false" showForPE="false" showForJM="false" showForPR="false" showForCoRole="false" />
+			<functionality name="showSpellDiv" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="VideoTour" showForAU="false" showForCO="false" showForCE="false" showForPM="false" showForED="false" showForPE="false" showForJM="false" showForPR="false" showForCoRole="false" external-open="true" />
+			<functionality name="TipsTricks" showForAU="false" showForCO="false" showForCE="false" showForPM="false" showForED="true" showForPE="true" showForJM="false" showForPR="false" showForCoRole="true" />
+			
+			<!-- SHOW/HIDE CO_SHARED ROLE -->
+			<functionality name="shareFileBtn" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="false" />
+			<functionality name="finalize" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="StylePanelDialog" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" />
+			<!-- DEFAULT HIDE -->
+			<functionality name="GenaratePDF" showForAU="false" showForCO="false" showForCE="false" showForJM="false" showForPR="false" showForCoRole="false" showForPM="false" showForED="false" />
+			<functionality name="ChangeCaseMenu" showForAU="false" showForCO="false" showForCE="false" showForPM="false" showForED="false" showForPE="false" showForJM="false" showForPR="false" showForCoRole="false" />
+		</menuoption>
+		<contextmenu type="contextMenus">
+			<functiongroup name="commentQueryGroup" show="true">
+				<functionality name="AddCMD" show="true" renumber="false" />
+				<functionality name="AddQRY" show="true" renumber="true" showForAU="false" showForCO="false" showForCE="false" showForPM="false" showForED="true" showForJM="false" showForPR="false" />
+			</functiongroup>
+			<functionality name="AuthorGroupModule" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="AuthorEditDialog" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="Author_Notes" show="true" showForAU="false" showForCO="true" showForCE="false" showForPM="false" showForED="false" showForPE="false" showForJM="false" showForPR="false" showForCoRole="false" />
+			<functionality name="Abstruct" showStatistics="true" show="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true" />
+			<functionality name="Keyword" show="true" />
+			<functionality name="Abbreviations" show="true" />
+			<functiongroup name="ParaGroup" show="true" ignoreUsers="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true" showForCoRole="true">
+				<functionality name="changecontentType" show="false" showForAU="false" showForCO="true" />
+				<functionality name="MergeBeforePara" show="true" />
+				<functionality name="MergeAfterPara" show="true" />
+			</functiongroup>
+			<functiongroup name="notesGroup" show="true" renumberItemId="true" renumberCitationRid="true" renumberLabel="true" renumberCiteText="true" citeLookupByText="true">
+				<functionality name="Addfootnote" show="false" />
+				<functionality name="delfootnote" show="false" />
+				<functionality name="delendnote" show="false" />
+			</functiongroup>
+			<functiongroup name="headgroup" show="true" ignoreUsers="true" showForAU="false" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true">
+				<functionality name="addNewSec" show="false" />
+				<functionality name="ChangeAbove" show="true" />
+				<functionality name="myheadLvl" show="true" />
+				<functionality name="ChangeBelow" show="true" />
+				<functionality name="DelSec" show="true" />
+			</functiongroup>
+			<functiongroup name="floatGroup" show="true" networkDepend="true" ignoreUsers="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true">
+				<functionality name="AddFigure" show="true" dataKey="figure" newItemShow="figure" newItemhide="image,pic,map" />
+				<functionality name="AddTable" show="true" dataKey="table" />
+				<functionality name="AddTablefootnote" show="false" dataKey="table" />
+				<functionality name="AddRef" show="true" />
+				<functionality name="ReplaceFigure" show="true" dataKey="replaceFigure" />
+			</functiongroup>
+			<functiongroup name="mathGroup" show="true" networkDepend="true">
+				<functionality name="Inline" show="true" />
+				<functionality name="Number" show="true" />
+				<functionality name="UnNumber" show="true" />
+				<functionality name="Edit" show="true" />
+				<functionality name="changeTo" show="true" />
+			</functiongroup>
+			<functiongroup name="PI_Group" show="false">
+				<functionality name="Insert_PI" show="false" />
+			</functiongroup>
+			<functiongroup name="citeGroup" show="true">
+				<functionality name="AddCite" show="true" />
+				<functionality name="modCite" show="true" />
+				<functionality name="delCite" show="true" />
+			</functiongroup>
+			<functiongroup name="linkGroup" show="true" ignoreUsers="true" showForAU="true" showForCO="true" showForCE="true" showForPM="true" showForED="true" showForPE="true" showForJM="true" showForPR="true">
+				<functionality name="editLink" show="true" />
+				<functionality name="removeLink" show="true" />
+			</functiongroup>
+			<functiongroup name="TableAddOnGroup" show="true">
+				<functionality name="AddTblHeadAbove" show="false" />
+				<functionality name="AddTblHeadBelow" show="false" />
+				<functionality name="RemoveTableHeader" show="false" />
+				<functionality name="AddTableRow" show="false" />
+				<functionality name="InsTblFootnote" show="false" />
+				<functionality name="InsTblNote" show="false" />
+				<functionality name="DelTblFootnote" show="false" />
+				<functionality name="AlignTblContent" show="true" />
+			</functiongroup>
+			<functiongroup name="ReferenceGroup" show="true">
+				<functionality name="DeleteReference" show="true" />
+				<functionality name="InsReference" show="true" />
+				<functionality name="ReOrderReference" show="true" />
+			</functiongroup>
+		</contextmenu>
+		<!-- Generate AREA -->
+		<showItems name="Generate_Items" auto="true" show="true" toc="div.sec, div.ack, div.fn-group, div.ref-list, div.glossary" figCap=".caption .p" tabCap=".caption .p" refCap=".mixed-citation" secCap=".title" fnCap=".p" authorText=".contrib" />
+		<root name="root-tags" root-class="article" subject-title="[subj-group-type] > .subject" title=".title-group .article-title" />
+		<rules type="keybinding-rules-set-by-client">
+			<restricted-by-elements>
+				<ForAU selector=".subject,.subj-group, .history .date, .date .day, .date .month, .date .year, .permissions .copyright-statement, .permissions .copyright-year,.permissions .license, .permissions .license-p, .kwd-group .title" FindReplace=".alt-title, .contrib-group, .title-group, .title, .subject, .xref, .corresp, .fn" />
+				<ForPE selector=".subject,.subj-group" history-date-editable="true" />
+				<ForED selector=".subject,.subj-group" history-date-editable="true" />
+				<ForCO selector=".subject,.subj-group" history-date-editable="true" />
+				<ForCE selector=".subject,.subj-group" />
+				<ForJM selector=".subject,.subj-group" />
+				<ForPR selector=".subject,.subj-group" />
+			</restricted-by-elements>
+		</rules>
+		<styles name="style-list">
+			<title class="title" data-name="title" />
+			<h1 class="sec" data-name="sec" data-levels="1" />
+			<h2 class="sec" data-name="sec" data-levels="2" />
+			<h3 class="sec" data-name="sec" data-levels="3" />
+			<h4 class="sec" data-name="sec" data-levels="4" />
+			<h5 class="sec" data-name="sec" data-levels="5" />
+			<h6 class="sec" data-name="sec" data-levels="6" />
+			<p class="p" data-name="p" content-type="flush-left" />
+			<extract class="disp-quote" data-name="disp-quote" />
+			<source class="p" data-name="p" content-type="source" />
+			<email class="email" data-name="email" />
+			<link class="uri" data-name="uri" target="_blank" />
+		</styles>
+		<!-- TEMPLATE ELEMENTS (all attribute values are HTML stored as hex strings) -->
+		<!-- Use codebeautify.org/string-hex-converter or the admin panel hex utility to encode/decode -->
+		<templtaes-elements ref-site="codebeautify.org/string-hex-converter">
+			<shareInvite comment="" defaultShare="" coroleShare="" emailSubject="" coroleSignature="" />
+			<author-group author="" with_xref="" with_o_xref="" />
+			<floats a="" note="">
+				<fig root="" caption="" />
+				<table-wrap header="7468" body="7464" root="" caption="" row="" td="" th="" wrap_foot="" FootGroup="" colgroup="" col="" />
+				<notes sup_a="" fn="" entry="">
+					<footnotes root="" />
+					<endnotes root="" />
+				</notes>
+			</floats>
+		</templtaes-elements>
+		<!-- ALERT / SIGN-OFF / SPELL-CHECK CONFIGURATION -->
+		<alertInfo-message-redirectlink>
+			<item name="survey" survey-before-prompt="true" google-form="false" external-survey="" show="true" showForAU="true" showForCO="false" showForCE="false" showForPM="false" showForED="false" showForPE="false" showForJM="false" showForPR="false" showForCoRole="false" />
+			<item name="sign_off" pass_msg="Your article is moved next stage successfully." default="validateurl{{customer}}.html?key=" coRoleMail="" mail-body="" emailSubject="" mail-bcc="" />
+			<item name="Math_WSC" ignore="journal-meta,article-id,article-categories,subj-group,given-names,surname,ice-del,email,pub-date,volume,issue,fpage,lpage,history,permissions,contrib,self-uri,funding-group,counts,custom-meta-group,pop_up,ext-link,source,ref-list,kwd-group" script="https://####:8443/wscservice/wscbundle/wscbundle.js" />
+		</alertInfo-message-redirectlink>
+		<!-- CROSS-REF API — pid is hex-encoded email address -->
+		<cross_ref_api pid="" />
+		<!-- JOURNAL LIST -->
+		<listofjournals>
+			<!-- Add <journal short="..." abbr="..." journal-title="..."> entries here -->
+		</listofjournals>
+	</project>
+</impact>

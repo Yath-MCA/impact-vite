@@ -1,0 +1,76 @@
+#IndexDialog .index-hint-banner {
+    background: #f3f3f3;
+    border-radius: 4px;
+    color: #555;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0.75rem;
+}
+
+#IndexDialog .index-cross-ref-row {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#IndexDialog .index-cross-ref-input {
+    max-width: 6rem;
+}
+
+#IndexDialog .index-para-id {
+    font-family: monospace;
+    font-size: 0.85rem;
+    margin-left: 0.25rem;
+}
+
+#IndexPreviewDialog .index-preview-body {
+    max-height: 60vh;
+    overflow: auto;
+}
+
+#IndexPreviewDialog .index-preview-note {
+    color: #666;
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+}
+
+#IndexPreviewDialog .index-preview-list {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+#IndexPreviewDialog .index-preview-letter {
+    font-weight: 700;
+    margin: 0.75rem 0 0.25rem;
+}
+
+#IndexPreviewDialog .index-preview-item {
+    cursor: pointer;
+    padding: 0.15rem 0 0.15rem 1rem;
+}
+
+#IndexPreviewDialog .index-preview-item:hover {
+    background: #fff5eb;
+}
+
+#IndexDialog #index_insert_btn.disabled,
+#IndexDialog #index_insert_btn:disabled {
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+#IndexPreviewDialog .index-preview-item .index-preview-para {
+    color: #888;
+    font-family: monospace;
+    font-size: 0.75rem;
+    margin-left: 0.35rem;
+}
+
+.cke_editable .impact-index-layer,
+#maineditor .impact-index-layer {
+    background: rgba(255, 193, 7, 0.25);
+    border-bottom: 1px dashed #e67e22;
+    border-radius: 2px;
+    padding: 0 1px;
+}

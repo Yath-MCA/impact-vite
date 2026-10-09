@@ -1,0 +1,72 @@
+ul,
+ul ul,
+ol,
+ol ol {
+    list-style-type: none;
+}
+
+ul,
+ol {
+    list-style-type: none;
+
+    .list-item {
+        &.label {
+            margin-left: -2em;
+            padding-right: 0.8em;
+        }
+
+        .p {
+            display: inline;
+        }
+    }
+
+    li {
+        display: block;
+        list-style: none;
+        position: relative;
+    }
+
+    &[list-type],
+    &[list-content] {
+        li[data-label-simple] {
+
+            &[data-list-roman]::before {
+                margin-left: -2.5em !important;
+            }
+
+            &::before {
+                content: attr(data-label-simple) !important;
+                margin-left: -1.75em;
+                position: absolute;
+                // margin-top: 5px;
+            }
+        }
+    }
+
+    /* Apply blue color only when list-type has data-list-style="modified" */
+    // ? TC_LIS_003 - 21_FEB_2026 - YA - Regression testing EDE24-0438_QA_Live_16.02.26
+    &[list-type][data-list-style="modified"] li[data-label-simple]::before,
+    &[list-type] li[data-label-simple][data-list-style="modified"]::before {
+        color: blue;
+    }
+
+    &[list-type*="roman"],
+    &[list-content*="roman"] {
+        li[data-label-simple]::before {
+            content: attr(data-label-simple) !important;
+            margin-left: -2.5em !important;
+            position: absolute;
+            // margin-top: 5px;
+        }
+    }
+
+}
+
+div>ol,
+div>ul {
+    margin-left: 0.25em;
+}
+
+div>ol[list-type*='roman'] {
+    margin-left: 3em !important;
+}

@@ -1,0 +1,47 @@
+.contrib-group {
+    .contrib {
+        [data-name="given-names"] {
+            color: #2c2d33;
+        }
+
+        [data-name="surname"] {
+            color: #2c2d33;
+            padding: 3.5px;
+            border: 4px solid #C14F97 !important;
+
+            // &.active {
+            //     border: 4px solid #C14F97 !important;
+            // }
+
+            /*1914386 Author Name Color - As per Srini Req */
+
+            &[aria-label].active:after {
+                top: -14px;
+                left: -12px;
+            }
+
+        }
+
+        [data-name="role"],
+        [data-name="email"] {
+            display: none;
+        }
+
+        [data-name="role"] {
+            // font-weight: 600;
+            // padding-right: 2px;        
+        }
+
+        [data-name="prefix"] {
+            color: #F68A35;
+        }
+
+        [data-name="suffix"] {
+            color: #F68A33;
+        }
+
+        [data-name="degrees"] {
+            color: #F68A33;
+        }
+    }
+}

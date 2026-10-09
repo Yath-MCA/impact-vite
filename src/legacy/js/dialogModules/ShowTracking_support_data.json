@@ -1,0 +1,554 @@
+{
+    "new_tracking_code": {
+
+        "author_dialog_01": {
+            "hint": "New author name was added.",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+
+        "affiliation_dialog_01": {
+            "hint": "New affiliation was added.",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+
+        "author_move_01": {
+            "hint": "Author order changed.",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Reordered",
+            "disableAction": "btnRejectTrack"
+        },
+
+        "author_delete_01": {
+            "hint": "Author deleted.",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Deleted",
+            "disableAction": "btnRejectTrack"
+        },
+
+        "affiliation_move_01": {
+            "hint": "Affiliation order changed.",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Reordered",
+            "disableAction": "btnRejectTrack"
+        },
+
+        "affiliation_delete_01": {
+            "hint": "Affiliation deleted.",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Deleted",
+            "disableAction": "btnRejectTrack"
+        },
+
+        "suppmat-01": {
+            "hint": "Supplementary Material File Added",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "suppmat-02": {
+            "hint": "Supplementary Material File Replaced",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "suppmat-03": {
+            "hint": "Supplementary Material File Deleted",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Deleted",
+            "disableAction": "btnRejectTrack"
+        },
+        "old_link": {
+            "new": "Hyperlink newly applied",
+            "edit": "Hyperlink edited",
+            "remove": "Hyperlink removed",
+            "removetxt": "Hyperlink removed with text"
+        },
+        "link-apply-style-00": {
+            "hint": "Inline style applied",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": ""
+        },
+        "link-01": {
+            "hint": "Hyperlink newly applied",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": ""
+        },
+        "link-02": {
+            "hint": "Hyperlink edited",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": ""
+        },
+        "link-03": {
+            "hint": "Hyperlink removed",
+            "topRowtag": "for-re",
+            "topRowCSS": "t-text-for-re",
+            "topRowInfoShow": "Unformatted",
+            "disableAction": ""
+        },
+        "link-04": {
+            "hint": "Hyperlink removed with text",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Deleted",
+            "disableAction": ""
+        },
+        "notes-01": {
+            "hint": "New footnote inserted",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "notes-02": {
+            "hint": "New endnote inserted",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "notes-03": {
+            "hint": "Note with citation deleted",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Deleted",
+            "disableAction": "btnRejectTrack"
+        },
+        "notes-04": {
+            "hint": "Citation with Footnote  deleted",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Deleted",
+            "disableAction": "btnRejectTrack"
+        },
+        "notes-05": {
+            "hint": "Citation with Endnote deleted",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Deleted",
+            "disableAction": "btnRejectTrack"
+        },
+        "fig-01": {
+            "hint": "New figure inserted",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "fig-02": {
+            "hint": "Figure replaced",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "fig-03": {
+            "hint": "Figure deleted",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Deleted",
+            "disableAction": "btnRejectTrack"
+        },
+        "tab-01": {
+            "hint": "New table inserted",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "cite-text-01": {
+            "hint": "Citation text edited",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "cite-text-del-01": {
+            "hint": "Citation text deleted",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Deleted",
+            "disableAction": "btnRejectTrack"
+        },
+        "cite-text-direct-01": {
+            "hint": "Direct citation text edited",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "cite-text-indirect-01": {
+            "hint": "Indirect citation text edited",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "cite-text-relink-01": {
+            "hint": "Citation linked reference changed",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "cite-text-sync-01": {
+            "hint": "Citation text synced from reference",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "ref-text-del-01": {
+            "hint": "Reference text deleted",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Deleted",
+            "disableAction": "btnRejectTrack"
+        },
+        "ref-text-01": {
+            "hint": "Reference text edited",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "ref-01": {
+            "hint": "New reference inserted",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "ref-02": {
+            "hint": "Reference edited",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": "btnRejectTrack"
+        },
+        "ref-03": {
+            "hint": "Reference deleted",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Deleted",
+            "disableAction": "btnRejectTrack"
+        },
+        "ref-sort-01": {
+            "hint": "References reordered",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": "btnRejectTrack"
+        },
+        "ref-sort-02": {
+            "hint": "References auto reordered",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": "btnRejectTrack"
+        },
+        "pi-01": {
+            "hint": "Processing Instruction added",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": "btnRejectTrack"
+        },
+        "query-01": {
+            "hint": "New query added",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Query Added",
+            "disableAction": "btnRejectTrack",
+            "ignore": "trackView"
+        },
+        "query-02": {
+            "hint": "Query replied",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Query Replied",
+            "disableAction": "btnRejectTrack",
+            "ignore":"trackView"
+        },
+        "query-03": {
+            "hint": "Query updated",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Query Updated",
+            "disableAction": "btnRejectTrack",
+            "ignore": "trackView"
+        },
+        "query-04": {
+            "hint": "Query deleted",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Query Deleted",
+            "disableAction": "btnRejectTrack",
+            "ignore": "trackView"
+        },
+        "comment-01": {
+            "hint": "New comment added",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Comment Added",
+            "disableAction": "btnRejectTrack",
+            "ignore": "trackView"
+        },
+        "comment-02": {
+            "hint": "Comment updated",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Comment Updated",
+            "disableAction": "btnRejectTrack",
+            "ignore": "trackView"
+        },
+        "comment-03": {
+            "hint": "Comment deleted",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Comment Deleted",
+            "disableAction": "btnRejectTrack",
+            "ignore": "trackView"
+        },
+        "annotate-01": {
+            "hint": "Annotation added",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Annotated",
+            "disableAction": "btnRejectTrack"
+        },
+        "annotate-02": {
+            "hint": "Annotation updated",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Annotation Updated",
+            "disableAction": "btnRejectTrack"
+        },
+        "annotate-03": {
+            "hint": "Annotation deleted",
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Annotation Deleted",
+            "disableAction": "btnRejectTrack"
+        },
+        "style-01": {
+            "hint": "Paragraph style applied",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": "btnRejectTrack,btnAcceptTrack"
+        },
+        "head-style-01": {
+            "hint": "Heading style applied",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": "btnRejectTrack,btnAcceptTrack"
+        },
+        "list-style-01": {
+            "hint": "List style applied",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": "btnRejectTrack,btnAcceptTrack"
+        },
+        "para-split-01": {
+            "hint": "Paragraph split",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": ""
+        },
+        "para-insert-01": {
+            "hint": "New paragraph inserted",
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted",
+            "disableAction": ""
+        },
+        "para-merge-01": {
+            "hint": "Paragraphs merged",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": ""
+        },
+        "cell-align-01": {
+            "hint": "Table cell aligned",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": "btnRejectTrack"
+        },
+        "replace-text-01": {
+            "hint": "Text replaced",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": ""
+        },
+        "replace-text-wsc": {
+            "hint": "Spelling suggestion applied",
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted",
+            "disableAction": ""
+        }
+    },
+    "existing_config_msg": {
+        "IsCharacterSpace": {
+            "IsPass": false,
+            "Info": "[Character Space]",
+            "topRowCSS": "t-text-ins"
+        },
+        "IsNew_AU_Note": {
+            "IsPass": false,
+            "Info": "[New Note]",
+            "topRowCSS": "t-text-ins"
+        },
+        "IsComment": {
+            "IsPass": false,
+            "Info": "[New Comment]",
+            "topRowCSS": "t-text-ins"
+        },
+        "IsQuery": {
+            "IsPass": false,
+            "Info": "[Query Responsed]",
+            "topRowInfoShow": "Query Responsed"
+        },
+        "IsNewQuery": {
+            "IsPass": false,
+            "Info": "[New Query]",
+            "topRowInfoShow": "t-text-ins"
+        },
+        "IsReplaceImage": {
+            "IsPass": false,
+            "Info": "[New image replaced]",
+            "topRowCSS": "t-text-ins"
+        },
+        "IsRef": {
+            "IsPass": false,
+            "Info": {
+                "new": "[New Reference]",
+                "remove": "[Reference Deleted]",
+                "sort": "[Reference Reordered]",
+                "interest-level-edit": "[Reference Interest Level Changed]",
+                "interest-level-new": "[Reference Interest Level Added]",
+                "interest-level-remove": "[Reference Interest Level Removed]"
+            },
+            "topRowCSS": "t-text-ins"
+        },
+        "IsNotes": {
+            "IsPass": false,
+            "Info": {
+                "new": "[New Note]",
+                "remove": "[Note Deleted]"
+            },
+            "topRowCSS": "t-text-ins"
+        },
+        "IsNewFloat": {
+            "IsPass": false,
+            "Info": {
+                "table-wrap": "[New Table]",
+                "fig": "[New Figure]"
+            },
+            "topRowCSS": "t-text-ins"
+        },
+        "IsEq": {
+            "IsPass": false,
+            "getInfo": "trackDialog['M_FUN'].setTrackingMathInfo",
+            "Info": {
+                "inline": "New Inline equation",
+                "withLab": "New numbered equation",
+                "withoutLab": "New unnumbered equation",
+                "insertLab": "Converted unnumber to number",
+                "removeLab": "Converted number to unnumber",
+                "edit": "Equation edited"
+            }
+        },
+        "IsLink": {
+            "IsPass": false,
+            "Info": {
+                "new": "Hyperlink newly applied",
+                "edit": "Hyperlink edited",
+                "remove": "Hyperlink removed",
+                "removetxt": "Hyperlink removed with text",
+                "default": "Hyperlink action"
+            },
+            "getInfo": "trackDialog['M_FUN'].setTrackingLinkInfo"
+        },
+        "IsStyle": {
+            "IsPass": false,
+            "Info": "[New Style Applied]",
+            "topRowInfoShow": "Formatted"
+        },
+        "IsSplit": {
+            "IsPass": false,
+            "Info": "[Splitted Paragraph]",
+            "topRowCSS": "t-text-ins"
+        },
+        "IsMerge": {
+            "IsPass": false,
+            "Info": "[Paragraphs Merged]",
+            "topRowInfoShow": "Formatted"
+        },
+        "IsCellAlign": {
+            "IsPass": false,
+            "Info": "[Table Cell Aligned]",
+            "topRowInfoShow": "Formatted"
+        },
+        "IsHeadStyle": {
+            "IsPass": false,
+            "Info": "[Heading]",
+            "topRowInfoShow": "Formatted"
+        },
+        "IsListStyle": {
+            "IsPass": false,
+            "Info": "[List style applied]",
+            "topRowInfoShow": "Formatted"
+        },
+        "IsInsertPara": {
+            "IsPass": false,
+            "Info": "[New Paragraph Inserted]",
+            "topRowCSS": "t-text-ins"
+        },
+        "ice-format": {
+            "topRowtag": "for",
+            "topRowCSS": "t-text-for",
+            "topRowInfoShow": "Formatted"
+        },
+        "ice-reformat": {
+            "topRowtag": "for-re",
+            "topRowCSS": "t-text-for-re",
+            "topRowInfoShow": "Unformatted"
+        },
+        "insert": {
+            "topRowtag": "insert",
+            "topRowCSS": "t-text-ins",
+            "topRowInfoShow": "Inserted"
+        },
+        "del": {
+            "topRowtag": "del",
+            "topRowCSS": "t-text-del",
+            "topRowInfoShow": "Deleted"
+        }
+    }
+}

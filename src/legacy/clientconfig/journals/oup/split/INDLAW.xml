@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="INDLAW" abbr="" journal-title="Industrial Law Journal" batch="21" by="AK" editor-only="true">
+				<!-- ?author  -->
+				<!--role = yes & collab = yes in word config Group author = follow author so i put yes -->
+				<!-- ?author  POLICE BATCH 21 i followed the journal in author group-->
+				<!-- ?Corresponding author indicator = Indicated in word config so i put corresp-quees="yes"-->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="yes" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="no" corresp-quees="yes" crosslink="yes" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=" and " pattern="aftercomma" notallowed="yes" />
+				<!-- ?affiliation:  superscript Asterisk -->
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="" designators="custom_increase_order_*" single-aff="false" autoReNumber="true" />
+				<!-- ?corresp  Not used-->
+				<corresp data-name="corresp" email="yes" address="no" corresp-quees="" maximum="" minimum="" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ?  -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<!-- ?abstract:  Unstructured - Single paragraph -->
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!-- ?Keywords:  Not used -->
+				<keywords data-name="keywords" seperator="" endperiod="false" minimum="" maximum="" limit="" notallowed="yes" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<!-- ? double_sep=", "  & last_sep=" and " ==> need to check with production team
+					(doubts)-->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<!-- ?Direct citation one Figure with Parts = Figure 1(a)doubts-->
+					<!-- ?Direct citation two Figures with Parts = No style -->
+					<!-- ?SOCHIS same pattern followed in 15 june batch 18-->
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<!-- ? Table label = Table 1. & Caption end dot = Not Used -->
+					<caption label="yes" label_end_sep="." end_sep="" limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<!-- ? notes  -->
+				<notes footnote="allowed" endnote="" note="Numbered" />
+				<!-- ?heading follwed by ESCRIT journal batch 19 -->
+				<heading data-name="title" numbered="yes" label="yes" label_suffix="." maximum="3" label_between_delim="">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="sentence case" label_format="arabic" label_end_delim="." label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="upper_alphabet" label_end_delim="." label_prefix="" />
+					<!-- ?  <label>(i)</label> Reconstructive Design -->
+					<h3 style="bold" type="sentence case" label_format="lower_roman" label_start_delim="(" label_end_delim=")" label_prefix="" />
+				</heading>
+				<!-- ?dictionary:   -->
+				<dictionary spelling="uk" name="" note="Consistent within journal" />
+				<!-- ?List  submittal if numbering hierarchy supplied/bullet points are not allowed-->
+				<list label="(i)|(a)" bullet="notallowed" note="Follow author" />
+				<!-- ?equation  -->
+				<equation label="" note="Not given" />
+				<!-- ?BackMatter:  -->
+				<BackMatter ack="" act="" coi="" fund="" das="" supp="" suppcap="" app="" />
+				<!-- ? Reference: given in full for the first instance and then use short title and internal note reference for later instances-->
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false" notallowed="yes">
+					<!-- ? All references are footnoted -->
+					<citation type="FOOTNOTE" name_sep=" and " name_last_sep=", |, " name_year_sep=", " direct_sep=", " indirect_sep="; " openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="italic" />
+				</Reference>
+			</journal>

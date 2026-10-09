@@ -1,0 +1,74 @@
+{
+    "_id" : "Nbf7aabd5-b367-4f06-a2ae-96cc45a9f318",
+    "open_close_dialog" : [ 
+        {
+            "remark" : "CrossCitationModule",
+            "action" : "open",
+            "time_c" : NumberLong(1772441564625),
+            "time_iso" : "2026-03-02T08:52:44.625Z"
+        }, 
+    ],
+    "recordtype" : "open_close_dialog",
+    "client" : "LWW",
+    "docid" : "N150475e5-18ca-4951-9370-cec3d1546e09",
+    "username" : "user@company.co",
+    "role" : "5b53536b4c4a803e9a5abf70",
+    "rolename" : "Author",
+    "roleid" : "5b53536b4c4a803e9a5abf70",
+    "identifier" : "MD-D-25-03502_DEV",
+    
+    "timeiso_c" : ISODate("2026-03-02T08:52:34.551Z"),
+    "timeiso_u" : ISODate("2026-03-23T16:00:47.185Z"),
+    "time_c" : NumberLong(1772441554551),
+    "time_u" : NumberLong(1774281647185)
+}
+
+{
+    "_id" : "Na6b6ead4-59dc-4f2d-a3e7-90dd7212f3f2",
+    "recordtype" : "user_action_history",
+    "history" : {
+        "open_close_dialog" : {
+            "shareInviteDialogModule" : [ 
+                {
+                    "action" : "open",
+                    "remark" : "shareInviteDialogModule",
+                    "info" : "",
+                    "dialog_id" : "shareInviteDialogModule",
+                    "durationMs" : null,
+                    "isDirectClose" : false,
+                    "time_c" : NumberLong(1782919073373),
+                    "time_iso" : "2026-07-01T15:17:53.373Z",
+                    "_session" : 1
+                }, 
+                {
+                    "action" : "close",
+                    "remark" : "shareInviteDialogModule",
+                    "info" : "without any update",
+                    "dialog_id" : "shareInviteDialogModule",
+                    "durationMs" : 13864,
+                    "isDirectClose" : false,
+                    "time_c" : NumberLong(1782919087238),
+                    "time_iso" : "2026-07-01T15:18:07.238Z",
+                    "_session" : 1
+                }
+            ]
+        },
+        "query_quick_answer" : [],
+        "insert_symbol" : [],
+        "video_tour" : [],
+        "guided_tour" : [],
+        "find_words" : [],
+        "replace_words" : []
+    },
+    
+    "username" : "user@company.co",
+    "role" : "5bcf15b1cf510152afba028a",
+    "rolename" : "Collator",
+    "roleid" : "5bcf15b1cf510152afba028a",
+    "identifier" : "MD-D-25-03502_DEV",
+
+    "timeiso_c" : ISODate("2026-07-01T12:19:26.384Z"),
+    "timeiso_u" : ISODate("2026-07-01T15:24:13.735Z"),
+    "time_c" : NumberLong(1782908366384),
+    "time_u" : NumberLong(1782919453735)
+}

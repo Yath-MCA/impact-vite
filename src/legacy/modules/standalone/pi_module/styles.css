@@ -1,0 +1,139 @@
+div.dummyCheck {
+    cursor: pointer;
+}
+
+#PI_Body {
+    padding: 0.70rem;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+#inputDiv {
+    min-height: 2rem;
+    background: #fff;
+    border: 1px solid #ededed;
+    box-sizing: border-box;
+    border-radius: 4px;
+    outline: none;
+    padding: 0 .5rem;
+}
+
+#inputDiv .label-item {
+    background-color: #e7e1e1;
+    font-size: 12px;
+    border-radius: 25px;
+    height: 1rem;
+    /* padding: 0 .25rem; */
+    padding: 2px 10px 19px 9px;
+}
+
+#inputDiv span.label-item .fas {
+    margin: 0 .25rem 0 .5rem;
+    cursor: pointer;
+}
+
+#inputEditDiv {
+    margin: 5px 0;
+    min-height: 2rem;
+    outline: none;
+    padding: 0 .5rem;
+    background-color: #f6fafa;
+    border-radius: 4px;
+}
+
+#inputEditDiv div,
+#inputDiv span {
+    margin: 0.25rem;
+    font-size: 12px;
+    align-items: center;
+}
+
+.edit-item {
+    white-space: nowrap;
+}
+
+.editlabel {
+    margin-left: .25rem !important;
+    display: inline !important;
+    width: 34%;
+    padding: 1px 1px 0px 3px !important;
+    font-size: 12px !important;
+    border-radius: 4px;
+    height: calc(1.5125rem + .2px);
+    border: 0.75px solid #ced4da !important;
+}
+
+#PI_list {
+    height: 10rem;
+    margin: .5rem 0;
+    background: #fcfcfc;
+    border: 1px solid #ececec;
+    box-sizing: border-box;
+    box-shadow: 0 10px 8px -2px rgb(0 0 0 / 20%);
+    border-radius: 2px;
+    list-style: none;
+}
+
+#PI_list .listEntry {
+    cursor: pointer;
+}
+
+.listEntry:checked,
+.listEntry[checked] {
+    background: rgba(246, 138, 51, 0.15);
+    border-radius: 15px;
+    color: #FC6027 !important;
+    opacity: 130%;
+}
+
+#PI_list .listEntry:not(:first-child) {
+    margin-top: 2px;
+}
+
+.listEntry {
+    padding: 1px 5px;
+    font-style: normal !important;
+    font-size: 12px;
+}
+
+.listhead {
+    font-weight: 500;
+    font-size: 12px;
+    margin: .5em 0 .25em 0;
+    color: #505050;
+}
+
+/* ? Buttons onclick */
+:disabled,
+[disabled] {
+    cursor: not-allowed !important;
+}
+
+#mclosePI {
+    margin-left: 234px;
+    margin-bottom: 6px;
+}
+
+.savepi,
+.clearpi {
+    /* width: 3.5rem; */
+    margin: 5px 5px 11px -6px;
+    cursor: pointer;
+}
+
+.savepi.zoom,
+.clearpi.zoom {
+    width: 4rem;
+}
+
+.clearDiv {
+    width: 4rem;
+}
+
+#actionbutton {
+    margin-right: .25rem;
+    margin-top: -8px;
+    margin-bottom: -6px;
+}

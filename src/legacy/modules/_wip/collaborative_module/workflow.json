@@ -1,0 +1,134 @@
+{
+  "legacy_paraLockSync": {
+    "name": "Legacy paraLockSync Workflow",
+    "description": "Existing CKEditor plugin workflow remains the default and owns paragraph locks, polling, replacement apply, cursor lock updates, and unload cleanup when legacy mode is active.",
+    "table": [
+      ["Resolve Mode", "CollaborationWorkflow resolves collaborative/off only from explicit URL or localStorage; otherwise legacy"],
+      ["Editor Ready", "CKEditor paraLockSync waits for instanceReady"],
+      ["Eligibility", "Client/document collaboration gates are checked"],
+      ["Initialize Legacy", "paraLockSync registers with moduleSystem and exposes window.paraLock"],
+      ["Cursor Lock", "selectionChange, editable contentDom events, and post-FullyLoaded loop send existing lockid updates through lockonly logic"],
+      ["Poll And Apply", "Existing _sendToServer, _applyReplacements, and _applyLocks paths run unchanged"],
+      ["Unload", "Legacy workflow releases locks using existing close-session behavior"]
+    ],
+    "mermaid": "flowchart TD\n    A[Resolve mode] --> B{legacy?}\n    B -->|yes| C[Wait for CKEditor instanceReady]\n    C --> D[Check collaboration eligibility]\n    D --> E[Register paraLockSync]\n    E --> F[Wait for FullyLoaded]\n    F --> G[Resume legacy events and polling once]\n    G --> H[Cursor sends lockid updates with stored lastSync]\n    G --> I[Poll DB and apply locks/replacements]\n    I --> J[Unload releases locks]\n    B -->|no| K[Pause or skip legacy runtime]"
+  },
+  "collaborative_module": {
+    "name": "Collaborative Module Workflow",
+    "description": "Socket-first lock and DB-first replacement workflow where CollaborativeModule owns realtime paragraph locks and authoritative replacement sync.",
+    "table": [
+      ["Resolve Mode", "Mode must be collaborative"],
+      ["Editor Ready", "context.js waits for DOMContentLoaded, moduleSystem, eligibility, and CKEditor readiness"],
+      ["Initialize Module", "CollaborativeModule attaches editor listeners and exposes window.CollaborativeModule/window.paraLock"],
+      ["Setup Transports", "BroadcastChannel uses collaborativeModule:<docid>; socket uses /collaboration?docid=<docid> from DOMAIN_ROOT"],
+      ["Socket Locks", "Cursor lock/release sends realtime notices and does not fetch get_lock_id"],
+      ["DB First Replacements", "Dirty paragraph replacements reuse a pending uniqueId and write updated_html to DB before notices are sent"],
+      ["Write Ack", "findupdatewithpush returns a small acknowledgement; it does not hydrate locks or replacements"],
+      ["Remote Apply", "Consumers fetch authoritative data by docid + uniqueId through getFilterdocs with a process-specific filter before applying changes"],
+      ["Apply Ack", "flagUpdate acknowledges replacement apply and lastSyncOnly updates lock lastSync without notification"]
+    ],
+    "mermaid": "flowchart TD\n    A[Resolve collaborative mode] --> B[Wait for editor ready]\n    B --> C[Start CollaborativeModule runtime]\n    C --> D[Open BroadcastChannel and socket]\n    D --> E[Cursor sends lock/release notice]\n    E --> F[Remote applies lock without get_lock_id]\n    D --> G[Reuse pending replacement uniqueId]\n    G --> H[Dirty paragraph writes replacementOnly to DB]\n    H --> I[Write endpoint returns ack only]\n    I --> J[Notify same uniqueId only]\n    J --> K[Remote fetches docid + uniqueId via getFilterdocs]\n    K --> L[Apply replacement]\n    L --> M[Send flagUpdate]\n    L --> N[Send lastSyncOnly without notice]"
+  },
+  "mode_toggle": {
+    "name": "Local/UAT Runtime Mode Toggle",
+    "description": "Testing Mode control is available only after explicit collaborative opt-in; deployed UAT/default startup remains pure legacy.",
+    "table": [
+      ["Opt In", "Tester opens with collabMode=collaborative to register CollaborativeModule and its status dialog"],
+      ["Choose Mode", "Tester selects Legacy paraLockSync, Collaborative Module, or Off from the loaded dialog"],
+      ["Store Mode", "Selection is saved to xmleditor:collabMode:${docid}"],
+      ["Pause All", "Current legacy and collaborative runtimes are paused without disabling collaboration eligibility"],
+      ["Resume Selected", "Legacy resumes paraLockSync; collaborative opens transports; off exposes fallback"],
+      ["Idempotent", "Repeated clicks do not duplicate intervals, listeners, sockets, or BroadcastChannels"]
+    ],
+    "mermaid": "flowchart TD\n    A[Explicit collaborative opt-in] --> B[Register Collaborative Status]\n    B --> C[Select testing mode]\n    C --> D[Save per docid]\n    D --> E[Pause both runtimes]\n    E --> F{Mode}\n    F -->|legacy| G[Resume paraLockSync only]\n    F -->|collaborative| H[Start CollaborativeModule only]\n    F -->|off| I[Expose safe fallback]\n    G --> J[No page refresh]\n    H --> J\n    I --> J"
+  },
+  "runtime_mode_switch": {
+    "name": "Runtime Provider Pause And Resume",
+    "description": "CollaborationWorkflow controls active operations while leaving feature eligibility and SHARED_KEY.collaborative unchanged.",
+    "table": [
+      ["activateMode", "Persists mode, pauses all providers, and starts only the selected provider"],
+      ["deactivateAll", "Public compatibility method that pauses providers rather than permanently disabling them"],
+      ["Off", "Clears polling intervals, pauses event actions, closes transports, stops heartbeat, exposes fallback"],
+      ["Legacy", "Resumes legacy _resumeEvents and _handleLoopTasks('resume') once"],
+      ["Collaborative", "Resumes collaborative events, polling, presence, BroadcastChannel, and socket once"]
+    ],
+    "mermaid": "flowchart TD\n    A[activateMode mode] --> B[Persist selected mode]\n    B --> C[Pause legacy runtime]\n    C --> D[Pause collaborative runtime]\n    D --> E{Requested mode}\n    E -->|off| F[Fallback paraLock]\n    E -->|legacy| G[Resume paraLockSync]\n    E -->|collaborative| H[Resume CollaborativeModule]\n    H --> I[Connect BroadcastChannel and socket]"
+  },
+  "doc_scoped_socket": {
+    "name": "Doc-Scoped Socket Rooms",
+    "description": "Java WebSocket endpoints isolate connected sessions by docid so notices do not cross documents.",
+    "table": [
+      ["Connect", "Client opens /collaboration?docid=<docid>; /collab remains compatibility/test when deployed"],
+      ["Parse Doc", "Java endpoint reads docid from query string"],
+      ["Join Room", "Session is stored in a doc-scoped room map"],
+      ["Send Notice", "Sender posts JSON text or binary/text compatibility payload"],
+      ["Room Broadcast", "Endpoint sends only to other sessions in the same docid room"],
+      ["Cleanup", "Session is removed from room on close/error"]
+    ],
+    "mermaid": "flowchart TD\n    A[Socket connect with docid] --> B[Parse query docid]\n    B --> C[Add session to doc room]\n    C --> D[Sender posts notice]\n    D --> E[Broadcast to same docid only]\n    E --> F[Close/error removes session]"
+  },
+  "db_first_replacement_sync": {
+    "name": "DB-First Replacement Sync",
+    "description": "Replacement notices contain uniqueId only; consumers fetch content from DB before applying paragraph updates.",
+    "table": [
+      ["Edit Paragraph", "User changes paragraph content"],
+      ["Build Payload", "_createReplacePush creates uniqueId and updated_html for DB/API"],
+      ["Write DB", "_sendToServer writes replacement data and receives a small ack"],
+      ["Notify", "Broadcast/socket sends metadata without updated_html"],
+      ["Fetch", "Consumer fetches by docid + replacements.uniqueId through getFilterdocs with filter projection"],
+      ["Apply And Flag", "_applyReplacements updates content and flagUpdate acknowledges apply"],
+      ["Last Sync", "The active provider advances lastSync from replacement response receive time and persists it without notifying transports"]
+    ],
+    "mermaid": "flowchart TD\n    A[Paragraph edit] --> B[Build replacement payload]\n    B --> C[Write authoritative DB row]\n    C --> D[Notify uniqueId only]\n    D --> E[Remote getFilterdocs by docid + uniqueId]\n    E --> F[Capture response receive time]\n    F --> G[Apply replacement]\n    G --> H[Send flagUpdate]\n    G --> I[Persist state lastSync with lastSyncOnly]"
+  },
+  "filtered_read_backend": {
+    "name": "getFilterdocs ParaLockSync Filtering",
+    "description": "Backend read/filter endpoint owns projection and lastSync replacement filtering; FindUpdatewithPush remains update/push only.",
+    "table": [
+      ["Write Endpoint", "findupdatewithpush updates/pushes rows and returns r, id, process, and time_s only"],
+      ["Read Endpoint", "getFilterdocs fetches matching documents like GetDocs"],
+      ["Projection", "Requested top-level fields are copied from filter"],
+      ["User Sync", "Current user resolves from username, user, or find['locks.user']"],
+      ["Last Sync", "Canonical locks[].lastSync is used with lowercase lastsync fallback"],
+      ["Replacement Filter", "Exclude current-user replacements, skip already synced polling data, target uniqueId when requested, and keep latest replacement per paragraph"]
+    ],
+    "mermaid": "flowchart TD\n    A[Frontend needs state] --> B[Call getFilterdocs]\n    B --> C[Fetch matching docs]\n    C --> D[Apply top-level filter]\n    D --> E{tbl ParaLockSync?}\n    E -->|no| F[Return projection]\n    E -->|yes| G[Resolve user and lastSync]\n    G --> H[Filter replacements]\n    H --> I[Return filtered state]\n    J[findupdatewithpush] --> K[Write only ack]"
+  },
+  "cursor_lock_update": {
+    "name": "Cursor Movement Lock Update",
+    "description": "Mouse and keyboard cursor movement update the current user's paragraph lock through DB in legacy mode and realtime notices in collaborative mode.",
+    "table": [
+      ["Bind Events", "Both workflows listen to selectionChange and editable contentDom mouseup, keyup, and click"],
+      ["Queue Update", "Cursor events defer selection handling so CKEditor selection has moved"],
+      ["Resolve Block", "Collapsed caret fallback walks from getStartElement to the nearest block with id"],
+      ["Legacy Process", "Legacy cursor path uses lockonly and sends existing lockid DB update"],
+      ["Collaborative Notice", "Collaborative cursor path sends lock/release over BroadcastChannel/socket without get_lock_id"],
+      ["Runtime Guard", "Paused/off/inactive providers do not write cursor locks"]
+    ],
+    "mermaid": "flowchart TD\n    A[Cursor moves] --> B[selectionChange or contentDom event]\n    B --> C[Queue lockonly]\n    C --> D[Resolve paragraph id]\n    D --> E{Provider active?}\n    E -->|no| F[Skip]\n    E -->|legacy| G[Send DB lockid]\n    E -->|collaborative| H[Send realtime lock notice]"
+  },
+  "lastSyncOnly": {
+    "name": "Common lastSyncOnly Process",
+    "description": "After replacement apply, the active provider persists the replacement response-received timestamp as the current user's lock lastSync without emitting any socket or BroadcastChannel notice.",
+    "table": [
+      ["After Apply", "_afterReplacementProcess runs after replacement content is applied"],
+      ["Provider Guard", "Process runs only when legacy or collaborative provider is active"],
+      ["Build Params", "Find current doc/user lock row and update locks.$.lastSync from provider state"],
+      ["No Notify", "Collaborative notify path ignores lastSyncOnly; legacy has no socket or BroadcastChannel notify"],
+      ["No Flags", "lastSyncOnly does not create replacement rows or acknowledgement flags"]
+    ],
+    "mermaid": "flowchart TD\n    A[Replacement response received] --> B[Apply replacement]\n    B --> C{Provider active?}\n    C -->|no| D[Skip]\n    C -->|yes| E[Store response time in state]\n    E --> F[Send lastSyncOnly]\n    F --> G[Update lock lastSync]\n    G --> H[No broadcast or socket notice]"
+  },
+  "request_based_shared_key_enablement": {
+    "name": "Request-Based Shared Key Enablement",
+    "description": "Collaboration enablement is explicit through enableCollaborativeSharedKey; loadSharedKey only loads and normalizes stored data.",
+    "table": [
+      ["Load", "loadSharedKey reads xmleditor:shared:${docid} and assigns SHARED_KEY"],
+      ["No Auto Patch", "xmleditor:collabEnabled:${docid} does not silently change SHARED_KEY.collaborative during load"],
+      ["Request", "Caller invokes enableCollaborativeSharedKey(options, callback)"],
+      ["Persist", "Helper stores patched shared key, collabEnabled=true, and collabMode=collaborative"],
+      ["Proceed", "Callback tells caller whether reload is required"]
+    ],
+    "mermaid": "flowchart TD\n    A[initDocumentID] --> B[loadSharedKey]\n    B --> C[initUserInfo]\n    B --> D[No automatic collaborative patch]\n    E[Explicit enable request] --> F[Patch SHARED_KEY collaborative yes]\n    F --> G[Persist keys]\n    G --> H[Callback reloadRequired]"
+  }
+}

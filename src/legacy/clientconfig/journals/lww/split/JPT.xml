@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="JPT" abbr="" journal-title="Journal of Geriatric Physical Therapy" copy-by="YA_27_Jun_26" batch="40" mantis="3493990">
+	<author data-name="contrib" surname="yes" given-names="yes" role="no" collab="no" on-behalf-of="no" author-comment="no" name-alternatives="yes" prefix="no" suffix="yes" orcid="no" degrees="yes" author-notes-quees="no" corresp-quees="no" contribsep="; " surnameSep=", " givennamesep=" " crosslinksep="," seperator=" " pattern="aftercomma" contrib-last-sep="; " crosslink="yes"/>
+	<affiliation data-name="aff" seperator=", " contrib-last-sep=" and " designators="ArabicNumber" single-aff="false" autoReNumber="true"/>
+	<corresp data-name="corresp" email="yes" address="yes" maximum="1" telephone="yes" fax="yes" indicators="yes" corresp-quees=""/>
+	<author-notes data-name="fn" indicators="yes" author-notes-quees=""/>
+	<abstract data-name="abstract" GA="No"/>
+	<keywords data-name="keywords" seperator=", " minimum="3" maximum="10" endperiod="false"/>
+	<heading data-name="title" numbered="no" label="yes" label_suffix="" maximum="3" label_between_delim="" notallowed="no">
+		<h1 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix=""/>
+		<h2 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="yes"/>
+		<h3 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="yes"/>
+	</heading>
+	<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes"/>
+	<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,back"/>
+	<Figure data-name="fig" sentence="Figure " ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure" email="jpt_lww@newgen.co">
+		<caption label="yes" label_end_sep="." end_sep="." limit="3"/>
+		<dircite single_prefix="Figure " double_prefix="Figures " multi_sep=", " double_sep=" and " last_sep=", |, and " range_sep="–" openwrap="" closewrap="" part_lab_prefix_num="no" part_lab_case="lower" part_lab_double_sep="," part_lab_openwrap="" part_lab_closewrap=""/>
+		<indircite single_prefix="Figure " double_prefix="Figures " double_sep=" and " last_sep=", |, and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" multi_sep="," part_lab_prefix_num="no" part_lab_case="lower" part_lab_double_sep="," part_lab_openwrap="" part_lab_closewrap=""/>
+	</Figure>
+	<Table data-name="table" sentence="Table " ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+		<caption label="yes" label_end_sep="" end_sep="" limit="3"/>
+		<dircite single_prefix="Table " double_prefix="Tables " double_sep=" and " last_sep=", |, and " range_sep="–" openwrap="" closewrap=""/>
+		<indircite single_prefix="Table " double_prefix="Tables " double_sep=" and " last_sep=", |, and " range_sep="–" openwrap="(" closewrap=")"/>
+						<wrapfooter show="true" ins_note="true" del_footnote="true" ins_footnote="true" del_footnote_cite="true" ins_footnote_cite="true" designators="alphabets" renumber="true" ins_abbrev="true" ins_source="true" ins_probability="true" />
+				</Table>
+	<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered_with_dot" text-format="sup">
+		<dircite double_sep="," range_sep="–" openwrap="" closewrap=""/>
+		<indircite double_sep="," range_sep="–" openwrap="" closewrap=""/>
+	</Reference>
+</journal>

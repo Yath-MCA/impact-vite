@@ -1,0 +1,5 @@
+div.sec div.title[data-levels="2"],
+div.sec div.title[data-levels="3"],
+tr th .italic {
+    font-style: italic !important
+}

@@ -1,0 +1,236 @@
+div.dummyCheck {
+    cursor: pointer
+}
+
+#sendMailDialogModule,
+#SupportMailDialog {
+
+    #contactBody,
+    .contactBody {
+        width: 100%;
+        font-size: 12px !important;
+    }
+
+    label {
+        // color: #848484 !important; WCAG - Contrast Color Issue - 30 Nov 23
+        color: #242424 !important;
+        // font-weight: bold !important;
+        font-weight: 400 !important;
+        margin-bottom: 0.2rem;
+        font-size: 14px;
+
+        &[for=mail_text] {
+            /* display: block; */
+            margin-left: 5px;
+            color: rgba(107, 107, 107, 0.8) !important;
+            // font-weight: 400 !important;
+            background: #e0e0e0;
+            border-radius: 20px;
+            padding: 3px 10px;
+            margin-left: 5px;
+            /* 30_JAN_23 -  YA - UI CORRECTION*/
+        }
+
+        &[for=subject_text] {
+            margin-top: 2px;
+        }
+
+        &[for=Prefix_text] {
+            display: inline-block;
+            // font-weight: 500 !important;
+        }
+
+        &[for=cc_text] {
+            /* margin-left: 23px; */
+            margin-top: 2px;
+            margin-right: 2px;
+            // font-weight: 700 !important;
+            line-height: 2em;
+        }
+    }
+
+    span {
+        // color: #848484 !important; WCAG - Contrast Color Issue - 30 Nov 23
+        color: #242424 !important;
+        // font-weight: bold !important;
+        font-weight: 400 !important;
+        margin-bottom: 0.2rem;
+        font-size: 14px;
+    }
+
+    .fromMail,
+    .toMail {
+        line-height: 15px;
+        display: inline-block;
+    }
+
+    .mail_text {
+        margin-left: 5px;
+        /* WCAG - Contrast Color Issue */
+        color: #424242 !important;
+        background: #e0e0e0;
+        border-radius: 20px;
+        padding: 3px 10px;
+        margin-left: 5px;
+    }
+
+
+    #mailbody_attach {
+        margin-left: -26px;
+    }
+
+    textarea#sub_value {
+        /* width: 88%; */
+        /* margin-left: 44px; */
+        overflow: auto;
+        border: 1px solid #cfcfcf !important;
+        /* resize: none; */
+    }
+
+    input {
+        // height: 24px;
+        // border: 1px solid #CFCFCF !important;
+        // color: #000000;
+        // display: inline;
+
+        &#CCMail {
+            height: 24px;
+            border: none !important;
+            width: 50% !important;
+            display: inline;
+
+            /* 30_JAN_23 -  YA - UI CORRECTION*/
+            &focus {
+                box-shadow: none;
+            }
+        }
+
+        &#insert_file_mail {
+            background: #fff;
+            border: none !important;
+            max-width: 225px;
+            box-shadow: none;
+        }
+    }
+
+    // .note-editor.note-frame .note-editing-area .note-editable {
+    //     height: 130px !important;
+    // }
+
+    div#body_text {
+        border: 1px solid #cfcfcf !important;
+        color: #000;
+        width: 100%;
+        height: 90px;
+        font-size: 14px;
+        overflow: scroll;
+        padding: 3px;
+        font-family: 'Inter UI', sans-serif !important;
+        resize: none;
+    }
+
+    span.dom_text {
+        position: absolute;
+        display: none;
+        color: #000;
+        left: 15px;
+        font-size: 14px;
+        margin-top: 5px;
+        background: #e7e7e7;
+        margin-left: 28px;
+        padding-left: 8px;
+        width: auto;
+        height: 20px;
+        border-radius: 11px;
+
+        img.n_Img {
+            padding: 5px;
+        }
+    }
+
+    #fa-trash-send {
+        align-self: center;
+        margin-left: -20px;
+        cursor: pointer;
+    }
+
+    .email-id-row {
+
+        border: 1px solid #CFCFCF !important;
+        cursor: text;
+        position: static;
+        overflow: visible;
+        background-color: white;
+        max-height: 4rem;
+        /* min-height: 2rem; */
+        padding: 3px 0px 2px 1px;
+        overflow: auto;
+        margin-left: 2px;
+        margin-right: 7px;
+
+        .cc_mail {
+            margin: 2px 3px;
+            cursor: default;
+            font-size: 13px;
+            background-color: rgb(238, 238, 238);
+            border: 1px solid rgb(153, 153, 153);
+            color: black;
+            display: inline-block;
+            line-height: 1.27rem;
+            padding: 1px 5px 2px;
+            vertical-align: top;
+            white-space: nowrap;
+            border-radius: 8px;
+        }
+
+        .helper-chip-hidden {
+            display: none !important;
+        }
+
+        .cc_mail_summary {
+            cursor: pointer;
+            background-color: #f6f7fb;
+            border-style: dashed;
+            font-weight: 600;
+        }
+
+        .cc_mail_summary.has-error {
+            border-color: #dc3545;
+            background-color: #fff1f2;
+            color: #b42318;
+        }
+    }
+
+    #basic-addon3 {
+        // height: calc(1.8125rem + 0.5px);
+        // padding: 0.15rem 0.25rem;
+        // font-size: 13px !important;
+        // padding-left: 8px !important;
+        margin-top: 4px;
+        // background: #e9ecef;
+    }
+
+    /* 
+    #fetch_browser_div {
+        // margin-bottom: 1rem !important;
+        margin-top: 0.25rem !important;
+        font-size: 14px;
+
+        input {
+            box-shadow: none !important;
+            margin-right: 3px;
+            margin-top: -2px;
+        }
+
+        .card-body {
+            margin-top: 0.25rem !important;
+            margin-bottom: 0rem !important;
+            padding: 0.5rem !important;
+            background: #FADEDB;
+            border-radius: 3px;
+            box-shadow: none !important;
+        }
+
+    }
+ */
+}

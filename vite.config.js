@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      '@legacy': path.resolve(root, 'temp/legacy/src'),
+      '@legacy': path.resolve(root, 'src/legacy'),
     },
   },
   server: {

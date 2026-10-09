@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="CHEMSE" abbr="" journal-title="Chemical Senses" batch="20" by="YA">
+				<!-- ?author  -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="optional" suffix="yes" orcid="yes" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="no" corresp-quees="yes" crosslink="yes" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=", " pattern="aftercomma" notallowed="no" />
+				<!-- ?affiliation: Affiliation designators -->
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="ArabicNumber" single-aff="false" autoReNumber="true" />
+				<!-- ?corresp  -->
+				<corresp data-name="corresp" email="yes" address="yes" corresp-quees="yes" maximum="1" minimum="1" telephone="no" fax="no" indicators="FootNote_1" degrees="no" notallowed="no" />
+				<!-- ?  -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="no" />
+				<!-- ?abstract:  Unstructured abstract, single para-->
+				<abstract data-name="abstract" GA="true" laysummery="true" />
+				<!-- ?Keywords:   -->
+				<keywords data-name="keywords" seperator=", " endperiod="false" minimum="3" maximum="5" limit="no" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Fig. " ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<!-- ? Caption end dot = no proper data -->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<!-- ?   -->
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<!-- ? two Figures with Parts = no proper data -->
+					<indircite single_prefix="Fig. " double_prefix="Figs. " double_sep=", " last_sep=" and " multi_prefix="Figs. " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<!-- ? no clear inputs -->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<!-- ? two tables with Parts = no proper data -->
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<notes footnote="notallowed" endnote="notallowed" note="" />
+				<heading data-name="title" numbered="no" label="no" label_suffix="" maximum="4" label_between_delim="">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="Title case" label_format="arabic" label_end_delim="" label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+					<h3 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+				</heading>
+				<dictionary spelling="us" name="Merriam-Webster’s 11th Collegiate Dictionary" note="" />
+				<list label="(1)" bullet="optional" note="followauthor" />
+				<equation label="" note="leave as author has written" />
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false" notallowed="no">
+					<!-- ? CEG_CONFIG_MISMATCH_AUTHOR_COUNT -->
+					<citation type="CHRON_ASCEND" name_sep=" and " name_last_sep=", |, " name_year_sep=" " direct_sep=", " indirect_sep="; " double_sep="; " range_sep="" openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="roman" />
+				</Reference>
+				<!-- ?BackMatter: no clear inputs -->
+				<BackMatter ack="optional" act="optional" coi="allowed" fund="optional" das="allowed" supp="allowed" suppcap="optional" app="allowed" />
+			</journal>

@@ -1,0 +1,50 @@
+{
+  "en": {
+    "labels": {
+      "Panel_title": "Edit Reference Text",
+      "close_title": "Close",
+      "label_edit_field": "Edit Field",
+      "label_preview": "Preview",
+      "btn_cancel": "Cancel",
+      "btn_fire": "Update",
+      "label_pubtype": "Publication type",
+      "btn_revert": "Revert",
+      "btn_apply": "Apply",
+      "preview_seg_label": "Click on the particular reference element below to edit it.",
+      "tab_citation": "Citation Preview",
+      "tab_suggestion": "Suggestion",
+      "label_citation_preview_heading": "Citation Preview",
+      "ref-empty-hint": "No citations for this reference in the document.",
+      "label_sync_citations": "Update linked citations",
+      "label_suggestion_hint": "Available from current document analysis",
+      "btn_add_author": "+ Add author",
+      "btn_add_editor": "+ Add editor",
+      "btn_add_etal": "+ Add et al."
+    },
+    "runtime": {}
+  },
+  "fr": {
+    "labels": {
+      "Panel_title": "Modifier le texte de référence",
+      "close_title": "Fermer",
+      "label_edit_field": "Modifier le champ",
+      "label_preview": "Aperçu",
+      "btn_cancel": "Annuler",
+      "btn_fire": "Appliquer",
+      "label_pubtype": "Type de publication",
+      "btn_revert": "Rétablir",
+      "btn_apply": "Appliquer",
+      "preview_seg_label": "Cliquez sur l'élément de référence particulier ci-dessous pour le modifier.",
+      "tab_citation": "Aperçu de la citation",
+      "tab_suggestion": "Suggestion",
+      "label_citation_preview_heading": "Aperçu de la citation",
+      "ref-empty-hint": "Aucune citation pour cette référence dans le document.",
+      "label_sync_citations": "Mettre à jour les citations liées",
+      "label_suggestion_hint": "Disponible à partir de l'analyse du document actuel",
+      "btn_add_author": "+ Ajouter un auteur",
+      "btn_add_editor": "+ Ajouter un éditeur",
+      "btn_add_etal": "+ Ajouter et al."
+    },
+    "runtime": {}
+  }
+}

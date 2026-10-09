@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="PQS" abbr="" journal-title="Pediatric Quality and Safety" batch="10" by="AK" qcby="YA">
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="no" author-comment="no" degrees="yes" role="yes" on-behalf-of="no" collab="yes" string-name="no" author-notes-quees="no" corresp-quees="no" crosslink="yes" givennamesep=" " surnameSep=", " altername_start="(" altername_end=")" crosslinksep="" seperator=", " contribsep=";" contrib-last-sep="" pattern="beforecomma" notallowed="yes" />
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="no" postcode="no" street="no" seperator="; " designators="FootNote_4" contrib-last-sep=" and " single-aff="false" autoReNumber="false" notallowed="yes" />
+				<corresp data-name="corresp" email="yes" address="yes" maximum="1" telephone="yes" fax="yes" indicators="yes" corresp-quees="" notallowed="yes" />
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!-- ? Not allowed. -->
+				<keywords data-name="keywords" seperator="" minimum="" maximum="" endperiod="false" notallowed="yes" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Fig. " ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure" email="pqs_lww@newgen.co">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Figure " double_prefix="Figures " multi_sep=", " double_sep=" and " last_sep=", |, and " range_sep="–" openwrap="" closewrap="" part_lab_prefix_num="no" part_lab_case="upper" part_lab_double_sep=" and " />
+					<indircite single_prefix="Fig. " double_prefix="Figs. " double_sep=" and " last_sep=", |, and " range_sep="–" openwrap="(" closewrap=")" multi_sep="," part_lab_prefix_num="no" part_lab_case="upper" part_lab_double_sep=" and " />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table " ref-type="Table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<caption label="yes" label_end_sep="." end_sep="" limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=" and " last_sep=", |, and " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=" and " last_sep=", |, and " range_sep="–" openwrap="(" closewrap=")" />
+									<wrapfooter show="true" ins_note="true" del_footnote="true" ins_footnote="true" del_footnote_cite="true" ins_footnote_cite="true" designators="alphabets" renumber="true" ins_abbrev="true" ins_source="true" ins_probability="true" />
+				</Table>
+				<notes footnote="" endnote="" note="" />
+				<heading data-name="title" numbered="no" label="" label_suffix="" maximum="3" label_between_delim="">
+					<h1 style="bold" type="ALL Caps" label_format="" label_end_delim="" label_prefix="" />
+					<h2 style="bold" type="Title case " label_format="" label_end_delim="" label_prefix="" />
+					<h3 style="bold" type="Title case " label_format="" label_end_delim="" label_prefix="" />
+					<h4 style="Italic" type="Title case " label_format="" label_end_delim="" label_prefix="" />
+					<h5 style="bold" type="Title case " label_format="" label_end_delim="" label_prefix="" />
+				</heading>
+				<dictionary spelling="US spelling" name="Merriam Webster" note="" />
+				<list label="" bullet="" note="" />
+				<equation label="" note="" />
+				<BackMatter ack="allowed" act="allowed" coi="allowed" fund="allowed" das="allowed" supp="allowed" suppcap="allowed" app="allowed" />
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered_with_dot" text-format="sup">
+					<dircite double_sep="," range_sep="–" openwrap="" closewrap="" />
+					<indircite double_sep="," range_sep="–" openwrap="" closewrap="" />
+				</Reference>
+			</journal>

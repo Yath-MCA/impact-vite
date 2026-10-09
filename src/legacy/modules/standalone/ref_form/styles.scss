@@ -1,0 +1,346 @@
+div.dummyCheck {
+    cursor: pointer;
+}
+
+
+// Shared reference leaf colors for MultiRef + Edit Reference Text dialogs
+
+$ref-element-colors: (
+    "article-title": #727272,
+    "source": #3366ff,
+    "year": #9d5d7d,
+    "volume": #e50000,
+    "issue": #6565ff,
+    "fpage": #008080,
+    "lpage": #0000ff,
+    "etal": #e50000,
+    "ext-link": #800080
+);
+
+@mixin dialog-text-colors {
+    @each $element, $color in $ref-element-colors {
+        span.#{$element} {
+            color: $color;
+        }
+    }
+}
+
+
+
+
+#MultiRefDialog {
+
+    &.maxiview {
+
+        left: 27%;
+        width: 600px;
+        margin-top: -5% !important;
+
+
+        .dialog-container {
+            margin-top: 10% !important;
+            width: 100% !important;
+        }
+    }
+
+    textarea.form-control#plain_value {
+        height: calc(1rem + 100px) !important;
+    }
+
+    /* Backdrop styling */
+    #backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent black */
+
+        /* Hidden by default */
+        z-index: 9999;
+
+        /* Ensure it's on top */
+        &.hide {
+            display: none;
+        }
+    }
+
+    /* Center spinner in the middle of the screen */
+    #spinner {
+        position: absolute;
+        // top: 50%;
+        // left: 50%;
+        margin-left: 45%;
+        margin-top: 35%;
+        // transform: translate(-50%, -50%);
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    #div_open_form,
+    #div_plain_text,
+    #div_doi_form {
+        display: none;
+
+        &.opacity {
+            opacity: 0.2;
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+
+    [data-group-show='open_form'] {
+        #div_open_form {
+            display: block !important;
+        }
+    }
+
+    [data-group-show='plain_text'] {
+        #div_plain_text {
+            display: block !important;
+        }
+    }
+
+    [data-group-show='doi_form'] {
+
+        #div_doi_form,
+        #div_open_form {
+            display: block !important;
+        }
+    }
+
+    #div_doi_form,
+    #div_open_form {
+        &[data-current-form="journal"] {
+
+            [data-input="ed-book"],
+            [data-input="book"] {
+                display: none !important;
+            }
+        }
+
+        &[data-current-form="book"] {
+
+            [data-input="journal"],
+            [data-id="title_group"] {
+                display: none !important;
+            }
+        }
+
+        &[data-current-form="ed-book"] {
+            [data-input="journal"] {
+                display: none !important;
+            }
+        }
+    }
+
+    input {
+        &.inputDiv {
+
+            &.disabled,
+            &[disabled],
+            &:disabled {
+                background-color: #F7F7F7 !important;
+                opacity: 1;
+                cursor: not-allowed !important;
+            }
+        }
+    }
+
+    .dialog-body {
+
+        overflow: scroll;
+        overflow-x: hidden;
+        height: 335px; // ? 21_JUL_22_YA
+
+        .highlight {
+            border: 1px solid #FF0000 !important;
+        }
+
+        &.edit .highlight,
+        &.edit input:not([disabled]) {
+            border: 1px solid #006BCB !important;
+        }
+    }
+
+
+    .btn-group-toggle {
+        display: inline-flex;
+
+        .disabled {
+            pointer-events: none;
+
+            /* Disable interactions */
+            &.active {
+                background: #FD7100 !important;
+                color: #3D3D3D !important;
+            }
+
+
+        }
+    }
+
+    .refrepeatdiv {
+        // margin: 0px 15px;
+    }
+
+    .refbuttondiv {
+        // padding-top: 41px;
+    }
+
+    #refauthorrepeat {
+        .form-group[data-delete] {
+            background-color: rgb(244, 174, 174);
+        }
+
+        .form-group[data-new] {
+            background-color: rgb(162, 162, 247);
+        }
+
+        .form-group[person-group-type="editor"] {
+            // background-color: rgb(247, 226, 111);
+
+            &::before {
+                // content: "Eds";
+                // display: block;
+                // font-weight: 600;
+                // margin-bottom: 6px;
+            }
+        }
+
+        .editor-label {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 12px;
+            color: #3b3bbd;
+
+            &:empty {
+                visibility: hidden;
+            }
+        }
+    }
+
+    .authGroup_div_border {
+        border: 1px solid #CFCFCF !important;
+        box-sizing: border-box;
+        border-radius: 2px;
+        padding: 0.5rem 1rem;
+
+        .contributor-box {
+            border-left: 4px solid #28a745;
+            /* Bootstrap green */
+            background-color: #e6f4ea;
+            /* light green tint */
+        }
+
+        .author-box {
+            border-left: 4px solid #007bff;
+            /* Bootstrap primary blue */
+            background-color: #e7f1ff;
+            /* light blue tint */
+        }
+
+    }
+
+    .refcomments {
+        height: 46px;
+    }
+
+    .hints,
+    .query_border {
+        overflow-y: auto;
+        font-size: 12px;
+        min-height: 2rem;
+        background: #fff;
+        outline: 0;
+        padding: 0.25rem 0.5rem;
+        border: 1px solid #CFCFCF !important;
+        box-sizing: border-box;
+        border-radius: 2px;
+
+        & span.warn {
+            // ? Update missing filed error div
+            color: red;
+        }
+    }
+
+    .query_border {
+        height: 58px !important;
+
+        & span {
+            display: block !important;
+
+            &.queryview::before {
+                content: attr(label) ": " !important;
+            }
+
+            &.query-res::before {
+                content: "RES: " !important;
+            }
+        }
+    }
+
+    #preview_div {
+
+        font-size: 13px;
+
+
+        span.surname {
+            color: #008000;
+
+            insert {
+                text-decoration: underline;
+                // color: #00f !important;
+            }
+
+            del {
+                // display: inline !important;
+                color: red !important;
+            }
+        }
+
+        span.given-names {
+            color: #993300;
+
+            insert {
+                text-decoration: underline;
+                // color: #00f !important;
+            }
+
+            del {
+                // display: inline !important;
+                color: red !important;
+            }
+        }
+
+        & span[data-class],
+        del {
+            display: none !important;
+        }
+
+        .preview {
+            padding: 0.5rem 0.75rem;
+
+            height: 90px;
+            overflow: auto;
+            overflow-x: hidden;
+            border: 1px solid #CFCFCF !important;
+
+            span {
+                display: inline;
+            }
+        }
+
+        // ! 3328535: OUP - New PI for et al handling in references
+        .etal .pistart::after {
+            content: attr(data-pistart);
+        }
+    }
+
+    @include dialog-text-colors;
+
+}

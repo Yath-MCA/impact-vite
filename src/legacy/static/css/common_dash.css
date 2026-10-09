@@ -1,0 +1,336 @@
+.logodiv {
+    margin-left: 0
+}
+
+.new-logo {
+    height: 10px;
+    margin-top: -2px
+}
+
+.im-logo-size {
+    width: 100px;
+    height: 30px;
+    margin-top: -2px
+}
+
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 35px;
+    line-height: 22px;
+    border-top: 1px solid #d4d4d4 !important;
+    font-style: normal;
+    font-size: 12px;
+    color: #000;
+    padding: 6px 0 6px 0
+}
+
+
+/*07-08-2023*/
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+}
+
+#loader-wrapper a {
+    color: black;
+    left: 47%;
+    top: 46% !important;
+    position: absolute;
+    z-index: 999999;
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 48%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+    -webkit-animation: spin 0.5s linear infinite;
+    /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 0.5s linear infinite;
+    /* Chrome, Firefox 16+, IE 10+, Opera */
+    z-index: 1001;
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+    /* border-top-color: #3498db; */
+    -webkit-animation: spin 0.5s linear infinite;
+    /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 0.5s linear infinite;
+    /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+    /* border-top-color: #3498db; */
+    -webkit-animation: spin 0.5s linear infinite;
+    /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 0.5s linear infinite;
+    /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);
+        /* IE 9 */
+        transform: rotate(0deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);
+        /* IE 9 */
+        transform: rotate(360deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);
+        /* IE 9 */
+        transform: rotate(0deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);
+        /* IE 9 */
+        transform: rotate(360deg);
+        /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+#loader-wrapper .loader-section {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 100%;
+    background: #ffffff;
+    z-index: 1000;
+    -webkit-transform: translateX(0);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(0);
+    /* IE 9 */
+    transform: translateX(0);
+    /* Firefox 16+, IE 10+, Opera */
+}
+
+.loaded1 #loader {
+    opacity: 0;
+}
+
+.loaded1 #loader-wrapper {
+    visibility: hidden;
+}
+
+.dynamic-loader .dynamic-loader-background {
+    position: fixed;
+    opacity: 100%;
+    background: #ffffff;
+    z-index: 1000;
+    -webkit-transform: translateX(0);
+    /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(0);
+    /* IE 9 */
+    transform: translateX(0);
+    /* Firefox 16+, IE 10+, Opera */
+}
+
+[col-id="duration"] {
+    text-align: right;
+}
+
+.daterangepicker .ranges li.active {
+    background-color: #ff8635 !important;
+}
+
+.table-condensed thead {
+    background-color: bisque;
+    color: #000 !important;
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    background-color: #ff8635 !important;
+}
+
+.daterangepicker td.in-range {
+    background-color: bisque !important;
+}
+
+.daterangepicker td.end-date {
+    background-color: #ff8635 !important;
+}
+
+.btnCalendar {
+    background: #ff8635 !important;
+}
+
+.compare-success {}
+
+.compare-error {
+    background-color: #eb3e32 !important;
+}
+
+.compare-warning {
+    background-color: #8fe4b5 !important;
+}
+
+.compare-note {
+    background-color: #ee41e0 !important;
+}
+
+.status-active {
+    background-color: #357a38 !important;
+}
+
+.pubkit-fail {
+    background-color: #eb3e32 !important;
+}
+
+#filter_bth_group {
+    margin-right: 0em;
+    background-color: #FFFFFF;
+}
+
+#filter_bth_group select {
+    height: 28px !important;
+}
+
+#filter_bth_group button,
+#filter_bth_group select,
+#nav_row button,
+#nav_row select {
+    background: #fff;
+    border: 1px solid rgba(224, 225, 234, .75);
+    border-radius: 2px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    outline: none
+}
+
+#filter_bth_group button:hover,
+#filter_bth_group button:active,
+#filter_bth_group button.active,
+#nav_row button:hover,
+#nav_row button:active,
+#nav_row button.active {
+    background: #fff4eb;
+    color: #ff7200;
+    border-radius: 3px
+}
+
+#filter_bth_group .searchBox,
+#nav_row .searchBox {
+    background: #fff;
+    border: 1px solid rgba(224, 225, 234, .75);
+    border-radius: 2px;
+    outline: none
+}
+
+#filter_bth_group .searchBox:hover,
+#filter_bth_group .searchBox:active,
+#filter_bth_group .searchBox.active,
+#nav_row .searchBox:hover,
+#nav_row .searchBox:active,
+#nav_row .searchBox.active {
+    border-radius: 3px
+}
+
+#filter_bth_group .dropdown-toggle::after ,
+#nav_row .dropdown-toggle::after {
+    content: none !important
+}
+
+
+.btn-group-toggle label {
+    background: #fff;
+    color: #000;
+    border: 1px solid rgba(224, 225, 234, .75);
+    height: 28px;
+    margin-bottom: 0.2rem !important;
+    font-weight: normal !important;
+}
+
+.rightcontrols {
+    width: 100%;
+}
+
+/*07-08-2023*/
+.reportrangeHolder {
+    width: 95% !important;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.clientselect {
+    display: none;
+    margin-top: 14%;
+}
+
+#reportrange {
+    background: #fff;
+    cursor: pointer;
+    padding: 0px 0px 0px 5px;
+    /* border: 1px solid #ced4da; */
+    width: 100%;
+    height: 37px;
+    /* border-radius: 4px; */
+    margin-left: 5px;
+    border: 1px solid rgba(224, 225, 234, .75);
+    border-radius: 2px;
+}
+
+/*07-08-2023*/
+.btnCalendar {
+    width: 31px;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    padding: 0.25rem;
+}
+
+[ref="eSortOrder"] {
+    display: none !important;
+}

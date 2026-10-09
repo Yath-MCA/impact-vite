@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="IJCLAW" abbr="" journal-title="International Journal of Constitutional Law" batch="21" by="AK">
+				<!-- ?author  -->
+				<!--role = yes & collab = yes in word config Group author = follow author so i put yes -->
+				<!-- ?author  POLICE BATCH 21 i followed the journal in author group-->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="yes" author-comment="no" degrees="yes" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="no" corresp-quees="no" crosslink="yes" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=" and " pattern="aftercomma" notallowed="yes" />
+				<!-- ?affiliation:  superscript Asterisk -->
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="" designators="custom_increase_order_*" single-aff="false" autoReNumber="true" />
+				<!-- ?corresp  in word config Only email is required extra from given affiliation-->
+				<corresp data-name="corresp" email="yes" address="no" corresp-quees="" maximum="" minimum="" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ?  -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<!-- ?abstract:  Unstructured - Single paragraph -->
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!-- ?Keywords:  Not used -->
+				<keywords data-name="keywords" seperator="" endperiod="false" minimum="" maximum="" limit="" notallowed="yes" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<!-- ? i follwed LITTHE BATCH 21 journal-->
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<!-- ? No Style Point – Follow author -->
+					<caption label="yes" label_end_sep="." end_sep="" limit="3" />
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<!-- ? No Style Point – Follow author -->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<!-- ? notes  -->
+				<notes footnote="allowed" endnote="" note="Numbered" />
+				<!-- ?heading follwed by PARLIJ journal batch 19 -->
+				<heading data-name="title" numbered="yes" label="yes" label_suffix="" maximum="2" label_between_delim=".">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="Title case" label_format="arabic" label_end_delim="." label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="arabic" label_end_delim="" label_prefix="yes" />
+				</heading>
+				<!-- ?dictionary:   -->
+				<dictionary spelling="us" name="Webster’s Third New International, The Chicago Manual of Style, fifteenth edition (CM)" note="" />
+				<!-- ?List  submittal if numbering hierarchy supplied/bullet points are not allowed-->
+				<list label="" bullet="allowed" note="Follow author" />
+				<!-- ?equation  -->
+				<equation label="" note="Follow author" />
+				<!-- ?BackMatter:  -->
+				<BackMatter ack="allowed" act="followauthor" coi="notallwed" fund="notallwed" das="followauthor" supp="allowed" suppcap="notallwed" app="allowed" />
+				<!-- ? Reference:-->
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false" notallowed="yes">
+					<!-- ? Not Applicable – Footnotes used -->
+					<citation type="FOOTNOTE" name_sep=" and " name_last_sep=", |, " name_year_sep=", " direct_sep=", " indirect_sep="; " openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="italic" />
+				</Reference>
+			</journal>

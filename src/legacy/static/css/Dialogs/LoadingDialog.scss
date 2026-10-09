@@ -1,0 +1,183 @@
+div.dummyCheck {
+    cursor: pointer
+}
+
+#loadingDialog {
+    height: 200px;
+    width: 300px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 8px;
+    box-shadow: 20px 20px 40px rgba(60, 60, 150, 0.25);
+    display: grid;
+    place-items: center;
+    position: fixed;
+    z-index: 1000;
+    /* ensure it's above the blur */
+}
+
+#logoutLoadingDialog {
+    height: auto;
+    min-height: 220px;
+    width: 320px;
+    padding: 22px 18px 20px;
+    background-color: rgb(255, 255, 255);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 8px;
+    box-shadow: 20px 20px 40px rgba(60, 60, 150, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+    position: fixed;
+    z-index: 1000;
+}
+
+#logoutLoadingOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.45);
+    pointer-events: all;
+}
+
+#loadingDialog .status,
+#logoutLoadingDialog .status {
+    text-align: center;
+    font-size: 14px;
+    color: #5A5A5A;
+    padding: 0 12px;
+    max-width: 280px;
+}
+
+.logout-progress-title {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2E2E2E;
+    line-height: 1.3;
+    margin: 0 0 2px;
+}
+
+.logout-progress-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+}
+
+.logout-progress-steps li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 8px 0;
+    font-size: 16px;
+    color: #8C8C8C;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.logout-progress-steps li.is-active {
+    color: #2E2E2E;
+    font-weight: 600;
+}
+
+.logout-progress-steps li.is-done {
+    color: #2E2E2E;
+    font-weight: 500;
+}
+
+.logout-step-check {
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #C4C4C4;
+    border-radius: 3px;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.logout-progress-steps li.is-active .logout-step-check {
+    border-color: #FF8E33;
+    box-shadow: 0 0 0 2px rgba(255, 142, 51, 0.18);
+}
+
+.logout-progress-steps li.is-done .logout-step-check {
+    border-color: #FF8E33;
+    background: #FF8E33;
+}
+
+.logout-progress-steps li.is-done .logout-step-check::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid #FFFFFF;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.logout-progress-track {
+    width: 100%;
+    height: 8px;
+    margin-top: auto;
+    background: #F0F0F0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.logout-progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #FF8E33;
+    border-radius: 999px;
+    transition: width 0.28s ease;
+}
+
+.circular-progress {
+    position: relative;
+    height: 125px;
+    width: 125px;
+    /* background-color: orange; */
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.circular-progress:before {
+    content: '';
+    position: absolute;
+    height: 84%;
+    width: 84%;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.value-container {
+    position: relative;
+    font-size: 2.5em;
+    color: #231c3d;
+}
+
+/* GUIDED TOUR  23-03-22*/
+.tour-backdrop.center {
+    opacity: 0;
+}
+
+/* 27-Jul */
+.collapse.show {
+    display: inline-block !important;
+}

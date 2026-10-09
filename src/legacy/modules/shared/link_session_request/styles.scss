@@ -1,0 +1,14 @@
+div.dummyCheck {
+  cursor: pointer
+}
+
+#LinkShareDialog,
+#LinkSessionRequestDialog {
+  z-index: 999999 !important;
+
+  #LinkShareBody p {
+    font-size: 13px !important;
+    font-weight: 500;
+    margin-bottom: 0px !important;
+  }
+}

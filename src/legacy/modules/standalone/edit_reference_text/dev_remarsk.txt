@@ -1,0 +1,27 @@
+handing tracking `_trackManager` append insert,del into revelent element,
+adding add new element or existing element based,below approch (2)
+approch#1: style_guide_based = next phase
+approch#2:available_from_analysis, currently available
+    book_contributed_authors, 
+    if tokens
+        ['surname', 'given-names', 'year', 'source', 'publisher-name'] 
+        except suggestion [uri, add author]
+        ['surname', 'given-names', 'year', 'source', 'publisher-name', 'uri']  
+        except  suggestion items [add author]
+        ['surname', 'given-names', 'surname', 'given-names', 'year', 'source', 'publisher-name']
+        except suggestion items; [add author]
+
+
+    book_edited_authors, currently xml dont available differeniate between contributed and edited authors
+        Hint, after author, delimiter  is contains like (Editor), (Editors), (Ed.), (Eds.),, (Ed), (Eds)
+
+
+extractPatternFromMixed, add anothers key value
+    uniqueTokens: [...new Set(tokens)];
+    publicationType: pubType
+    authorList: authorList
+
+
+
+Global Rule new element:
+    get delimiter from analyses report before next, based prev_delimiter + new_element + next_delimiter

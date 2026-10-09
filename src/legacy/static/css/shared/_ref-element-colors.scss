@@ -1,0 +1,21 @@
+// Shared reference leaf colors for MultiRef + Edit Reference Text dialogs
+
+$ref-element-colors: (
+  "article-title": #727272,
+  "source":        #3366ff,
+  "year":          #9d5d7d,
+  "volume":        #e50000,
+  "issue":         #6565ff,
+  "fpage":         #008080,
+  "lpage":         #0000ff,
+  "etal":          #e50000,
+  "ext-link":      #800080
+);
+
+@mixin dialog-text-colors {
+  @each $element, $color in $ref-element-colors {
+    span.#{$element} {
+      color: $color;
+    }
+  }
+}

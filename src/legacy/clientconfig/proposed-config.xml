@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<impact customer="OSO" project="books">
+    <features>
+        <feature name="notesGroup" show="true" dialog="true" menu="false" context-menu="true">
+            <dialog id=""/>
+            <menu id=""/>
+            <renumber ItemId="false" CitationRid="false" Label="true" CiteText="true" citeLookupByText="true"/>
+            <!-- optional: omit = all roles allowed when show="true" -->
+            <roles>
+                <role name="AU" show="false"/>
+                <!-- only list overrides if you prefer sparse -->
+            </roles>
+            <context-menu>
+                <action name="AddFootnote" show="true"/>
+                <action name="DeleteFootnote" show="true"/>
+                <action name="DeleteEndnote" show="true"/>
+            </context-menu>
+        </feature>
+    </features>
+</impact>

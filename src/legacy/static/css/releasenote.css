@@ -1,0 +1,438 @@
+/* ── Design tokens ─────────────────────────────── */
+:root {
+    --brand-primary: #1B3A6B;
+    /* deep navy */
+    --brand-accent: #E8613A;
+    /* terracotta */
+    --brand-accent-lt: #FDF0EB;
+    --sidebar-bg: #F4F6FA;
+    --sidebar-border: #D9DFF0;
+    --text-main: #1C2230;
+    --text-muted: #6B7797;
+    --feature-bar: #1B3A6B;
+    --bug-bar: #2E7D6F;
+    --upgrade-bar: #C07A20;
+    --card-shadow: 0 2px 12px rgba(27, 58, 107, .08);
+    --radius: 10px;
+    --transition: .2s ease;
+}
+
+/* ── Base ───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: #EEF1F8;
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Header ─────────────────────────────────────── */
+.rn-header {
+    background: var(--brand-primary);
+    padding: .9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .18);
+}
+
+.rn-header__title {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    letter-spacing: -.02em;
+}
+
+.rn-header__title span {
+    font-weight: 300;
+    opacity: .75;
+}
+
+.rn-header__logo {
+    height: 36px;
+    width: 36px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, .12);
+    padding: 4px;
+    object-fit: contain;
+}
+
+/* ── Layout ─────────────────────────────────────── */
+.rn-layout {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+/* ── Sidebar ─────────────────────────────────────── */
+.rn-sidebar {
+    width: 220px;
+    min-width: 220px;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-border);
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.rn-sidebar__heading {
+    font-family: 'Sora', sans-serif;
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    padding-left: .5rem;
+}
+
+/* Nav links */
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .55rem .75rem;
+    border-radius: var(--radius);
+    color: var(--text-main);
+    font-family: 'Sora', sans-serif;
+    font-size: .88rem;
+    font-weight: 500;
+    transition: background var(--transition), color var(--transition);
+    margin-bottom: .25rem;
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    background: #E3E8F5;
+    color: var(--brand-primary);
+    text-decoration: none;
+}
+
+.nav-link.selected {
+    background: var(--brand-primary);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 2px 8px rgba(27, 58, 107, .25);
+}
+
+.nav-link img {
+    flex-shrink: 0;
+}
+
+/* ── Version badge in sidebar ─────────────────────── */
+.rn-sidebar__version-list {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--sidebar-border);
+}
+
+.rn-sidebar__version-list h6 {
+    font-family: 'Sora', sans-serif;
+    font-size: .65rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--text-muted);
+    margin-bottom: .6rem;
+    padding-left: .5rem;
+}
+
+.version-badge {
+    display: inline-block;
+    background: var(--brand-accent-lt);
+    color: var(--brand-accent);
+    border: 1px solid #F2C4B0;
+    border-radius: 20px;
+    font-family: 'Sora', sans-serif;
+    font-size: .72rem;
+    font-weight: 600;
+    padding: .2rem .65rem;
+    margin: .2rem .3rem;
+}
+
+/* ── Main content ─────────────────────────────────── */
+.rn-main {
+    flex: 1;
+    padding: 2rem 2.25rem;
+    overflow-y: auto;
+    min-width: 0;
+}
+
+/* ── Content sections ─────────────────────────────── */
+.rn-section {
+    display: none;
+}
+
+.rn-section.active {
+    display: block;
+}
+
+/* ── Page heading ─────────────────────────────────── */
+.mainheading {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brand-primary);
+    margin-bottom: .25rem;
+    letter-spacing: -.02em;
+}
+
+.mainheading-sub {
+    color: var(--text-muted);
+    font-size: .9rem;
+    margin-bottom: 1.75rem;
+}
+
+/* ── Release block ────────────────────────────────── */
+.release-block {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1.75rem;
+    overflow: hidden;
+    border: 1px solid #E2E7F3;
+}
+
+.release-block__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .9rem 1.25rem;
+    background: linear-gradient(135deg, var(--brand-primary) 0%, #2A527A 100%);
+    color: #fff;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.release-block__version {
+    font-family: 'Sora', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+}
+
+.release-block__date {
+    font-size: .8rem;
+    opacity: .75;
+    background: rgba(255, 255, 255, .15);
+    padding: .15rem .55rem;
+    border-radius: 20px;
+}
+
+.release-block__body {
+    padding: 1.25rem 1.25rem .75rem;
+}
+
+/* ── Group label ──────────────────────────────────── */
+.group-label {
+    font-family: 'Sora', sans-serif;
+    font-size: .7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-bottom: .75rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.group-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #E2E7F3;
+}
+
+.group-label--feature {
+    color: var(--feature-bar);
+}
+
+.group-label--bug {
+    color: var(--bug-bar);
+}
+
+.group-label--upgrade {
+    color: var(--upgrade-bar);
+}
+
+/* ── Ticket card ──────────────────────────────────── */
+.ticket {
+    display: flex;
+    gap: 1rem;
+    padding: .85rem 0;
+    border-bottom: 1px solid #F0F2F9;
+}
+
+.ticket:last-child {
+    border-bottom: none;
+}
+
+.ticket__bar {
+    width: 4px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
+.ticket__bar--feature {
+    background: var(--feature-bar);
+}
+
+.ticket__bar--bug {
+    background: var(--bug-bar);
+}
+
+.ticket__bar--upgrade {
+    background: var(--upgrade-bar);
+}
+
+.ticket__content {
+    flex: 1;
+    min-width: 0;
+}
+
+.ticket__title {
+    font-family: 'Sora', sans-serif;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: .2rem;
+    line-height: 1.35;
+}
+
+.ticket__id {
+    display: inline-block;
+    font-family: 'Sora', sans-serif;
+    font-size: .68rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: #F0F2F9;
+    border-radius: 4px;
+    padding: .1rem .4rem;
+    margin-bottom: .4rem;
+}
+
+.ticket__desc {
+    font-size: .85rem;
+    color: #4A5575;
+    line-height: 1.6;
+}
+
+/* ── Empty state ──────────────────────────────────── */
+.rn-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+}
+
+.rn-empty svg {
+    margin-bottom: 1rem;
+    opacity: .35;
+}
+
+.rn-empty p {
+    font-family: 'Sora', sans-serif;
+    font-size: .9rem;
+}
+
+/* ── Error ────────────────────────────────────────── */
+.rn-error {
+    background: #FDF0EB;
+    border: 1px solid #F2C4B0;
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    color: var(--brand-accent);
+    font-family: 'Sora', sans-serif;
+    font-size: .88rem;
+}
+
+/* ── Loading shimmer ──────────────────────────────── */
+.shimmer {
+    background: linear-gradient(90deg, #e8eaf3 25%, #f5f6fc 50%, #e8eaf3 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    border-radius: 6px;
+    height: 1rem;
+    margin-bottom: .5rem;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ── Footer ───────────────────────────────────────── */
+.rn-footer {
+    background: var(--brand-primary);
+    color: rgba(255, 255, 255, .5);
+    text-align: center;
+    font-family: 'Sora', sans-serif;
+    font-size: .75rem;
+    padding: .75rem 1rem;
+}
+
+/* ── Mobile bottom nav ────────────────────────────── */
+.rn-mobile-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid var(--sidebar-border);
+    z-index: 200;
+    padding: .5rem .5rem calc(.5rem + env(safe-area-inset-bottom));
+}
+
+.rn-mobile-nav .nav-link {
+    flex-direction: column;
+    gap: .2rem;
+    padding: .35rem .5rem;
+    font-size: .65rem;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 767px) {
+    .rn-sidebar {
+        display: none !important;
+    }
+
+    .rn-mobile-nav {
+        display: flex;
+    }
+
+    .rn-main {
+        padding: 1.25rem 1rem 5rem;
+    }
+
+    .release-block__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 575px) {
+    .rn-header__title {
+        font-size: 1rem;
+    }
+}

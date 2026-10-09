@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="AESTHJ" abbr="" journal-title="British Journal of Aesthetics" batch="21" by="AK" editor-comes-first="true" editor-only="true">
+				<!-- ?author  -->
+				<!--role = yes & collab = yes in word config Group author = optional so i put yes -->
+				<!-- ?author   Article note indicator = Follow author in word config so i put yes -->
+				<!-- ?author  Corresponding author indicator  = N/A in word config so i put no -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="yes" suffix="yes" orcid="yes" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="yes" corresp-quees="no" crosslink="no" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="" seperator="," contribsep=", " contrib-last-sep=" and " pattern="" notallowed="yes" />
+				<!-- ?affiliation:  Affiliation designators = n/a -->
+				<!-- ?single-aff="true" in word config Benjamin Claessens (mostly single author files only received) so i put true and auto renumber =false-->
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="no" single-aff="true" autoReNumber="false" />
+				<!-- ?corresp  Indicators = N/A-->
+				<corresp data-name="corresp" email="yes" address="yes" corresp-quees="no" maximum="" minimum="" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ? in word config Article note indicator Follow author -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="no" notallowed="no" />
+				<!-- ?abstract:  Unstructured - Single paragraph -->
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!-- ?Keywords:  Not used -->
+				<keywords data-name="keywords" seperator="" endperiod="false" minimum="" maximum="" limit="" notallowed="yes" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<!-- ? Figure label = Figure 1. & Caption end dot = Used-->
+					<!-- ? double_sep=", " & last_sep ==> need to check with production team (doubts)-->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite beginpara="Figure " single_prefix="Fig. " double_prefix="Figs. " double_sep=", " last_sep=" and " multi_prefix="Figs. " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Fig. " double_prefix="Figs. " double_sep=", " last_sep=" and " multi_prefix="Figs. " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<!-- ? double_sep=", " & last_sep ==> need to check with production team (doubts)-->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<!-- ?notes  -->
+				<notes footnote="allowed" endnote="" note="" />
+				<!-- ?heading follwed by PARLIJ journal batch 19 -->
+				<heading data-name="title" numbered="yes" label="yes" label_suffix="" maximum="3" label_between_delim=".">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="Title case" label_format="arabic" label_end_delim="." label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="arabic" label_end_delim="" label_prefix="yes" />
+				</heading>
+				<!-- ? -->
+				<dictionary spelling="UK/US" name="New Oxford Spelling Dictionary" note="Follow author" />
+				<!-- ? -->
+				<list label="1|(a)|(i)" bullet="allowed" note="" />
+				<!-- ? -->
+				<equation label="1a|1|1.1|(1)" note="" />
+				<!-- ?BackMatter:  -->
+				<BackMatter ack="allowed" act="optional" coi="notallowed" fund="optional" das="optional" supp="notallowed" suppcap="notallowed" app="alowed" />
+				<!-- CEG_FOUND -->
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false" notallowed="no">
+					<citation type="CHRON_ASCEND" name_sep=" and " name_last_sep=" and " name_year_sep=" " direct_sep=", " indirect_sep="; " openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="roman" />
+				</Reference>
+			</journal>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="CWWRIT" abbr="" journal-title="Contemporary Women's Writing" batch="22" by="AK" qcby="YA">
+				<!-- ? Affiliation designators = None -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="no" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="no" author-notes-quees="no" corresp-quees="no" crosslink="no" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=" and " pattern="aftercomma" notallowed="yes" />
+				<affiliation data-name="aff" department="no" institution="no" city="no" state="np" country="no" postbox="no" postcode="no" street="no" seperator="" designators="" single-aff="false" autoReNumber="false" notallowed="yes" />
+				<corresp data-name="corresp" email="no" address="no" corresp-quees="" maximum="" minimum="" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ?  -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<!-- ? one paragraph -->
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!-- ? Not required. If given, set beneath abstract -->
+				<keywords data-name="keywords" seperator="; " endperiod="." minimum="3" maximum="" limit="no" notallowed="yes" />
+				<!--  -->
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite beginpara="Figure " single_prefix="Fig. " double_prefix="Figs. " double_sep=", " last_sep=" and " multi_prefix="Figs. " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Fig. " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figs. " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=" " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=" " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<!-- ? Numerical order. Arabic numerals || set as Endnotes at the end of the HTML article -->
+				<notes footnote="allowed" endnote="allowed" note="" />
+				<heading data-name="title" numbered="no" label="" label_suffix="" maximum="2" label_between_delim="">
+					<h1 style="bold" type="sentence case " label_format="" label_end_delim="" label_prefix="" />
+					<h2 style="bold" type="" label_format="" label_end_delim="" label_prefix="" />
+				</heading>
+				<dictionary spelling="uk" name="Concise Oxford Dictionary" note="" />
+				<list label="1|(a)|(i)" bullet="" note="" />
+				<equation label="" note="Followauthor" />
+				<BackMatter ack="allowed" act="optional" coi="allowed" fund="allowed" das="allowed" supp="allowed" suppcap="allowed" app="allowed" />
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered" text-format="false" notallowed="yes">
+					<!-- ?Author-Page number citations | CEG_FOUND -->
+					<citation type="FOOTNOTE" name_sep=" and " name_last_sep=", |, " name_year_sep=", " direct_sep=", " indirect_sep="; " openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="italic" />
+				</Reference>
+			</journal>

@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<journals>
+  <journal short="CLEANE" abbr="" journal-title="Clean Energy" batch="19" client="oup" split="CLEANE.xml" split_master="master_split.xml" />
+  <journal short="DESIGN" abbr="" journal-title="Journal Of Design History" batch="19" client="oup" split="DESIGN.xml" split_master="master_split.xml" />
+  <journal short="ESCRIT" abbr="" journal-title="Essays in Criticism" batch="19" client="oup" split="ESCRIT.xml" split_master="master_split.xml" />
+  <journal short="FREBUL" abbr="" journal-title="French Studies Bulletin" batch="19" client="oup" split="FREBUL.xml" split_master="master_split.xml" />
+  <journal short="GERHIS" abbr="" journal-title="German History" batch="19" editor-only="true" client="oup" split="GERHIS.xml" split_master="master_split.xml" />
+  <journal short="HISCOL" abbr="" journal-title="Journal Of The History Of Collections" batch="19" editor-only="true" client="oup" split="HISCOL.xml" split_master="master_split.xml" />
+  <journal short="JVCULT" abbr="" journal-title="Journal of Victorian Culture" batch="19" client="oup" split="JVCULT.xml" split_master="master_split.xml" />
+  <journal short="LITMAG" abbr="" journal-title="Literary Imagination" batch="19" client="oup" split="LITMAG.xml" split_master="master_split.xml" />
+  <journal short="MONIST" abbr="" journal-title="The Monist" batch="19" by="YA" client="oup" split="MONIST.xml" split_master="master_split.xml" />
+  <journal short="MTSPEC" abbr="" journal-title="Music Theory Spectrum" batch="19" by="YA" client="oup" split="MTSPEC.xml" split_master="master_split.xml" />
+  <journal short="NEUONC" abbr="" journal-title="Neuro-Oncology" batch="19" by="YA" client="oup" split="NEUONC.xml" split_master="master_split.xml" />
+  <journal short="PARLIJ" abbr="" journal-title="Parliamentary Affairs" batch="19" by="YA" client="oup" split="PARLIJ.xml" split_master="master_split.xml" />
+  <journal short="PETHIC" abbr="" journal-title="Public Health Ethics" batch="19" by="YA" client="oup" split="PETHIC.xml" split_master="master_split.xml" />
+  <journal short="CHEMSE" abbr="" journal-title="Chemical Senses" batch="20" by="YA" client="oup" split="CHEMSE.xml" split_master="master_split.xml" />
+  <journal short="EARLYJ" abbr="" journal-title="Early Music" batch="20" by="YA" client="oup" split="EARLYJ.xml" split_master="master_split.xml" />
+  <journal short="INTTEC" abbr="" journal-title="International Journal of Law and Information Technology" batch="20" by="YA" client="oup" split="INTTEC.xml" split_master="master_split.xml" />
+  <journal short="JLAJ" abbr="" journal-title="Journal of Legal Analysis" batch="20" by="YA" client="oup" split="JLAJ.xml" split_master="master_split.xml" />
+  <journal short="JMTHER" abbr="" journal-title="Journal of Music Therapy" batch="20" by="YA" client="oup" split="JMTHER.xml" split_master="master_split.xml" />
+  <journal short="LEXICO" abbr="" journal-title="International Journal Of Lexicography" batch="20" by="YA" client="oup" split="LEXICO.xml" split_master="master_split.xml" />
+  <journal short="LITTHE" abbr="" journal-title="Literature And Theology" batch="20" by="YA" client="oup" split="LITTHE.xml" split_master="master_split.xml" />
+  <journal short="NOAJNL" abbr="" journal-title="Neuro-Oncology Advances" batch="20" by="YA" client="oup" split="NOAJNL.xml" split_master="master_split.xml" />
+  <journal short="NOPRAC" abbr="" journal-title="Neuro-Oncology Practice" batch="20" by="YA" client="oup" split="NOPRAC.xml" split_master="master_split.xml" />
+  <journal short="POLICE" abbr="" journal-title="Policing: A Journal Of Policy And Practice" batch="20" by="YA" client="oup" split="POLICE.xml" split_master="master_split.xml" />
+  <journal short="SOCREL" abbr="" journal-title="Sociology of Religion: A Quarterly Review" batch="20" by="YA" editor-only="true" client="oup" split="SOCREL.xml" split_master="master_split.xml" />
+  <journal short="ADAPTA" abbr="" journal-title="Adaptation" batch="21" by="AK" client="oup" split="ADAPTA.xml" split_master="master_split.xml" />
+  <journal short="AESTHJ" abbr="" journal-title="British Journal of Aesthetics" batch="21" by="AK" editor-comes-first="true" editor-only="true" client="oup" split="AESTHJ.xml" split_master="master_split.xml" />
+  <journal short="ALECON" abbr="" journal-title="American Law And Economics Review" batch="21" by="AK" client="oup" split="ALECON.xml" split_master="master_split.xml" />
+  <journal short="IJCLAW" abbr="" journal-title="International Journal of Constitutional Law" batch="21" by="AK" client="oup" split="IJCLAW.xml" split_master="master_split.xml" />
+  <journal short="INDLAW" abbr="" journal-title="Industrial Law Journal" batch="21" by="AK" editor-only="true" client="oup" split="INDLAW.xml" split_master="master_split.xml" />
+  <journal short="MODJUD" abbr="" journal-title="Modern Judaism: A Journal Of Jewish Ideas And Experience" batch="21" by="AK" client="oup" split="MODJUD.xml" split_master="master_split.xml" />
+  <journal short="MTPERS" abbr="" journal-title="Music Therapy Perspectives" batch="21" by="AK" client="oup" split="MTPERS.xml" split_master="master_split.xml" />
+  <journal short="AJCPAT" abbr="" journal-title="American Journal of Clinical Pathology" batch="22" by="AK" qcby="YA" editor-only="true" client="oup" split="AJCPAT.xml" split_master="master_split.xml" />
+  <journal short="AMJHSP" abbr="" journal-title="American Journal of Hypertension" batch="22" by="AK" qcby="YA" client="oup" split="AMJHSP.xml" split_master="master_split.xml" />
+  <journal short="ARBINT" abbr="" journal-title="Arbitration International" batch="22" by="AK" qcby="YA" client="oup" split="ARBINT.xml" split_master="master_split.xml" />
+  <journal short="CWWRIT" abbr="" journal-title="Contemporary Women's Writing" batch="22" by="AK" qcby="YA" client="oup" split="CWWRIT.xml" split_master="master_split.xml" />
+  <journal short="EVLETT" abbr="" journal-title="Evolution Letters" batch="22" by="DR" client="oup" split="EVLETT.xml" split_master="master_split.xml" />
+  <journal short="EVOLUT" abbr="" journal-title="Evolution" batch="22" by="DR" client="oup" split="EVOLUT.xml" split_master="master_split.xml" />
+  <journal short="GERONB" abbr="" journal-title="Journals of Gerontology Series B: Psychological Sciences and Social Sciences" batch="22" by="AK" qcby="YA" editor-only="true" client="oup" split="GERONB.xml" split_master="master_split.xml" />
+  <journal short="GERONT" abbr="" journal-title="The Gerontologist" batch="22" by="AK" qcby="YA" editor-only="true" client="oup" split="GERONT.xml" split_master="master_split.xml" />
+  <journal short="LABMED" abbr="" journal-title="Laboratory Medicine" batch="22" by="AK" qcby="YA" editor-only="true" client="oup" split="LABMED.xml" split_master="master_split.xml" />
+  <journal short="PPAREP" abbr="" journal-title="Public Policy Aging Report" batch="22" by="AK" qcby="YA" client="oup" split="PPAREP.xml" split_master="master_split.xml" />
+  <journal short="AJHYPE" abbr="" journal-title="American Journal of Hypertension" batch="23" by="AK" qcby="YA" client="oup" split="AJHYPE.xml" split_master="master_split.xml" />
+  <journal short="ARISUP" abbr="" journal-title="Aristotelian Society Supplementary Volume" batch="23" by="AK" qcby="YA" client="oup" split="ARISUP.xml" split_master="master_split.xml" />
+  <journal short="CLPROB" abbr="" journal-title="Current Legal Problems" batch="23" by="AK" qcby="YA" client="oup" split="CLPROB.xml" split_master="master_split.xml" />
+  <journal short="EVOLIN" abbr="" journal-title="Evolutionary Journal of the Linnean Society" batch="23" by="AK" qcby="YA" client="oup" split="EVOLIN.xml" split_master="master_split.xml" />
+  <journal short="GERONA" abbr="" journal-title="Journals of Gerontology Series A: Biomedical Sciences and Medical Sciences" batch="23" by="AK" qcby="YA" editor-only="true" client="oup" split="GERONA.xml" split_master="master_split.xml" />
+  <journal short="JEVBIO" abbr="" journal-title="Journal of Evolutionary Biology" batch="23" by="AK" qcby="" client="oup" split="JEVBIO.xml" split_master="master_split.xml" />
+  <journal short="JHINDU" abbr="" journal-title="Journal of Hindu Studies" batch="23" by="AK" qcby="YA" client="oup" split="JHINDU.xml" split_master="master_split.xml" />
+  <journal short="RPSPPR" abbr="" journal-title="RPS Pharmacy and Pharmacology Reports" batch="23" by="AK" qcby="YA" client="oup" split="RPSPPR.xml" split_master="master_split.xml" />
+  <journal short="ABMEDI" abbr="" journal-title="Annals of Behavioral Medicine" client="oup" split="ABMEDI.xml" split_master="master_split.xml" />
+  <journal short="AESAME" abbr="" journal-title="Annals of the Entomological Society of America" editor-only="true" client="oup" split="AESAME.xml" split_master="master_split.xml" />
+  <journal short="AJCLAW" abbr="" journal-title="American Journal of Comparative Law" client="oup" split="AJCLAW.xml" split_master="master_split.xml" />
+  <journal short="AMTEST" abbr="" journal-title="Arthropod Management Tests" client="oup" split="AMTEST.xml" split_master="master_split.xml" />
+  <journal short="ANALYS" abbr="" journal-title="Analysis" client="oup" split="ANALYS.xml" split_master="master_split.xml" />
+  <journal short="ANFRON" abbr="" journal-title="Animal Frontiers" editor-only="true" client="oup" split="ANFRON.xml" split_master="master_split.xml" />
+  <journal short="ANNBOT" abbr="" journal-title="Annals Of Botany" editor-only="true" client="oup" split="ANNBOT.xml" split_master="master_split.xml" />
+  <journal short="ANNWEH" abbr="" journal-title="Annals of Work Exposures and Health" editor-only="true" client="oup" split="ANNWEH.xml" split_master="master_split.xml" />
+  <journal short="AOBPLA" abbr="" journal-title="AoB PLANTS" client="oup" split="AOBPLA.xml" split_master="master_split.xml" />
+  <journal short="APPLIJ" abbr="" journal-title="Applied Linguistics" client="oup" split="APPLIJ.xml" split_master="master_split.xml" />
+  <journal short="ARISOC" abbr="" journal-title="Proceedings of the Aristotelian Society" client="oup" split="ARISOC.xml" split_master="master_split.xml" />
+  <journal short="AUKJNL" abbr="" journal-title="The Auk: Ornithological Advances" editor-only="true" client="oup" split="AUKJNL.xml" split_master="master_split.xml" />
+  <journal short="BEHECO" abbr="" journal-title="Behavioral Ecology" client="oup" split="BEHECO.xml" split_master="master_split.xml" />
+  <journal short="BICSTU" abbr="" journal-title="Bulletin of the Institute of Classical Studies" editor-only="true" client="oup" split="BICSTU.xml" split_master="master_split.xml" />
+  <journal short="BIOLIN" abbr="" journal-title="Biological Journal of the Linnean Society" client="oup" split="BIOLIN.xml" split_master="master_split.xml" />
+  <journal short="BOTLIN" abbr="" journal-title="Botanical Journal of the Linnean Society" client="oup" split="BOTLIN.xml" split_master="master_split.xml" />
+  <journal short="CAMECO" abbr="" journal-title="Cambridge Journal Of Economics" client="oup" split="CAMECO.xml" split_master="master_split.xml" />
+  <journal short="CAMRES" abbr="" journal-title="Cambridge Journal Of Regions, Economy And Society" editor-only="true" client="oup" split="CAMRES.xml" split_master="master_split.xml" />
+  <journal short="CARCIN" abbr="" journal-title="Carcinogenesis" client="oup" split="CARCIN.xml" split_master="master_split.xml" />
+  <journal short="CHRIBI" abbr="" journal-title="Christian Bioethics" client="oup" split="CHRIBI.xml" split_master="master_split.xml" />
+  <journal short="CLEXIM" abbr="" journal-title="Clinical and Experimental Immunology" client="oup" split="CLEXIM.xml" split_master="master_split.xml" />
+  <journal short="CLINID" abbr="Clin Infect Dis" journal-title="Clinical Infectious Diseases" client="oup" split="CLINID.xml" split_master="master_split.xml" />
+  <journal short="CLRECJ" abbr="" journal-title="Classical Receptions Journal" client="oup" split="CLRECJ.xml" split_master="master_split.xml" />
+  <journal short="CONDOR" abbr="" journal-title="The Condor: Ornithological Applications" editor-only="true" client="oup" split="CONDOR.xml" split_master="master_split.xml" />
+  <journal short="CRIMIN" abbr="" journal-title="The British Journal of Criminology" client="oup" split="CRIMIN.xml" split_master="master_split.xml" />
+  <journal short="CROCOL" abbr="" journal-title="Crohn's &amp; Colitis 360" client="oup" split="CROCOL.xml" split_master="master_split.xml" />
+  <journal short="CZOOLO" abbr="" journal-title="Current Zoology" client="oup" split="CZOOLO.xml" split_master="master_split.xml" />
+  <journal short="DISCIM" abbr="" journal-title="Discovery Immunology" client="oup" split="DISCIM.xml" split_master="master_split.xml" />
+  <journal short="DNARES" abbr="" journal-title="DNA Research" client="oup" split="DNARES.xml" split_master="master_split.xml" />
+  <journal short="ECCOJC" abbr="" journal-title="Journal of Crohn's and Colitis" client="oup" split="ECCOJC.xml" split_master="master_split.xml" />
+  <journal short="ECOPOL" abbr="" journal-title="Oxford Review Of Economic Policy" editor-only="true" client="oup" split="ECOPOL.xml" split_master="master_split.xml" />
+  <journal short="EJILAW" abbr="" journal-title="European Journal of International Law" editor-only="true" client="oup" split="EJILAW.xml" split_master="master_split.xml" />
+  <journal short="EMPHEA" abbr="" journal-title="Evolution, Medicine, and Public Health" client="oup" split="EMPHEA.xml" split_master="master_split.xml" />
+  <journal short="ENGHIS" abbr="" journal-title="The English Historical Review" editor-only="true" client="oup" split="ENGHIS.xml" split_master="master_split.xml" />
+  <journal short="ENVENT" abbr="" journal-title="Environmental Entomology" editor-only="true" client="oup" split="ENVENT.xml" split_master="master_split.xml" />
+  <journal short="ENVLAW" abbr="" journal-title="Journal of Environmental Law" client="oup" split="ENVLAW.xml" split_master="master_split.xml" />
+  <journal short="EORTHO" abbr="" journal-title="European Journal of Orthodontics" editor-only="true" client="oup" split="EORTHO.xml" split_master="master_split.xml" />
+  <journal short="EURSOJ" abbr="" journal-title="European Sociological Review" client="oup" split="EURSOJ.xml" split_master="master_split.xml" />
+  <journal short="EXBOTJ" abbr="" journal-title="Journal of Experimental Botany" editor-comes-first="true" client="oup" split="EXBOTJ.xml" split_master="master_split.xml" />
+  <journal short="FAMPRJ" abbr="" journal-title="Family Practice" client="oup" split="FAMPRJ.xml" split_master="master_split.xml" />
+  <journal short="FORSCI" abbr="" journal-title="Forest Science" client="oup" split="FORSCI.xml" split_master="master_split.xml" />
+  <journal short="FQSAFE" abbr="" journal-title="Food Quality and Safety" client="oup" split="FQSAFE.xml" split_master="master_split.xml" />
+  <journal short="FRENCH" abbr="" journal-title="French History" client="oup" split="FRENCH.xml" split_master="master_split.xml" />
+  <journal short="FRESTU" abbr="" journal-title="French Studies" editor-only="true" client="oup" split="FRESTU.xml" split_master="master_split.xml" />
+  <journal short="GERONI_AMA" abbr="" journal-title="Innovation in Aging" refstyle="AMA" by="YA" editor-only="true" client="oup" split="GERONI_AMA.xml" split_master="master_split.xml" />
+  <journal short="GERONI_APA" abbr="" journal-title="Innovation in Aging" refstyle="APA" by="YA" editor-only="true" client="oup" split="GERONI_APA.xml" split_master="master_split.xml" />
+  <journal short="GRUINT" abbr="" journal-title="GRUR International" editor-only="true" client="oup" split="GRUINT.xml" split_master="master_split.xml" />
+  <journal short="HEAPRO" abbr="" journal-title="Health Promotion International" client="oup" split="HEAPRO.xml" split_master="master_split.xml" />
+  <journal short="HISRES" abbr="" journal-title="Historical Research" client="oup" split="HISRES.xml" split_master="master_split.xml" />
+  <journal short="IBDJNL" abbr="" journal-title="Inflammatory Bowel Diseases" editor-only="true" client="oup" split="IBDJNL.xml" split_master="master_split.xml" />
+  <journal short="IJNPPY" abbr="" journal-title="The International Journal of Neuropsychopharmacology" editor-only="true" client="oup" split="IJNPPY.xml" split_master="master_split.xml" />
+  <journal short="IJPPHA" abbr="" journal-title="International Journal of Pharmacy Practice" client="oup" split="IJPPHA.xml" split_master="master_split.xml" />
+  <journal short="IMMADV" abbr="" journal-title="Immunotherapy Advances" client="oup" split="IMMADV.xml" split_master="master_split.xml" />
+  <journal short="INFDIS" abbr="J. Infect. Dis" journal-title="The Journal of Infectious Diseases" client="oup" split="INFDIS.xml" split_master="master_split.xml" />
+  <journal short="INSILC" abbr="" journal-title="In Silico Plants" client="oup" split="INSILC.xml" split_master="master_split.xml" />
+  <journal short="INTIMM" abbr="" journal-title="International Immunology" editor-only="true" client="oup" split="INTIMM.xml" split_master="master_split.xml" />
+  <journal short="INTPOR" abbr="" journal-title="International Journal Of Public Opinion Research" client="oup" split="INTPOR.xml" split_master="master_split.xml" />
+  <journal short="ISDIVE" abbr="" journal-title="Insect Systematics and Diversity" client="oup" split="ISDIVE.xml" split_master="master_split.xml" />
+  <journal short="JAAREL" abbr="" journal-title="Journal of The American Academy of Religion" client="oup" split="JAAREL.xml" split_master="master_split.xml" />
+  <journal short="JALSCI" abbr="" journal-title="Journal Of The History Of Medicine And Allied Sciences" client="oup" split="JALSCI.xml" split_master="master_split.xml" />
+  <journal short="JANSCI" abbr="" journal-title="Journal of Animal Science" editor-only="true" client="oup" split="JANSCI.xml" split_master="master_split.xml" />
+  <journal short="JBCRES" abbr="" journal-title="Journal of Burn Care &amp; Research" editor-only="true" client="oup" split="JBCRES.xml" split_master="master_split.xml" />
+  <journal short="JBREIM" abbr="" journal-title="Journal of Breast Imaging" client="oup" split="JBREIM.xml" split_master="master_split.xml" />
+  <journal short="JCAGAS" abbr="" journal-title="Journal of the Canadian Association of Gastroenterology" editor-only="true" client="oup" split="JCAGAS.xml" split_master="master_split.xml" />
+  <journal short="JCBIOL" abbr="" journal-title="Journal of Crustacean Biology" client="oup" split="JCBIOL.xml" split_master="master_split.xml" />
+  <journal short="JEENTO" abbr="" journal-title="Journal of Economic Entomology" client="oup" split="JEENTO.xml" split_master="master_split.xml" />
+  <journal short="JHERED" abbr="" journal-title="Journal of Heredity" editor-only="true" client="oup" split="JHERED.xml" split_master="master_split.xml" />
+  <journal short="JHUMAN" abbr="" journal-title="Journal of Human Rights Practice" client="oup" split="JHUMAN.xml" split_master="master_split.xml" />
+  <journal short="JIPMAN" abbr="" journal-title="Journal of Integrated Pest Management" editor-only="true" client="oup" split="JIPMAN.xml" split_master="master_split.xml" />
+  <journal short="JISESA" abbr="" journal-title="Journal of Insect Science" editor-only="true" client="oup" split="JISESA.xml" split_master="master_split.xml" />
+  <journal short="JMAMMA" abbr="" journal-title="Journal of Mammalogy" editor-only="true" client="oup" split="JMAMMA.xml" split_master="master_split.xml" />
+  <journal short="JMENTO" abbr="" journal-title="Journal of Medical Entomology" client="oup" split="JMENTO.xml" split_master="master_split.xml" />
+  <journal short="JMPHIL" abbr="" journal-title="Journal of Medicine and Philosophy" client="oup" split="JMPHIL.xml" split_master="master_split.xml" />
+  <journal short="JOAAAC" abbr="" journal-title="The Journal of Aesthetics and Art Criticism" client="oup" split="JOAAAC.xml" split_master="master_split.xml" />
+  <journal short="JOFORE" abbr="" journal-title="Journal of Forestry" client="oup" split="JOFORE.xml" split_master="master_split.xml" />
+  <journal short="JOLEVO" abbr="" journal-title="Journal of Language Evolution" client="oup" split="JOLEVO.xml" split_master="master_split.xml" />
+  <journal short="JOPART" abbr="" journal-title="Journal Of Public Administration Research And Theory" editor-only="true" client="oup" split="JOPART.xml" split_master="master_split.xml" />
+  <journal short="JPECOL" abbr="" journal-title="Journal of Plant Ecology" client="oup" split="JPECOL.xml" split_master="master_split.xml" />
+  <journal short="JPHSRE" abbr="" journal-title="Journal of Pharmaceutical Health Services Research" client="oup" split="JPHSRE.xml" split_master="master_split.xml" />
+  <journal short="JPIDSJ" abbr="" journal-title="Journal of the Pediatric Infectious Diseases Society" client="oup" split="JPIDSJ.xml" split_master="master_split.xml" />
+  <journal short="JPORGA" abbr="" journal-title="Journal of Professions and Organization" client="oup" split="JPORGA.xml" split_master="master_split.xml" />
+  <journal short="JPPHAR" abbr="" journal-title="Journal of Pharmacy and Pharmacology" client="oup" split="JPPHAR.xml" split_master="master_split.xml" />
+  <journal short="LIFMED" abbr="" journal-title="Life Medicine" client="oup" split="LIFMED.xml" split_master="master_split.xml" />
+  <journal short="LIFMET" abbr="" journal-title="Life Metabolism" client="oup" split="LIFMET.xml" split_master="master_split.xml" />
+  <journal short="MELUSJ" abbr="" journal-title="MELUS: Multi-Ethnic Literature of the United States" client="oup" split="MELUSJ.xml" split_master="master_split.xml" />
+  <journal short="MSPECI" abbr="" journal-title="Mammalian Species" editor-comes-first="true" client="oup" split="MSPECI.xml" split_master="master_split.xml" />
+  <journal short="MUTAGE" abbr="" journal-title="Mutagenesis" editor-only="true" client="oup" split="MUTAGE.xml" split_master="master_split.xml" />
+  <journal short="NICTOB" abbr="" journal-title="Nicotine &amp; Tobacco Research" client="oup" split="NICTOB.xml" split_master="master_split.xml" />
+  <journal short="OCCMED" abbr="" journal-title="Occupational Medicine" editor-only="true" client="oup" split="OCCMED.xml" split_master="master_split.xml" />
+  <journal short="OFIDIS" abbr="" journal-title="Open Forum Infectious Diseases" client="oup" split="OFIDIS.xml" split_master="master_split.xml" />
+  <journal short="ONCOLO" abbr="" journal-title="The Oncologist" client="oup" split="ONCOLO.xml" split_master="master_split.xml" />
+  <journal short="OXJLSJ" abbr="" journal-title="Oxford Journal of Legal Studies" client="oup" split="OXJLSJ.xml" split_master="master_split.xml" />
+  <journal short="PCHEAL" abbr="" journal-title="Paediatrics &amp; Child Health" editor-only="true" client="oup" split="PCHEAL.xml" split_master="master_split.xml" />
+  <journal short="PPMGOV" abbr="" journal-title="Perspectives on Public Management and Governance" client="oup" split="PPMGOV.xml" split_master="master_split.xml" />
+  <journal short="PROCEL" abbr="" journal-title="Protein &amp; Cell" client="oup" split="PROCEL.xml" split_master="master_split.xml" />
+  <journal short="REFLAW" abbr="" journal-title="International Journal of Refugee Law" editor-only="true" client="oup" split="REFLAW.xml" split_master="master_split.xml" />
+  <journal short="SBOPEN" abbr="" journal-title="Schizophrenia Bulletin Open" client="oup" split="SBOPEN.xml" split_master="master_split.xml" />
+  <journal short="SCHBUL" abbr="" journal-title="Schizophrenia Bulletin" client="oup" split="SCHBUL.xml" split_master="master_split.xml" />
+  <journal short="SLEEPJ" abbr="" journal-title="SLEEP" client="oup" split="SLEEPJ.xml" split_master="master_split.xml" />
+  <journal short="SLEEPO" abbr="" journal-title="Sleep Advances" client="oup" split="SLEEPO.xml" split_master="master_split.xml" />
+  <journal short="SOCHIS" abbr="" journal-title="Social History Of Medicine" client="oup" split="SOCHIS.xml" split_master="master_split.xml" />
+  <journal short="SOCPRO" abbr="" journal-title="Social Problems" client="oup" split="SOCPRO.xml" split_master="master_split.xml" />
+  <journal short="SSJAPJ" abbr="" journal-title="Social Science Japan Journal" client="oup" split="SSJAPJ.xml" split_master="master_split.xml" />
+  <journal short="STALAW" abbr="" journal-title="Statute Law Review" client="oup" split="STALAW.xml" split_master="master_split.xml" />
+  <journal short="STCLTM" abbr="" journal-title="Stem Cells Translational Medicine" client="oup" split="STCLTM.xml" split_master="master_split.xml" />
+  <journal short="STMCLS" abbr="" journal-title="Stem Cells" client="oup" split="STMCLS.xml" split_master="master_split.xml" />
+  <journal short="SYSBIO" abbr="" journal-title="Systematic Biology" client="oup" split="SYSBIO.xml" split_master="master_split.xml" />
+  <journal short="TBMEDI" abbr="" journal-title="Translational Behavioral Medicine" editor-only="true" client="oup" split="TBMEDI.xml" split_master="master_split.xml" />
+  <journal short="THEOLJ" abbr="" journal-title="The Journal of Theological Studies" editor-only="true" client="oup" split="THEOLJ.xml" split_master="master_split.xml" />
+  <journal short="TRANAS" abbr="" journal-title="Translational Animal Science" editor-only="true" client="oup" split="TRANAS.xml" split_master="master_split.xml" />
+  <journal short="WHQUAR" abbr="" journal-title="The Western Historical Quarterly" client="oup" split="WHQUAR.xml" split_master="master_split.xml" />
+  <journal short="WORKAR" abbr="" journal-title="Work, Aging and Retirement" client="oup" split="WORKAR.xml" split_master="master_split.xml" />
+  <journal short="ZOOLIN" abbr="" journal-title="Zoological Journal of the Linnean Society" client="oup" split="ZOOLIN.xml" split_master="master_split.xml" />
+</journals>

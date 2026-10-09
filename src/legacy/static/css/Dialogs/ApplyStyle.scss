@@ -1,0 +1,105 @@
+div.dummyCheck {
+    cursor: pointer;
+}
+
+#ApplyStyleDialog {
+    &:not(.maxiview) {
+        width: 55rem !important;
+    }
+// OUP_J_MP_016 Maxiview css fixed DR_72_02_23
+    &.maxiview {
+         width: 250px !important;
+    }
+
+    #StyleListDiv {
+        margin: 0;
+        -ms-flex-direction: column !important;
+        flex-direction: column !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        line-height: 1.4;
+        font-size: 14px;
+        color: #4f4e4e;
+
+        .iStyle.active {
+            border-radius: 2px;
+        }
+
+        span {
+            line-height: 1.4;
+            padding: 4px;
+
+            &:not(:last-child) {
+                margin-bottom: 1px;
+            }
+
+            &[data-content]::after {
+                content: attr(data-content);
+                margin-left: 1.5rem !important;
+                margin-bottom: 1px;
+            }
+
+            &.disabled {
+                // background: rgba(126, 125, 124, 0.15) !important;
+                pointer-events: auto;
+                cursor: not-allowed !important;
+                color: #d7d7d7;
+            }
+
+            &:hover:not(.disabled) {
+                background: #f4eeee !important;
+                color: #191919 !important;
+                line-height: 1.4;
+                padding: 4px;
+            }
+
+            &.active:not(.disabled) {
+                background: rgba(246, 138, 51, .15) !important;
+                color: #f68a33 !important;
+                line-height: 1.4;
+                padding: 4px;
+            }
+
+            //color: #f68a33!important;
+            .fa,
+            .fas {
+                 position: absolute;
+                cursor: pointer;
+                -webkit-user-select: none;
+                /* Safari 3.1+ */
+                -moz-user-select: none;
+                /* Firefox 2+ */
+                -ms-user-select: none;
+                /* IE 10+ */
+                user-select: none;
+                width: 7.5px;
+                height: 3.73px;
+                font-size: 14px;
+                margin-top: 3.7px;
+            }
+        }
+
+    }
+
+    /* .StylesListPanel {
+        height: 15rem!important;
+        left: 55%;
+        width: 15rem!important;
+        padding: 7.5px;
+        position: absolute;
+        top: 8em;  
+        z-index: 1000;
+        display: block;    
+        font-size: 14px;
+        text-align: left;
+        overflow: hidden;
+        list-style: none;
+        background-color: #fff;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid #ccc;  
+        border-radius: 4px;
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .175);        
+      } */
+}

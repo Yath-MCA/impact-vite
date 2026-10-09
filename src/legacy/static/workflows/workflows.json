@@ -1,0 +1,2099 @@
+{
+    "workflows": {
+        "label": "Workflows",
+        "icon": "⚙️",
+        "workflows": {
+            "single_user_workflow": {
+                "name": "Single-User Workflow (Current)",
+                "description": "Exclusive single-user access with request-response dialogs",
+                "table": [
+                    [
+                        "Email Link",
+                        "User receives unique email link with auth credentials"
+                    ],
+                    [
+                        "Landing Page",
+                        "System displays proof info and validates session"
+                    ],
+                    [
+                        "Session Check",
+                        "Check if proof is finalized, available, or in conflict"
+                    ],
+                    [
+                        "Scenario A: Finalized",
+                        "If proof is finalized, redirect to read-only mode"
+                    ],
+                    [
+                        "Scenario B: Available",
+                        "If no active session, grant immediate editor access"
+                    ],
+                    [
+                        "Scenario C: Conflict",
+                        "If session exists, activate request-response dialog"
+                    ],
+                    [
+                        "Dialog Interaction",
+                        "New user waits with timer, current user accepts/rejects"
+                    ],
+                    [
+                        "Resolution",
+                        "Accept=transfer session, Reject=wait period, Timeout=auto-transfer"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Email Link] --> B[Landing Page]\n    B --> C[Check Session]\n    C -->|Finalized| D[Read-Only Mode]\n    C -->|Available| E[Editor Access]\n    C -->|Conflict| F[Dialog System]\n    F --> G[Request Sender]\n    F --> H[Request Receiver]\n    H -->|Accept| I[Transfer Session]\n    H -->|Reject| J[Wait Period]\n    H -->|Timeout| I\n    I --> E\n    J --> K[Retry Later]"
+            },
+            "overall_flow": {
+                "name": "Overall Workflow",
+                "description": "High-level overview of the entire workflow process",
+                "table": [
+                    [
+                        "User Access",
+                        "User accesses document via link and lands on page"
+                    ],
+                    [
+                        "Access Check",
+                        "System checks session and link validity"
+                    ],
+                    [
+                        "Editor Access",
+                        "User is redirected to editor if access granted"
+                    ],
+                    [
+                        "Editing Session",
+                        "User edits document with auto-save and idle handling"
+                    ],
+                    [
+                        "Conflict Handling",
+                        "System manages access conflicts with dialogs and timeouts"
+                    ],
+                    [
+                        "Finalization",
+                        "User initiates finalization process with checks and save"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[User Access] --> B[Access Check]\n    B --> C{Valid?}\n    C -->|Yes| D[Editor Access]\n    C -->|No| E[Show Error]\n    D --> F[Editing Session]\n    F --> G{Idle?}\n    G -->|Yes| H[Idle Handling]\n    G -->|No| F\n    F --> I{Conflict?}\n    I -->|Yes| J[Conflict Handling]\n    I -->|No| F\n    F --> K[Finalization]"
+            },
+            "main": {
+                "name": "Main",
+                "description": "Primary end-to-end flow from landing page to finalization.",
+                "table": [
+                    [
+                        "Landing Page",
+                        "User opens the proofing or editor entry point"
+                    ],
+                    [
+                        "Validate Access",
+                        "System checks URL, session, and role-specific permissions"
+                    ],
+                    [
+                        "Editor Session",
+                        "User edits content with autosave and live checks"
+                    ],
+                    [
+                        "Conflict Handling",
+                        "System manages session conflicts and request dialogs"
+                    ],
+                    [
+                        "Idle Handling",
+                        "System warns on inactivity and can close the session"
+                    ],
+                    [
+                        "Finalization",
+                        "User saves, validates, and completes the workflow"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Landing Page] --> B[Validate Access]\n    B --> C{Allowed?}\n    C -->|Yes| D[Editor Session]\n    C -->|No| E[Show Error]\n    D --> F{Conflict?}\n    F -->|Yes| G[Conflict Handling]\n    F -->|No| H[Idle Monitoring]\n    G --> I[Resolve Request]\n    H --> J{Idle?}\n    J -->|Yes| K[Idle Handling]\n    J -->|No| D\n    K --> L[Finalization]"
+            },
+            "server_maintenance": {
+                "name": "ServerMaintenance",
+                "description": "Maintenance scheduling, database lookup, and runtime alert display flow.",
+                "table": [
+                    [
+                        "Schedule Maintenance",
+                        "Admin creates a maintenance record with start time, duration, end time, and reason"
+                    ],
+                    [
+                        "Persist Record",
+                        "System stores the ServerMaintenance document with active status"
+                    ],
+                    [
+                        "Set Duration",
+                        "Admin selects a duration in hours, defaulting to 2 hours"
+                    ],
+                    [
+                        "Fetch Active Record",
+                        "Client checks the database for the next active future maintenance window"
+                    ],
+                    [
+                        "Initialize Runtime",
+                        "MAINTENANCE.Init receives start and end timestamps"
+                    ],
+                    [
+                        "Landing Page",
+                        "Landing page loads the maintenance toast when MAINTENANCE.Init({ init: true, fire: true }) runs"
+                    ],
+                    [
+                        "Editor Logout",
+                        "Logout confirmation injects the maintenance message through MAINTENANCE.fire({ returnText: true })"
+                    ],
+                    [
+                        "Editor Auto Save",
+                        "After the first auto-save, MAINTENANCE.fire({ stage: 'save' }) shows the maintenance alert"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Admin schedules maintenance] --> B[Persist ServerMaintenance record]\n    B --> C[Admin selects duration]\n    C --> D[Compute end time]\n    D --> E[server.js fetches active record]\n    E --> F[Initialize MAINTENANCE runtime]\n    F --> G{User path?}\n    G -->|Landing Page| H[Landing page shows maintenance toast]\n    H --> I[User dismisses alert]\n    G -->|Editor Logout| J[Logout confirm includes maintenance message]\n    J --> K[User confirms or cancels logout]\n    G -->|Editor Auto Save| L[First auto-save shows maintenance alert]\n    L --> M[User dismisses alert]"
+            }
+        }
+    },
+    "modules_workflow": {
+        "label": "Modules Workflow",
+        "icon": "🧩",
+        "workflows": {
+            "abstract_words": {
+                "name": "Abstract Words Module",
+                "description": "Register AbstractWordCounter, load dialog template, and validate abstract word limits for restricted clients.",
+                "table": [
+                    [
+                        "Register",
+                        "context.js waits for InitialLoadDialog/moduleRegistry and registers AbstractWordCounter on demand"
+                    ],
+                    [
+                        "Load Template",
+                        "template.html provides AbstractWordCounterDialog UI"
+                    ],
+                    [
+                        "Initialize",
+                        "index.js creates AbstractWordCounter state and client restrictions"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 180ms before metric refresh to avoid race with editor boot"
+                    ],
+                    [
+                        "Compute",
+                        "Count abstract words and compare against min/max constraints"
+                    ],
+                    [
+                        "Notify",
+                        "Show warning/validation state to user"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Register AbstractWordCounter] --> B[Load Dialog Template]\n    B --> C[Init Counter State]\n    C -->|sleep 180ms| D[Compute Word Metrics]\n    D --> E[Validate Limits]\n    E --> F[Show Result]"
+            },
+            "citation_popup": {
+                "name": "Citation Popup Module",
+                "description": "Initialize CitationPopupDialog and wire citation navigation/close interactions from context bootstrap.",
+                "table": [
+                    [
+                        "Bootstrap",
+                        "context.js resolves moduleSystem and module instance"
+                    ],
+                    [
+                        "Init",
+                        "index.js builds citePopupDialog panel and buttons"
+                    ],
+                    [
+                        "Bind Events",
+                        "Attach close and Back to Citation actions"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 150ms before first focus/navigation sync"
+                    ],
+                    [
+                        "Navigate",
+                        "Jump back to previous/next citation position"
+                    ],
+                    [
+                        "Track Errors",
+                        "trackError captures runtime failures"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Bootstrap Module] --> B[Create Popup Panel]\n    B --> C[Bind Close + Back]\n    C -->|sleep 150ms| D[Sync Citation Position]\n    D --> E[Navigate]\n    E --> F[Track Errors]"
+            },
+            "document_restore": {
+                "name": "Document Restore Module",
+                "description": "Restore saved document versions with confirmation, loading restore dialog and applying selected version content.",
+                "table": [
+                    [
+                        "Register Trigger",
+                        "context.js binds restoreHTML click and callbackRestore"
+                    ],
+                    [
+                        "Open Dialog",
+                        "Show DocumentRestoreDialog or exec RESTORE_VERSION command"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 220ms to ensure dialog/editor state is stable"
+                    ],
+                    [
+                        "Fetch Versions",
+                        "Load available saved history/version data"
+                    ],
+                    [
+                        "Confirm",
+                        "User confirms non-undoable restore action"
+                    ],
+                    [
+                        "Apply Restore",
+                        "Replace editor content with selected version and refresh state"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[User Click Restore] --> B[Open Restore Dialog]\n    B -->|sleep 220ms| C[Load Version History]\n    C --> D[Confirm Restore]\n    D --> E[Apply Version]\n    E --> F[Refresh Editor State]"
+            },
+            "figures": {
+                "name": "Figures Module",
+                "description": "FloatsGroupModule handles figure/table insertion, editing, and renumbering with context extraction.",
+                "table": [
+                    [
+                        "Context Read",
+                        "context.js validates element/selection/path"
+                    ],
+                    [
+                        "Open Module",
+                        "index.js FloatsGroupModule starts insert/replace flow"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 200ms before float renumber to avoid stale DOM"
+                    ],
+                    [
+                        "Insert/Edit",
+                        "Create or update figure/table float nodes"
+                    ],
+                    [
+                        "Renumber",
+                        "Apply sequential float labels/prefix map"
+                    ],
+                    [
+                        "Finalize",
+                        "Persist changes and close dialog"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Validate Selection Context] --> B[Start FloatsGroupModule]\n    B --> C[Insert or Edit Float]\n    C -->|sleep 200ms| D[Renumber Floats]\n    D --> E[Update References]\n    E --> F[Finalize]"
+            },
+            "guide_tour": {
+                "name": "Guide Tour Module",
+                "description": "GuidedTour initializes bootstraptour configuration and executes guided steps for user onboarding.",
+                "table": [
+                    [
+                        "Create Tour",
+                        "index.js exports GuidedTour class with config"
+                    ],
+                    [
+                        "Build Steps",
+                        "Resolve role/client-specific guided steps"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 250ms before start to ensure page widgets are mounted"
+                    ],
+                    [
+                        "Start Tour",
+                        "Run tour with backdrop and keyboard settings"
+                    ],
+                    [
+                        "Pause/Resume",
+                        "Handle resume points and user navigation"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Create GuidedTour] --> B[Load Step Config]\n    B -->|sleep 250ms| C[Start Tour]\n    C --> D[User Navigates Steps]\n    D --> E[Pause/Resume]\n    E --> F[Complete Tour]"
+            },
+            "id_generation": {
+                "name": "ID Generation Module",
+                "description": "ElementManager singleton generates and tracks stable IDs for document elements.",
+                "table": [
+                    [
+                        "Initialize",
+                        "context.js creates/reuses global ElementManager singleton"
+                    ],
+                    [
+                        "Scan",
+                        "Collect target elements/classes for ID generation"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 160ms between scan and mutate to reduce collision risk"
+                    ],
+                    [
+                        "Generate IDs",
+                        "Assign IDs using base prefix IMP2- and counters"
+                    ],
+                    [
+                        "Track",
+                        "Store processed IDs/maps for future operations"
+                    ],
+                    [
+                        "Expose",
+                        "Provide global manager for other modules"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Init ElementManager] --> B[Scan Targets]\n    B -->|sleep 160ms| C[Generate IDs]\n    C --> D[Store Maps + Counters]\n    D --> E[Expose Global Manager]"
+            },
+            "image_annotate": {
+                "name": "Image Annotate Module",
+                "description": "AnnotationModule registers dialog, loads annotation template, and applies annotation edits to image assets.",
+                "table": [
+                    [
+                        "Register",
+                        "context.js registers AnntationDialog as ondemand module"
+                    ],
+                    [
+                        "Load Template",
+                        "template.html renders annotation dialog shell"
+                    ],
+                    [
+                        "Init",
+                        "index.js AnnotationModule initializes state and handlers"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 180ms before loading selected image into editor frame"
+                    ],
+                    [
+                        "Annotate",
+                        "User adds annotation markers/metadata"
+                    ],
+                    [
+                        "Save",
+                        "Persist annotation updates and close dialog"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Register Annotation Module] --> B[Load Annotation Dialog]\n    B --> C[Init Module State]\n    C -->|sleep 180ms| D[Load Image]\n    D --> E[Apply Annotations]\n    E --> F[Save + Close]"
+            },
+            "image_gray_scale": {
+                "name": "Image Gray Scale Module",
+                "description": "GrayscaleModule opens gray-scale viewer dialog and renders transformed image preview.",
+                "table": [
+                    [
+                        "Register",
+                        "context.js registers gray_scale command/module"
+                    ],
+                    [
+                        "Open Dialog",
+                        "template.html displays GrayscaleDialog viewer"
+                    ],
+                    [
+                        "Init",
+                        "index.js initializes template/state/toaster messages"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 170ms before applying grayscale render"
+                    ],
+                    [
+                        "Render",
+                        "Show transformed image in viewer"
+                    ],
+                    [
+                        "Close",
+                        "Exit dialog and cleanup transient state"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Register Gray Scale Command] --> B[Open GrayscaleDialog]\n    B --> C[Init GrayscaleModule]\n    C -->|sleep 170ms| D[Render Gray Image]\n    D --> E[User Review]\n    E --> F[Close + Cleanup]"
+            },
+            "hyperlink_module": {
+                "name": "Hyperlink Module",
+                "description": "HyperlinkDialogModule validates URL/email links, applies attributes, and manages insert/edit link actions.",
+                "table": [
+                    [
+                        "Trigger",
+                        "context.js binds applylinkmenu and SHOW_LINK command"
+                    ],
+                    [
+                        "Open Dialog",
+                        "Load link dialog controls from template/module"
+                    ],
+                    [
+                        "Validate",
+                        "Run URL/email/domain rules and restricted-area checks"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 190ms before writing href/class updates"
+                    ],
+                    [
+                        "Apply",
+                        "Insert new link or update selected link metadata"
+                    ],
+                    [
+                        "Finalize",
+                        "Mark tracking attrs and close dialog"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[SHOW_LINK Trigger] --> B[Open Link Dialog]\n    B --> C[Validate Input + Context]\n    C -->|sleep 190ms| D[Apply Link Attributes]\n    D --> E[Insert/Update Link]\n    E --> F[Close Dialog]"
+            },
+            "notes_group": {
+                "name": "Notes Group Module",
+                "description": "NotesGroupModule inserts footnotes/endnotes, creates citation links, and renumbers note groups.",
+                "table": [
+                    [
+                        "Register",
+                        "context.js registers noteModule and commands"
+                    ],
+                    [
+                        "Open Dialog",
+                        "template/index provide notes input UI"
+                    ],
+                    [
+                        "Build Entry",
+                        "Generate note ID and citation markup"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 200ms before renumber to stabilize inserted nodes"
+                    ],
+                    [
+                        "Renumber",
+                        "Recompute note order and references"
+                    ],
+                    [
+                        "Finalize",
+                        "Save snapshot and close module"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Open Notes Module] --> B[Collect Note Content]\n    B --> C[Insert Citation + Note]\n    C -->|sleep 200ms| D[Renumber Notes]\n    D --> E[Update References]\n    E --> F[Finalize]"
+            },
+            "para_id": {
+                "name": "Paragraph ID Module",
+                "description": "DocumentManager with context bootstrap registers paragraph ID manager for chapter-aware element tracking.",
+                "table": [
+                    [
+                        "Bootstrap",
+                        "context.js registerAndMonitorModules for DocumentManager"
+                    ],
+                    [
+                        "Init",
+                        "index.js singleton initializes registries/config"
+                    ],
+                    [
+                        "Scan",
+                        "Collect document blocks/chapter contexts"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 160ms before assigning IDs to avoid init conflicts"
+                    ],
+                    [
+                        "Assign",
+                        "Generate/attach paragraph IDs"
+                    ],
+                    [
+                        "Sync",
+                        "Keep global registry updated for downstream modules"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Register DocumentManager] --> B[Init Registries]\n    B --> C[Scan Paragraph Blocks]\n    C -->|sleep 160ms| D[Assign Paragraph IDs]\n    D --> E[Sync Registry]"
+            },
+            "supp": {
+                "name": "Supplementary Material Module",
+                "description": "SupplementaryMaterial manages supplementary file upload, replacement, delete, and linked query handling.",
+                "table": [
+                    [
+                        "Register",
+                        "context.js registers SuppMaterialModule and SHOW_SUPP command"
+                    ],
+                    [
+                        "Open Dialog",
+                        "template renders supplementary file list UI"
+                    ],
+                    [
+                        "Load State",
+                        "index initializes file/form state"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 210ms between upload and list refresh"
+                    ],
+                    [
+                        "Manage Files",
+                        "Upload/replace/delete supplementary files"
+                    ],
+                    [
+                        "Sync",
+                        "Update linked metadata/query state"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[SHOW_SUPP Command] --> B[Open Supplementary Dialog]\n    B --> C[Load File State]\n    C --> D[Upload/Replace/Delete]\n    D -->|sleep 210ms| E[Refresh List]\n    E --> F[Sync Metadata]"
+            },
+            "support_mail": {
+                "name": "Support Mail Module",
+                "description": "SupportMailDialog collects issue details and sends support request with environment context.",
+                "table": [
+                    [
+                        "Trigger",
+                        "context.js binds #contact_support and module registration"
+                    ],
+                    [
+                        "Open Dialog",
+                        "Load support form from template/module"
+                    ],
+                    [
+                        "Init",
+                        "index sets state and event handlers"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 180ms before attachment/environment collection"
+                    ],
+                    [
+                        "Compose",
+                        "Build support payload with logs/browser details"
+                    ],
+                    [
+                        "Send",
+                        "Submit support request and show status"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Contact Support Click] --> B[Open Support Dialog]\n    B --> C[Init Form State]\n    C -->|sleep 180ms| D[Collect Attachments + Env]\n    D --> E[Send Support Mail]\n    E --> F[Show Result]"
+            },
+            "index_module": {
+                "name": "Index Module",
+                "description": "IndexModule provides MS Word–style mark-entry and alphabetical preview on a separate layer parallel to proofing.",
+                "table": [
+                    [
+                        "Register",
+                        "context.js registers IndexDialog (ondemand) with moduleSystem"
+                    ],
+                    [
+                        "Open Dialog",
+                        "Mark an Index Entry UI — display text, cross-ref, main/sub hierarchy"
+                    ],
+                    [
+                        "Insert",
+                        "Apply impact-index-layer markers; optional include-all-instances"
+                    ],
+                    [
+                        "Preview",
+                        "Alphabetical index list with paragraph IDs for navigation"
+                    ],
+                    [
+                        "Persist",
+                        "Index metadata stored on span.impact-index-layer in CKEditor HTML"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[User Mark Index] --> B[Open IndexDialog]\n    B --> C[Configure Entry]\n    C --> D[Insert Layer Marker]\n    D --> E[Persist Index Layer]\n    E --> F[Preview Alphabetical Index]"
+            },
+            "tables": {
+                "name": "Tables Module",
+                "description": "TableNotesModule inserts table footnote citations and updates table-note tracking structures.",
+                "table": [
+                    [
+                        "Register",
+                        "context.js exposes TablesMethodsGroup and commands"
+                    ],
+                    [
+                        "Open Dialog",
+                        "template displays tableNotesDialog UI"
+                    ],
+                    [
+                        "Init",
+                        "index initializes formatter/state"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 200ms before tracking updates"
+                    ],
+                    [
+                        "Insert Note",
+                        "Create table footnote citation and note block"
+                    ],
+                    [
+                        "Track",
+                        "Apply tracking attrs for insert/cell/column actions"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Open Table Notes Dialog] --> B[Init TableNotesModule]\n    B --> C[Insert Table FN Citation]\n    C -->|sleep 200ms| D[Update Tracking]\n    D --> E[Refresh Table Footnotes]"
+            },
+            "tooltip": {
+                "name": "Tooltip Module",
+                "description": "TooltipModule calculates viewport-safe tooltip position and displays contextual tooltip overlays.",
+                "table": [
+                    [
+                        "Register",
+                        "context.js registers TOOLTIP_MODULE onthefly"
+                    ],
+                    [
+                        "Init",
+                        "index gets panel and frame metrics hooks"
+                    ],
+                    [
+                        "Compute",
+                        "Calculate top/left based on editor frame and viewport"
+                    ],
+                    [
+                        "Delay",
+                        "Sleep 120ms before repaint to reduce flicker on rapid hover"
+                    ],
+                    [
+                        "Render",
+                        "Apply tooltip position/content and show panel"
+                    ],
+                    [
+                        "Cleanup",
+                        "Hide/reset tooltip on exit"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Tooltip Trigger] --> B[Init TooltipModule]\n    B --> C[Compute Position]\n    C -->|sleep 120ms| D[Render Tooltip]\n    D --> E[Hover/Move Updates]\n    E --> F[Hide + Cleanup]"
+            },
+            "modules_sequence_with_delay": {
+                "name": "Modules Sequence With Delay",
+                "description": "Cross-module execution order with explicit delay gates between module transitions.",
+                "table": [
+                    [
+                        "Start",
+                        "Begin module workflow pipeline"
+                    ],
+                    [
+                        "Module Steps",
+                        "Run each module workflow in configured order"
+                    ],
+                    [
+                        "Delay Gate",
+                        "Sleep 150-250ms between module transitions"
+                    ],
+                    [
+                        "Continue",
+                        "Proceed until all module workflows complete"
+                    ]
+                ],
+                "mermaid": "flowchart LR\n    A[abstract_words] -->|sleep 180ms| B[citation_popup]\n    B -->|sleep 220ms| C[document_restore]\n    C -->|sleep 200ms| D[figures]\n    D -->|sleep 250ms| E[guide_tour]\n    E -->|sleep 160ms| F[id_generation]\n    F -->|sleep 180ms| G[image_annotate]\n    G -->|sleep 170ms| H[image_gray_scale]\n    H -->|sleep 190ms| I[hyperlink_module]\n    I -->|sleep 200ms| J[notes_group]\n    J -->|sleep 160ms| K[para_id]\n    K -->|sleep 210ms| L[supp]\n    L -->|sleep 180ms| M[support_mail]\n    M -->|sleep 200ms| N[tables]\n    N -->|sleep 120ms| O[tooltip]"
+            },
+            "edit_citation_text": {
+                "name": "Edit Citation Text Module",
+                "description": "Edit citation/xref text with context-driven validation, ParaLock checks, snapshot handling, and DOM update/restore flow.",
+                "table": [
+                    [
+                        "Context",
+                        "context.js enables edit actions for valid xref/citation selections"
+                    ],
+                    [
+                        "Open Dialog",
+                        "EditCitationTextModule loads current citation text and target metadata"
+                    ],
+                    [
+                        "Validate",
+                        "Selection and role/type checks prevent invalid edits"
+                    ],
+                    [
+                        "ParaLock",
+                        "Abort when selected citation or containing block is locked by another user"
+                    ],
+                    [
+                        "Apply",
+                        "Update citation text with tracking/snapshot support"
+                    ],
+                    [
+                        "Close",
+                        "Restore selection and unlock/save snapshot state"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Select Citation] --> B[Context Validate]\n    B --> C[Open Edit Dialog]\n    C --> D{ParaLock?}\n    D -->|Locked| E[Warn + Stop]\n    D -->|Available| F[Apply Text Update]\n    F --> G[Snapshot Save + Close]"
+            },
+            "edit_reference_text": {
+                "name": "Edit Reference Text Module",
+                "description": "Edit structured reference fields, including rich-text fields, staged values, preview updates, and final apply back to reference DOM.",
+                "table": [
+                    [
+                        "Context",
+                        "Enable edit action for supported reference nodes"
+                    ],
+                    [
+                        "Analyze",
+                        "Read reference structure into editable field definitions"
+                    ],
+                    [
+                        "Render Editor",
+                        "Render text/rich-text fields and initialize Summernote when needed"
+                    ],
+                    [
+                        "Stage",
+                        "Collect field values and update preview state"
+                    ],
+                    [
+                        "Validate",
+                        "Apply field-level constraints and ParaLock checks"
+                    ],
+                    [
+                        "Apply",
+                        "Write staged reference changes back to the document"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Select Reference] --> B[Analyze Fields]\n    B --> C[Render Editor]\n    C --> D[Stage Values]\n    D --> E[Preview + Validate]\n    E --> F[Apply Reference DOM Update]"
+            },
+            "finalize_signoff": {
+                "name": "Finalize Signoff Module",
+                "description": "Final validation and signoff flow checks locks, warnings, save state, and completion conditions before finalizing the proof.",
+                "table": [
+                    [
+                        "Open",
+                        "User starts finalization/signoff dialog"
+                    ],
+                    [
+                        "Precheck",
+                        "Run configured validation and unresolved-item checks"
+                    ],
+                    [
+                        "ParaLock",
+                        "Block finalization if other users hold locks"
+                    ],
+                    [
+                        "Save",
+                        "Ensure latest document state is saved"
+                    ],
+                    [
+                        "Confirm",
+                        "Ask user to confirm final signoff action"
+                    ],
+                    [
+                        "Complete",
+                        "Submit finalization and close workflow"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Finalize Click] --> B[Validation Checks]\n    B --> C{Locks or Errors?}\n    C -->|Yes| D[Show Blocking Warnings]\n    C -->|No| E[Save Latest State]\n    E --> F[Confirm Signoff]\n    F --> G[Complete Finalization]"
+            },
+            "insert_symbol": {
+                "name": "Insert Symbol Module",
+                "description": "Insert configured symbols into the current editor selection with selection validation, ParaLock guard, and snapshot support.",
+                "table": [
+                    [
+                        "Open",
+                        "User opens symbol dialog from context/menu"
+                    ],
+                    [
+                        "Load Data",
+                        "Load configured symbol/support data"
+                    ],
+                    [
+                        "Select Symbol",
+                        "User chooses symbol to insert"
+                    ],
+                    [
+                        "Validate Cursor",
+                        "Ensure selection is editable and not locked"
+                    ],
+                    [
+                        "Insert",
+                        "Insert symbol at current cursor location"
+                    ],
+                    [
+                        "Snapshot",
+                        "Save tracked editor state after insertion"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Open Symbol Dialog] --> B[Load Symbols]\n    B --> C[Choose Symbol]\n    C --> D{Editable Selection?}\n    D -->|No| E[Warn]\n    D -->|Yes| F[Insert Symbol]\n    F --> G[Save Snapshot]"
+            },
+            "link_share": {
+                "name": "Legacy Link Share Dialog Module",
+                "description": "Legacy LinkShareDialog remains available as a dialog wrapper/fallback while current session logic lives in shared LinkSessionCore and LinkSession modules.",
+                "table": [
+                    [
+                        "Register",
+                        "link_share context registers LinkShareDialog when needed"
+                    ],
+                    [
+                        "Open",
+                        "Dialog opens for link/session sharing actions"
+                    ],
+                    [
+                        "Delegate",
+                        "Current flow should prefer LinkSessionCore/LinkSessionService APIs"
+                    ],
+                    [
+                        "Fallback UI",
+                        "Dialog can still show legacy request/share state"
+                    ],
+                    [
+                        "Close",
+                        "Cleanup dialog state without owning core session logic"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Link Share Trigger] --> B[Open LinkShareDialog]\n    B --> C{Current Service Available?}\n    C -->|Yes| D[Delegate to LinkSessionCore]\n    C -->|No| E[Legacy Dialog Fallback]\n    D --> F[Close / Resolve]"
+            },
+            "math_group": {
+                "name": "Math Group Module",
+                "description": "Insert and edit display/inline math with configured order, dialog actions, and editor insertion/update handling.",
+                "table": [
+                    [
+                        "Trigger",
+                        "User selects insert/edit inline or display math action"
+                    ],
+                    [
+                        "Open",
+                        "Math dialog loads current equation or blank template"
+                    ],
+                    [
+                        "Edit",
+                        "User edits equation data through configured math UI"
+                    ],
+                    [
+                        "Validate",
+                        "Check equation content and target context"
+                    ],
+                    [
+                        "Apply",
+                        "Insert new equation or update existing equation node"
+                    ],
+                    [
+                        "Order",
+                        "Maintain configured math execution/reorder flow"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Math Action] --> B[Open Math Dialog]\n    B --> C[Edit Equation]\n    C --> D[Validate]\n    D --> E{Insert or Edit?}\n    E -->|Insert| F[Insert Math Node]\n    E -->|Edit| G[Update Math Node]"
+            },
+            "ref_form": {
+                "name": "Reference Form Module",
+                "description": "MultiRefModule creates/edits structured references, handles FRM_QRY missing-element updates, inserts preview templates before delimiter validation, normalizes direct prefix/suffix punctuation, and writes tracked reference DOM updates.",
+                "table": [
+                    [
+                        "Context",
+                        "Open from insert, edit, or MULTI_REF_FORM_QRY command"
+                    ],
+                    [
+                        "Render Fields",
+                        "Build configured fields for journal/book/reference type"
+                    ],
+                    [
+                        "Load Existing Ref",
+                        "REF_2_FORM maps mixed-citation content into preview and form inputs"
+                    ],
+                    [
+                        "Stage User Edits",
+                        "HandleNewElement stores keyed missing/edited templates in NewElm"
+                    ],
+                    [
+                        "Preview First",
+                        "Fresh render inserts pending templates in STYLE_ORDER before getPrefixSuffix"
+                    ],
+                    [
+                        "Normalize Delimiters",
+                        "Direct inserted preview nodes remove duplicate generated boundary punctuation"
+                    ],
+                    [
+                        "Validate",
+                        "Validate required fields, IDs, query response state, and ParaLock state"
+                    ],
+                    [
+                        "Apply",
+                        "Insert/update reference, normalize query comments, and refresh linked citations"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Reference Action] --> B{Mode}\n    B -->|Insert| C[DIALOG_2_HTML builds preview]\n    B -->|Edit| D[REF_2_FORM loads selected ref]\n    B -->|FRM_QRY| E[openFromQuery detects missing fields]\n    D --> F[HandleNewElement stores NewElm]\n    E --> F\n    F --> G[Insert pending templates in preview]\n    G --> H[getPrefixSuffix resolves delimiters]\n    H --> I[Normalize duplicate boundary punctuation]\n    I --> J[Apply prefix/suffix to inserted node]\n    J --> K[Validate]\n    C --> K\n    K --> L[Insert or Update Reference]\n    L --> M[Normalize queries/comments + citation sync]"
+            },
+            "ref_interest_level": {
+                "name": "Reference Interest Level Module",
+                "description": "Apply configured interest-level classifications to selected references with context validation and DOM attribute updates.",
+                "table": [
+                    [
+                        "Select Reference",
+                        "User selects a reference or reference group item"
+                    ],
+                    [
+                        "Context Menu",
+                        "Show configured interest-level actions"
+                    ],
+                    [
+                        "Validate",
+                        "Ensure selected node supports the requested level"
+                    ],
+                    [
+                        "Apply Level",
+                        "Set/remove interest-level markup or attributes"
+                    ],
+                    [
+                        "Track",
+                        "Record changes through existing editor tracking/snapshot flow"
+                    ],
+                    [
+                        "Refresh",
+                        "Update visible reference state"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Select Reference] --> B[Choose Interest Level]\n    B --> C[Validate Target]\n    C --> D[Apply Attribute / Markup]\n    D --> E[Track + Refresh]"
+            },
+            "ref_sort": {
+                "name": "Reference Sort Module",
+                "description": "Sort or renumber reference entries after checking locks and reference group integrity.",
+                "table": [
+                    [
+                        "Open",
+                        "User triggers reference sort/renumber action"
+                    ],
+                    [
+                        "Collect References",
+                        "Read reference group and current order"
+                    ],
+                    [
+                        "ParaLock",
+                        "Block if other users hold locks in the reference area"
+                    ],
+                    [
+                        "Sort/Renumber",
+                        "Apply configured sort/order operation"
+                    ],
+                    [
+                        "Update Citations",
+                        "Refresh linked citation/reference numbering where applicable"
+                    ],
+                    [
+                        "Save",
+                        "Snapshot and refresh document state"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Ref Sort Action] --> B[Collect Ref Group]\n    B --> C{Locked?}\n    C -->|Yes| D[Warn + Stop]\n    C -->|No| E[Sort / Renumber]\n    E --> F[Update Links]\n    F --> G[Save Snapshot]"
+            },
+            "share_invite": {
+                "name": "Share Invite Module",
+                "description": "Invite/share dialog collects recipients, role/comment input, initializes Summernote for comments, and submits share requests.",
+                "table": [
+                    [
+                        "Open",
+                        "User opens ShareInvite dialog"
+                    ],
+                    [
+                        "Bind DOM",
+                        "Refresh input, role, comment, and submit controls"
+                    ],
+                    [
+                        "Recipients",
+                        "Validate and collect email chips/recipient values"
+                    ],
+                    [
+                        "Comment",
+                        "Initialize Summernote comment editor and collect optional message"
+                    ],
+                    [
+                        "Role",
+                        "Apply configured/default role selection"
+                    ],
+                    [
+                        "Submit",
+                        "Send share invite and update button/state feedback"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Open Share Invite] --> B[Bind Inputs]\n    B --> C[Collect Recipients]\n    C --> D[Optional Comment]\n    D --> E[Role Selection]\n    E --> F[Submit Invite]"
+            },
+            "supplementary_material": {
+                "name": "Supplementary Material Module",
+                "description": "Current SupplementaryMaterial flow manages upload, replacement, deletion, captions/remarks, query-linked operations, and staged save state.",
+                "table": [
+                    [
+                        "Open",
+                        "Load supplementary material dialog and current file state"
+                    ],
+                    [
+                        "Upload/Replace",
+                        "Validate files and stage add/replace/delete actions"
+                    ],
+                    [
+                        "Caption/Remark",
+                        "Initialize Summernote for captions and replacement remarks"
+                    ],
+                    [
+                        "Query Link",
+                        "Coordinate linked query/comment state when applicable"
+                    ],
+                    [
+                        "Validate",
+                        "Check required metadata, labels, files, and replacement remarks"
+                    ],
+                    [
+                        "Save",
+                        "Upload files, persist metadata, update UI, and cleanup staged state"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Open Supplementary Dialog] --> B[Stage File Actions]\n    B --> C[Caption / Remark Editors]\n    C --> D[Validate Metadata]\n    D --> E[Upload + Persist]\n    E --> F[Refresh UI]"
+            },
+            "supplementary_material_legacy_alias": {
+                "name": "Supplementary Material Legacy Alias",
+                "description": "Legacy `supp` workflow entry is retained for older UI references; current implementation is documented under supplementary_material.",
+                "table": [
+                    [
+                        "Alias",
+                        "Older workflow key `supp` maps to the current supplementary_material module"
+                    ],
+                    [
+                        "Current Entry",
+                        "Use supplementary_material for the active upload/replace/delete workflow"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[supp legacy key] --> B[supplementary_material current workflow]"
+            },
+            "collaborative_module": {
+                "name": "Collaborative Module",
+                "description": "Socket-first lock and DB-first replacement collaboration workflow with local/UAT runtime switching, metadata-only notices, and doc-scoped socket rooms.",
+                "table": [
+                    [
+                        "Resolve Mode",
+                        "Choose collaborative or off only by explicit URL/localStorage; otherwise default legacy"
+                    ],
+                    [
+                        "Editor Ready",
+                        "In legacy/default, only paraLockSync starts; CollaborativeModule registers only after explicit collaborative opt-in"
+                    ],
+                    [
+                        "Single Owner",
+                        "Only paraLockSync or CollaborativeModule actively processes lock/replacement writes"
+                    ],
+                    [
+                        "Runtime Switch",
+                        "Local/UAT dialog is available only after explicit collaborative opt-in, then can switch runtime without page refresh"
+                    ],
+                    [
+                        "Cursor Lock",
+                        "Legacy cursor movement uses lockid; collaborative cursor movement sends realtime lock/release notices"
+                    ],
+                    [
+                        "DB First",
+                        "Replacement changes reuse a pending uniqueId and write authoritative updated_html rows before notices are sent"
+                    ],
+                    [
+                        "Write Ack",
+                        "findupdatewithpush returns a small write acknowledgement; getFilterdocs owns lock/replacement hydration and lastSync filtering"
+                    ],
+                    [
+                        "Notify",
+                        "BroadcastChannel collaborativeModule:<docid> and /collaboration?docid=<docid> send metadata only"
+                    ],
+                    [
+                        "Remote Apply",
+                        "Consumers fetch replacements by docid + uniqueId through getFilterdocs with filter; lock notices apply directly without get_lock_id"
+                    ],
+                    [
+                        "Last Sync",
+                        "Active provider replacement apply stores response-received time as lastSync with lastSyncOnly and sends no notice"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Resolve collaboration mode] --> B{Mode}\n    B -->|legacy| C[Resume paraLockSync after FullyLoaded]\n    B -->|collaborative| D[Start CollaborativeModule]\n    B -->|off| E[Pause both and expose fallback]\n    C --> F[Cursor sends DB lockid with stored lastSync]\n    D --> G[Cursor sends realtime lock notice]\n    D --> H[Replacement writes updated_html to DB]\n    H --> I[findupdatewithpush returns ack only]\n    I --> J[Notify uniqueId only]\n    J --> K[Remote getFilterdocs by docid + uniqueId]\n    K --> L[Capture response time and apply replacement]\n    L --> M[Send flagUpdate]\n    L --> N[Persist lastSyncOnly without notice]"
+            }
+        }
+    },
+    "querysystem": {
+        "label": "Query System",
+        "icon": "💬",
+        "workflows": {
+            "query_base_module": {
+                "name": "QueryBaseModule Lifecycle (Current)",
+                "description": "Current migrated query orchestrator: creates shared state, loads config, initializes attachment/panel/templates/dialog/restore, and routes create/edit/reply/delete operations.",
+                "table": [
+                    [
+                        "Bootstrap",
+                        "register.js registers querySystem through moduleRegistry and binds window.queryModule"
+                    ],
+                    [
+                        "Initialize State",
+                        "QueryBaseModule creates config, query/comment maps, caches, and event targets"
+                    ],
+                    [
+                        "Submodules",
+                        "Creates AttachmentModule, QueryPanelModule, QueryTemplates, QueryDialogModule, and restore integration"
+                    ],
+                    [
+                        "Runtime Ops",
+                        "operationInsertOrUpdate handles create/update with validation, attachments, DOM updates, and panel refresh"
+                    ],
+                    [
+                        "ParaLock Guard",
+                        "Query operations check window.paraLock before editing locked query/comment targets"
+                    ],
+                    [
+                        "Refresh",
+                        "Panel and restore modules refresh cached DOM/query state after mutations"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[register.js DOMContentLoaded] --> B[moduleRegistry.registerDirectModule querySystem]\n    B --> C[window.queryModule]\n    C --> D[QueryBaseModule init]\n    D --> E[Attachment + Panel + Templates]\n    D --> F[QueryDialogModule]\n    D --> G[Restore Integration]\n    F --> H[operationInsertOrUpdate]\n    H --> I[Validate + Attachments]\n    I --> J[DOM Update + Panel Refresh]"
+            },
+            "attachment_module": {
+                "name": "AttachmentModule Flow (Current)",
+                "description": "AttachmentModule manages dialog/panel attachment stores, validation, upload, preview, delete, and download for query/comment workflows.",
+                "table": [
+                    [
+                        "Store Setup",
+                        "Resolve the current query/comment store id for dialog or panel context"
+                    ],
+                    [
+                        "Input Bind",
+                        "Create and bind file input actions for attach controls"
+                    ],
+                    [
+                        "Validate",
+                        "Check extension, size, and configured attachment limits"
+                    ],
+                    [
+                        "Upload",
+                        "Upload pending files through FileUploadModule before save/update"
+                    ],
+                    [
+                        "Preview",
+                        "Render existing and pending attachments in dialog/panel UI"
+                    ],
+                    [
+                        "Cleanup",
+                        "Clear or update stores after save, cancel, delete, or panel refresh"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Attach Action] --> B[Resolve Store]\n    B --> C[Validate Files]\n    C -->|Valid| D[Upload Pending Files]\n    C -->|Invalid| E[Show Warning]\n    D --> F[Update Store]\n    F --> G[Render Preview]\n    G --> H[Save or Manage Attachments]"
+            },
+            "query_panel_module": {
+                "name": "QueryPanelModule Flow (Current)",
+                "description": "Panel rendering uses QueryTemplates plus caches to render full lists or changed items, bind actions, and coordinate replies/attachments.",
+                "table": [
+                    [
+                        "Initialize",
+                        "Create panel state and attach QueryTemplates/AttachmentModule references"
+                    ],
+                    [
+                        "Refresh",
+                        "Choose cached partial render or full rebuild based on state changes"
+                    ],
+                    [
+                        "Render Items",
+                        "Render query/comment rows with role/status-aware actions"
+                    ],
+                    [
+                        "Bind Events",
+                        "Bind reply, edit, delete, close, and attachment controls"
+                    ],
+                    [
+                        "Reply Inline",
+                        "Open panel reply form and submit through QueryBaseModule"
+                    ],
+                    [
+                        "Cache Update",
+                        "Update render maps and invalidate on major state changes"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Panel Refresh] --> B{Cache Valid?}\n    B -->|Yes| C[Render Changed Items]\n    B -->|No| D[Full Render]\n    C --> E[Bind Actions]\n    D --> E\n    E --> F[Attachment Controls]\n    F --> G[Cache State]"
+            },
+            "query_dialog_module": {
+                "name": "QueryDialogModule Flow (Current)",
+                "description": "Dialog module extends BaseModule, renders query/comment forms, initializes Summernote through SummernoteManager, handles attachments, and submits through QueryBaseModule.",
+                "table": [
+                    [
+                        "Create Dialog",
+                        "Inject dialog shell and bind close/cancel/save/reply/edit handlers"
+                    ],
+                    [
+                        "Render Form",
+                        "Render new, edit, reply, or verify-mode content using QueryTemplates"
+                    ],
+                    [
+                        "Summernote",
+                        "setupDialogSummerNote binds the textarea through SummernoteManager before initialization"
+                    ],
+                    [
+                        "Attachments",
+                        "Register AttachmentModule callbacks and render pending/existing files"
+                    ],
+                    [
+                        "Submit",
+                        "Collect form content and call parent.operationInsertOrUpdate"
+                    ],
+                    [
+                        "Close",
+                        "Cleanup state, temporary stores, and hide dialog"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Open Dialog] --> B[Render Query Form]\n    B --> C[Bind Summernote Target]\n    C --> D[Attachment Callbacks]\n    D --> E{User Action}\n    E -->|Save| F[Collect Content]\n    F --> G[parent.operationInsertOrUpdate]\n    E -->|Cancel| H[Cleanup + Close]"
+            },
+            "query_restore_module": {
+                "name": "QueryRestoreModule Flow",
+                "description": "Backup document load, query capture, validation, and restore strategy",
+                "table": [
+                    [
+                        "Init",
+                        "Wait for editor and initialize restore manager"
+                    ],
+                    [
+                        "Load Backups",
+                        "Load original, aqBackup, and aqOriginal contexts"
+                    ],
+                    [
+                        "Capture Queries",
+                        "Capture query snapshots per context"
+                    ],
+                    [
+                        "Count Sync",
+                        "Update counts/stats across contexts"
+                    ],
+                    [
+                        "Auto Restore",
+                        "Periodic validation and restoration for missing/broken queries"
+                    ],
+                    [
+                        "Refresh",
+                        "Refresh aqBackup context after user edits"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Start Restore Module] --> B[Wait Editor Ready]\n    B --> C[Load Backup Contexts]\n    C --> D[Capture Backup Queries]\n    D --> E[Update Counts]\n    E --> F{Auto Restore Enabled?}\n    F -->|Yes| G[Schedule Validation]\n    F -->|No| H[Manual Mode]\n    G --> I[Validate + Restore Missing Queries]"
+            },
+            "query_templates_module": {
+                "name": "QueryTemplates Flow",
+                "description": "Template rendering logic for headers, buttons, statuses, and role-based actions",
+                "table": [
+                    [
+                        "Setup",
+                        "Load parent role/config state for rendering decisions"
+                    ],
+                    [
+                        "Render Item",
+                        "Render query/comment block via common renderer"
+                    ],
+                    [
+                        "Header",
+                        "Render labels/status/actions based on role and state"
+                    ],
+                    [
+                        "Delete Rules",
+                        "Compute delete key from role/status/ownership"
+                    ],
+                    [
+                        "Attachments",
+                        "Render attachment UI snippets and metadata"
+                    ],
+                    [
+                        "Output",
+                        "Return final HTML fragment/string to panel/dialog"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Render Request] --> B[Set Parent Keys]\n    B --> C[Resolve Role + Status]\n    C --> D[Build Header]\n    D --> E[Build Actions]\n    E --> F[Build Body + Attachments]\n    F --> G[Return HTML]"
+            },
+            "query_utils_module": {
+                "name": "QueryUtils Utility Flow",
+                "description": "Shared utility helpers for IDs, sanitization, debounce, email validation, and timed fetch",
+                "table": [
+                    [
+                        "ID Generation",
+                        "Generate unique query/response identifiers"
+                    ],
+                    [
+                        "Validation",
+                        "Validate email and sanitize HTML content"
+                    ],
+                    [
+                        "Debounce",
+                        "Throttle expensive callbacks"
+                    ],
+                    [
+                        "Fetch Timeout",
+                        "Abort long-running requests using AbortController"
+                    ],
+                    [
+                        "Reuse",
+                        "Consumed by panel/dialog/base modules"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Module Needs Utility] --> B{Utility Type}\n    B -->|ID| C[generateId]\n    B -->|Validation| D[validateEmail]\n    B -->|Security| E[sanitizeHtml]\n    B -->|Performance| F[debounce]\n    B -->|Network| G[fetchWithTimeout]"
+            },
+            "query_system_bootstrap": {
+                "name": "Query System Bootstrap (Current)",
+                "description": "DOMContentLoaded bootstrap waits for moduleRegistry/BaseModule, registers querySystem, binds window.queryModule, and supports Track View fallback.",
+                "table": [
+                    [
+                        "DOMContentLoaded",
+                        "Start interval-based bootstrap from shared/query-comment-system/register.js"
+                    ],
+                    [
+                        "Dependency Wait",
+                        "Wait until moduleRegistry and BaseModule are available"
+                    ],
+                    [
+                        "Register",
+                        "registerDirectModule registers querySystem with QueryBaseModule"
+                    ],
+                    [
+                        "Acquire",
+                        "moduleRegistry.getModule binds the singleton to window.queryModule"
+                    ],
+                    [
+                        "Track View",
+                        "If Track View path is active, create QueryBaseModule directly"
+                    ],
+                    [
+                        "Runtime",
+                        "QueryBaseModule initializes its submodules and panel/dialog flows"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[DOMContentLoaded] --> B{moduleRegistry + BaseModule?}\n    B -->|No| A\n    B -->|Yes| C[registerDirectModule querySystem]\n    C --> D[getModule querySystem]\n    D --> E[window.queryModule]\n    B -->|Track View| F[new QueryBaseModule]\n    E --> G[Initialize Query Submodules]"
+            }
+        }
+    },
+    "linksharing": {
+        "label": "LinkSharing",
+        "icon": "🔗",
+        "workflows": {
+            "landing_to_editor": {
+                "name": "Landing to Editor (Current LinkSession)",
+                "description": "Landing access uses one common process=check workflow. The payload identity is the same, but DB lookup scope differs for collaborative and non-collaborative sessions.",
+                "table": [
+                    [
+                        "Email Verified",
+                        "Landing resolves the user email into USER_INFO.MAIL_ID before linksharing payload enrichment"
+                    ],
+                    [
+                        "Check Payload",
+                        "LinkSessionCore.buildCheckPayload creates process=check with docid, session_id, and session_start_time"
+                    ],
+                    [
+                        "Identity Fields",
+                        "Linksharing payload enrichment supplies username, role, and rolename"
+                    ],
+                    [
+                        "Collaborative Flag",
+                        "postRequest adds collaborative: \"1\" only when collaborative mode is enabled"
+                    ],
+                    [
+                        "Access Check",
+                        "Backend routes to regular Linksharing or LinksharingCollaborative based on the collaborative flag"
+                    ],
+                    [
+                        "Non-Collab Lookup",
+                        "Non-collaborative check searches active sessions by docid only"
+                    ],
+                    [
+                        "Collab Lookup",
+                        "Collaborative check searches active sessions by docid + rolename + username"
+                    ],
+                    [
+                        "Grant",
+                        "No active matching row inserts or grants the session"
+                    ],
+                    [
+                        "Same User Active",
+                        "Existing active same user/role/doc row denies access or stale-closes by backend last_saved_time rule"
+                    ],
+                    [
+                        "Different User",
+                        "Collaborative different-user email is allowed because username is part of the lookup scope"
+                    ],
+                    [
+                        "Non-Collab Conflict",
+                        "Any active doc row in non-collaborative mode returns conflict or deny"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Email Verified] --> B[Build process check payload]\n    B --> C[Add docid/session_id/session_start_time]\n    C --> D[Add username/role/rolename]\n    D --> E{Collaborative enabled?}\n    E -->|No| F[Regular DB check by docid]\n    E -->|Yes| G[Collaborative DB check by docid + rolename + username]\n    F --> H{Active doc row?}\n    H -->|No| I[Insert or grant session]\n    H -->|Yes| J[Conflict or deny]\n    G --> K{Active matching user row?}\n    K -->|No| I\n    K -->|Yes and stale| L[Backend stale-close by last_saved_time]\n    K -->|Yes and active| J\n    I --> M[completeAccessGrant and redirect]\n    L --> M"
+            },
+            "editor_session_open": {
+                "name": "Editor Session Open (Current LinkSession)",
+                "description": "LinkSessionEditor installs session globals and CHECK_REQUEST; editor session checks and scheduler callbacks route through LinkSessionCore.",
+                "table": [
+                    [
+                        "Load Entry",
+                        "LinkSessionEditor.ensureGlobals creates singleton and installs LinkSession globals"
+                    ],
+                    [
+                        "Facade",
+                        "CHECK_REQUEST is created from LinkSessionCore.createEditorFacade"
+                    ],
+                    [
+                        "Session Check",
+                        "newSessionCheck/openFromEditor posts process=check or refresh payloads"
+                    ],
+                    [
+                        "Session Guard",
+                        "Editor ready/save validation uses getdocs verification to confirm the active session still matches local storage"
+                    ],
+                    [
+                        "Scheduler",
+                        "startScheduler posts scheduled request checks while editing"
+                    ],
+                    [
+                        "Dialogs",
+                        "Incoming requests open LinkSessionRequestDialog when available"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[session_editor.js] --> B[LinkSessionEditor.ensureGlobals]\n    B --> C[installSessionGlobals]\n    C --> D[CHECK_REQUEST facade]\n    D --> E[newSessionCheck / Scheduler]\n    D --> F[getdocs session guard]\n    F --> G{Valid active row?}\n    G -->|Yes| H[Continue editor]\n    G -->|No| I[Block stale session]"
+            },
+            "expired_session_guard": {
+                "name": "Expired Session Guard (Current)",
+                "description": "Editor session guards block stale saves, stop timers, show expired_session_alert, and redirect through LinkSessionCore handlers.",
+                "table": [
+                    [
+                        "Check",
+                        "Editor save or ready guard verifies the current session against the active DB row"
+                    ],
+                    [
+                        "Stale Detect",
+                        "LinkSessionCore guard logic detects stale, expired, or conflicting session reasons"
+                    ],
+                    [
+                        "Stop Timers",
+                        "STOP_ALL_EVENT_TIMERS runs when session is no longer valid"
+                    ],
+                    [
+                        "Alert",
+                        "AlertNewDialog.fire(\"expired_session_alert\") informs the user"
+                    ],
+                    [
+                        "Redirect",
+                        "Session close/redirect globals move user back to a safe entry point"
+                    ],
+                    [
+                        "Neutralize",
+                        "Request re-entry hooks are blocked after force-stop"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Editor Save or Scheduler] --> B[Session Response]\n    B --> C{Valid Session?}\n    C -->|Yes| D[Continue]\n    C -->|No| E[STOP_ALL_EVENT_TIMERS]\n    E --> F[expired_session_alert]\n    F --> G[Redirect / Block Re-entry]"
+            },
+            "dialog_request_response": {
+                "name": "Request-Response Dialog System (Current)",
+                "description": "Conflicts are coordinated by LinkSessionCore with landing send UI and editor request dialog modules.",
+                "table": [
+                    [
+                        "Conflict",
+                        "Server check returns active-session conflict to landing user"
+                    ],
+                    [
+                        "Sender UI",
+                        "LinkSessionSendModule.prompt starts send-request flow and waiting UI"
+                    ],
+                    [
+                        "Request Payload",
+                        "LinkSessionCore.buildSendRequestPayload posts request status/session update"
+                    ],
+                    [
+                        "Poll",
+                        "LinkSessionSendModule.showPollWaiting calls pollRequestStatus"
+                    ],
+                    [
+                        "Receiver UI",
+                        "Editor scheduler opens LinkSessionRequestDialog for current user"
+                    ],
+                    [
+                        "Resolve",
+                        "Accept/reject/timeout calls LinkSessionCore payload builders and updates session state"
+                    ]
+                ],
+                "mermaid": "sequenceDiagram\n    participant NewUser\n    participant Core as LinkSessionCore\n    participant Send as LinkSessionSendModule\n    participant Req as LinkSessionRequestDialog\n    NewUser->>Core: accessFromLanding\n    Core->>Send: prompt conflict\n    Send->>Core: sendAccessRequest\n    Core->>Req: open incoming request\n    Req->>Core: accept/reject/timeout payload\n    Core->>Send: poll result / grant / rejection"
+            },
+            "request_approval": {
+                "name": "Request Approval",
+                "description": "User requests access to locked document",
+                "table": [
+                    [
+                        "Request Sent",
+                        "User requests access to a locked document"
+                    ],
+                    [
+                        "Waiting",
+                        "System shows waiting dialog with timer"
+                    ],
+                    [
+                        "Approval Check",
+                        "System polls for approval status"
+                    ],
+                    [
+                        "Result",
+                        "On approval, user is redirected to editor"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Request Access] --> B[Send to Author]\n    B --> C[System Waits 45s]\n    C --> D[Check Status]\n    D -->|Approved| E[Editor Access]\n    D -->|Rejected| F[Show Rejection Reason]"
+            },
+            "session_workflow": {
+                "name": "Editor Session Workflow",
+                "description": "Session handling for editor sessions including refresh, close/open, and logout scenarios",
+                "table": [
+                    [
+                        "Landing Page",
+                        "User accesses the landing page"
+                    ],
+                    [
+                        "Validate Access",
+                        "System validates session and permissions"
+                    ],
+                    [
+                        "Editor Session",
+                        "User enters editing mode"
+                    ],
+                    [
+                        "Refresh Detection",
+                        "If browser refresh, detect existing tab_id"
+                    ],
+                    [
+                        "Server Request",
+                        "Request new session_id using tab_id + docid"
+                    ],
+                    [
+                        "DB Validation",
+                        "Validate session with database"
+                    ],
+                    [
+                        "Re-init or Block",
+                        "Re-initialize session or block if invalid"
+                    ],
+                    [
+                        "Close/Open Handling",
+                        "Clear sessionStorage on close/open, require fresh validation"
+                    ],
+                    [
+                        "Logout",
+                        "Save work and logout"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Landing Page] --> B[Validate Access]\n    B --> C{Valid?}\n    C -->|Yes| D[Editor Session]\n    D --> E{Refresh?}\n    E -->|Yes| F[Detect tab_id]\n    F --> G[Request new session_id]\n    G --> H[Validate with DB]\n    H --> I{Valid?}\n    I -->|Yes| J[Re-init session]\n    I -->|No| K[Block & Alert]\n    E -->|No| L{Close/Open?}\n    L -->|Yes| M[Clear sessionStorage]\n    M --> N[Fresh Validation]\n    L -->|No| O[Continue Editing]\n    D --> P{Logout?}\n    P -->|Yes| Q[Save & Logout]\n    P -->|No| D"
+            }
+        }
+    },
+    "editor": {
+        "label": "Editor",
+        "icon": "✏️",
+        "workflows": {
+            "idle_session": {
+                "name": "Idle Session Handling",
+                "description": "Automatic session management during inactivity",
+                "table": [
+                    [
+                        "Active Editing",
+                        "User is actively editing document"
+                    ],
+                    [
+                        "Idle Detected",
+                        "System detects user inactivity for 40 minutes"
+                    ],
+                    [
+                        "Alert Shown",
+                        "SweetAlert prompts user with options"
+                    ],
+                    [
+                        "User Action",
+                        "User confirms to continue or signs off"
+                    ],
+                    [
+                        "Auto Save",
+                        "If no response, document is saved and session closed"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[User Editing] --> B{Idle 40min?}\n    B -->|No| A\n    B -->|Yes| C[Show Idle Alert]\n    C --> D{User Response?}\n    D -->|Continue| E[Save & Resume]\n    D -->|Sign Off| F[Auto Save & Close]\n    D -->|No Response| F"
+            },
+            "check_request": {
+                "name": "Check Request Scheduler",
+                "description": "Periodic checking for new requests via scheduler",
+                "table": [
+                    [
+                        "Scheduler Init",
+                        "Initialize with timer interval"
+                    ],
+                    [
+                        "Poll Server",
+                        "Check for new request status every 15s"
+                    ],
+                    [
+                        "New Request",
+                        "Server returns new request data"
+                    ],
+                    [
+                        "Update Status",
+                        "Update request status in database"
+                    ],
+                    [
+                        "Dialog",
+                        "Show dialog if new request detected"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Start Scheduler] --> B[setInterval 15s]\n    B --> C[GET new_request_post]\n    C --> D{Request Found?}\n    D -->|Yes| E[Update Status]\n    E --> F[Show Dialog]\n    D -->|No| B\n    F --> G[User Action]"
+            }
+        }
+    },
+    "save": {
+        "label": "Save Module",
+        "icon": "💾",
+        "workflows": {
+            "save_flow": {
+                "name": "Save Workflow",
+                "description": "Document save and sync to server",
+                "table": [
+                    [
+                        "User Save",
+                        "User initiates save or auto-save triggered"
+                    ],
+                    [
+                        "Compression",
+                        "Document is compressed/packaged"
+                    ],
+                    [
+                        "Send to Server",
+                        "Save request sent to server via AJAX"
+                    ],
+                    [
+                        "Server Process",
+                        "Server updates database and session"
+                    ],
+                    [
+                        "Confirmation",
+                        "Server returns save confirmation"
+                    ],
+                    [
+                        "Update UI",
+                        "UI updates to show save status"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Save Triggered] --> B[Package Document]\n    B --> C[Send to Server]\n    C --> D[Server Update]\n    D --> E{Success?}\n    E -->|Yes| F[Update LastSaveTime]\n    E -->|No| G[Show Error]"
+            },
+            "force_save": {
+                "name": "Force Save (Idle)",
+                "description": "Forced save before session close",
+                "table": [
+                    [
+                        "Idle Timeout",
+                        "Session idle timeout reached"
+                    ],
+                    [
+                        "Force Save",
+                        "Trigger IMPACT_SAVE.iSave with forcesave: true"
+                    ],
+                    [
+                        "Block UI",
+                        "Set read-only mode during save"
+                    ],
+                    [
+                        "Save Complete",
+                        "Wait for save completion"
+                    ],
+                    [
+                        "Close Session",
+                        "Close session or redirect"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Idle 40+ min] --> B[Stop Editor]\n    B --> C[Force Save]\n    C --> D[Wait Complete]\n    D --> E[Read-Only Mode]\n    E --> F[Close/Redirect]"
+            },
+            "cjk_mismatch_mail": {
+                "name": "CJK_MISMATCH Mail Trigger",
+                "description": "Save-time East Asian character count validation, alert display, and one-time support mail trigger",
+                "table": [
+                    [
+                        "Save Start",
+                        "SaveModule.save validates session, prepares editor data, and runs validateContent"
+                    ],
+                    [
+                        "CJK Validation",
+                        "contentValidator.validateDocumentContent compares original and editor East Asian character counts"
+                    ],
+                    [
+                        "Mismatch Detected",
+                        "When validation fails and ignore_cjk_alert is not true, SaveModule sets reason to CJK_MISMATCH"
+                    ],
+                    [
+                        "Failure Routing",
+                        "handleValidationFailure hides loading UI, detects collator role, and calls showDialogAlertwithMailSend"
+                    ],
+                    [
+                        "Collator Rule",
+                        "For collator users, mail is skipped and only the CHINESE_CHAR warning is shown"
+                    ],
+                    [
+                        "Auto Mail",
+                        "For non-collator users, triggerAutoMail calls SupportMailDialog.errorMailWithFallback"
+                    ],
+                    [
+                        "Duplicate Check",
+                        "SupportMailDialog checks existing ErrorLogs and in-memory sent keys for CJK_MISMATCH"
+                    ],
+                    [
+                        "Send Once",
+                        "First occurrence sends genericsendemail and records the mail to ErrorLogs; repeated occurrences exit without triggering mail"
+                    ],
+                    [
+                        "Redirect",
+                        "Alert acknowledgement redirects the current session to read-only view"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[SaveModule.save] --> B[validateContent]\n    B --> C[contentValidator.validateDocumentContent]\n    C --> D{CJK counts match?}\n    D -->|Yes| E[Continue save]\n    D -->|No| F[reason = CJK_MISMATCH]\n    F --> G[handleValidationFailure]\n    G --> H{Collator role?}\n    H -->|Yes| I[Skip mail]\n    H -->|No| J[triggerAutoMail]\n    J --> K[SupportMailDialog.errorMailWithFallback]\n    K --> L{Existing ErrorLogs or sent key?}\n    L -->|Yes| M[Exit without mail]\n    L -->|No| N[genericsendemail]\n    N --> O[Record ErrorLogs]\n    I --> P[Show warning dialog]\n    M --> P\n    O --> P\n    P --> Q[Redirect read-only]"
+            }
+        }
+    },
+    "math": {
+        "label": "Math Module",
+        "icon": "∑",
+        "workflows": {
+            "math_execute_order": {
+                "name": "Math Execute Order",
+                "description": "Complete math equation workflow",
+                "table": [
+                    [
+                        "Init",
+                        "MathWorkFlow initializes config and preference"
+                    ],
+                    [
+                        "Open Dialog",
+                        "Open Wiris or MathLive based on preference"
+                    ],
+                    [
+                        "Edit",
+                        "User edits or inserts math equation"
+                    ],
+                    [
+                        "Insert",
+                        "fire_insertOrUpdate() inserts/updates equation"
+                    ],
+                    [
+                        "Save Preference",
+                        "setPreference() stores user choice"
+                    ],
+                    [
+                        "Track",
+                        "mathrecord() stores analytics"
+                    ],
+                    [
+                        "Reorder",
+                        "If seq enabled, ReOrderingEqLabel() renumbers"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Init] --> B[getConfig]\n    B --> C[getPreference]\n    C --> D{Which Tool?}\n    D -->|Wiris| E[Open Wiris]\n    D -->|MathLive| F[Open MathLive]\n    E --> G[Insert/Update]\n    F --> G\n    G --> H[Save Preference]\n    H --> I[Record Analytics]\n    I --> J{Seq Enabled?}\n    J -->|Yes| K[ReOrder Labels]\n    J -->|No| L[Done]"
+            },
+            "math_reorder": {
+                "name": "Math Reorder Flow",
+                "description": "Renumber equation labels after edit",
+                "table": [
+                    [
+                        "Find Labels",
+                        "Scan all display labels in document"
+                    ],
+                    [
+                        "Compute Index",
+                        "Calculate new sequence values"
+                    ],
+                    [
+                        "Track Changes",
+                        "Store old and new values"
+                    ],
+                    [
+                        "Update Citations",
+                        "Update linked equation references"
+                    ],
+                    [
+                        "Reset",
+                        "Reset module state"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Find Labels] --> B[For Each Label]\n    B --> C[Compute New Value]\n    C --> D{Changed?}\n    D -->|Yes| E[Update Label]\n    E --> F[Update Citations]\n    D -->|No| G[Keep Value]\n    F --> H[Next Label]\n    G --> H\n    H --> I[Reset]"
+            }
+        }
+    },
+    "finalization": {
+        "label": "Finalization",
+        "icon": "✅",
+        "workflows": {
+            "finalize_dialog": {
+                "name": "Finalize Dialog Flow",
+                "description": "Main finalization process",
+                "table": [
+                    [
+                        "User Click",
+                        "User initiates finalization"
+                    ],
+                    [
+                        "Check Queries",
+                        "Verify no open queries exist"
+                    ],
+                    [
+                        "Check Collab",
+                        "Check if collaborative editing enabled"
+                    ],
+                    [
+                        "Show Stage",
+                        "Display appropriate stage (queries/collab/finalize)"
+                    ],
+                    [
+                        "User Action",
+                        "User confirms finalization"
+                    ],
+                    [
+                        "Save & Validate",
+                        "Save document and validate workflow"
+                    ],
+                    [
+                        "Update DB",
+                        "Update sign-off status in database"
+                    ],
+                    [
+                        "Redirect",
+                        "Redirect to read-only view"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Finalize Click] --> B[Check Stage]\n    B --> C{Queries?}\n    C -->|Yes| D[Query Stage]\n    C -->|No| E{Collab?}\n    E -->|Yes| F[Collab Stage]\n    E -->|No| G[Finalize Stage]\n    D --> H[Wait User]\n    F --> H\n    G --> H\n    H --> I[Save]\n    I --> J[Update DB]\n    J --> K[Redirect]"
+            }
+        }
+    },
+    "parallocksync": {
+        "label": "ParaLockSync",
+        "icon": "🔐",
+        "workflows": {
+            "current_guard_integration": {
+                "name": "ParaLock Guard Integration (Current)",
+                "description": "Current code consumes window.paraLock as a global collaboration guard: modules check lock state before edits and pause/resume/send lock events through editor-level hooks.",
+                "table": [
+                    [
+                        "Global Service",
+                        "window.paraLock is expected to provide _isEnabled, _isElementLocked, getLockedElementsByOthers, and related hooks"
+                    ],
+                    [
+                        "Dialog Guard",
+                        "BaseModule blocks dialog actions when the current selection is locked by another user"
+                    ],
+                    [
+                        "Module Guards",
+                        "Notes, figures, references, citations, tables, restore, finalize, and query modules check ParaLock before mutating content"
+                    ],
+                    [
+                        "Query Integration",
+                        "QueryBaseModule calls _handleQueryCommentRelatedUpdates and checks locks before query operations"
+                    ],
+                    [
+                        "Editor Hooks",
+                        "Editor page handlers pause/resume ParaLock and can send lock state to the server"
+                    ],
+                    [
+                        "Fallback",
+                        "When paraLock is unavailable or disabled, modules continue single-user behavior"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[User Action] --> B{window.paraLock enabled?}\n    B -->|No| C[Continue Normal Action]\n    B -->|Yes| D[Check Lock State]\n    D -->|Locked By Other| E[Block + Alert]\n    D -->|Available| F[Run Module Operation]\n    F --> G[Optional ParaLock Update Hook]"
+            },
+            "paragraph_locking": {
+                "name": "Paragraph-Level Locking (Current Integration)",
+                "description": "Current module code respects paragraph lock markers and ParaLock APIs; the lock owner service is external/global to these modules.",
+                "table": [
+                    [
+                        "Selection",
+                        "Selection/context handlers inspect the current CKEditor block or closest paragraph"
+                    ],
+                    [
+                        "Lock Check",
+                        "_isElementLocked and closest .para-locked checks determine whether editing is blocked"
+                    ],
+                    [
+                        "Module Action",
+                        "Insert/edit/delete flows call ParaLock before mutating document structures"
+                    ],
+                    [
+                        "Visual Marker",
+                        "Existing .para-locked markers and lock metadata drive user-facing blocked state"
+                    ],
+                    [
+                        "Release/Pause",
+                        "Editor lifecycle can pause/resume ParaLock events during save/logout/session transitions"
+                    ],
+                    [
+                        "Sync Hook",
+                        "When available, _sendToServer communicates lock/session state"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Selection / Context Menu] --> B[Resolve Block]\n    B --> C{Lock Available?}\n    C -->|Locked| D[Block Operation]\n    C -->|Available| E[Allow Edit]\n    E --> F[Save / Session Lifecycle]\n    F --> G[Pause Resume or Send ParaLock Event]"
+            },
+            "live_synchronization_proposed": {
+                "name": "Live Content Synchronization (SocketBridge Frontend Ready)",
+                "description": "Frontend SocketBridge now carries metadata-only replacement notices; durable content still persists through REST/API and receivers fetch by uniqueId.",
+                "table": [
+                    [
+                        "Detect Change",
+                        "paraLockSync detects changed paragraph content during existing save/update flow"
+                    ],
+                    [
+                        "Persist",
+                        "Existing API/DB path stores replacement data first"
+                    ],
+                    [
+                        "Notify",
+                        "SocketBridge publishes metadata-only replacement notice after successful persistence"
+                    ],
+                    [
+                        "Receive",
+                        "Other sessions receive replacement notice through collaboration/paraLock routing"
+                    ],
+                    [
+                        "Fetch",
+                        "Receiver fetches authoritative replacement data by uniqueId"
+                    ],
+                    [
+                        "Apply",
+                        "Existing replacement application logic updates the editor if valid"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Paragraph changed] --> B[Persist replacement via API/DB]\n    B --> C{Save success?}\n    C -->|Yes| D[SocketBridge replacement notice]\n    C -->|No| E[No socket success event]\n    D --> F[Remote receives uniqueId]\n    F --> G[Fetch replacement by uniqueId]\n    G --> H[Apply existing replacement logic]"
+            }
+        }
+    },
+    "placeholder_modules": {
+        "label": "PlaceHolder Modules",
+        "workflows": {
+            "keyword_with_holder_module": {
+                "name": "keywordWithHolderModule",
+                "table": [
+                    [
+                        "Initialize",
+                        "Extends PlaceHolderFactoryModule with keyword selectors and context menu setup"
+                    ],
+                    [
+                        "Load Config",
+                        "Reads keyword separator/end-period config and captures initial delimiter state"
+                    ],
+                    [
+                        "Context Menu",
+                        "Enables Add, Move Left/Right, Delete based on keyword node position"
+                    ],
+                    [
+                        "Execute",
+                        "Clones kwd-group, applies action, updates TC message, restores delimiters, replaces DOM"
+                    ],
+                    [
+                        "Selection",
+                        "Re-selects affected keyword node and keeps editor focus after action"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[keywordWithHolderModule ctor] --> D[Open context menu]\n    A -->|instanceReady| B[checkAndMigrateLegacyKwdData]\n    B --> C[Capture delimiter state]\n    D --> E{Action}\n    E -->|Add| F[Append new kwd]\n    E -->|Move| G[Reorder kwd]\n    E -->|Delete| H[Mark/remove kwd]\n    F --> I[TC_MSG + replace group]\n    G --> I\n    H --> I\n    I --> J[Restore selection + focus]"
+            },
+            "abbreviation_with_holder_module": {
+                "name": "abbreviationWithHolderModule",
+                "table": [
+                    [
+                        "Initialize",
+                        "Extends PlaceHolderFactoryModule for .def-list and .def-item handling"
+                    ],
+                    [
+                        "Capture State",
+                        "Loads delimiter values and in-between delimiter behavior for term/def pairs"
+                    ],
+                    [
+                        "Context Menu",
+                        "Shows Add, Move Up/Down, Delete for abbreviation items"
+                    ],
+                    [
+                        "Execute",
+                        "Clones def-list, applies add/move/delete, converts delete markup, updates TC, replaces DOM"
+                    ],
+                    [
+                        "Selection",
+                        "Re-selects modified abbreviation item and keeps cursor continuity"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[abbreviationWithHolderModule ctor] --> C[Context menu evaluate]\n    A -->|instanceReady| B[Init context and delimiter capture]\n    C --> D{ABBR action}\n    D -->|ABBR_ADD| E[Append def-item]\n    D -->|ABBR_MOVE_LEFT/RIGHT| F[Reorder def-item]\n    D -->|ABBR_DELETE| G[Mark delete or remove]\n    E --> H[revertInsertDelimiters]\n    F --> H\n    G --> H\n    H --> I[TC_MSG + DOM replace]\n    I --> J[Restore selection + focus]"
+            },
+            "abstract_with_holder_module": {
+                "name": "abstractWithHolderModule",
+                "table": [
+                    [
+                        "Initialize",
+                        "Extends PlaceHolderFactoryModule for abstract root and section/paragraph selectors"
+                    ],
+                    [
+                        "Configure",
+                        "Reads abstract restriction rules from J_CONFIG and enables AbstractWordCounter"
+                    ],
+                    [
+                        "Context Menu",
+                        "Offers Show Count and Merge with Previous Paragraph in valid abstract scope"
+                    ],
+                    [
+                        "Structure",
+                        "Handles ABS_UNSTRUCTURE and ABS_RESTRUCTURE by swapping section/span nodes"
+                    ],
+                    [
+                        "Merge",
+                        "Merges current abstract paragraph (or section-title case) into previous paragraph"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[abstractWithHolderModule ctor] --> D[Context menu check]\n    A -->|instanceReady| B[updateConfiguration]\n    B --> C[migrateToTitle]\n    D --> E{Command}\n    E -->|SHOW_ABS_COUNT| F[Open counter dialog]\n    E -->|ABS_UNSTRUCTURE/RESTRUCTURE| G[structureManipulation]\n    E -->|PREV_MERGE_PARA| H[mergeWithPreviousParagraph]\n    F --> I[Complete]\n    G --> I\n    H --> I"
+            }
+        }
+    },
+    "socket_bridge": {
+        "label": "SocketBridge",
+        "icon": "🔌",
+        "workflows": {
+            "socket_bridge_lifecycle": {
+                "name": "SocketBridge Document-Session Lifecycle",
+                "description": "One document session creates one SocketBridge connection; channel, scope, and type route feature messages without creating channel-specific sockets.",
+                "table": [
+                    [
+                        "Create Bridge",
+                        "Feature module calls SocketBridge.getInstance with docid, source, user, role, and sessionId"
+                    ],
+                    [
+                        "Instance Key",
+                        "Bridge is reused by docid plus sessionId; channel and scope are message routing fields"
+                    ],
+                    [
+                        "Connect",
+                        "Bridge opens /collaboration?docid=<docid>&source=<source> through internal transport"
+                    ],
+                    [
+                        "Subscribe",
+                        "Feature handlers register by channel, scope, and type, with legacy string subscriptions still supported"
+                    ],
+                    [
+                        "Publish",
+                        "Messages carry version, messageId, optional correlationId, docid, channel, scope, type, source, user, role, sessionId, timestamp, and payload"
+                    ],
+                    [
+                        "Cleanup",
+                        "Module close unsubscribes handlers and disconnects when appropriate"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[Feature requests SocketBridge] --> B[Resolve docid + sessionId instance]\n    B --> C{Existing bridge?}\n    C -->|Yes| D[Reuse connection]\n    C -->|No| E[Create bridge]\n    E --> F[Connect to /collaboration?docid&source]\n    D --> G[Subscribe by channel/scope/type]\n    F --> G\n    G --> H[Publish or receive messages]\n    H --> I[Route to matching handlers]\n    I --> J[Unsubscribe / disconnect]"
+            },
+            "parallocksync_socket_primary": {
+                "name": "ParaLock Socket-Primary With Fallback",
+                "description": "paraLockSync uses SocketBridge while connected and keeps legacy REST/DB polling as fallback when realtime transport is unavailable.",
+                "table": [
+                    [
+                        "Editor Start",
+                        "paraLockSync loads SocketBridge with channel collaboration, scope paraLock, source editor"
+                    ],
+                    [
+                        "Initial State",
+                        "Connected bridge publishes LOCK_GET_STATE; REST/DB remains recovery source"
+                    ],
+                    [
+                        "Cursor Lock",
+                        "Cursor movement publishes LOCK_ACQUIRE when socket is connected"
+                    ],
+                    [
+                        "Server Notice",
+                        "LOCK_GRANTED, LOCK_DENIED, LOCK_RENEWED, LOCK_RELEASED, and LOCK_STATE route into existing lock UI handlers"
+                    ],
+                    [
+                        "Fallback Interval",
+                        "Legacy interval remains alive but skips REST polling while SocketBridge is connected"
+                    ],
+                    [
+                        "Disconnected",
+                        "When socket is unavailable, _runLockOnlyTick uses the existing REST/DB lock path"
+                    ],
+                    [
+                        "Replacement Notice",
+                        "Successful replacement persistence sends metadata-only notice; remote side fetches by uniqueId"
+                    ]
+                ],
+                "mermaid": "flowchart TD\n    A[paraLockSync runtime] --> B[Connect SocketBridge]\n    B --> C[Subscribe paraLock messages]\n    C --> D{Socket connected?}\n    D -->|Yes| E[Publish LOCK_GET_STATE / LOCK_ACQUIRE / LOCK_RELEASE]\n    E --> F[Receive LOCK_* notice]\n    F --> G[Apply existing lock UI]\n    D -->|No| H[Fallback REST/DB lock polling]\n    H --> G\n    E --> I[Replacement notice metadata only]\n    I --> J[Remote fetches by uniqueId]"
+            },
+            "landing_presence": {
+                "name": "Landing Page Presence",
+                "description": "Landing Page announces early collaborative presence through SocketBridge and falls back to compatibility transport if the bridge asset is unavailable.",
+                "table": [
+                    [
+                        "Landing Load",
+                        "LandingPage loads socket_bridge asset when collaborative mode is active"
+                    ],
+                    [
+                        "Presence Bridge",
+                        "Creates document-session bridge with channel presence, scope document, source landing"
+                    ],
+                    [
+                        "Join Notice",
+                        "Publishes presence join for active document users"
+                    ],
+                    [
+                        "Fallback",
+                        "If bridge cannot load, fallback uses /collaboration?docid=<docid>&source=landing"
+                    ],
+                    [
+                        "Editor Handoff",
+                        "Editor may ingest early presence through existing local state"
+                    ]
+                ],
+                "mermaid": "sequenceDiagram\n    participant Landing\n    participant Bridge as SocketBridge\n    participant Server as /collaboration\n    participant Editor\n    Landing->>Bridge: getInstance docid source landing\n    Landing->>Bridge: presence join\n    Bridge->>Server: channel presence scope document\n    Server-->>Editor: route to active document sessions\n    Editor->>Editor: ingest/display presence when available"
+            }
+        }
+    }
+}

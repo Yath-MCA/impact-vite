@@ -1,0 +1,8 @@
+<refStyle>
+	<reference end="." />
+	<RefStylingFinalUpdate>
+		<element name="ReplaceDelim" refType="All|Journal|Book" first="‡ref_pageFirst" next="‡ref_pageLast" delim="–"/>
+		<element name="AddDelimBetweenInitial" refType="All|Journal|Book" style="‡ref_auGivenName" pattern="^([A-Z][\.\s]*([A-Z][\.\s]*)?([A-Z][\.\s]*)?)$" splitBy="." delim=""/>
+	</RefStylingFinalUpdate>
+	<RemoveTickCrossSymbol/>
+</refStyle>

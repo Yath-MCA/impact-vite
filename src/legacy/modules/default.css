@@ -1,0 +1,73 @@
+.mDialog {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: block;
+    z-index: 999;
+}
+
+.wo-editor-access .dialog-container.mt_pdf_row {
+    display: block;
+    margin-top: 8.5%;
+}
+
+.wo-editor-access .dialog-container {
+    position: fixed !important;
+    min-width: 25%;
+}
+
+.dialog-container {
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - 1rem);
+    margin-left: 25%;
+    margin-top: 0.5%;
+}
+
+.dialog-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    outline: 0;
+    padding: 7.5px 16px 24px 16px;
+    font-family: "Inter UI", sans-serif !important;
+    border: 0.5px solid #bebebe;
+    box-shadow: 2px 15px 15px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.dialog-content .dia_header_div {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    margin: 0 -16px;
+    padding: 1px 14px 8px 16px;
+    border-bottom: 0.5px solid #BEBEBE;
+    cursor: move !important;
+}
+
+
+.dialog-content .dialog-body.no-footer {
+    margin-bottom: 0px !important;
+}
+
+
+.dialog-content .dialog-body.no-footer {
+    margin-bottom: 0px !important;
+}
+
+
+.dialog-content .dialog-body {
+    margin: 0;
+    padding: 0;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}

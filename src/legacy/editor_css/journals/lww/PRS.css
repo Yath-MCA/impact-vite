@@ -1,0 +1,9 @@
+tr th .italic {
+    font-style: italic !important;
+    font-weight: bold !important;
+}
+
+div.ref .mixed-citation .source {
+    font-weight: 750;
+    font-style: bold !important;
+}

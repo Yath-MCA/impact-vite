@@ -1,0 +1,14 @@
+/* EURSOJ Journal */
+
+tr th .italic {
+    font-style: italic !important;
+    font-weight: bold !important;
+}
+
+div.ref .mixed-citation .source {
+    font-style: italic !important;
+}
+
+div.ref .mixed-citation .volume {
+    font-weight: bold !important;
+}

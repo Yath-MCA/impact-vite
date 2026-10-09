@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="EVOLUT" abbr="" journal-title="Evolution" batch="22" by="DR">
+				<!-- ? Separator = Not mentioned in style guide -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="yes" author-comment="no" degrees="yes" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="yes" corresp-quees="no" crosslink="no" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator=" " contribsep=", " contrib-last-sep=", " pattern="aftercomma" notallowed="yes" />
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="" designators="ArabicNumber" single-aff="false" autoReNumber="true" />
+				<!-- ?  -->
+				<corresp data-name="corresp" email="yes" address="yes" corresp-quees="no" maximum="1" minimum="1" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ?  -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="FootNote_1" notallowed="yes" />
+				<!-- ?  -->
+				<abstract data-name="abstract" GA="false" laysummery="false" notallowed="yes" />
+				<!-- ? Not mentioned in style guide  -->
+				<keywords data-name="keywords" seperator=", " endperiod="false" minimum="3" maximum="6" limit="no" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<!-- ? Table III. Text, text, text -->
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table" notallowed="yes">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" label_format="" part_label="false" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<notes footnote="allowed" endnote="" />
+				<heading data-name="title" numbered="no" label="no" label_suffix="" maximum="3" label_between_delim="">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+					<h3 style="bold" type="sentence case" label_format="" label_start_delim="" label_end_delim="" label_prefix="" />
+				</heading>
+				<dictionary spelling="US" name="" note="Merriam-Webster’s 11th Collegiate Dictionary" />
+				<!-- ? Run-in or made into a table -->
+				<list style="followauthor" bullet="notallowed" />
+				<equation label="" note="NA" />
+				<BackMatter ack="allowed" act="allowed" coi="allowed" fund="allowed" das="allowed" supp="allowed" suppcap="allowed" app="allowed" />
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false" notallowed="no">
+					<!-- ? Kolbe et al. 2005 -->
+					<citation type="CHRON_ASCEND" name_sep=" &amp; " name_last_sep=", | &amp; " name_year_sep=", " direct_sep=", " indirect_sep="; " double_sep="; " range_sep="" openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="roman" />
+				</Reference>
+			</journal>

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journals>
+  <journal short="JCIM" abbr="J Chem Inf Model" journal-title="Journal of Chemical Information and Modeling" client="acs" split="JCIM.xml" split_master="master_split.xml" />
+</journals>

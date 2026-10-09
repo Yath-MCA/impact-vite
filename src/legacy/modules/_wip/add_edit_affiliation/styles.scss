@@ -1,0 +1,125 @@
+#AddEditAffiliationDialog {
+    .dialog-container {
+        width: min(94vw, 980px);
+        max-width: 980px;
+    }
+
+    .dialog-body {
+        gap: 8px;
+        padding-top: 8px;
+    }
+
+    .ref-section {
+        margin-bottom: 8px;
+        padding: 8px;
+        border: 1px solid #e1e5e8;
+        border-radius: 3px;
+        background: #fafbfc;
+    }
+
+    .ref-section-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 6px;
+    }
+
+    .ref-section-title {
+        margin: 0 0 6px;
+        color: #454b50;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0;
+    }
+
+    .ref-section-title-row .ref-section-title {
+        margin: 0;
+    }
+
+    .ref-field-actions {
+        display: flex;
+        gap: 6px;
+    }
+
+    .ref-empty-hint {
+        margin: 0;
+        color: #6b737a;
+        font-size: 12px;
+    }
+
+    .ref-input-label {
+        display: block;
+        margin-bottom: 4px;
+        color: #454b50;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .aff-paste-error {
+        margin: 5px 0 0;
+        color: #b42318;
+        font-size: 12px;
+    }
+
+    #aff_edit_collapse.show {
+        display: block !important;
+    }
+
+    #aff_active_label {
+        display: block;
+        margin-bottom: 4px;
+        color: #343a40;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .aff-preview-host {
+        min-height: 72px;
+        padding: 10px;
+        overflow-wrap: anywhere;
+        border: 1px solid #cfd5da;
+        border-radius: 3px;
+        background: #fff;
+        color: #212529;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .aff-preview-seg {
+        display: inline;
+        margin: 0;
+        padding: 1px 2px;
+        border: 0;
+        border-bottom: 1px dotted #6f7c85;
+        border-radius: 2px;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        line-height: inherit;
+        cursor: pointer;
+
+        &:hover,
+        &:focus,
+        &.active {
+            border-bottom-color: #1268a8;
+            outline: 1px solid #1268a8;
+            background: #e8f3fb;
+        }
+    }
+
+    .aff-preview-entry {
+        display: block;
+        margin: 0 0 8px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &[data-preview-kind="new"] {
+            padding-top: 8px;
+            border-top: 1px solid #d9dee2;
+        }
+    }
+}

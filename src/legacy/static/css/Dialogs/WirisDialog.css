@@ -1,0 +1,29 @@
+.wrs_modal_button_latex {
+    min-width: 80px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid #778e9a;
+    padding: 6px 8px;
+    margin: 10px 5px 0 45px !important;
+    color: #fff;
+    background: #778e9a;
+    cursor: pointer;
+    font-family: arial, sans-serif;
+    height: 32px;
+}
+
+
+.wrs_button_latex {
+    min-width: 80px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid #778e9a;
+    padding: 6px 8px;
+    margin: 10px 5px 0 45px;
+    color: #fff;
+    background: #778e9a;
+    cursor: pointer;
+    font-family: arial, sans-serif;
+    height: 32px;
+
+}

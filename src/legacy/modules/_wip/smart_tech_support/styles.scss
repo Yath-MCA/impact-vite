@@ -1,0 +1,63 @@
+#SmartTechSupportDialog {
+    .smart-support-history-list {
+        height: clamp(320px, 58vh, 520px);
+        overflow: auto;
+    }
+
+    .smart-support-current-thread {
+        height: clamp(260px, 42vh, 420px);
+        overflow: auto;
+    }
+
+    .smart-support-message-row {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 8px;
+    }
+
+    .smart-support-message-row.is-self {
+        justify-content: flex-end;
+    }
+
+    .smart-support-message-bubble {
+        background: #ffffff;
+        border: 1px solid #e1e5ea;
+        border-radius: 8px;
+        max-width: 76%;
+        padding: 8px 10px 5px;
+        word-break: break-word;
+    }
+
+    .smart-support-message-row.is-self .smart-support-message-bubble {
+        background: #e7f4ff;
+        border-color: #c8e4fa;
+    }
+
+    .smart-support-message-attachments {
+        color: #6c757d;
+        font-size: 11px;
+        margin-top: 4px;
+    }
+
+    .smart-support-message-time {
+        color: #6c757d;
+        font-size: 7.5px;
+        line-height: 1;
+        margin-top: 5px;
+        text-align: right;
+    }
+
+    @media (max-width: 767.98px) {
+        .smart-support-history-list {
+            height: clamp(220px, 34vh, 340px);
+        }
+
+        .smart-support-current-thread {
+            height: clamp(240px, 40vh, 360px);
+        }
+
+        .smart-support-message-bubble {
+            max-width: 88%;
+        }
+    }
+}

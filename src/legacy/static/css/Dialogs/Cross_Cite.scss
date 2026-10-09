@@ -1,0 +1,388 @@
+div.dummyCheck {
+    cursor: pointer;
+}
+
+#CrossCitationModule {
+
+    /* .form-control:disabled,
+    .form-control[readonly] {
+        background-color: #FFFF !important;
+        border: 0.5px solid #8F8F8F !important;
+    } */
+
+    /* .xref-search .form-control,
+    .xref-search .form-control:focus {
+        background: #FFFFFF !important;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: 0.5px solid #8F8F8F !important;
+        vertical-align: middle !important;
+        font-size: 12px !important;
+        height: calc(1.8125rem + .5px) !important;
+        margin-top: 1px;
+        padding-top: .2rem;
+        padding-bottom: .2rem;
+        padding-left: 8px !important;
+        padding-right: 2rem !important;
+        line-height: 14px;
+        
+    } */
+    &.maxiview {
+        //TNF_B_MP_028 - Fixed width issue in maxiview by removing width value in css RJ - 12/10/23
+        // width: 475px;
+        // margin-left: -15em;
+        // margin-top: -4.5% !important;
+        // ! check common css
+    }
+
+    .xref-search .fa-search,
+    .symbol-search .fa-search {
+        margin: 7px 0 0 -30px;
+        position: inherit;
+        cursor: pointer;
+    }
+
+    .second_row .form-control,
+    .second_row .form-control:focus {
+        background-color: #FFFF !important;
+        border: 0.5px solid #8F8F8F !important;
+        box-sizing: border-box;
+        border-radius: 5px;
+        height: calc(1.75rem + 0px) !important;
+        width: max-content;
+        margin-top: .5em;
+    }
+
+    div#tDiv .xlabel {
+        padding-right: 0.25rem !important;
+    }
+
+    input.part_label {
+        display: none !important;
+    }
+
+    .crossref_close {
+        margin-top: -1px;
+        margin-left: auto !important;
+    }
+
+    .crossref_close>img {
+        margin: -3px 0 0 -3px;
+    }
+
+
+    .tDiv .float-group {
+        margin-left: 0em !important
+    }
+
+    .tDiv .caption {
+        margin-left: 0px;
+    }
+
+    .withbracket {
+        width: 11px;
+        height: 11px;
+        padding-right: 0.5rem;
+    }
+
+    .img-xref>img {
+        width: 65px;
+        height: 65px;
+        border: 0.5px solid #8f8f8f !important;
+        border-radius: 2px;
+    }
+
+    button#insertCite {
+        /*     line-height: 1.5;
+        font-size: .875rem;
+        font-weight: 500;
+        margin-left: 10px;
+        margin-right: 20px;
+        width: 68px; */
+        // ? 26_DEC_22 - YA - UI_CORRECTION
+        // # Option-1
+        // padding: 2px 19.5px;
+        //  # Option-2 - SRINI_APPROVED_27_DEC_22
+        min-width: 4.6rem;
+    }
+
+
+    .xRefDialogImg {
+        /* margin-top: 10px; */
+        width: 55px;
+        height: 55px;
+        cursor: pointer;
+    }
+
+    .cross-Menu-items {
+        height: 66px;
+
+        .fa {
+            visibility: hidden;
+            line-height: .5 !important
+        }
+
+        &::after {
+            content: " ";
+            height: 0.325rem;
+            display: block;
+            margin-top: 0.15em;
+            margin-bottom: -0.9em;
+        }
+    }
+
+    .active {
+        .cross-Menu-items {
+            color: #ff4500 !important;
+            border-radius: 2px;
+
+            .fa {
+                visibility: visible;
+                line-height: .5 !important
+            }
+
+            &::after {
+                background: linear-gradient(90deg, #f57c51 3.4%, #fcbc58 153.07%);
+            }
+        }
+    }
+
+    .cross-Menu.disabled .cross-Menu-items {
+        pointer-events: none;
+    }
+
+    .float-name {
+        font-size: 10px;
+        text-align: center;
+        margin-top: -5px;
+    }
+
+    .checkbox_text {
+        font-size: 14px;
+        line-height: 16px;
+        color: #2E2E2E !important;
+        padding-left: .25rem;
+    }
+
+    #OptionButRow1,
+    #OptionButRow2,
+    .x-ref-menu {
+        /* 22_DEC_22 - YA */
+        margin: 0 -16px;
+        padding-right: 16px !important;
+        padding-left: 16px !important;
+    }
+
+    #OptionButRow1 {
+        background: #F6F6F6;
+        height: 5.25rem;
+        // width: 23.3rem;
+        // margin-left: -16px;
+    }
+
+    .x-ref-menu {
+        //border-bottom: 0.5px solid #BEBEBE;
+        // margin: 0 -8px;
+        // padding: 8px 8px 0;
+        min-width: 20em;
+        box-shadow: 0px 5px 7px -4px rgba(0, 0, 0, 0.25);
+        margin-top: -14px;
+    }
+
+    .cross-chk {
+        margin-top: -8px;
+    }
+
+    #cite_Show_Text {
+        // width: 95%;
+        // margin-left: 15px;
+    }
+
+    .cross-chk>div {
+        // height: 30px;
+    }
+
+    .crossref-body>div:nth-child(2) {
+        //border-bottom: 0.5px solid #BEBEBE;
+        // margin: 0 -7px;
+        // padding: 0 8px 8px;
+    }
+
+    .float-div {
+        width: 23em;
+        height: 16em;
+        overflow-y: auto;
+        overflow-x: hidden;
+        /*margin-right: -8px;*/
+        /* firefox */
+        scrollbar-width: thin;
+    }
+
+    .float-item {
+        padding: 1px;
+        color: #2e2e2e !important;
+
+        #float-div[show-part-label] .row_entry {
+            input.part_label {
+                display: none !important;
+            }
+
+            &.checked input.part_label {
+                display: inline-block !important;
+            }
+
+        }
+    }
+
+    .float-group {
+        font-size: 12px;
+        line-height: 18px;
+        /* width: 18rem; */
+        font-style: normal;
+        font-weight: 500;
+    }
+
+    div#rDiv .row_entry,
+    div#tDiv .row_entry,
+    div#sDiv .row_entry {
+        padding-left: 1rem !important;
+    }
+
+    div#fDiv {
+        .caption {
+            padding-left: .25rem;
+        }
+
+        .row_entry {
+            padding-left: 0.25rem !important;
+        }
+
+        .row_entry:not(:first-child) {
+            margin-top: 8px;
+        }
+
+        .xlabel {
+            padding-right: .5em;
+            font-weight: 700;
+            color: #525252 !important;
+        }
+
+        .part_label {
+            margin-left: 1.5em;
+            margin-top: 0em;
+        }
+
+        .first_row {
+            // margin-bottom: 8px;
+        }
+    }
+
+    div#tDiv {
+        .xlabel {
+            padding-right: .5em;
+            font-weight: 700;
+        }
+
+        .caption {
+            padding-left: .25rem;
+        }
+
+    }
+
+    div#rDiv {
+        width: 18rem;
+
+        div>.float-group .xlabel {
+            margin-left: -2.15em;
+            padding-right: 19px;
+        }
+
+        div>.float-group .xlabel.two {
+            margin-left: -2.12em;
+            padding-right: 14px;
+        }
+
+        div>.float-group {
+            margin-left: 16px;
+            margin-top: 2px;
+        }
+
+        .part_label {
+            display: none !important;
+        }
+
+    }
+
+    #rDiv>div>.float-group.ref,
+    #sDiv>div>.float-group.ref {
+        margin-left: 0.75em !important;
+    }
+
+    div.float-list-group>div {
+        padding: 5px;
+        margin: 0 0px;
+
+        &:not(:last-child) {
+            border-bottom: 0.5px solid lightgray;
+        }
+    }
+
+    #divbracket {
+        .custom-switch {
+            padding-left: 1.4rem !important;
+
+            input#withoutbracket,
+            input#withbracket {
+                vertical-align: middle;
+            }
+
+            label {
+                margin-top: 2px;
+                vertical-align: -webkit-baseline-middle;
+                vertical-align: -moz-middle-with-baseline;
+            }
+
+        }
+
+        span.bracket-open {
+            margin-right: 1.25rem;
+            margin-left: -0.75rem;
+        }
+
+        span.bracket-close {
+            margin-left: -1.35rem;
+        }
+
+        span.indirect {
+            margin-left: -0.75rem;
+        }
+    }
+
+    #add_part_lab_div span {
+        font-size: 13px;
+        line-height: 15px;
+        color: #383838 !important;
+        font-weight: 600 !important;
+    }
+
+    #OptionButRow2 {
+        box-shadow: 0px 7px 7px -3px rgb(145 136 136 / 25%);
+        padding-top: .75rem !important;
+        padding-bottom: .75rem !important;
+        /* #addnewitem {
+            margin-right: 5px !important;
+            margin-left: 10px;
+        } */
+    }
+
+    div#add_part_lab_div,
+    div#divbracket {
+        margin: 15px 0px 0px;
+    }
+
+    #bracket-group {
+        margin-top: -19px;
+        margin-bottom: -32px;
+    }
+
+}

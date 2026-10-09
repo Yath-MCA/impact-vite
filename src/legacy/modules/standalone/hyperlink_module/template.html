@@ -1,0 +1,53 @@
+<div class="mDialog ds-none w-editor-access" id="HyperlinkDialog">
+    <div class="dialog-container md-5">
+        <div class="dialog-content">
+            <!-- header -->
+            <div class="dia_header_div">
+                <div class="dia_header_text">Hyperlink</div>
+                <div class="ml-auto closeIcons" title="Close" tabindex="0"><img alt="Close" class="n_Img" src="assets/images/svg/dialogClose.svg"></div>
+            </div>
+            <!--?  body -->
+            <div class="d-flex flex-column w80 dialog-body" data-id="dialog-body">
+                <form class="" id="linkBody" onsubmit="return false;" spellcheck="false">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label for="select_text">Display Text</label>
+                                <textarea type="text" class="form-control form-control-sm bg-white pt-1" id="select_text" placeholder="Selection Text"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label for="LinkType">Link Type</label>
+                                <select id="LinkType" class="form-control form-control-sm">
+                                    <option class="linkItem" data-type="null" value="0" selected>Choose</option>
+                                    <option class="linkItem" data-type="email" value="1">eMail</option>
+                                    <option class="linkItem" data-type="link" value="2">Web Page</option>
+                                    <!-- ?<option class="linkItem" data-type="link" value="3">FTP</option>
+                                        <option class="linkItem" data-type="link" value="4">PubMed</option><option class="linkItem" data-type="link" value="5">DOI</option>-->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="url_value">Link</label>
+                    <div class="input-group mb-0">
+                        <input type="text" class="form-control form-control-sm" placeholder="Link" aria-label="Link" aria-describedby="basic-addon2" id="url_value" autocomplete="off">
+                        <div class="input-group-append ds-none" id="hyper_append">
+                            <span class="input-group-text" id="basic-addon2"><i class="fa fa-globe" title="Open URL in New Tab" id="webvalidate"></i></span>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <!-- ? body end -->
+            <!-- ? Footer section start -->
+            <div class="default dialog-footer" data-id="dialog-footer">
+                <button type="submit" title="Cancel" id="cancel_link" class="btn btn-sm secondary-btn">Cancel</button>
+                <button type="submit" title="Apply" id="apply_link" class="btn btn-sm primary-btn disabled">Apply</button>
+                <button type="submit" title="Validate" id="apply_link_valid" class="btn btn-sm primary-btn ds-none">Validate</button>
+            </div>
+        </div>
+    </div>
+</div>

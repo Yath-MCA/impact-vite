@@ -1,0 +1,91 @@
+{
+    "nav_dark_default": {
+        "type": "navbar",
+        "icon_variant": "dark",
+        "icon_size": "18",
+        "image_class": "menu-icon mr-2",
+        "faq_title": "Frequently Asked Questions",
+        "guide_title": "User Guide"
+    },
+    "nav_white_default": {
+        "type": "navbar",
+        "icon_variant": "white",
+        "icon_size": "24",
+        "image_class": "menu-icon mr-1",
+        "text_class": "fw-600 text-light",
+        "faq_title": "Click to download the FAQs",
+        "guide_title": "Click to download the User Guide"
+    },
+    "instructions_default_journal": {
+        "type": "content",
+        "blocks": [
+            {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                    {
+                        "text": "Take a thorough look at your proof and make any necessary modifications directly within the reports or article."
+                    },
+                    {
+                        "text": "It should be noted that the images in IMPACT have a low resolution to enhance the performance of the tool."
+                    },
+                    {
+                        "text": "Once you have reviewed the entire report and resolved all author queries, submit the article."
+                    },
+                    {
+                        "text": "An email will be sent to you with a copy of the proof containing your tracked changes for your own records."
+                    },
+                    {
+                        "html": "<span class=\"list-item\">If you require any assistance with IMPACT, please refer to the <a class=\"blue-text fw-700\" title=\"Frequently Asked Questions\" href=\"javascript:iDownloadMethod.click('Help_FAQ_pdf', 'landing')\">FAQs</a> and <a class=\"blue-text fw-700\" title=\"User Guide\" href=\"javascript:iDownloadMethod.click('Help_Guide_pdf', 'landing')\">User Guide</a> here or reach out to our support team at <a id=\"support_mail_id\" class=\"fw-700 email-text\" href=\"mailto:impact.helpdesk@newgen.co\">impact.helpdesk@newgen.co</a></span>"
+                    }
+                ]
+            }
+        ]
+    },
+    "disclaimer_standard": {
+        "type": "disclaimer",
+        "paragraphs": [
+            {
+                "first_para": "The proofs provided are intended solely for checking purposes and should not be regarded as the final publication format, nor should they be utilized for any other reason. It is crucial that they are not posted on personal or institutional websites or printed and distributed. Until the final version has been published and citation details are obtainable, no excerpts or the entire article in its entirety should be included in any other publications."
+            }
+        ]
+    },
+    "third_party_plugins": {
+        "type": "html",
+        "html": "<div class=\"tranlate\">\n                            <h4 class=\"card-subtitle my-2 blue-text font-18px fw-600 mb-3\">Third Party Plug-Ins:</h4>\n                            <p>Using any third-party plug-in to translate the content or make any changes in the editor is not recommended as it might affect the content quality and the underlying metadata, which will delay publication.</p><span class=\"blue-text fw-600 font-14px\">Chinese Version:</span>\n                            <p>请不要使用任何第三方插件翻译或者修改编辑器中的内容，因为这样可能会影响内容质量和底层元数据，从而导致发表延迟。</p>\n                        </div>"
+    },
+    "footer_empty_brand": {
+        "type": "html",
+        "html": "<a class=\"navbar-brand\" href=\"\" target=\"_blank\">\n                            <!-- <img src=\"assets/images/svg/landing/nihr-logo-white.svg\" height=\"50\" /> -->\n                        </a>"
+    },
+    "navbar_themes": {
+        "white": {
+            "class": "bt-border-color",
+            "icon_variant": "dark",
+            "icon_size": "18",
+            "image_class": "menu-icon mr-2",
+            "text_class": "fw-600",
+            "faq_title": "Frequently Asked Questions",
+            "guide_title": "User Guide"
+        },
+        "dark-blue": {
+            "class": "navbar-dark bg-blue",
+            "icon_variant": "white",
+            "icon_size": "24",
+            "image_class": "menu-icon mr-1",
+            "text_class": "fw-600 text-light",
+            "faq_title": "Click to download the FAQs",
+            "guide_title": "Click to download the User Guide"
+        },
+        "crimson-red": {
+            "class": "bg-crimson-red",
+            "icon_variant": "white",
+            "icon_size": "18",
+            "image_class": "menu-icon mr-1",
+            "guide_image_class": "menu-icon icon-ug",
+            "text_class": "text-light",
+            "faq_title": "Click to download the FAQs",
+            "guide_title": "Click to download the User Guide"
+        }
+    }
+}

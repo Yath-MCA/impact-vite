@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="MTSPEC" abbr="" journal-title="Music Theory Spectrum" batch="19" by="YA">
+				<!-- ?author  -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="optional" suffix="yes" orcid="no" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="no" corresp-quees="no" crosslink="yes" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=" and " pattern="aftercomma" notallowed="yes" />
+				<!-- ?affiliation:  superscript Asterisk -->
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="" single-aff="false" autoReNumber="false" />
+				<!-- ?corresp  Not used-->
+				<corresp data-name="corresp" email="yes" address="yes" corresp-quees="" maximum="" minimum="" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ?  -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<!-- ?abstract:  Not titled, One paragraph, not bold, centered (Ref. citation allowed) -->
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!-- ?Keywords:  Not used -->
+				<keywords data-name="keywords" seperator=", " endperiod="." minimum="3" maximum="5" limit="no" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Example " ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure" notallowed="yes">
+					<!-- ? No Style Point – Follow author -->
+					<caption label="yes" label_end_sep="." end_sep="" limit="3" />
+					<dircite single_prefix="Example " double_prefix="Examples " double_sep=", " last_sep=" and " multi_prefix="Examples " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Ex. " double_prefix="Examples " double_sep=", " last_sep=" and " multi_prefix="Examples " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<!-- ? No Style Point – Follow author -->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<!-- ? notes: set as endnotes before References. Heading: Notes (H1), note numbers not superscript in this section -->
+				<notes footnote="allowed" endnote="notallowed" note="" />
+				<heading data-name="title" numbered="no" label="" label_suffix="" maximum="3" label_between_delim="">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="Title case" label_format="" label_end_delim="" label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+					<h3 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+				</heading>
+				<dictionary spelling="US" name="Merriam-Webster’s 11th Collegiate Dictionary" note="" />
+				<list label="(1)|(a)" bullet="allowed" note="" />
+				<equation label="" note="Optional" />
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false" notallowed="yes">
+					<!-- ? References uses as end notes -->
+					<citation type="FOOTNOTE" name_sep=" and " name_last_sep=", |, " name_year_sep=", " direct_sep=", " indirect_sep="; " double_sep="; " range_sep="" openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="italic" />
+				</Reference>
+				<!-- ?BackMatter: Not specified style sheet -->
+				<BackMatter ack="allowed" act="notused" coi="notused" fund="notused" das="notused" supp="notused" suppcap="followauthor" app="notused" />
+			</journal>

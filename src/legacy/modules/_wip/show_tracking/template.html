@@ -1,0 +1,38 @@
+<div class="mDialog ds-none w-editor-access" id="trackDialogModule">
+    <div class="dialog-container md-5">
+        <div class="dialog-content">
+            <div class="dia_header_div">
+                <div class="dia_header_text" data-lang-lab="Panel_title">Review Changes</div>
+                <div class="ml-auto closeIcons" tabindex="0" title="Close" data-lang-lab="close_title"><img class="n_Img" tabindex="0" src="assets/images/svg/dialogClose.svg" alt="Close Icon"></div>
+            </div>
+            <div class="dia_body no-footer dialog-body" data-id="dialog-body">
+                <div class="trackOptionDiv">
+                    <ul class="OptionsList" id="OptionsList">
+                        <li class="pb-3 d-flex align-items-center" id="OptionsListOpt1">
+                            <span class="f14" data-lang-lab="label_reviewers">Reviewers:</span>
+                            <div class="input-group-sm ml-2 f14" id="track_select">
+                                <select class="custom-select" id="TrackSelectOpt" aria-label="List Of User"></select>
+                            </div>
+                            <button id="sort_list" data-order="index" class="btn btn-sm ml-auto primary-btn third-btn" type="submit"><span data-lang-lab="btn_sort_time">Time</span> <i class="fa fa-sort"></i></button>
+                        </li>
+                        <li class="mb-3" id="OptionsListOpt2">
+                            <div class="d-flex justify-content-between align-items-center" id="TrackEntryCounts">
+                                <div class="countText"><span data-lang-lab="label_insertions">Insertions:</span><span class="TrackCount" id="TrackinsCount">0</span></div>
+                                <div class="pl-1 countText"><span data-lang-lab="label_deletions">Deletions:</span> <span class="TrackCount" id="TrackdelCount">0</span></div>
+                                <div class="pl-1 countText"><span data-lang-lab="label_formatting">Formatting:</span><span class="TrackCount" id="TrackformatCount">0</span></div>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center justify-content-between mt-1" id="OptionsListOpt3">
+                            <button id="btnAcceptTrack" type="button" class="btn btn-sm primary-btn" title="accept" data-lang-lab="btn_accept">Accept</button>
+                            <button id="btnRejectTrack" type="button" class="btn btn-sm primary-btn" title="reject" data-lang-lab="btn_reject">Reject</button>
+                            <button id="btnPrevTrack" type="button" class="btn btn-sm primary-btn third-btn" title="Previous" data-lang-lab="btn_prev"><img class="btnPrevTrackimg" src="assets/images/svg/track/Prev.svg" alt="Previous Icon"></button>
+                            <button id="btnNextTrack" type="button" class="btn btn-sm primary-btn third-btn" title="Next" data-lang-lab="btn_next"><img class="btnNextTrackimg" src="assets/images/svg/track/Next.svg" alt="Next Icon"></button>
+                            <button id="TrackEntryIndex" type="button" class="btn btn-light btn-sm ml-auto" title="Review Count" data-lang-lab="title_review_count"><span id="tp_curIndex">0</span> of <span id="overallCount">0</span></button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="track-history e6" id="trackListGroup" tabindex="0"></div>
+            </div>
+        </div>
+    </div>
+</div>

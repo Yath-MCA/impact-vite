@@ -1,0 +1,3283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Link-rules matrix — JATS / BITS separated</title>
+<style>
+  :root { font-family: Segoe UI, system-ui, sans-serif; color: #1a1a1a; }
+  body { margin: 0; background: #eef0f3; }
+  .page { max-width: 1400px; margin: 0 auto; padding: 1.25rem 1.5rem 3rem; }
+  h1 { margin: 0 0 .25rem; font-size: 1.45rem; }
+  .meta { color: #555; margin-bottom: 1rem; font-size: .9rem; }
+  .toc { display: flex; gap: .75rem; margin: 1rem 0 1.5rem; flex-wrap: wrap; }
+  .toc a { display: inline-block; padding: .55rem 1rem; border-radius: 6px; color: #fff; text-decoration: none; font-weight: 600; }
+  .toc .jats { background: #1a56a8; }
+  .toc .bits { background: #0d7a4f; }
+  .dtd-block { background: #fff; border: 2px solid var(--accent); border-radius: 10px; padding: 1rem 1.1rem 1.5rem; margin: 2rem 0; }
+  .dtd-header h2 { margin: 0; font-size: 1.35rem; color: var(--accent); letter-spacing: .04em; }
+  .dtd-sub { color: #555; font-size: .9rem; margin: .35rem 0 1rem; }
+  .stats { display: flex; gap: .75rem; margin: .75rem 0 1rem; flex-wrap: wrap; }
+  .stat { background: #f7f8fa; border: 1px solid #ddd; border-radius: 6px; padding: .55rem .85rem; }
+  .stat strong { display: block; font-size: 1.25rem; }
+  .stat.ok strong { color: #0a7a32; }
+  .stat.bad strong { color: #b00020; }
+  nav { margin: .5rem 0 1rem; display: flex; flex-wrap: wrap; gap: .35rem; }
+  nav a { background: #f0f2f5; border: 1px solid #ccc; padding: .2rem .55rem; border-radius: 4px; text-decoration: none; color: #0645ad; font-size: .8rem; }
+  section.client { border: 1px solid #e2e2e2; border-radius: 8px; padding: .85rem; margin: 1rem 0; overflow-x: auto; background: #fafbfc; }
+  h3 { font-size: 1rem; margin: 0 0 .65rem; display: flex; flex-wrap: wrap; gap: .45rem; align-items: center; }
+  .badge { font-size: .68rem; font-weight: 600; padding: .12rem .4rem; border-radius: 999px; background: #e8e8e8; }
+  .badge.cfg { background: #d4edda; color: #155724; }
+  .badge.def { background: #fff3cd; color: #856404; }
+  .counts { margin-left: auto; font-size: .78rem; color: #555; font-weight: 500; }
+  table { border-collapse: collapse; width: 100%; font-size: .76rem; }
+  th, td { border: 1px solid #e0e0e0; padding: .32rem .42rem; vertical-align: top; text-align: left; }
+  th { background: #f0f2f5; }
+  tr.pass td:last-child { color: #0a7a32; font-weight: 600; }
+  tr.fail td:last-child { color: #b00020; font-weight: 600; }
+  td.pass { background: #f0fff4; }
+  td.fail { background: #fff5f5; }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-all; font-size: .7rem; }
+  code { font-size: .7rem; }
+  details { margin: .75rem 0 1rem; }
+  .split-note { background: #fff8e6; border: 1px solid #e6d9a8; border-radius: 6px; padding: .65rem .85rem; font-size: .85rem; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Link-rules test matrix (DTD-separated)</h1>
+  <p class="meta">Generated 2026-09-19T18:56:43.638Z from <code>link-rules.json</code>.
+  JATS and BITS are separate blocks — no cross-DTD rows.</p>
+
+  <p class="split-note">
+    <strong>JATS:</strong> ACS, BRILL, INTELLECT, LWW, MEDKNOW, NIHR, OUP, PLOS, TNFJOURNALS<br/>
+    <strong>BITS:</strong> TNF, OSO, OXMEDO, LSE
+  </p>
+
+  <div class="stats">
+    <div class="stat"><span>Total cases</span><strong>260</strong></div>
+    <div class="stat ok"><span>Pass</span><strong>256</strong></div>
+    <div class="stat bad"><span>Fail / blocked</span><strong>4</strong></div>
+  </div>
+
+  <div class="toc">
+    <a class="jats" href="#dtd-JATS">JATS — journals (9)</a>
+    <a class="bits" href="#dtd-BITS">BITS — books (4)</a>
+  </div>
+
+  
+  <section class="dtd-block" id="dtd-JATS" style="--accent:#1a56a8">
+    <header class="dtd-header">
+      <h2>JATS</h2>
+      <p class="dtd-sub">All journal clients — resolved with <code>dtd: JATS</code> only (BITS not mixed).</p>
+      <div class="stats">
+        <div class="stat"><span>Clients</span><strong>9</strong></div>
+        <div class="stat"><span>Cases</span><strong>180</strong></div>
+        <div class="stat ok"><span>Pass</span><strong>176</strong></div>
+        <div class="stat bad"><span>Fail / blocked</span><strong>4</strong></div>
+      </div>
+      <nav><a href="#JATS-ACS">ACS</a><a href="#JATS-BRILL">BRILL</a><a href="#JATS-INTELLECT">INTELLECT</a><a href="#JATS-LWW">LWW</a><a href="#JATS-MEDKNOW">MEDKNOW</a><a href="#JATS-NIHR">NIHR</a><a href="#JATS-OUP">OUP</a><a href="#JATS-PLOS">PLOS</a><a href="#JATS-TNFJOURNALS">TNFJOURNALS</a></nav>
+    </header>
+
+    <details open>
+      <summary><strong>JATS token summary</strong></summary>
+      <table class="summary"><thead><tr><th>Client</th><th>Ref</th><th>body-url</th><th>reference-url</th><th>doi-full</th><th>doi-partial</th><th>email</th></tr></thead><tbody><tr><td>ACS</td><td>book</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>email</code></td></tr><tr><td>ACS</td><td>journal</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>pubId</code></td><td class="pass"><code>email</code></td></tr><tr><td>BRILL</td><td>book</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>email</code></td></tr><tr><td>BRILL</td><td>journal</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>pubId</code></td><td class="pass"><code>email</code></td></tr><tr><td>INTELLECT</td><td>book</td><td class="pass"><code>uri</code></td><td class="pass"><code>uri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>doiPartialExtDoi</code></td><td class="pass"><code>email</code></td></tr><tr><td>INTELLECT</td><td>journal</td><td class="pass"><code>uri</code></td><td class="pass"><code>uri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>doiPartialExtDoi</code></td><td class="pass"><code>email</code></td></tr><tr><td>LWW</td><td>book</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>pubId</code></td><td class="pass"><code>email</code></td></tr><tr><td>LWW</td><td>journal</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>pubId</code></td><td class="pass"><code>email</code></td></tr><tr><td>MEDKNOW</td><td>book</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>pubId</code></td><td class="pass"><code>email</code></td></tr><tr><td>MEDKNOW</td><td>journal</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>pubId</code></td><td class="pass"><code>email</code></td></tr><tr><td>NIHR</td><td>book</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>email</code></td></tr><tr><td>NIHR</td><td>journal</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>pubId</code></td><td class="pass"><code>email</code></td></tr><tr><td>OUP</td><td>book</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>email</code></td></tr><tr><td>OUP</td><td>journal</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>pubId</code></td><td class="pass"><code>email</code></td></tr><tr><td>PLOS</td><td>book</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>email</code></td></tr><tr><td>PLOS</td><td>journal</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>pubId</code></td><td class="pass"><code>email</code></td></tr><tr><td>TNFJOURNALS</td><td>book</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>email</code></td></tr><tr><td>TNFJOURNALS</td><td>journal</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>pubId</code></td><td class="pass"><code>email</code></td></tr></tbody></table>
+    </details>
+
+    
+  <section class="client" id="JATS-ACS">
+    <h3>ACS
+      <span class="badge def">unconfigured → DEFAULT</span>
+      <span class="badge">json dtd: all</span>
+      <span class="counts">20 pass / 0 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>pubId</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;pub-id&quot;,&quot;class&quot;:&quot;pub-id&quot;,&quot;pub-id-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="client" id="JATS-BRILL">
+    <h3>BRILL
+      <span class="badge def">unconfigured → DEFAULT</span>
+      <span class="badge">json dtd: all</span>
+      <span class="counts">20 pass / 0 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>pubId</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;pub-id&quot;,&quot;class&quot;:&quot;pub-id&quot;,&quot;pub-id-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="client" id="JATS-INTELLECT">
+    <h3>INTELLECT
+      <span class="badge cfg">configured</span>
+      <span class="badge">json dtd: JATS</span>
+      <span class="counts">20 pass / 0 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>doiPartialExtDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>doiPartialExtDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="client" id="JATS-LWW">
+    <h3>LWW
+      <span class="badge cfg">configured</span>
+      <span class="badge">json dtd: JATS</span>
+      <span class="counts">16 pass / 4 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>pubId</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;pub-id&quot;,&quot;class&quot;:&quot;pub-id&quot;,&quot;pub-id-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;,&quot;journals&quot;:[&quot;GOX&quot;,&quot;PRS&quot;,&quot;XCS&quot;]}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;,&quot;journals&quot;:[&quot;GOX&quot;,&quot;PRS&quot;,&quot;XCS&quot;]}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;,&quot;journals&quot;:[&quot;GOX&quot;,&quot;PRS&quot;,&quot;XCS&quot;]}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="fail">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;,&quot;journals&quot;:[&quot;GOX&quot;,&quot;PRS&quot;,&quot;XCS&quot;]}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>—</pre></td>
+      <td>FAIL<br><small>special-case blocked (journal allowlist)</small></td>
+    </tr>
+    <tr class="fail">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;,&quot;journals&quot;:[&quot;GOX&quot;,&quot;PRS&quot;,&quot;XCS&quot;]}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>—</pre></td>
+      <td>FAIL<br><small>special-case blocked (journal allowlist)</small></td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>pubId</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;pub-id&quot;,&quot;class&quot;:&quot;pub-id&quot;,&quot;pub-id-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;,&quot;journals&quot;:[&quot;GOX&quot;,&quot;PRS&quot;,&quot;XCS&quot;]}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;,&quot;journals&quot;:[&quot;GOX&quot;,&quot;PRS&quot;,&quot;XCS&quot;]}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;,&quot;journals&quot;:[&quot;GOX&quot;,&quot;PRS&quot;,&quot;XCS&quot;]}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="fail">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;,&quot;journals&quot;:[&quot;GOX&quot;,&quot;PRS&quot;,&quot;XCS&quot;]}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>—</pre></td>
+      <td>FAIL<br><small>special-case blocked (journal allowlist)</small></td>
+    </tr>
+    <tr class="fail">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;,&quot;journals&quot;:[&quot;GOX&quot;,&quot;PRS&quot;,&quot;XCS&quot;]}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>—</pre></td>
+      <td>FAIL<br><small>special-case blocked (journal allowlist)</small></td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="client" id="JATS-MEDKNOW">
+    <h3>MEDKNOW
+      <span class="badge cfg">configured</span>
+      <span class="badge">json dtd: JATS</span>
+      <span class="counts">20 pass / 0 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>pubId</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;pub-id&quot;,&quot;class&quot;:&quot;pub-id&quot;,&quot;pub-id-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>pubId</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;pub-id&quot;,&quot;class&quot;:&quot;pub-id&quot;,&quot;pub-id-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="client" id="JATS-NIHR">
+    <h3>NIHR
+      <span class="badge def">unconfigured → DEFAULT</span>
+      <span class="badge">json dtd: all</span>
+      <span class="counts">20 pass / 0 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>pubId</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;pub-id&quot;,&quot;class&quot;:&quot;pub-id&quot;,&quot;pub-id-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="client" id="JATS-OUP">
+    <h3>OUP
+      <span class="badge def">unconfigured → DEFAULT</span>
+      <span class="badge">json dtd: all</span>
+      <span class="counts">20 pass / 0 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>pubId</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;pub-id&quot;,&quot;class&quot;:&quot;pub-id&quot;,&quot;pub-id-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="client" id="JATS-PLOS">
+    <h3>PLOS
+      <span class="badge def">unconfigured → DEFAULT</span>
+      <span class="badge">json dtd: all</span>
+      <span class="counts">20 pass / 0 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>pubId</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;pub-id&quot;,&quot;class&quot;:&quot;pub-id&quot;,&quot;pub-id-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="client" id="JATS-TNFJOURNALS">
+    <h3>TNFJOURNALS
+      <span class="badge def">unconfigured → DEFAULT</span>
+      <span class="badge">json dtd: all</span>
+      <span class="counts">20 pass / 0 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>pubId</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;pub-id&quot;,&quot;class&quot;:&quot;pub-id&quot;,&quot;pub-id-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+  </section>
+  
+  <section class="dtd-block" id="dtd-BITS" style="--accent:#0d7a4f">
+    <header class="dtd-header">
+      <h2>BITS</h2>
+      <p class="dtd-sub">Book clients TNF · OSO · OXMEDO · LSE — resolved with <code>dtd: BITS</code> only (JATS not mixed).</p>
+      <div class="stats">
+        <div class="stat"><span>Clients</span><strong>4</strong></div>
+        <div class="stat"><span>Cases</span><strong>80</strong></div>
+        <div class="stat ok"><span>Pass</span><strong>80</strong></div>
+        <div class="stat bad"><span>Fail / blocked</span><strong>0</strong></div>
+      </div>
+      <nav><a href="#BITS-TNF">TNF</a><a href="#BITS-OSO">OSO</a><a href="#BITS-OXMEDO">OXMEDO</a><a href="#BITS-LSE">LSE</a></nav>
+    </header>
+
+    <details open>
+      <summary><strong>BITS token summary</strong></summary>
+      <table class="summary"><thead><tr><th>Client</th><th>Ref</th><th>body-url</th><th>reference-url</th><th>doi-full</th><th>doi-partial</th><th>email</th></tr></thead><tbody><tr><td>TNF</td><td>book</td><td class="pass"><code>uri</code></td><td class="pass"><code>uri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>email</code></td></tr><tr><td>TNF</td><td>journal</td><td class="pass"><code>uri</code></td><td class="pass"><code>uri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>email</code></td></tr><tr><td>OSO</td><td>book</td><td class="pass"><code>uri</code></td><td class="pass"><code>uri</code></td><td class="pass"><code>uri</code></td><td class="pass"><code>uri</code></td><td class="pass"><code>email</code></td></tr><tr><td>OSO</td><td>journal</td><td class="pass"><code>uri</code></td><td class="pass"><code>uri</code></td><td class="pass"><code>uri</code></td><td class="pass"><code>uri</code></td><td class="pass"><code>email</code></td></tr><tr><td>OXMEDO</td><td>book</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>email</code></td></tr><tr><td>OXMEDO</td><td>journal</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>pubId</code></td><td class="pass"><code>email</code></td></tr><tr><td>LSE</td><td>book</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>email</code></td></tr><tr><td>LSE</td><td>journal</td><td class="pass"><code>extUri</code></td><td class="pass"><code>extUri</code></td><td class="pass"><code>extDoi</code></td><td class="pass"><code>pubId</code></td><td class="pass"><code>email</code></td></tr></tbody></table>
+    </details>
+
+    
+  <section class="client" id="BITS-TNF">
+    <h3>TNF
+      <span class="badge cfg">configured</span>
+      <span class="badge">json dtd: BITS</span>
+      <span class="counts">20 pass / 0 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="client" id="BITS-OSO">
+    <h3>OSO
+      <span class="badge cfg">configured</span>
+      <span class="badge">json dtd: BITS</span>
+      <span class="counts">20 pass / 0 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>uri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;uri&quot;,&quot;class&quot;:&quot;uri&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/uri&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>CLIENT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>CLIENT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="client" id="BITS-OXMEDO">
+    <h3>OXMEDO
+      <span class="badge def">unconfigured → DEFAULT</span>
+      <span class="badge">json dtd: all</span>
+      <span class="counts">20 pass / 0 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>pubId</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;pub-id&quot;,&quot;class&quot;:&quot;pub-id&quot;,&quot;pub-id-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="client" id="BITS-LSE">
+    <h3>LSE
+      <span class="badge def">unconfigured → DEFAULT</span>
+      <span class="badge">json dtd: all</span>
+      <span class="counts">20 pass / 0 fail</span>
+    </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ref type</th>
+          <th>Area</th>
+          <th>Journal code</th>
+          <th>Source</th>
+          <th>Token</th>
+          <th>Attrs</th>
+          <th>Sample input</th>
+          <th>XML output</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>book</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>body-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>reference-url</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extUri</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;uri&quot;}</code></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-full</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>extDoi</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;ext-link&quot;,&quot;class&quot;:&quot;ext-link&quot;,&quot;ext-link-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>doi-partial</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>pubId</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;pub-id&quot;,&quot;class&quot;:&quot;pub-id&quot;,&quot;pub-id-type&quot;:&quot;doi&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>email</code></td>
+      <td>—</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>email</code></td>
+      <td><code>{&quot;data-name&quot;:&quot;email&quot;,&quot;class&quot;:&quot;email&quot;}</code></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>GOX</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>PRS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>XCS</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>JAMA</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td>journal</td>
+      <td><code>special-case</code></td>
+      <td>(none)</td>
+      <td>DEFAULT+JOURNAL</td>
+      <td><code>{&quot;builder&quot;:&quot;specialCase&quot;}</code></td>
+      <td><code>{&quot;note&quot;:&quot;PI (no span attrs)&quot;}</code></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+  </section>
+
+  <p class="meta">Fail / blocked includes intentional special-case allowlist misses (e.g. LWW + JAMA).</p>
+</div>
+</body>
+</html>

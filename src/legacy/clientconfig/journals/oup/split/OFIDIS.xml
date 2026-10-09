@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="OFIDIS" abbr="" journal-title="Open Forum Infectious Diseases">
+				<author data-name="contrib" surname="yes" given-names="yes" role="no" collab="no" on-behalf-of="no" author-comment="no" string-name="no" prefix="yes" suffix="yes" orcid="no" degrees="no" author-notes-quees="yes" corresp-quees="no" seperator=", " crosslink="yes" />
+				<affiliation data-name="aff" seperator=", " contrib-last-sep=" and " designators="ArabicNumber" single-aff="false" autoReNumber="true" />
+				<corresp data-name="corresp" email="yes" address="yes" maximum="1" telephone="yes" fax="yes" indicators="no" />
+				<author-notes data-name="fn" indicators="yes" author-notes-quees="Alphabets" />
+				<abstract data-name="abstract" GA="No" />
+				<keywords data-name="keywords" seperator="; " endperiod="." minimum="3" maximum="5" />
+				<heading data-name="title" numbered="no" label="no" maximum="3">
+					<!--"HEAD LEVEL 4: NA; if author has used a fourth-level heading, either remove it (usually best option) or run it into paragraph and mark italic.-->
+					<h1 style="bold" type="sentence case" />
+					<h2 style="bold" type="sentence case" />
+					<h3 style="bold" type="sentence case" />
+				</heading>
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,back" />
+				<Figure data-name="Figure" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single="Figure " separate=", " double="Figures " doublesep=" and " multiple="Figures " range_sep="–" />
+					<indircite single="Figure " separate=", " double="Figures " doublesep=" and " multiple="Figures " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<caption label="yes" label_end_sep="." end_sep="" limit="3" />
+					<dircite single="Table " separate=", " double="Tables " doublesep=" and " multiple="Tables " range_sep="–" />
+					<indircite single="Table " separate=", " double="Tables " doublesep=" and " multiple="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered" text-format="false">
+					<dircite separate=", " range_sep="–" openwrap="[" closewrap="]" />
+					<indircite separate=", " range_sep="–" openwrap="[" closewrap="]" />
+				</Reference>
+			</journal>

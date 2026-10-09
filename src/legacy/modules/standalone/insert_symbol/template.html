@@ -1,0 +1,58 @@
+<div class="mDialog ds-none wo-editor-access" id="SymbolsDialog">
+    <div class="dialog-container xl">
+        <div class="dialog-content" id="Symbol_Dialog">
+            <!--Header-->
+            <div class="dia_header_div" id="sym_header">
+                <div class="dia_header_text">Insert Symbol</div>
+                <div class="ml-auto closeIcons" title="Close"><img class="n_Img" src="assets/images/svg/dialogClose.svg" alt="Close Icon"></div>
+            </div>
+            <div class="d-flex flex-column dialog-body" data-id="dialog-body">
+                <!-- ? Comobo Box and Search button  if (typeof(this.selectedIndex) != 'undefined') -->
+                <div class="d-flex justify-content-between ChoseGroup mb-3">
+                    <div class="input-group-sm">
+                        <select class="custom-select" aria-label="SymbolList" title="List of Symbols" id="ChooseSymbolGroup"></select>
+                    </div>
+                    <div class="d-flex symbol-search pl-3">
+                        <input type="text" autocomplete="off" class="form-control" aria-label="SearchSymbol" id="SymSearch" placeholder="Search">
+                        <i class="fas fa-search text-grey x-search" id="x-search" title="Search" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <!--?Recently used symbol details -->
+                <div class="d-flex flex-column mb-3 favoiterow">
+                    <div class="symfont">Recently Used Symbols:</div>
+                    <div class="d-flex border rounded fav_symbolsgroup_div">
+                        <div class="d-flex flex-nowrap align-content-end fav symbolsgroup" id="recentUsedsym"></div>
+                    </div>
+                </div>
+                <!--? Table of symbol details -->
+                <div class="d-flex flex-column" id="symbol-div">
+                    <div class="d-flex border rounded symbolsgroup_div" tabindex="0">
+                        <div class="grid-container symbolsgroup" id="localsymbol"></div>
+                    </div>
+                </div>
+            </div>
+            <!--From && Charactercode && Buttons-->
+            <div class="form-group row mb-0 dialog-footer" data-id="dialog-footer">
+                <div class="col-md-4 d-flex" id="SymfirstRowOpt1">
+                    <label class="symfonttxt" for="UnicodeType">From</label>
+                    <div class="input-group-sm">
+                        <select class="custom-select ml-2" id="UnicodeType" aria-label="Unicode Type">
+                            <option value="1" selected>Unicode (hex)</option>
+                            <option value="2" disabled>ASCII (decimal)</option>
+                            <option value="3" disabled>ASCII (hex)</option>
+                        </select>
+                    </div>
+                    <!--<input type="label" class="form-control" value="" id="symcharval" readonly title="Unicode Type">-->
+                </div>
+                <div class="col-md-4" id="SymfirstRowOpt2">
+                    <label class="symfonttxt" for="show_char_code" title="charater code">Charater code</label>
+                    <input type="label" class="form-control" value="" id="show_char_code" readonly>
+                </div>
+                <div class="d-flex flex-row ml-auto mr-2" id="SymfirstRowOpt3">
+                    <button type="button" id="Sym_Clear" class="btn btn-sm secondary-btn">Cancel</button>
+                    <button type="button" id="Sym_Insert" class="btn btn-sm primary-btn disabled">Insert</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

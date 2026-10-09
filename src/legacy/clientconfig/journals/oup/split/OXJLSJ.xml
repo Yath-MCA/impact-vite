@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="OXJLSJ" abbr="" journal-title="Oxford Journal of Legal Studies">
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="yes" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="yes" corresp-quees="no" crosslink="yes" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=" and " pattern="aftercomma" notallowed="yes" />
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="" single-aff="false" autoReNumber="true" />
+				<corresp data-name="corresp" email="" address="" corresp-quees="" maximum="" minimum="" telephone="" fax="" indicators="" degrees="" notallowed="yes" />
+				<!--Author Follow in config so added in Default symbol -->
+				<author-notes data-name="fn" indicators="FootNote_1" author-notes-quees="yes" notallowed="yes" />
+				<abstract data-name="abstract" GA="true" laysummery="true">
+				</abstract>
+				<keywords data-name="keywords" seperator=", " endperiod="false" minimum="" maximum="" limit="" />
+				<heading data-name="title" numbered="yes" label="yes" label_suffix="." maximum="2" label_between_delim="">
+					<h1 style="bold" type="sentence case" label_format="arabic" label_end_delim="." label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="upper_alphabet" label_end_delim="." label_prefix="" />
+					<h3 style="bold" type="sentence case" label_format="lower_roman" label_end_delim=")" label_prefix="(" />
+				</heading>
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,back" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false" notallowed="yes">
+					<!-- name_sep=", " ==>for two auhors || name_last_sep for more than 2 authors -->
+					<citation type="FOOTNOTE" name_sep=" and " name_last_sep=", |, and " name_year_sep=", " direct_sep=", " indirect_sep="; " double_sep=", " range_sep="" openwrap="(" closewrap=")" max-author="3" etal="et al." etal_format="roman" />
+				</Reference>
+			</journal>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="GERONI_AMA" abbr="" journal-title="Innovation in Aging" refstyle="AMA" by="YA" editor-only="true">
+				<!-- ?author: For two authors connect with ‘and” only and no commas. -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="optional" author-comment="no" degrees="yes" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="yes" corresp-quees="yes" crosslink="yes" givennamesep=" " surnameSep=", " altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=", and " pattern="beforecomma" notallowed="yes" />
+				<!-- ?affiliation: No more than 2 affiliations per author. -->
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="ArabicNumber" single-aff="false" autoReNumber="true" />
+				<!-- ?corresp  -->
+				<corresp data-name="corresp" email="no" address="no" corresp-quees="FootNote_4" maximum="1" minimum="1" telephone="no" fax="no" indicators="no" degrees="no" notallowed="no" />
+				<!-- ?  -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<!-- ?abstract: Both structured and unstructured abstracts   -->
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!-- ?Keywords: First letter of each key word/phrase is capitalized / alphabetical   -->
+				<keywords data-name="keywords" seperator=", " endperiod="false" minimum="3" maximum="5" limit="yes" notallowed="no" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Figure " ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure" notallowed="no">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table " ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<!-- ? -->
+					<caption label="yes" label_end_sep="." end_sep="" limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<!-- ? notes:  -->
+				<notes footnote="noallowed" endnote="noallowed" note="" />
+				<!-- ?heading -->
+				<heading data-name="title" numbered="no" label="" label_suffix="" maximum="4" label_between_delim="">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="Title case" label_format="" label_end_delim="" label_prefix="" />
+					<h2 style="bold" type="Title case" label_format="" label_end_delim="" label_prefix="" />
+					<h3 style="bold" type="Sentence case " label_format="" label_end_delim="" label_prefix="" />
+					<h4 style="bold" type="Sentence case " label_format="" label_end_delim="" label_prefix="" />
+				</heading>
+				<!-- ?-->
+				<dictionary spelling="US/American spellings" name="Merriam-Webster’s 11th Collegiate Dictionary" note="" />
+				<!-- ? -->
+				<list label="1|(a)|(i)" bullet="allowed" note="" />
+				<!-- ? -->
+				<equation label="(1)" note="followauthor" />
+				<!-- ?BackMatter: -->
+				<BackMatter ack="yes" act="yes" coi="yes" fund="yes" das="yes" supp="yes" suppcap="na" app="na" />
+				<!-- ? -->
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered" text-format="false" notallowed="no">
+					<!-- ? -->
+					<dircite double_sep="," range_sep="–" openwrap="(" closewrap=")" />
+					<indircite double_sep="," range_sep="–" openwrap="(" closewrap=")" />
+				</Reference>
+			</journal>

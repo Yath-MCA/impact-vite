@@ -1,0 +1,292 @@
+div.dummyCheck {
+    cursor: pointer;
+}
+
+$ref-element-colors: ("article-title": #727272,
+    "source": #3366ff,
+    "year": #9d5d7d,
+    "volume": #e50000,
+    "issue": #6565ff,
+    "fpage": #008080,
+    "lpage": #0000ff,
+    "etal": #e50000,
+    "ext-link": #800080);
+
+@mixin dialog-text-colors {
+
+    @each $element,
+    $color in $ref-element-colors {
+        span.#{$element} {
+            color: $color;
+        }
+    }
+}
+
+#ReferenceDialog {
+
+    &.maxiview {
+        left: 27%;
+        width: 600px;
+        margin-top: -5% !important;
+
+        .dialog-container {
+            margin-top: 10% !important;
+            width: 100% !important;
+        }
+    }
+
+    textarea.form-control#reference_plain_value {
+        height: calc(1rem + 100px) !important;
+    }
+
+    #reference_spinner {
+        position: absolute;
+        margin-left: 45%;
+        margin-top: 35%;
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    #reference_div_open_form,
+    #reference_div_plain_text,
+    #reference_div_doi_form {
+        display: none;
+
+        &.opacity {
+            opacity: 0.2;
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+
+    [data-group-show='open_form'] {
+        #reference_div_open_form {
+            display: block !important;
+        }
+    }
+
+    [data-group-show='plain_text'] {
+        #reference_div_plain_text {
+            display: block !important;
+        }
+    }
+
+    [data-group-show='doi_form'] {
+
+        #reference_div_doi_form,
+        #reference_div_open_form {
+            display: block !important;
+        }
+    }
+
+    #reference_div_doi_form,
+    #reference_div_open_form {
+        &[data-current-form="journal"] {
+
+            [data-input="ed-book"],
+            [data-input="book"] {
+                display: none !important;
+            }
+        }
+
+        &[data-current-form="book"] {
+
+            [data-input="journal"],
+            [data-id="title_group"] {
+                display: none !important;
+            }
+        }
+
+        &[data-current-form="ed-book"] {
+            [data-input="journal"] {
+                display: none !important;
+            }
+        }
+    }
+
+    input {
+        &.inputDiv {
+
+            &.disabled,
+            &[disabled],
+            &:disabled {
+                background-color: #F7F7F7 !important;
+                opacity: 1;
+                cursor: not-allowed !important;
+            }
+        }
+    }
+
+    .dialog-body {
+        overflow: scroll;
+        overflow-x: hidden;
+        height: 335px;
+
+        .highlight {
+            border: 1px solid #FF0000 !important;
+        }
+
+        &.edit .highlight,
+        &.edit input:not([disabled]) {
+            border: 1px solid #006BCB !important;
+        }
+    }
+
+    .btn-group-toggle {
+        display: inline-flex;
+
+        .disabled {
+            pointer-events: none;
+
+            &.active {
+                background: #FD7100 !important;
+                color: #3D3D3D !important;
+            }
+        }
+    }
+
+
+
+    #reference_person_group {
+        border: 1px solid #CFCFCF !important;
+        box-sizing: border-box;
+        border-radius: 2px;
+        padding: 0.5rem 1rem;
+
+        .form-group[data-delete] {
+            background-color: rgb(244, 174, 174);
+        }
+
+        .form-group[data-new] {
+            background-color: rgb(162, 162, 247);
+        }
+
+        .author-label,
+        .editor-label {
+            padding: .25rem;
+            margin-bottom: .25rem;
+        }
+
+        .author-label {
+            border-left: 4px solid #28a745;
+            background-color: #e6f4ea;
+        }
+
+        .editor-label {
+            border-left: 4px solid #007bff;
+            background-color: #e7f1ff;
+        }
+    }
+
+    .refcomments {
+        height: 46px;
+    }
+
+    .hints,
+    .query_border {
+        overflow-y: auto;
+        font-size: 12px;
+        min-height: 2rem;
+        background: #fff;
+        outline: 0;
+        padding: 0.25rem 0.5rem;
+        border: 1px solid #CFCFCF !important;
+        box-sizing: border-box;
+        border-radius: 2px;
+
+        & span.warn {
+            color: red;
+        }
+    }
+
+    .query_border {
+        height: 58px !important;
+
+        & span {
+            display: block !important;
+
+            &.queryview::before {
+                content: attr(label) ": " !important;
+            }
+
+            &.query-res::before {
+                content: "RES: " !important;
+            }
+        }
+    }
+
+    #reference_preview_div {
+        font-size: 13px;
+
+        span.surname {
+            color: #008000;
+
+            insert {
+                text-decoration: underline;
+            }
+
+            del {
+                color: red !important;
+            }
+        }
+
+        span.given-names {
+            color: #993300;
+
+            insert {
+                text-decoration: underline;
+            }
+
+            del {
+                color: red !important;
+            }
+        }
+
+        & span[data-class],
+        del {
+            display: none !important;
+        }
+
+        .preview {
+            padding: 0.5rem 0.75rem;
+            height: 90px;
+            overflow: auto;
+            overflow-x: hidden;
+            border: 1px solid #CFCFCF !important;
+
+            span {
+                display: inline;
+            }
+        }
+
+        .etal .pistart::after {
+            content: attr(data-pistart);
+        }
+    }
+
+    .note-editable.panel-body {
+        height: 60px;
+    }
+
+    @include dialog-text-colors;
+}
+
+#reference_cite_input_group.ds-none {
+    display: none !important;
+}
+
+#reference_type_options_form.ds-none {
+    display: none !important;
+}
+
+#reference_ins_ref_method_group.ds-none {
+    display: none !important;
+}
+
+#reference_query_div.ds-none,
+#reference_query_close_div.ds-none,
+#reference_hints_div.ds-none {
+    display: none !important;
+}

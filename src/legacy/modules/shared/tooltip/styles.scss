@@ -1,0 +1,63 @@
+#xToolTip {
+    z-index: 99999;
+    min-width: 7rem;
+    max-width: 27rem;
+    min-height: 3rem;
+    max-height: 13rem;
+    overflow-y: auto;
+    position: absolute;
+    background-color: #04266b;
+    color: #ffffff;
+    box-shadow: 0 4px 14px -4px rgba(0, 0, 0, 0.75);
+    border-radius: 3px;
+    padding: 0.5rem 0.5rem;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+#xToolTip.maxiview {
+    min-width: 25rem;
+}
+
+#xToolTip.show {
+    display: block;
+}
+
+#xToolTip.hide {
+    display: none;
+}
+
+#xToolTip span.show {
+    margin-bottom: 0.5rem;
+    display: block !important;
+}
+
+#xToolTip span.hide {
+    display: none;
+}
+
+#linkBody input {
+    margin-bottom: 0.2rem !important;
+}
+
+.citePopup {
+    position: absolute;
+    display: none;
+    top: 20%;
+    padding: 10px;
+    z-index: 999;
+    background: #fff;
+    box-shadow: 20px 20px 40px rgb(60 60 150 / 25%);
+    left: 55%;
+}
+
+.citePopup img {
+    float: right;
+}
+
+.citePopup button {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}

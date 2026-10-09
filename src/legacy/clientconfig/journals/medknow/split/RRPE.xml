@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="RRPE" abbr="" journal-title="Research and Reviews in Pediatrics" batch="4" by="AK_04_July_25">
+	<author data-name="contrib" surname="yes" given-names="yes" role="yes" collab="yes" on-behalf-of="no" author-comment="no" name-alternatives="yes" prefix="no" suffix="yes" orcid="yes" degrees="no" author-notes-quees="yes" corresp-quees="yes" contribsep=", " surnameSep=" " givennamesep=" " crosslinksep="," seperator=", " contrib-last-sep=" " crosslink="yes" pattern="aftercomma" notallowed="yes" />
+	<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="no" postcode="no" street="no" seperator=", " designators="ArabicNumber" single-aff="false" autoReNumber="false" notallowed="yes" />
+	<corresp data-name="corresp" email="yes" address="yes" maximum="1" telephone="yes" fax="yes" indicators="yes" corresp-quees="" notallowed="yes" />
+	<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+	<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no">
+		<sub article-type="Review article" abstract-type="Structured" notallowed="no" minwords="0" maxwords="200" />
+		<sub article-type="Editorial" notallowed="yes" />
+	</abstract>
+	<keywords data-name="keywords" seperator=", " endperiod="false" minimum="3" maximum="" limit="yes" notallowed="no" order="alphabetical" />
+	<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+	<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+	<Figure data-name="fig" sentence="Figure " ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure" email="" notallowed="no">
+		<caption label="yes" label_end_sep=":" end_sep="" limit="3" />
+		<dircite beginpara="Figure " single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" part_lab_prefix_num="no" part_lab_case="upper" part_lab_double_sep=" and " />
+		<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="[" closewrap="]" part_lab_prefix_num="no" part_lab_case="upper" part_lab_double_sep=" and " />
+	</Figure>
+	<Table data-name="table-wrap" sentence="Table " ref-type="Table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+		<caption label="yes" label_end_sep=":" end_sep="" limit="3" />
+		<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+		<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="[" closewrap="]" />
+	</Table>
+	<notes footnote="notallowed" endnote="notallowed" note="" />
+	<heading data-name="title" numbered="no" label="no" label_suffix="" maximum="3" label_between_delim="">
+		<h1 style="bold" type="ALL Caps" label_format="arabic" label_end_delim="." label_prefix="." />
+		<h2 style="bold" type="Sentence case" label_format="arabic" label_end_delim="." label_prefix="." />
+		<h3 style="bold" type="Sentence case" label_format="arabic" label_end_delim="." label_prefix="." />
+	</heading>
+	<dictionary spelling="US" name="Merriam Webster" note="" />
+	<list label="" bullet="" note="" />
+	<equation label="" note="follow author" />
+	<BackMatter ack="allowed" act="allowed" coi="allowed" fund="allowed" das="allowed" supp="allowed" suppcap="" app="allowed" />
+	<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered_with_dot" text-format="sup">
+		<dircite double_sep="," range_sep="–" openwrap="[" closewrap="]" />
+		<indircite double_sep="," range_sep="–" openwrap="[" closewrap="]" />
+	</Reference>
+</journal>

@@ -1,0 +1,16 @@
+.article-version {
+    display: none;
+}
+
+.kwd-group .title {
+    /* display: inline-block; */
+    font-weight: bold;
+}
+
+.abstract .sec .title {
+    display: block !important;
+}
+
+div.ref .mixed-citation .person-group .etal {
+    font-style: italic !important;
+}

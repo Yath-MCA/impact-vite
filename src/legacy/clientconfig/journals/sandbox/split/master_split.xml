@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journals>
+  <journal short="AJP" abbr="" journal-title="The American Journal of Psychiatry" batch="" by="" qcby="" client="sandbox" split="AJP.xml" split_master="master_split.xml" />
+  <journal short="FOCUS" abbr="" journal-title="The Journal of Lifelong Learning in Psychiatry" batch="" by="" qcby="" client="sandbox" split="FOCUS.xml" split_master="master_split.xml" />
+  <journal short="STL" abbr="" journal-title="Scholarship of Teaching and Learning in Psychology" batch="" by="" qcby="" client="sandbox" split="STL.xml" split_master="master_split.xml" />
+</journals>

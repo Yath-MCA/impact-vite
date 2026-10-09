@@ -1,0 +1,78 @@
+#tableNotesDialog {
+
+    .tbl-fn-field-lab {
+        display: block;
+        font-weight: 400;
+        margin-bottom: 4px;
+    }
+
+    .tbl-fn-kind-cards {
+        display: flex;
+        gap: 8px;
+        margin-top: 6px;
+    }
+
+    .tbl-fn-kind-card {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+        padding: 10px 12px;
+        border: 1px solid #d0d5dd;
+        border-radius: 8px;
+        background: #fff;
+        cursor: pointer;
+        font-weight: 400;
+    }
+
+    .tbl-fn-kind-card.is-selected {
+        border-color: #3b82f6;
+        background: #eff6ff;
+    }
+
+    .tbl-fn-fmt-numbered,
+    .tbl-fn-fmt-unnumbered {
+        label {
+            margin-right: 12px;
+        }
+    }
+
+    .float-list-group>.list-item {
+        padding: 5px;
+        margin: 0 0px;
+
+        &:not(:last-child) {
+            border-bottom: 0.5px solid lightgray;
+        }
+    }
+
+    .boxShadow {
+        box-shadow: 0 7px 7px -3px rgba(145, 136, 136, .25);
+        padding-top: .75rem !important;
+        padding-bottom: .75rem !important;
+    }
+
+    .note-label {
+        // font-weight: bold;
+        color: #495057;
+        // font-size: 1.1em;
+    }
+
+    .checkbox-col {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .text-content {
+        color: #6c757d;
+        line-height: 1.5;
+    }
+
+    .custom-checkbox {
+        transform: scale(1.2);
+    }
+
+
+}

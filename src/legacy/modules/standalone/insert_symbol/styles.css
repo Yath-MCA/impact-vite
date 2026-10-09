@@ -1,0 +1,201 @@
+div.dummyCheck {
+    cursor: pointer
+}
+
+#SymSearch:focus {
+    border-color: #cacaca !important;
+    background-color: #FFFFFF;
+}
+
+.i_symbol {
+    padding: 2px;
+    font-size: 13px;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: -1px;
+    color: #595959;
+    cursor: pointer;
+    /* transition: transform 0.3s ease-in-out;   */
+}
+
+.i_symbol:hover {
+    transform: scale(1);
+    font-weight: 600;
+    background: #dad6d6;
+}
+
+/* #Symbol_Dialog{
+  padding: 11px 25px 0 25px;
+  width: 596px;
+}
+#sym_header{
+  margin: 0 -30.5px!important;
+  padding-right: 32px;
+  padding-left: 28px;
+  border-bottom: 0.5px solid #cacaca;
+} */
+.symbolsgroup {
+    display: grid !important;
+    grid-template-columns: repeat(14, 37px);
+    row-gap: 11px;
+    text-align: center;
+    height: max-content;
+    margin-left: 4px;
+    margin-top: 17px;
+    border-radius: 2px;
+}
+
+#recentUsedsym.symbolsgroup {
+    margin-top: 4px;
+    min-height: 1.45rem;
+}
+
+#SymSearch {
+    border: 0.5px solid #cacaca !important;
+    box-sizing: border-box;
+    vertical-align: middle !important;
+    font-size: 12px !important;
+    height: calc(1.75rem + 2px) !important;
+    margin-top: 1px;
+    padding-right: 78px;
+    line-height: 14px;
+    color: rgba(0, 25, 156, .6);
+    padding-left: 10px !important;
+}
+
+/* #SymbolsDialog  select.custom-select{
+  height: calc(1.95rem + 0px)!important;
+  padding: .3rem 1.75rem .1rem .75rem!important; 
+  width: -moz-fit-content;  
+  width: fit-content;
+  cursor: pointer;
+  font-size: 12px;
+ } */
+
+select#UnicodeType option {
+    color: lightgray;
+}
+
+/* span.i_symbol{
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 60px;
+  padding-bottom:10px;
+  font-size: 40px;
+  text-align: center;
+
+} */
+/* .fav_symbolsgroup_div,.symbolsgroup_div{
+  padding: 0 0.7rem; 
+  height: 2.2em;
+} */
+.symbolsgroup_div {
+    height: 12em;
+    overflow-y: scroll;
+}
+
+.i_symbol.active,
+.i__symbol.active {
+    /* border: 0.1px solid #B7C6FF; */
+    /* box-shadow: 0px 2px 2px -1px rgba(0, 0, 0, 0.25); */
+    /* border-radius: 1.5px; */
+    background: #FDE7D5;
+    box-sizing: border-box;
+    font-weight: 600;
+    color: #FF7200 !important;
+}
+
+/* #symcharval, */
+#symcharcode {
+    background: #fff !important;
+    border: 1px solid #cacaca !important;
+    size: 110px;
+    vertical-align: middle !important;
+    font-size: 12px !important;
+    height: calc(1.9rem + 0px) !important;
+    padding: 3px 0px 0px 0px;
+    line-height: 14px;
+    width: 57px;
+}
+
+/*#symcharval{
+   width: 120px!important; 
+};
+#SymfirstRowOpt1{
+  margin-left: .2em;
+}
+#actionDivSym{
+  font-weight: 100!important;
+  padding-bottom: 5em;
+}
+#Sym_Clear, #Sym_Insert{
+  height: 30px;
+  width: auto;
+  text-align: center;
+  padding-left: 15px!important;
+  padding-right: 15px!important;
+  font-size: 13px;
+  font-weight: 600!important;
+}
+.symfonttxt{
+  font-size: 13px;
+  font-weight: 600!important;
+  text-align: center;  
+  padding-top: 5px;
+  font-family: 'Inter UI',sans-serif!important;
+  margin-top: 4px; 
+
+}
+*/
+#SymfirstRowOpt2 {
+    margin-left: 2em;
+}
+
+.symfonttxt {
+    /* margin-right: 16px; */
+    margin-top: 8px;
+}
+
+.symfont {
+    font-size: 13px;
+    font-family: 'Inter UI', sans-serif !important;
+    font-weight: 600;
+    /* padding-top: 5px; */
+    padding-bottom: 2px;
+}
+
+/* #SymfirstRowOpt3{
+  margin-right: 9px!important;
+} */
+
+/* #symbol-div{
+  padding-bottom: 20px!important;
+} */
+.i__symbol {
+    padding: 0px;
+    margin: -10px 0px 0px 0px;
+    font-size: 13px;
+    cursor: pointer;
+    /* text-align: center;
+  font-family: 'Inter UI',sans-serif!important; */
+}
+
+#show_char_code {
+    display: inline-block;
+    width: 33%;
+    height: calc(1.75rem + 0.5px) !important;
+    border-bottom: none;
+    margin-left: 4px;
+    background-color: #efefef;
+    font-size: 14px;
+}
+
+#SymSearch+i.fa-search {
+    margin-top: 8px;
+    margin-left: -22px;
+}
+
+#ChooseSymbolGroup.custom-select,
+#SymSearch {
+    color: #595959 !important;
+}

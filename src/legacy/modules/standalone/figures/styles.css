@@ -1,0 +1,286 @@
+div.dummyCheck {
+    cursor: pointer;
+}
+
+#InsertFloatDialogNew.maxiview {
+    width: 350px !important;
+    margin-left: -5em;
+}
+
+.top-row>div,
+.float-option-item:not(.disabled),
+.insert-menu-items:not(.disabled),
+#fa-trash,
+#FloatTrashIcon {
+    cursor: pointer;
+}
+
+.top-row {
+    font-size: 15px;
+    line-height: 17px;
+    font-style: normal;
+    font-weight: bold;
+    margin: .7em 0;
+    color: #B8B8B8;
+}
+
+#Insert-Menu,
+#FloatTypeMenu {
+    margin: .5em -1rem;
+    padding: 0 1rem;
+    box-shadow: 0px 3px 6px -2px rgba(0, 0, 0, 0.11);
+}
+
+.insert-menu-items,
+.float-option-item {
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 17px;
+    color: #A0A0A0;
+}
+
+.top-row .active,
+.float-option-item.active,
+.insert-menu-items.active {
+    color: #FF7200;
+}
+
+/* As per UI New Design Command DR_07_02_23 */
+.float-option-item.active::after,
+.insert-menu-items.active::after {
+    background: linear-gradient(90deg, #F57C51 3.4%, #FCBC58 153.07%);
+    content: " ";
+    height: .325rem;
+    display: block;
+    margin-top: .4em;
+}
+
+
+#addnoteOption.tableView {
+    /* margin-top: 1.5rem; */
+}
+
+#addnoteGroup {
+    overflow-y: auto;
+    height: 4rem;
+}
+
+#addnoteGroup .form-control {
+    height: calc(2.5rem + .5px) !important;
+}
+
+#addnoteGroup .form-control:not(:last-child) {
+    /* border-bottom: 2px solid #ced4da!important; */
+    margin-bottom: 2px;
+}
+
+/*   #addnoteOption{
+    width: 22em;
+    height: 5em;
+    margin: 0 .6rem;
+    padding: 0;
+    overflow-y: auto;
+   }*/
+#addnoteOption.expanded {
+    height: 7em;
+}
+
+#addnoteOption div.label {
+    padding: .25rem 0rem;
+}
+
+#addnoteOption label {
+    margin-bottom: .0rem;
+}
+
+#addnoteOption .form-group:last-child:not(.ds-none) {
+    margin-bottom: 0rem !important;
+}
+
+#Insert-field.NoteView {
+    height: 18em !important;
+}
+
+.addnoteinput,
+#caption {
+    border-radius: 2px;
+    background-color: #fff !important;
+    border: 1px solid #cfcfcf;
+}
+
+/*#Insert-field{
+    width: 22em;
+    height: 15em;  
+    margin: 0 .6rem;
+    padding: 0;
+    overflow-y: scroll;
+  } */
+#formFloats,
+#display_floats,
+#display_notes {
+    /* margin: .5rem 0; */
+    width: 100%;
+}
+
+/* 
+#insert-body.inline #label_group,
+#insert-body.inline #caption_group,
+#insert-body.inline #addnoteOption {
+    display: none !important;
+}
+
+#insert-body.inline #Insert-field {
+    height: 7rem !important;
+}
+
+#insert-body .form-group {
+    padding: 0.5rem;
+    background-color: #FAFAFA;
+    border-radius: 2px;
+    width: 100%;
+    margin-bottom: 0.5rem !important;
+}
+
+#insert-body .form-group label {
+    font-size: 14px;
+    color: #505050;
+    line-height: 17px;
+    font-style: normal;
+    font-weight: 500;
+} */
+
+
+
+[dialog-body] .fa-trash {
+    align-self: center;
+    margin-left: -20px;
+}
+
+/* #insert-action{
+    margin:0 -5px;
+    padding: 0 5px;
+    height: 3rem;
+    box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.11);
+    border-radius: 0px 0px 3px 3px;
+  }
+  #insert-action .act_menu{
+    margin-right: 1em;
+  } */
+
+
+
+ul#partlabel>li {
+    border: 0.25px solid red !important;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    display: inline;
+    height: 25px;
+}
+
+div#figAttach {
+    margin-left: 0.05rem;
+}
+
+
+/*  ? 03-SEP-2022 END*/
+
+
+#spinner_float {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 5px;
+}
+
+#addnoteOption #addNoteClick {
+    color: #ff8929 !important;
+}
+
+#addnoteOption #addNoteClick:hover {
+    color: #fd7100 !important;
+}
+
+/*#floatOptions #insert_filename{
+	 width: 120%;
+    margin-right: -5px;
+}*/
+#floatOptions {
+    margin-bottom: 0px !important;
+}
+
+#floatOptions #attach_fig {
+    max-width: 5rem;
+}
+
+#fignoteOption input#noteNumberCheck {
+    position: relative;
+    margin-left: 0px;
+}
+
+.note-input-div .addnoteinput {
+    padding-right: 22px !important;
+    line-height: 1.2;
+}
+
+.note-input-div .fa-trash {
+    font-size: 14px;
+    margin-left: -25px !important;
+}
+
+#InsertFloatDialogNew img#fa-trash {
+    margin-left: -10px !important;
+    margin-top: 5px !important;
+    width: 19px;
+}
+
+#FloatTrashIcon img {
+    width: 18px;
+}
+
+#attach_group #insert_filename {
+    background: #fff;
+    border: none !important;
+    max-width: 225px;
+    box-shadow: none;
+}
+
+#attach_group {
+    margin-left: -16px;
+}
+
+#InsertFloatDialogNew select.form-control {
+    padding-left: 8px !important;
+}
+
+#InsertFloatDialogNew .selectdropdown {
+    border: 1px solid #cfcfcf !important;
+    font-weight: 500 !important;
+    box-sizing: border-box;
+    border-radius: 2px;
+    width: 100%;
+    height: 30px;
+    padding: 0 8px;
+    color: #575757;
+    font-size: 12px !important;
+    -webkit-appearance: none;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAMAAACtdX32AAAAdVBMVEUAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhMdQaAAAAJ3RSTlMAAAECAwQGBwsOFBwkJTg5RUZ4eYCHkJefpaytrsXGy8zW3+Do8vNn0bsyAAAAYElEQVR42tXROwJDQAAA0Ymw1p9kiT+L5P5HVEi3qJn2lcPjtIuzUIJ/rhIGy762N3XaThqMN1ZPALsZPEzG1x8LrFL77DHBnEMxBewz0fJ6LyFHTPL7xhwzWYrJ9z22AqmQBV757MHfAAAAAElFTkSuQmCC);
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: 1.5rem;
+}
+
+.dialog-content button.mailattachNoteBtn:focus {
+    box-shadow: none !important;
+}
+
+#caption_group #caption {
+    padding: 0.26rem 0.25rem !important;
+    /* For disabling the caption field in Upload Figure Dialog(Change Picture) - 12_AUG_23-RJ - (OUP_J_INF_003) */
+    cursor: not-allowed;
+    background-color: #e8e8e8 !important;
+}

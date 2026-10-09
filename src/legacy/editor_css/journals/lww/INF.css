@@ -1,0 +1,23 @@
+.table-wrap-foot .fn .label {
+    vertical-align: super;
+}
+
+.underline,underline {
+    text-decoration: underline;
+}
+
+.aff .label {
+    vertical-align: super;
+}
+
+.author-notes .fn[fn-type="fntext"] label {
+    vertical-align: super;
+}
+
+.ref .mixed-citation .source {
+    font-style: italic
+}
+
+.disp-formula .label{
+    /* eqnlabel(rightalign) */
+}

@@ -1,0 +1,570 @@
+<refStyle>
+	<keywords text="\-|&amp;|–|\(|\.|,|;|:|\)|\[|\]| |“|”|vols?|Available from|Pages|editors?|edited by|\band\b|\bNo\b|pmid|Issue|p.|\bpp\b|DOI: |DOI:|doi|edited by|\beds?\b|trans|Winter|\bin\b|volumes?|series|Available at|Crossref"/>
+	<Cleanup>
+		<RemoveRunProperty first="‡ref_number" searchText="\t"/>
+		<RemoverStyleBetweeenStyles first="‡ref_auSurname" next="‡ref_auGivenName" searchText="[,\s]+"/>
+		<RemoverStyleBetweeenStyles first="‡ref_auGivenName" next="‡ref_auSurname" searchText="[,\s]+"/>
+		<RemoverStyleBetweeenStyles first="‡ref_auGivenName,‡ref_auSurname,‡ref_etal" next="‡ref_auCollab" searchText="[;\s]+"/>
+		<RemoverStyleBetweeenStyles first="‡ref_auGivenName,‡ref_auSurname,‡ref_etal" next="‡ref_auCollab" searchText="[;\s]+"/>
+		<RemoverStyleBetweeenStyles first="‡ref_auGivenName,‡ref_auSurname,‡ref_etal,‡ref_auCollab" next="‡ref_titleArticle" searchText="[;,\.\s]+"/>
+	</Cleanup>
+	<CleanupAfterStyling>
+		<!--IfStyledTextContainsThisTextThenDelimShouldChange -->
+		<ReplaceDelim first="‡ref_titleArticle" firstSearchText="[\?!]$" SearchText="^(\.|,)" ReplaceText=""/>
+	</CleanupAfterStyling>
+	<RefStylingFinalUpdate>
+		<element name="RemoveDelimAtEndOfParaBasedonStyle" refType="All" style="‡ref_idDOI,‡ref_URL" triminStyle="\." RemovePunctuation="."/>
+		<element name="ElidePage" refType="All"/>
+		<element name="AddDelimBetweenStyles" refType="All" first="‡ref_pageFirst" next="‡ref_pageLast"/>
+	</RefStylingFinalUpdate>
+	<authorName followEmDash="true"/><!-- only add this element if the journal allow hypen or emdash for author names in references-->
+	<style name="Journal-Ref" missingElemComment="AU: Please provide the {StyleNames} for reference &quot;XXX&quot; directly in the reference." order="author,‡ref_auSuffix,‡ref_etal,‡ref_auCollab,‡ref_pubdateYear,‡ref_titleArticle,‡ref_titleJournal,‡ref_volumeNumber,‡ref_supplement,‡ref_issueNumber,‡ref_pageFirst,‡ref_pageLast,‡ref_idDOI,URLprefix,‡ref_URL,URLSuffix,‡ref_accessDate" missing="‡ref_auSurname,‡ref_auGivenName,‡ref_titleArticle,‡ref_titleJournal,‡ref_pubdateYear,‡ref_volumeNumber,‡ref_pageFirst" italic="‡ref_titleJournal" Removeitalic="‡ref_etal,‡ref_volumeNumber" bold="" Removebold="‡ref_number,‡ref_volumeNumber" abb_expansion="‡ref_titleJournal" abb_out="EXP">
+		<!--|EXP|A.B.B|ABB|ABB.|-->
+		<!--  italic="‡ref_titleJournal"  -->
+		<!--‡ref_issueNumber-->
+	<remove style="‡ref_issueNumber"/>
+		<!--<Case style="‡ref_titleArticle" format="SentenceCase"> -->
+			<!--<seperator type="-" format="lowercase"/> -->
+			<!--<seperator type="(" format="lowercase"/> -->
+			<!--<special char="?" format="lowercase"/> -->
+			<!-- TitleCase -->
+			<!--<special char=":" format="lowercase"/> -->
+			<!--<special char="." format="TitleCase"/> -->
+		<!--</Case> -->
+		<!--<Case style="‡ref_titleJournal" format="TitleCase"> -->
+			<!--<seperator type="(" format="TitleCase"/> -->
+			<!--<seperator type="-" format="TitleCase"/> -->
+			<!--<seperator type=":" format="TitleCase"/> -->
+		<!--</Case> -->
+		<punctuation style="‡ref_titleArticle" RemoveBefore="‘" RemoveAfter="’" AddBefore="" AddAfter="" SingleQuoteEndPunc = ",|\?|!" RemoveEndPuncOnSingleQuote="\.|;"/>
+		<punctuation style="‡ref_etal" AddBefore="" AddAfter="."/>
+		<remove type="checkValue" findstyle="‡ref_etal" ContainsAll="et al\.?||others\.?" Remove="others\.?"/>
+		<followword style="‡ref_URL"/>
+		<RemoveMonthinYear style="‡ref_pubdateYear" pattern="\b(?'P1'[0-9]{4}((\s)?[A-z]{1})?\[([0-9]{4}((\s)?[A-z]{1})?)\])|(?'P2'\[([0-9]{4}((\s)?[A-z]{1})?)\][0-9]{4}((\s)?[A-z]{1})?)\b|\b(?'P3'([0-9]{4})((\s)?[A-z]{1})?)\b" Replace=""/>
+		<group name="author" first="‡ref_auSurname,‡ref_auGivenName,‡ref_auSuffix" rest="‡ref_auGivenName,‡ref_auSurname,‡ref_auSuffix"/>
+		<trim name="author" count="" after="" insert="et al" style="‡ref_etal" delim=", "/>
+		<group name="editor" first="‡ref_edSurname,‡ref_edGivenName" rest="‡ref_edGivenName,‡ref_edSurname" pos="start"/>
+		<group name="editor" first="‡ref_edGivenName,‡ref_edSurname,‡ref_edSuffix" rest="‡ref_edGivenName,‡ref_edSurname,‡ref_edSuffix"/>
+		<elide first="‡ref_pageFirst" next="‡ref_pageLast" trim="lastpage" expand=""/>
+		<initials style="‡ref_auGivenName" punctuation="."/>
+		<delimiter>
+			<element first="author" next="author" delim=", " last=" and "/>
+			<element first="author" next="‡ref_auCollab" delim="; " last="; "/>
+			<element first="‡ref_auSurname" next="‡ref_auGivenName" delim=", "/>
+			<element first="‡ref_auGivenName" next="‡ref_auSurname" delim=" "/>
+			<element first="‡ref_auSurname" next="‡ref_auSuffix" delim=", "/>
+			
+			<element first="author" next="‡ref_auSuffix" delim=", "/>
+			<element first="author" next="‡ref_etal" delim=", "/>
+			<element first="author" next="‡ref_auCollab" delim="; "/>
+			<element first="author" next="‡ref_pubdateYear" delim=". "/>
+			<element first="author" next="‡ref_titleArticle" delim=". "/>
+			<element first="author" next="‡ref_titleJournal" delim=". "/>
+			<element first="author" next="‡ref_volumeNumber" delim=". "/>
+			<element first="author" next="‡ref_supplement" delim=" ("/>
+			<element first="author" next="‡ref_pageFirst" delim=":"/>
+			<element first="author" next="‡ref_pageLast" delim=":"/>
+			<element first="author" next="‡ref_idDOI" delim=", doi: "/>
+			<element first="author" next="‡ref_URL" delim=". "/>
+			<element first="author" next="‡ref_accessDate" delim=". "/>
+			
+			<element first="‡ref_auGivenName" next="‡ref_pubdateYear" delim=" "/>
+			
+			<element first="‡ref_auSuffix" next="‡ref_etal" delim=", "/>
+			<element first="‡ref_auSuffix" next="‡ref_auCollab" delim="; "/>
+			<element first="‡ref_auSuffix" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_auSuffix" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_auSuffix" next="‡ref_titleJournal" delim=". "/>
+			<element first="‡ref_auSuffix" next="‡ref_volumeNumber" delim=". "/>
+			<element first="‡ref_auSuffix" next="‡ref_supplement" delim=" ("/>
+			<element first="‡ref_auSuffix" next="‡ref_pageFirst" delim=". "/>
+			<element first="‡ref_auSuffix" next="‡ref_pageLast" delim=". "/>
+			<element first="‡ref_auSuffix" next="‡ref_idDOI" delim=", doi: "/>
+			<element first="‡ref_auSuffix" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_auSuffix" next="‡ref_accessDate" delim=". "/>
+			
+			<element first="‡ref_etal" next="‡ref_auCollab" delim="; "/>
+			<element first="‡ref_etal" next="‡ref_pubdateYear" delim=" "/>
+			<element first="‡ref_etal" next="‡ref_titleArticle" delim=" "/>
+			<element first="‡ref_etal" next="‡ref_titleJournal" delim=" "/>
+			<element first="‡ref_etal" next="‡ref_volumeNumber" delim=" "/>
+			<element first="‡ref_etal" next="‡ref_supplement" delim=" ("/>
+			<element first="‡ref_etal" next="‡ref_pageFirst" delim=" "/>
+			<element first="‡ref_etal" next="‡ref_pageLast" delim=" "/>
+			<element first="‡ref_etal" next="‡ref_idDOI" delim=", doi: "/>
+			<element first="‡ref_etal" next="‡ref_URL" delim=" "/>
+			<element first="‡ref_etal" next="‡ref_accessDate" delim=" "/>
+			
+			<element first="‡ref_auCollab" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_titleJournal" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_volumeNumber" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_supplement" delim=" ("/>
+			<element first="‡ref_auCollab" next="‡ref_pageFirst" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_pageLast" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_idDOI" delim=", doi: "/>
+			<element first="‡ref_auCollab" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_accessDate" delim=": "/>
+			
+			<element first="‡ref_pubdateYear" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_titleJournal" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_volumeNumber" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_supplement" delim=" ("/>
+			<element first="‡ref_pubdateYear" next="‡ref_pageFirst" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_pageLast" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_idDOI" delim=", doi: "/>
+			<element first="‡ref_pubdateYear" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_accessDate" delim=". "/>
+			
+			<element first="‡ref_titleArticle" next="‡ref_titleJournal" delim=". "/>
+			<element first="‡ref_titleArticle" next="‡ref_volumeNumber" delim=". "/>
+			<element first="‡ref_titleArticle" next="‡ref_supplement" delim=" ("/>
+			<element first="‡ref_titleArticle" next="‡ref_pageFirst" delim=". "/>
+			<element first="‡ref_titleArticle" next="‡ref_pageLast" delim=". "/>
+			<element first="‡ref_titleArticle" next="‡ref_idDOI" delim=", doi: "/>
+			<element first="‡ref_titleArticle" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_titleArticle" next="‡ref_accessDate" delim=". "/>
+			
+			<element first="‡ref_titleJournal" next="‡ref_volumeNumber" delim=" "/>
+			<element first="‡ref_titleJournal" next="‡ref_pageFirst" delim=" "/>
+			<element first="‡ref_titleJournal" next="‡ref_pageLast" delim=" "/>
+			<element first="‡ref_titleJournal" next="‡ref_idDOI" delim=" doi: "/>
+			<element first="‡ref_titleJournal" next="‡ref_URL" delim=" "/>
+			<element first="‡ref_titleJournal" next="‡ref_accessDate" delim=" "/>
+
+			<element first="‡ref_volumeNumber" next="‡ref_supplement" delim="("/>
+			<element first="‡ref_volumeNumber" next="‡ref_pageFirst" delim=": "/>
+			<element first="‡ref_volumeNumber" next="‡ref_pageLast" delim=": "/>
+			<element first="‡ref_volumeNumber" next="‡ref_idDOI" delim=", doi: "/>
+			<element first="‡ref_volumeNumber" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_volumeNumber" next="‡ref_accessDate" delim=". "/>
+			
+			<element first="‡ref_supplement" next="‡ref_pageFirst" delim="): "/>
+			<element first="‡ref_supplement" next="‡ref_pageLast" delim="): "/>
+			<element first="‡ref_supplement" next="‡ref_idDOI" delim="), doi: "/>
+			<element first="‡ref_supplement" next="‡ref_URL" delim="). "/>
+			<element first="‡ref_supplement" next="‡ref_accessDate" delim="). "/>
+			
+			<element first="‡ref_pageFirst" next="‡ref_pageLast" delim="–"/>
+			<element first="‡ref_pageFirst" next="‡ref_idDOI" delim=", doi: "/>
+			<element first="‡ref_pageFirst" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_pageLast" next="‡ref_idDOI" delim=", doi: "/>
+			<element first="‡ref_pageLast" next="‡ref_URL" delim=". "/>
+			
+			<element first="‡ref_URL" next="‡ref_accessDate" delim=". "/>
+			<element first="‡ref_idDOI" next="‡ref_URL" delim=". "/>
+			
+			<element first="‡ref_titleArticle" next="" delim="."/>
+			<element first="‡ref_titleJournal" next="" delim="."/>
+			<element first="‡ref_pubdateYear" next="" delim="."/>
+			<element first="‡ref_volumeNumber" next="" delim="."/>
+			<element first="‡ref_supplement" next="" delim="."/>
+			<element first="‡ref_pageFirst" next="" delim="."/>
+			<element first="‡ref_pageLast" next="" delim="."/>
+			<element first="‡ref_idDOI" next="" delim="."/>
+			<element first="‡ref_URL" next="" delim="."/>
+			<element first="‡ref_accessDate" next="" delim="."/>
+		</delimiter>
+	</style>
+	
+	<style name="Book-Ref" order="author,‡ref_auSuffix,‡ref_etal,‡ref_auCollab,‡ref_pubdateYear,‡ref_titleBook,‡ref_volumeNumber,‡ref_edition,‡ref_publisherLocation,‡ref_publisherName,‡ref_pageFirst,‡ref_pageLast,URLprefix,‡ref_URL,URLSuffix" missing="‡ref_auSurname,‡ref_auGivenName,‡ref_titleBook,‡ref_pubdateYear,‡ref_pageFirst,‡ref_pageLast" italic="‡ref_titleBook" Removeitalic="" bold="" Removebold="‡ref_number">
+		<!-- <Case style="‡ref_titleBook" format="SentenceCase">
+			<seperator type="-" format="lowercase"/>
+			<seperator type=":" format="lowercase"/>
+		</Case>-->
+		<remove type="checkValue" findstyle="‡ref_etal" ContainsAll="et al\.?||others\.?" Remove="others\.?"/>
+		<followword style="‡ref_URL"/>
+		<RemoveMonthinYear style="‡ref_pubdateYear" pattern="\b(?'P1'[0-9]{4}((\s)?[A-z]{1})?\[([0-9]{4}((\s)?[A-z]{1})?)\])|(?'P2'\[([0-9]{4}((\s)?[A-z]{1})?)\][0-9]{4}((\s)?[A-z]{1})?)\b|\b(?'P3'([0-9]{4})((\s)?[A-z]{1})?)\b" Replace=""/>
+		<group name="author" first="‡ref_auSurname,‡ref_auGivenName,suffix" rest="‡ref_auGivenName,‡ref_auSurname,suffix"/>
+		<trim name="author" count="" after="" insert="et al" style="‡ref_etal" delim=", "/>
+		<group name="editor" first="‡ref_edSurname,‡ref_edGivenName" rest="‡ref_edGivenName,‡ref_edSurname" pos="start"/>
+		<group name="editor" first="‡ref_edGivenName,‡ref_edSurname,suffix" rest="‡ref_edGivenName,‡ref_edSurname,suffix"/>
+		<elide first="‡ref_pageFirst" next="‡ref_pageLast" trim="lastpage" expand=""/>
+		<initials style="‡ref_auGivenName" punctuation="."/>
+		<delimiter>
+			<element first="‡ref_auSurname" next="‡ref_auGivenName" delim=", "/>
+			<element first="‡ref_auGivenName" next="‡ref_auSurname" delim=" "/>
+			<element first="‡ref_auSurname" next="suffix" delim=", "/>
+			
+			<element first="author" next="author" delim=", " last=" and "/>
+			<element first="author" next="‡ref_auCollab" delim="; " last=", "/>
+			<element first="author" next="‡ref_auSuffix" delim=", "/>
+			<element first="author" next="‡ref_etal" delim=", "/>
+			<element first="author" next="‡ref_pubdateYear" delim=". "/>
+			<element first="author" next="‡ref_titleBook" delim=". "/>
+			<element first="author" next="‡ref_volumeNumber" delim=", vol. "/>
+			<element first="author" next="‡ref_edition" delim=". "/>
+			<element first="author" next="‡ref_publisherLocation" delim=". "/>
+			<element first="author" next="‡ref_publisherName" delim=". "/>
+			
+			<element first="‡ref_auSuffix" next="‡ref_etal" delim=", "/>
+			<element first="‡ref_auSuffix" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_auSuffix" next="‡ref_titleBook" delim=". "/>
+			<element first="‡ref_auSuffix" next="‡ref_volumeNumber" delim=", vol. "/>
+			<element first="‡ref_auSuffix" next="‡ref_edition" delim=". "/>
+			<element first="‡ref_auSuffix" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_auSuffix" next="‡ref_publisherName" delim=". "/>
+			
+			<element first="‡ref_etal" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_titleBook" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_volumeNumber" delim=", vol. "/>
+			<element first="‡ref_etal" next="‡ref_edition" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_publisherName" delim=". "/>
+			
+			<element first="‡ref_auCollab" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_titleBook" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_volumeNumber" delim=", vol. "/>
+			<element first="‡ref_auCollab" next="‡ref_edition" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_publisherName" delim=". "/>
+
+			<element first="‡ref_pubdateYear" next="‡ref_titleBook" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_volumeNumber" delim=", vol. "/>
+			<element first="‡ref_pubdateYear" next="‡ref_edition" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_publisherName" delim=". "/>
+
+			<element first="‡ref_titleBook" next="‡ref_volumeNumber" delim=", vol. "/>
+			<element first="‡ref_titleBook" next="‡ref_edition" delim=", "/>
+			<element first="‡ref_titleBook" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_titleBook" next="‡ref_publisherName" delim=". "/>
+			<element first="‡ref_titleBook" next="‡ref_URL" delim=". "/>
+			
+			<element first="‡ref_volumeNumber" next="‡ref_edition" delim=", "/>
+			<element first="‡ref_volumeNumber" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_volumeNumber" next="‡ref_publisherName" delim=". "/>
+			
+			<element first="‡ref_edition" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_edition" next="‡ref_publisherName" delim=". "/>
+			<element first="‡ref_edition" next="‡ref_URL" delim=". "/>
+			
+			<element first="‡ref_publisherLocation" next="‡ref_publisherName" delim=": "/>
+			<element first="‡ref_publisherLocation" next="‡ref_pageFirst" delim=". pp. "/>
+			<element first="‡ref_publisherLocation" next="‡ref_pageLast" delim=". pp. "/>
+			<element first="‡ref_publisherLocation" next="‡ref_URL" delim=". "/>
+			
+			<element first="‡ref_publisherName" next="‡ref_pageFirst" delim=". pp. "/>
+			<element first="‡ref_publisherName" next="‡ref_pageLast" delim=". pp. "/>
+			<element first="‡ref_publisherName" next="‡ref_URL" delim=". "/>
+			
+			<element first="‡ref_pageFirst" next="‡ref_pageLast" delim="–"/>
+			<element first="‡ref_pageFirst" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_pageLast" next="‡ref_URL" delim=". "/>
+			
+			<element first="‡ref_URL" next="‡ref_accessDate" delim=". "/>
+
+			<element first="‡ref_titleBook" next="" delim="."/>
+			<element first="‡ref_volumeNumber" next="" delim="."/>
+			<element first="‡ref_edition" next="" delim="."/>
+			<element first="‡ref_publisherLocation" next="" delim="."/>
+			<element first="‡ref_publisherName" next="" delim="."/>
+			<element first="‡ref_pageFirst" next="" delim="."/>
+			<element first="‡ref_pageLast" next="" delim="."/>
+			<element first="‡ref_accessDate" next="" delim="."/>
+			<element first="‡ref_URL" next="" delim="."/>
+		</delimiter>
+	</style>
+
+	<style name="EditedBook-Ref" order="author,‡ref_auSuffix,‡ref_etal,‡ref_auCollab,‡ref_pubdateYear,‡ref_titleChapter,‡ref_pageFirst,‡ref_pageLast,editor,‡ref_titleBook,‡ref_edition,‡ref_volumeNumber,‡ref_publisherName,‡ref_publisherLocation,URLprefix,‡ref_URL,URLSuffix" missing="" italic="‡ref_titleBook" Removeitalic="" bold="" Removebold="‡ref_number">
+		<!-- <Case style="‡ref_titleBook" format="SentenceCase">
+			<seperator type="-" format="lowercase"/>
+			<seperator type=":" format="lowercase"/>
+		</Case>
+		<Case style="‡ref_titleChapter" format="SentenceCase">
+			<seperator type="-" format="lowercase"/>
+			<seperator type=":" format="lowercase"/>
+		</Case> -->
+		<remove type="checkValue" findstyle="‡ref_etal" ContainsAll="et al\.?||others\.?" Remove="others\.?"/>
+		<followword style="‡ref_URL"/>
+		<RemoveMonthinYear style="‡ref_pubdateYear" pattern="\b(?'P1'[0-9]{4}((\s)?[A-z]{1})?\[([0-9]{4}((\s)?[A-z]{1})?)\])|(?'P2'\[([0-9]{4}((\s)?[A-z]{1})?)\][0-9]{4}((\s)?[A-z]{1})?)\b|\b(?'P3'([0-9]{4})((\s)?[A-z]{1})?)\b" Replace=""/>
+		<group name="author" first="‡ref_auSurname,‡ref_auGivenName,suffix" rest="‡ref_auGivenName,‡ref_auSurname,suffix"/>
+		<trim name="author" count="" after="" insert="et al" style="‡ref_etal" delim=", "/>
+		<group name="editor" first="‡ref_edSurname,‡ref_edGivenName" rest="‡ref_edGivenName,‡ref_edSurname" pos="start"/>
+		<group name="editor" first="‡ref_edGivenName,‡ref_edSurname,suffix" rest="‡ref_edGivenName,‡ref_edSurname,suffix"/>
+		<elide first="‡ref_pageFirst" next="‡ref_pageLast" trim="lastpage" expand=""/>
+		<initials style="‡ref_auGivenName" punctuation="."/>
+		<elide first="‡ref_pageFirst" next="‡ref_pageLast" trim="lastpage" expand=""/>
+		<initials style="‡ref_auGivenName" punctuation="."/>
+		<initials style="‡ref_edGivenName" punctuation="."/>
+		<delimiter>
+			<element first="author" next="author" delim=", " last=" and "/>
+			<element first="author" next="‡ref_auCollab" delim="; " last=", "/>
+			<element first="‡ref_auSurname" next="‡ref_auGivenName" delim=", "/>
+			<element first="‡ref_auGivenName" next="‡ref_auSurname" delim=" "/>
+			<element first="‡ref_auSurname" next="suffix" delim=", "/>
+			<element first="author" next="‡ref_auSuffix" delim=", "/>
+			<element first="‡ref_auSuffix" next="‡ref_pubdateYear" delim=". "/>
+			
+			<element first="author" next="‡ref_etal" delim=", "/>
+			<element first="author" next="‡ref_auCollab" delim="; " last=", "/>
+			<element first="author" next="‡ref_pubdateYear" delim=". "/>
+			<element first="author" next="‡ref_titleChapter" delim=". "/>
+			<element first="author" next="‡ref_titleBook" delim=". "/>
+			
+			<element first="‡ref_auCollab" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_titleChapter" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_titleBook" delim=". "/>
+			
+			<element first="‡ref_etal" next="‡ref_auCollab" delim="; "/>
+			<element first="‡ref_etal" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_titleChapter" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_titleBook" delim=". "/>
+			
+			<element first="‡ref_pubdateYear" next="‡ref_titleChapter" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_titleBook" delim=". "/>
+			
+			
+			<element first="editor" next="editor" delim=", " last=", and "/>
+			<element first="‡ref_edSurname" next="‡ref_edGivenName" delim=", "/>
+			<element first="‡ref_edGivenName" next="‡ref_edSurname" delim=" "/>
+			<element first="‡ref_titleChapter" next="‡ref_titleBook" delim=". In "/>
+
+			<element first="‡ref_titleBook" next="‡ref_volumeNumber" delim=", vol. "/>
+			<element first="‡ref_titleBook" next="‡ref_edition" delim=", "/>
+			<element first="‡ref_titleBook" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_titleBook" next="‡ref_publisherName" delim=". "/>
+			<element first="‡ref_titleBook" next="‡ref_URL" delim=". "/>
+
+			<element first="‡ref_volumeNumber" next="‡ref_edition" delim=", "/>
+			<element first="‡ref_volumeNumber" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_volumeNumber" next="‡ref_publisherName" delim=". "/>
+
+			<element first="‡ref_edition" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_edition" next="‡ref_publisherName" delim=". "/>
+			<element first="‡ref_edition" next="‡ref_URL" delim=". "/>
+
+			<element first="‡ref_titleBook" next="editor" delim=", "/>
+			
+			<element name="editor" multi=", eds. " delim=", ed. " pos="first" author="true"/>
+			<element first="editor" next="‡ref_pageFirst" delim=", "/>
+			
+			<!--In should be italic -->
+			<!-- <element name="editor" multi="(In: " delim="(In: " pos="first" author="true"/>
+			<element name="editor" multi=" eds. " delim=" ed. " pos="last" author="true"/>
+			<element name="editor" multi="(In: " delim="(In: " pos="first" author="false"/>
+			<element name="editor" multi=" eds. " delim="ed. " pos="last" author="false"/> -->
+
+			<element first="‡ref_pageFirst" next="‡ref_pageLast" delim="–"/>
+			<element first="‡ref_pageFirst" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_pageFirst" next="‡ref_publisherName" delim=". "/>
+
+			<element first="‡ref_pageLast" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_pageLast" next="‡ref_publisherName" delim=". "/>
+
+			<element first="‡ref_publisherLocation" next="‡ref_publisherName" delim=": "/>
+			<element first="‡ref_publisherName" next="‡ref_URL" delim=". "/>
+
+			<element first="‡ref_titleChapter" next="" delim="."/>
+			<element first="‡ref_titleBook" next="" delim="."/>
+			<element first="‡ref_volumeNumber" next="" delim="."/>
+			<element first="‡ref_edition" next="" delim="."/>
+			<element first="‡ref_publisherLocation" next="" delim="."/>
+			<element first="‡ref_publisherName" next="" delim="."/>
+			<element first="‡ref_URL" next="" delim="."/>
+		</delimiter>
+	</style>
+	
+	<style name="confpaper" order="author,‡ref_auSuffix,‡ref_etal,‡ref_auCollab,‡ref_pubdateYear,‡ref_titleArticle,‡ref_pageFirst,‡ref_pageLast,editor,‡ref_conferenceName,‡ref_conferenceDate,‡ref_conferencePlace,‡ref_publisherName,‡ref_publisherLocation" missing="‡ref_auSurname,‡ref_auGivenName,‡ref_pubdateYear,‡ref_titleArticle,‡ref_publisherLocation,‡ref_conferenceName,‡ref_conferenceDate" italic="" Removeitalic="" bold="" Removebold="‡ref_number">
+		<Case style="‡ref_conferenceName" format="SentenceCase">
+			<seperator type="-" format="lowercase"/>
+			<seperator type=":" format="lowercase"/>
+		</Case>
+		<remove type="checkValue" findstyle="‡ref_etal" ContainsAll="et al\.?||others\.?" Remove="others\.?"/>
+		<followword style="‡ref_URL"/>
+		<RemoveMonthinYear style="‡ref_pubdateYear" pattern="\b(?'P1'[0-9]{4}((\s)?[A-z]{1})?\[([0-9]{4}((\s)?[A-z]{1})?)\])|(?'P2'\[([0-9]{4}((\s)?[A-z]{1})?)\][0-9]{4}((\s)?[A-z]{1})?)\b|\b(?'P3'([0-9]{4})((\s)?[A-z]{1})?)\b" Replace=""/>
+		<group name="author" first="‡ref_auSurname,‡ref_auGivenName,suffix" rest="‡ref_auGivenName,‡ref_auSurname,suffix"/>
+		<trim name="author" count="" after="" insert="et al" style="‡ref_etal" delim=", "/>
+		<group name="editor" first="‡ref_edSurname,‡ref_edGivenName" rest="‡ref_edGivenName,‡ref_edSurname" pos="start"/>
+		<group name="editor" first="‡ref_edGivenName,‡ref_edSurname,suffix" rest="‡ref_edGivenName,‡ref_edSurname,suffix"/>
+		<elide first="‡ref_pageFirst" next="‡ref_pageLast" trim="lastpage" expand=""/>
+		<initials style="‡ref_auGivenName" punctuation="."/>
+		<elide first="‡ref_pageFirst" next="‡ref_pageLast" trim="lastpage" expand=""/>
+		<initials style="‡ref_auGivenName" punctuation="."/>
+		<initials style="‡ref_edGivenName" punctuation="."/>
+		<delimiter>
+			<element first="author" next="author" delim=", " last=" and "/>
+			<element first="author" next="‡ref_auCollab" delim="; " last=", "/>
+			<element first="‡ref_auSurname" next="‡ref_auGivenName" delim=", "/>
+			<element first="‡ref_auGivenName" next="‡ref_auSurname" delim=" "/>
+			<element first="‡ref_auSurname" next="suffix" delim=", "/>
+			<element first="author" next="‡ref_auSuffix" delim=", "/>
+			<element first="‡ref_auSuffix" next="‡ref_pubdateYear" delim=". "/>
+			<element first="author" next="‡ref_etal" delim=", "/>
+			<element first="author" next="‡ref_auCollab" delim="; " last=", "/>
+			<element first="author" next="‡ref_pubdateYear" delim=" "/>
+			<element first="author" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_auCollab" delim="; "/>
+			<element first="‡ref_etal" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_titleBook" delim=". "/>
+			<element first="‡ref_titleArticle" next="‡ref_pageFirst" delim=", pp. "/>
+			<element first="‡ref_pageFirst" next="‡ref_pageLast" delim="–"/>
+			<element first="‡ref_pageLast" next="‡ref_conferenceName" delim=". In "/>
+			<!--In should be italic -->
+			<element first="‡ref_conferenceName" next="‡ref_conferenceDate" delim=", "/>
+			<element first="‡ref_conferenceDate" next="‡ref_conferencePlace" delim=", "/>
+			<element first="‡ref_conferenceDate" next="‡ref_publisherName" delim=". "/>
+			<element first="‡ref_conferencePlace" next="‡ref_publisherName" delim=". "/>
+			<element first="‡ref_publisherName" next="‡ref_publisherLocation" delim=", "/>
+			<element first="‡ref_conferenceName" next="" delim="."/>
+			<element first="‡ref_conferenceDate" next="" delim="."/>
+			<element first="‡ref_conferencePlace" next="" delim="."/>
+			<element first="‡ref_publisherName" next="" delim="."/>
+			<element first="‡ref_publisherLocation" next="" delim="."/>
+		</delimiter>
+	</style>
+	<style name="thesis" order="author,‡ref_auSuffix,‡ref_etal,‡ref_auCollab,‡ref_pubdateYear,‡ref_titleArticle,‡ref_titleThesis,‡ref_publisherLocation,‡ref_publisherName,URLprefix,‡ref_URL,URLSuffix,‡ref_pageFirst,‡ref_pageLast" missing="‡ref_auSurname,‡ref_auGivenName,‡ref_pubdateYear,‡ref_titleThesis,‡ref_publisherLocation,‡ref_publisherName" italic="‡ref_titleThesis" Removeitalic="" bold="" Removebold="‡ref_number">
+		<Case style="‡ref_titleThesis" format="TitleCase">
+			<seperator type="-" format="lowercase"/>
+			<seperator type=":" format="lowercase"/>
+		</Case>
+			<Case style="‡ref_titleArticle" format="SentenceCase">
+			<seperator type="-" format="lowercase"/>
+			<seperator type="(" format="lowercase"/>
+			<special char="?" format="lowercase"/>
+			<special char=":" format="lowercase"/>
+			<special char="." format="TitleCase"/>
+		</Case>
+
+
+		<remove type="checkValue" findstyle="‡ref_etal" ContainsAll="et al\.?||others\.?" Remove="others\.?"/>
+		<followword style="‡ref_URL"/>
+		<RemoveMonthinYear style="‡ref_pubdateYear" pattern="\b(?'P1'[0-9]{4}((\s)?[A-z]{1})?\[([0-9]{4}((\s)?[A-z]{1})?)\])|(?'P2'\[([0-9]{4}((\s)?[A-z]{1})?)\][0-9]{4}((\s)?[A-z]{1})?)\b|\b(?'P3'([0-9]{4})((\s)?[A-z]{1})?)\b" Replace=""/>
+		<group name="author" first="‡ref_auSurname,‡ref_auGivenName,suffix" rest="‡ref_auGivenName,‡ref_auSurname,suffix"/>
+		<trim name="author" count="" after="" insert="et al" style="‡ref_etal" delim=", "/>
+		<group name="editor" first="‡ref_edSurname,‡ref_edGivenName" rest="‡ref_edGivenName,‡ref_edSurname" pos="start"/>
+		<group name="editor" first="‡ref_edGivenName,‡ref_edSurname,suffix" rest="‡ref_edGivenName,‡ref_edSurname,suffix"/>
+		<elide first="‡ref_pageFirst" next="‡ref_pageLast" trim="lastpage" expand=""/>
+		<initials style="‡ref_auGivenName" punctuation="."/>
+		<delimiter>
+			<element first="author" next="author" delim=", " last=" and "/>
+			<element first="author" next="‡ref_auCollab" delim="; " last=", "/>
+			<element first="‡ref_auSurname" next="‡ref_auGivenName" delim=", "/>
+			<element first="‡ref_auGivenName" next="‡ref_auSurname" delim=" "/>
+			<element first="‡ref_auSurname" next="‡ref_auSuffix" delim=", "/>
+			<element first="author" next="‡ref_auSuffix" delim=", "/>
+			<element first="‡ref_auSuffix" next="‡ref_pubdateYear" delim=". "/>
+			<element first="author" next="‡ref_etal" delim=", "/>
+			<element first="author" next="‡ref_pubdateYear" delim=". "/>
+			<element first="author" next="‡ref_titleArticle" delim=". "/>
+			<element first="author" next="‡ref_titleThesis" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_auCollab" delim="; "/>
+			<element first="‡ref_etal" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_titleThesis" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_titleThesis" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_titleThesis" delim=". "/>
+			<element first="‡ref_titleArticle" next="‡ref_titleThesis" delim=". "/>
+			<element first="‡ref_titleThesis" next="‡ref_publisherLocation" delim=". "/>
+			<element first="‡ref_titleThesis" next="‡ref_publisherName" delim=". "/>
+			<element first="‡ref_titleThesis" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_publisherLocation" next="‡ref_publisherName" delim=": "/>
+			<element first="‡ref_publisherName" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_titleThesis" next="" delim="."/>
+			<element first="‡ref_publisherLocation" next="" delim="."/>
+			<element first="‡ref_publisherName" next="" delim="."/>
+			<element first="‡ref_URL" next="" delim="."/>
+		</delimiter>
+	</style>
+	
+	<style name="website" order="author,‡ref_auSuffix,‡ref_etal,‡ref_auCollab,‡ref_pubdateYear,‡ref_titleArticle,‡ref_titleWebsite,‡ref_publisherLocation,‡ref_publisherName,URLprefix,‡ref_URL,URLSuffix,‡ref_pageFirst,‡ref_pageLast" missing="‡ref_auSurname,‡ref_auGivenName,‡ref_pubdateYear,‡ref_titleWebsite,‡ref_publisherName,‡ref_publisherLocation" italic="‡ref_titleWebsite" Removeitalic="" bold="" Removebold="‡ref_number">
+		<remove type="checkValue" findstyle="‡ref_etal" ContainsAll="et al\.?||others\.?" Remove="others\.?"/>
+		<followword style="‡ref_URL"/>
+		<RemoveMonthinYear style="‡ref_pubdateYear" pattern="\b(?'P1'[0-9]{4}((\s)?[A-z]{1})?\[([0-9]{4}((\s)?[A-z]{1})?)\])|(?'P2'\[([0-9]{4}((\s)?[A-z]{1})?)\][0-9]{4}((\s)?[A-z]{1})?)\b|\b(?'P3'([0-9]{4})((\s)?[A-z]{1})?)\b" Replace=""/>
+		<group name="author" first="‡ref_auSurname,‡ref_auGivenName,suffix" rest="‡ref_auGivenName,‡ref_auSurname,suffix"/>
+		<trim name="author" count="" after="" insert="et al" style="‡ref_etal" delim=", "/>
+		<group name="editor" first="‡ref_edSurname,‡ref_edGivenName" rest="‡ref_edGivenName,‡ref_edSurname" pos="start"/>
+		<group name="editor" first="‡ref_edGivenName,‡ref_edSurname,suffix" rest="‡ref_edGivenName,‡ref_edSurname,suffix"/>
+		<elide first="‡ref_pageFirst" next="‡ref_pageLast" trim="lastpage" expand=""/>
+		<initials style="‡ref_auGivenName" punctuation="."/>
+		<delimiter>
+			<element first="author" next="author" delim=", " last=" and "/>
+			<element first="author" next="‡ref_auCollab" delim="; " last=", "/>
+			<element first="‡ref_auSurname" next="‡ref_auGivenName" delim=", "/>
+			<element first="‡ref_auGivenName" next="‡ref_auSurname" delim=" "/>
+			<element first="‡ref_auSurname" next="suffix" delim=", "/>
+			<element first="author" next="‡ref_auSuffix" delim=", "/>
+			<element first="‡ref_auSuffix" next="‡ref_pubdateYear" delim=". "/>
+			<element first="author" next="‡ref_etal" delim=", "/>
+			<element first="author" next="‡ref_pubdateYear" delim=". "/>
+			<element first="author" next="‡ref_titleArticle" delim=". "/>
+			<element first="author" next="‡ref_titleWebsite" delim=". "/>
+			<element first="author" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_auCollab" delim="; "/>
+			<element first="‡ref_etal" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_titleWebsite" delim=". "/>
+			<element first="‡ref_etal" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_pubdateYear" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_titleWebsite" delim=". "/>
+			<element first="‡ref_auCollab" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_titleArticle" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_titleWebsite" delim=". "/>
+			<element first="‡ref_pubdateYear" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_titleArticle" next="‡ref_titleWebsite" delim=". "/>
+			<element first="‡ref_titleArticle" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_titleWebsite" next="‡ref_URL" delim=". "/>
+			<element first="‡ref_URL" next="‡ref_accessDate" delim=". "/>
+			<element first="‡ref_titleArticle" next="" delim="."/>
+			<element first="‡ref_titleWebsite" next="" delim="."/>
+			<element first="‡ref_URL" next="" delim="."/>
+			<element first="‡ref_accessDate" next="" delim="."/>
+		</delimiter>
+	</style>
+	<!-- 
+  <style name="patent" 
+  order="‡ref_number,‡ref_inventorSuffix,‡ref_inventorPrefix,‡ref_assigneeCollab,‡ref_titlePatent,‡ref_pubdateMonth" 
+  missing="‡ref_titlePatent,‡ref_pubdateMonth"
+  italic=""
+  Removeitalic="" bold="" Removebold="‡ref_number"
+  >
+    <Case style="‡ref_titlePatent" format="SentenceCase">
+	  <seperator type="-" format="lowercase"/>
+	  <seperator type=":" format="lowercase"/>
+    </Case>
+	<remove type="checkValue" findstyle="‡ref_etal" ContainsAll="et al\.?||others\.?" Remove="others\.?"/>
+		<followword style="‡ref_URL"/>
+		<RemoveMonthinYear style="‡ref_pubdateYear" pattern="\b(?'P1'[0-9]{4}((\s)?[A-z]{1})?\[([0-9]{4}((\s)?[A-z]{1})?)\])|(?'P2'\[([0-9]{4}((\s)?[A-z]{1})?)\][0-9]{4}((\s)?[A-z]{1})?)\b|\b(?'P3'([0-9]{4})((\s)?[A-z]{1})?)\b" Replace=""/>
+    <group name="inventor" first="‡ref_inventorSuffix,‡ref_inventorPrefix" rest="‡ref_inventorSuffix,‡ref_inventorPrefix" />
+	<initials style="‡ref_inventorPrefix" punctuation=""/>
+    <delimiter>
+	  <element first="‡ref_inventorSuffix" next="‡ref_inventorPrefix" delim=" " />
+	  <element first="‡ref_inventorPrefix" next="‡ref_inventorSuffix" delim=" " />
+	  
+	  <element first="inventor" next="‡ref_inventor" delim=", " />
+	  <element first="inventor" next="‡ref_assigneeCollab" delim=", " />
+	  <element first="inventor" next="‡ref_titlePatent" delim=", " />
+	  <element first="inventor" next="‡ref_pubdateMonth" delim=", " />
+	  
+	  <element first="‡ref_inventor" next="‡ref_assigneeCollab" delim="; " />
+	  <element first="‡ref_inventor" next="‡ref_titlePatent" delim="; " />
+	  <element first="‡ref_inventor" next="‡ref_pubdateMonth" delim="; " />
+	  
+	  <element first="‡ref_assigneeCollab" next="‡ref_assignee" delim=", " />
+	  <element first="‡ref_assigneeCollab" next="‡ref_titlePatent" delim=", " />
+	  <element first="‡ref_assigneeCollab" next="‡ref_pubdateMonth" delim=", " />
+	  
+	  <element first="‡ref_pubdateYear" next="‡ref_titlePatent" delim="." />
+	  <element first="‡ref_titlePatent" next="‡ref_pubdateMonth" delim=". " />
+	  
+	  <element first="‡ref_assignee" next="‡ref_titlePatent" delim=". " />
+	  <element first="‡ref_assigneeCollab" next="‡ref_pubdateMonth" delim=". " />
+	  
+	  <element first="‡ref_publisherName" next="‡ref_URL" delim=". " />
+    
+	  <element first="‡ref_titlePatent" next="" delim="." />
+	  <element first="‡ref_publisherName" next="" delim="." />
+	  <element first="‡ref_URL" next="" delim="." />
+    </delimiter>
+	
+</style>
+-->
+</refStyle>

@@ -1,0 +1,11 @@
+/* BPMJ Journal */
+/* For Frontmatter Xref value  */
+/* Reference Part */
+tr th .italic {
+    font-style: italic !important;
+    font-weight: bold !important;
+}
+
+div.ref .mixed-citation .source,div.ref .mixed-citation .volume {
+    font-style: italic !important;
+}

@@ -1,0 +1,55 @@
+#EditCitationTextDialog {
+  #cite_same_rid_section {
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    background: #fafafa;
+    padding: 6px 8px;
+    margin-top: 8px;
+  }
+
+  .cite-same-rid-grid {
+    max-height: 160px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+
+  .cite-same-rid-grid-ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cite-same-rid-grid-item {
+    font-size: 11px;
+    line-height: 1.4;
+    padding: 4px 8px;
+    margin: 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    background: #fafafa;
+    word-break: break-word;
+    cursor: pointer;
+
+    &.is-current {
+      border-color: #4a90d9;
+      background: #eef5fc;
+      font-weight: 600;
+      cursor: default;
+    }
+
+    &.is-nav-disabled {
+      cursor: default;
+      opacity: 0.85;
+    }
+  }
+
+  #cite_use_selection:disabled,
+  #cite_same_rid_prev:disabled,
+  #cite_same_rid_next:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}

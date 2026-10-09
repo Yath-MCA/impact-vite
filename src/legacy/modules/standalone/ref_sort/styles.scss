@@ -1,0 +1,59 @@
+/* Ref Re_order */
+#RefSortingDialog {
+    #refListReOr {
+        // width: 23rem !important;
+        height: 18em;
+        overflow-y: auto;
+        overflow-x: hidden;
+        // margin-right: -8px;
+        padding: 0em 1.05em;
+        border: 1.5px solid #cacaca;
+        border-radius: 2px;
+        color: #383838;
+
+        @media screen and (height: 400px) {
+            //background: lightgoldenrodyellow;
+        }
+
+        @media screen and (min-height: 700px) {
+            //background: yellow;
+            height: 25em;
+        }
+
+        @media screen and (max-height: 699px) {
+            //background: lightpink;
+        }
+    }
+
+    .impact-background-class,
+    #REF_LIST_SORT .sortable-chosen {
+        background-color: #FEFAF6;
+        color: #FF4500;
+    }
+
+    #REF_LIST_SORT {
+        div {
+            cursor: pointer;
+            margin-top: 0.25rem;
+        }
+
+        .manual-sort {
+            /* background-color: #C8EBFB; */
+            color: #00417B;
+        }
+
+        .auto-sort {
+            color: #a86603;
+        }
+
+        div:not(:last-child) {
+            margin-bottom: .5em;
+            border-bottom: .5px solid #d3d3d3;
+        }
+
+        div:not(:first-child) {
+            margin-top: .5em;
+        }
+    }
+
+}

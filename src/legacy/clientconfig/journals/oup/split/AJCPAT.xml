@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="AJCPAT" abbr="" journal-title="American Journal of Clinical Pathology" batch="22" by="AK" qcby="YA" editor-only="true">
+				<!-- ? NEW PATTERN -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="yes" author-comment="no" degrees="yes" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="yes" corresp-quees="no" crosslink="yes" givennamesep=" " surnameSep=", " altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=" " contrib-last-sep=" " last-sep-limit="2" pattern="beforecomma" notallowed="no" />
+				<!-- ? When all authors share one common affiliation there will be no affiliation indicator -->
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="ArabicNumber" single-aff="false" autoReNumber="true" notallowed="no" />
+				<!-- ?corresp  None-->
+				<corresp data-name="corresp" email="no" address="no" corresp-quees="" maximum="1" minimum="1" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ? Present address indicator Use asterisk | Article note indicator = Symbols -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<!-- ?abstract: Structured | Use headings: Objectives, Methods, Results, Conclusions  -->
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!--? Follow author’s order -->
+				<keywords data-name="keywords" seperator="; " endperiod="false" minimum="3" maximum="" limit="no" notallowed="no" />
+				<!--?  -->
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure" notallowed="no">
+					<caption label="yes" label_end_sep="" end_sep="." limit="3" />
+					<!-- ? PART LABLES NEED TO CHECK -->
+					<dircite single_prefix="FIGURE " double_prefix="FIGURES " double_sep=", " last_sep=" and " multi_prefix="FIGURES " range_sep="–" openwrap="" closewrap="" part_label="" part_label_prefix="" />
+					<indircite single_prefix="FIGURE " double_prefix="FIGURES " double_sep=", " last_sep=" and " multi_prefix="FIGURES " range_sep="–" openwrap="(" closewrap=")" part_label="" part_label_prefix="" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<!-- ? No Style Point – Follow author -->
+					<caption label="yes" label_end_sep="" end_sep="" limit="3" />
+					<dircite single_prefix="TABLE " double_prefix="TABLES " double_sep=", " last_sep=" and " multi_prefix="TABLES " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="TABLE " double_prefix="TABLES " double_sep=", " last_sep=" and " multi_prefix="TABLES " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<notes footnote="notallowed" endnote="notallowed" note="" />
+				<!-- ? No style – Followed sample articles for style* -->
+				<heading data-name="title" numbered="no" label="" label_suffix="" maximum="3" label_between_delim="">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="Title case" label_format="" label_end_delim="" label_prefix="" />
+					<h2 style="bold" type="Title case" label_format="" label_end_delim="" label_prefix="" />
+					<h3 style="bold" type="Title case" label_format="" label_end_delim="" label_prefix="" />
+				</heading>
+				<dictionary spelling="US" name="Merriam-Webster’s 11th Collegiate Dictionary/ Concise Oxford Dictionary" note="" />
+				<list label="(1)" bullet="allowed" note="Follow AMA 18.5 (see below)" />
+				<equation label="" note="followauthor" />
+				<!-- ?BackMatter:  -->
+				<BackMatter ack="allowed" act="allowed" coi="allowed" fund="allowed" das="allowed" supp="allowed" suppcap="allowed" app="notallowed" />
+				<!-- ? Superscript numerals -->
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered" text-format="sup">
+					<dircite double_sep="," range_sep="-" openwrap="" closewrap="" />
+					<indircite double_sep="," range_sep="-" openwrap="" closewrap="" />
+				</Reference>
+			</journal>

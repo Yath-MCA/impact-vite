@@ -1,0 +1,12 @@
+/* EJEM Journal */
+/* For Frontmatter Xref value  */
+
+/* Reference Part */
+div.ref .mixed-citation .source, div.ref .volume {
+    font-style: bold !important;
+}
+
+div.ref .mixed-citation .volume {
+    font-weight: 750;
+    /* font-style: bold !important; */
+}

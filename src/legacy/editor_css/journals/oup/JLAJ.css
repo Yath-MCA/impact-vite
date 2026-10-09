@@ -1,0 +1,10 @@
+/* For Frontmatter Xref value  */
+.contrib .surname,
+.contrib .given-names {
+    font-style: italic !important;
+}
+
+div.fig label,
+div.table-wrap label {
+    font-weight: bold;
+}

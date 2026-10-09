@@ -1,0 +1,280 @@
+class AbstractWordCounter extends BaseModule {
+    constructor(name, subFolder, options = {}) {
+        super(name, subFolder, options);
+
+        this.state = {
+            wordCount: 0,
+            minCount: 0,
+            maxCount: 0,
+            isActive: false,
+            isJournalRestricted: false
+        };
+
+        this.elements = {
+            dialog: {
+                panel: null,
+                wordCount: null,
+                minWords: null,
+                maxWords: null
+            },
+            footer: {
+                template: null,
+                wordCount: null,
+                minWords: null,
+                maxWords: null
+            }
+        };
+
+        this.config = {
+            autoCloseDelay: 15000,
+            updateInterval: 1000,
+            clientRestrictions: new Set(['LWW']),
+            selectors: {
+                editor: '#abstractCounts',
+                abstractText: '.abstract[abstract-type="abstract"] .p',
+                excludedElements: 'del, [style="display: none;"], .article-meta .journal-meta, .article-meta .article-id, .article-meta .pub-date, .article-meta .history, .article-meta .permissions, .article-meta .volume, .article-meta .issue, .article-meta .fpage, .article-meta .lpage'
+            },
+            regex: {
+                spaceSplit: /\s+/gi,
+                spaceAdd: /\.([A-z]+\s)/g,
+                newlines: /[\r\n]+/g
+            }
+        };
+
+        this.editorFooter = document.getElementById("abstractCounts");
+        this.updateTimer = null;
+    }
+
+    initLoop() {
+        this.initializeElements();
+        this.updateCountsFromConfig();
+        this.startWordCountUpdates();
+        this.appendEditorMenu();
+    }
+
+    showLoop() {
+        try {
+            this.updateCountsFromConfig();
+            this.getCurrentAbsWordCount();
+            this.handleDialogDisplay();
+        } catch (error) {
+            this.handleError('showLoop', error);
+        }
+    }
+
+    initializeElements() {
+        const {
+            dialog
+        } = this.elements;
+        dialog.panel = this.Panel;
+        dialog.wordCount = dialog.panel.querySelector('#absWordCount');
+        dialog.minWords = dialog.panel.querySelector('#minWords');
+        dialog.maxWords = dialog.panel.querySelector('#maxWords');
+    }
+
+    updateCountsFromConfig() {
+        if (!this.config.clientRestrictions.has(SHARED_KEY.client)) return;
+
+        const articleConfig = this.getArticleConfig();
+        if (!articleConfig || articleConfig.getAttribute('notallowed') === 'yes') {
+            this.state.isJournalRestricted = false;
+            return;
+        }
+
+        this.updateWordLimits(articleConfig);
+    }
+
+    getArticleConfig() {
+        return this.getArticleInfo('abstract', SHARED_KEY.doctype);
+    }
+
+    updateWordLimits(articleConfig) {
+        this.state.minCount = parseInt(articleConfig.getAttribute('minwords') || '0');
+
+        const articleType = articleConfig.getAttribute('article-type');
+        const maxWords = articleConfig.getAttribute('maxwords');
+
+        if (maxWords && articleType) {
+            const types = articleType.split(',').map(t => t.trim());
+            const maxWordsList = maxWords.split(',').map(w => parseInt(w.trim(), 10));
+            const index = types.indexOf(SHARED_KEY.doctype);
+            this.state.maxCount = index !== -1 ? maxWordsList[index] : 0;
+        }
+
+        this.updateDialogDisplay();
+    }
+
+    updateDialogDisplay() {
+        const {
+            dialog
+        } = this.elements;
+        dialog.maxWords.textContent = this.state.maxCount;
+        dialog.minWords.textContent = this.state.minCount;
+
+        if (this.state.minCount > 0) {
+            dialog.minWords.parentElement.classList.remove('ds-none');
+        }
+    }
+
+    getCurrentAbsWordCount() {
+        try {
+            const text = this.getAbstractText();
+            if (!text) {
+                this.state.wordCount = 0;
+                return 0;
+            }
+
+            const count = this.countWords(text);
+            this.state.wordCount = count;
+            this.updateCountDisplay(count);
+            return count;
+        } catch (error) {
+            this.handleError('getCurrentAbsWordCount', error);
+            return 0;
+        }
+    }
+    getArticleInfo(Area, docType) {
+        try {
+            const CONFIG = IS_NEW_CONFIG ? J_CONFIG : I_CONFIG;
+            const shortTitle = CONFIG.querySelector(`[short="${SHORT_II_TITLE}"]`);
+
+            if (!shortTitle) return null;
+
+            const query = IS_NEW_CONFIG ? Area : `[short="${SHORT_II_TITLE}"] ${Area}`;
+            const root = CONFIG.querySelector(query);
+
+            if (!root) return null;
+
+            return root.querySelector(`[article-type*="${docType}"]`);
+        } catch (error) {
+            this.handleError('GET_ABS_ARTICLE_INFO_', error);
+            return null;
+        }
+    }
+    getAbstractText() {
+        const bodyClone = $(GlobalEditor.document.getBody().$).clone(true);
+        bodyClone.find(this.config.selectors.excludedElements).remove();
+
+        return bodyClone
+            .find(this.config.selectors.abstractText)
+            .text()
+            .trim()
+            .replace(this.config.regex.newlines, '\n')
+            .replace(this.config.regex.spaceSplit, ' ')
+            .replace(this.config.regex.spaceAdd, '. $1');
+    }
+
+    countWords(text) {
+        return text
+            .trim()
+            .split(/\s+/)
+            .filter(word => word.length > 0)
+            .length;
+    }
+
+    updateCountDisplay(count) {
+        const {
+            dialog,
+            footer
+        } = this.elements;
+        const formattedCount = count.toLocaleString('en-IN');
+
+        if (dialog.wordCount) {
+            dialog.wordCount.textContent = formattedCount;
+        }
+        if (footer.wordCount) {
+            footer.wordCount.textContent = formattedCount;
+        }
+    }
+
+    handleDialogDisplay() {
+        if (!this.Panel) {
+            this.handleError('handleDialogDisplay', new Error('Dialog panel not found'));
+            return;
+        }
+
+        const isDialogOpen = this.checkDialogStatus();
+        if (isDialogOpen) return;
+
+        this.Panel.classList.remove("ds-none");
+        setTimeout(() => this.closeDialog(), this.config.autoCloseDelay);
+    }
+
+    checkDialogStatus() {
+        if (typeof iKEY_EVENT_HANDLING === "undefined") return false;
+
+        const openDialog = iKEY_EVENT_HANDLING.IS_DIALOG_OPEN({
+            get: true
+        }, this.Panel.id);
+        if (!openDialog) return false;
+
+        if (openDialog.id !== this.Panel.id && this.Panel.id !== "LinkShareDialog" && this.Panel.id !== "LinkSessionDialog") {
+            TOASTER_ALERT("Dialog_Opened", {
+                type: "warning"
+            });
+            return true;
+        }
+        return false;
+    }
+
+    closeDialog() {
+        if (this.Panel && !this.Panel.classList.contains("ds-none")) {
+            this.Panel.classList.add("ds-none");
+        }
+    }
+
+    startWordCountUpdates() {
+        this.updateTimer = setInterval(
+            () => this.getCurrentAbsWordCount(),
+            this.config.updateInterval
+        );
+    }
+
+    checkWordLimitReached() {
+        const {
+            wordCount,
+            maxCount,
+            minCount
+        } = this.state;
+        const ninetyPercent = maxCount * 0.9;
+
+        return {
+            isMaxed: wordCount > maxCount,
+            isNearedNinety: wordCount > ninetyPercent,
+            isMin: minCount > 0 && wordCount < minCount,
+            alertType: this.getAlertType(wordCount, maxCount, minCount, ninetyPercent),
+            maxWords: maxCount,
+            remainingWords: maxCount - wordCount,
+            exceededWords: Math.max(0, wordCount - maxCount)
+        };
+    }
+
+    getAlertType(count, max, min, ninetyPercent) {
+        if (count > max) return "Abs_Max_Reached";
+        if (count > ninetyPercent) return "Abs_Max_Neared";
+        if (min > 0 && count < min) return "Abs_Min_Reached";
+        return "";
+    }
+
+    handleError(method, error) {
+        console.warn(`${method}: ${error.message}`);
+        ErrorLogTrace(method, error.message);
+    }
+
+    destroy() {
+        clearInterval(this.updateTimer);
+        this.state = {
+            wordCount: 0,
+            minCount: 0,
+            maxCount: 0,
+            isActive: false,
+            isJournalRestricted: false
+        };
+
+        if (this.elements.footer.template) {
+            this.elements.footer.template.remove();
+        }
+    }
+}
+
+export default AbstractWordCounter;

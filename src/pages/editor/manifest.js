@@ -1,4 +1,4 @@
-/** Deduped e6_common + e6_main paths relative to @legacy (= temp/legacy/src). */
+/** Deduped e6_common + e6_main paths relative to @legacy (= src/legacy). */
 
 const E6_COMMON = [
   // skip js/index.js — gulp placeholders; use legacyGlobals.js instead

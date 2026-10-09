@@ -1,0 +1,54 @@
+div.dummyCheck {
+    cursor: pointer;
+}
+
+#linkBody {
+    width: 100%;
+}
+
+/* #ApplyHyperLinkDialog #dialog-body{
+    max-width: 22em;
+    min-width: 20em;
+    height: 15em;  
+    margin: .6rem;
+    padding: 0;  
+} */
+
+#ApplyHyperLinkDialog.maxiview {
+    width: 350px !important;
+    margin-left: -5em;
+}
+
+#hyper_append {
+    vertical-align: middle !important;
+    font-size: 13px !important;
+    box-sizing: border-box;
+    height: calc(1.8125rem + 0.5px);
+}
+
+
+#apply_link_valid {
+    margin-left: 8px;
+}
+
+#webvalidate {
+    background: #E7E7E7BF;
+    /* margin-top: 28px; */
+    cursor: pointer;
+}
+
+#webvalidate:hover {
+    color: #fd7100;
+}
+
+#basic-addon2:hover {
+    background: white;
+}
+
+#webvalidate.disabled {
+    opacity: 0.5;
+}
+
+textarea.boxHeight {
+    height: calc(1.8125rem + 35px) !important;
+}

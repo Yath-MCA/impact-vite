@@ -1,0 +1,17 @@
+{
+    "mailIds": {
+        "original": [
+            "sivakumars@newge.co",
+            "srinivasa.prabhu@newgen.co",
+            "yasar.mohideen@nkw.pub",
+            "karthickeyan.a@nkw.pub",
+            "durairajan.gnanam@nkw.pub",
+            "divya.krishnamurthy@nkw.pub"
+        ],
+        "upto20": "sivakumars@newge.co; \"Prabhu\" <srinivasa.prabhu@nkw.pub>, yasar.mohideen@nkw.pub; karthickeyan.divya@nkw.pub, durairajan.gnanam@nkw.pub; \"Divya\" <divya.krishnamurthy@nkw.pub>, mohideen.karthickeyan@nkw.pub; gnanam.yasar@nkw.pub, prabhu.divya@nkw.pub; karthickeyan.a@nkw.pub, yasar.prabhu@nkw.pub; durairajan.mohideen@nkw.pub, divya.yasar@nkw.pub; karthickeyan.sivakumars@nkw.pub, gnanam.prabhu@nkw.pub; ayaz.karthickeyan@nkw.pub, srinivasa.divya@nkw.pub",
+        "upto25": "sivakumars.mohideen@nkw.pub; karthickeyan.a@nkw.pub, yasar.mohideen@nkw.pub; durairajan.krishnamurthy@nkw.pub, divya.sivakumars@nkw.pub; karthickeyan.prabhu@nkw.pub, gnanam.yasar@nkw.pub; mohideen.divya@nkw.pub, prabhu.sivakumars@nkw.pub; krishnamurthy.karthickeyan@nkw.pub, sivakumars.gnanam@nkw.pub; yasar.prabhu@nkw.pub, durairajan.mohideen@nkw.pub; divya.yasar@nkw.pub, karthickeyan.sivakumars@nkw.pub; gnanam.prabhu@nkw.pub, mohideen.karthickeyan@nkw.pub; \"Srini\" <srinivasa.prabhu@nkw.pub>, \"Divya\" <divya.krishnamurthy@nkw.pub>; charlotte.sivakumars@nkw.pub, emma.gnanam@nkw.pub, alex.mohideen@nkw.pub",
+        "upto20_invalid": "sivakumars@newge,.co; \"Prabhu\" <srinivasa.prabhu@nkw.pub>, yasar.mohideen@nkw.pub; karthickeyan.divya@nkw.pub, durairajan.gnanam@nkw.pub; \"Divya\" <divya.krishnamurthy@nkw.pub>, mohideen.karthickeyan@nkw.pub; gnanam.yasar@nkw.pub, prabhu.divya@nkw.pub; karthickeyan.a@nkw.pub, yasar.prabhu@nkw.pub; durairajan.mohideen@nkw.pub, divya.yasar@nkw.pub; karthickeyan.sivakumars@nkw.pub, gnanam.prabhu@nkw.pub; mohideen.karthickeyan@nkw.pub, srinivasa.divya@nkw.pub"
+    }
+}
+
+

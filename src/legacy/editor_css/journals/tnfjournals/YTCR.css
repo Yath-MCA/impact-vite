@@ -1,0 +1,73 @@
+span[data-pistart="Plain Language Summary "] {
+    display: block;
+    font-size: 16px;
+    line-height: 18.5pt;
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 2pt;
+}
+.permissions{
+display: none!important;
+}
+
+.ref-list .title {
+    font: 16px "Inter UI", sans-serif;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 20pt;
+    margin-bottom: 2pt;
+	font-variant: small-caps;
+}
+div.contrib-group .contrib {
+	font-variant: small-caps; 
+	font-style: normal;
+    font-weight: bold;
+    display: inline;
+}
+/* Title For Journals */
+div.sec>div.title[data-levels="1"],
+.ack>.title,
+.def-list>.title {
+    font-size: 16px;
+    line-height: 18.5pt;
+    font-style: normal;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 20pt;
+    margin-bottom: 2pt;
+	font-variant: small-caps!important;
+}
+
+div.sec>div.title[data-levels="2"] {
+    font-size: 14px;
+    line-height: 16.5px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+	font-variant: small-caps;
+}
+
+div.sec>div.title[data-levels="3"] {
+    font-size: 12.496px;
+    line-height: 0.906rem;
+    font-style: italic;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+	font-variant: small-caps;
+}
+
+/* ? 20_FEB_2024 MOCK UPDATE YA */
+
+div.sec div.title[data-levels="4"] {
+    font-size: 11.75px;
+    margin-top: 2px;
+    font-weight: bold;
+	font-variant: small-caps;
+}

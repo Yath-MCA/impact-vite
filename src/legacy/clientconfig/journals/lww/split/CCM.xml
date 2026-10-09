@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="CCM" abbr="" journal-title="Critical Care Medicine" batch="9" by="AK" qcby="">
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="yes" author-comment="no" degrees="yes" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="no" corresp-quees="no" crosslink="yes" givennamesep=" " surnameSep=", " altername_start="(" altername_end=")" crosslinksep="," seperator="" contribsep="" contrib-last-sep="" pattern="beforecomma" notallowed="yes" />
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="no" postcode="no" street="no" seperator="" designators="ArabicNumber" single-aff="false" autoReNumber="true" notallowed="no" />
+				<corresp data-name="corresp" email="yes" address="yes" corresp-quees="" maximum="" minimum="" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<keywords data-name="keywords" seperator="; " endperiod="false" minimum="3" maximum="10" limit="yes" notallowed="no" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Figure " ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure" email="ccm_lww@newgen.co" notallowed="no">
+					<!-- ? Figure citations should be bold at first instance. Part labels should be italicized -->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=" and " last_sep=", |, and " range_sep="–" openwrap="" closewrap="" part_lab_prefix_num="yes" part_lab_case="upper" part_lab_format="italic" part_lab_double_sep=" and " />
+					<indircite single_prefix="Fig. " double_prefix="Figs. " double_sep=" and " last_sep=", |, and " multi_prefix="Figs. " range_sep="–" openwrap="(" closewrap=")" part_lab_prefix_num="yes" part_lab_case="upper" part_lab_format="italic" part_lab_double_sep=" and " />
+				</Figure>
+				<Table data-name="table-wrap" sentence="TABLE" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<caption label="yes" label_end_sep="." end_sep="" limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=" and " last_sep=", |, and " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=" and " last_sep=", |, and " range_sep="–" openwrap="(" closewrap=")" />
+									<wrapfooter show="true" ins_note="true" del_footnote="true" ins_footnote="true" del_footnote_cite="true" ins_footnote_cite="true" designators="alphabets" renumber="true" ins_abbrev="true" ins_source="true" ins_probability="true" />
+				</Table>
+				<notes footnote="" endnote="" note="" />
+				<heading data-name="title" numbered="no" label="" label_suffix="" maximum="3" label_between_delim="">
+					<h1 style="bold" type="ALL CAPS" label_format="" label_end_delim="" label_prefix="" />
+					<h2 style="bold" type="Title case " label_format="" label_end_delim="" label_prefix="" />
+					<h3 style="bold" type="Title case " label_format="" label_end_delim="" label_prefix="" />
+					<h4 style="bold" type="Title case " label_format="" label_end_delim="" label_prefix="" />
+				</heading>
+				<dictionary spelling="US spelling" name="Merriam Webster" note="" />
+				<list label="" bullet="" note="" />
+				<equation label="" note="" />
+				<BackMatter ack="allowed" act="allowed" coi="allowed" fund="allowed" das="allowed" supp="allowed" suppcap="notallowed" app="optional" />
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="numbered_with_dot" text-format="false">
+					<dircite double_sep=", " range_sep="–" openwrap="(" closewrap=")" />
+					<indircite double_sep=", " range_sep="–" openwrap="(" closewrap=")" />
+				</Reference>
+			</journal>

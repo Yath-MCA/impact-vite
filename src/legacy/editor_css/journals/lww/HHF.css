@@ -1,0 +1,55 @@
+div.subj-group div.subject {
+    color: #7c5e8a !important
+}
+
+.abstract .sec .title,
+.caption[data-label]::before,
+.def-list>.title,
+.kwd-group .pistart::after,
+.ref-list .title,
+div.abstract [data-title]::before,
+div.boxed-text div.title,
+span.related-article {
+    color: #7c5e8a !important;
+    font-style: normal !important
+}
+
+div.ref .mixed-citation .source {
+    font-style: italic !important
+}
+
+div.sec div.title {
+    color: #7c5e8a !important
+}
+
+div.sec div.title[data-levels="4"],
+div.sec div.title[data-levels="3"],
+tr th .italic {
+    font-style: italic !important
+}
+
+.caption[data-label]::before,
+div.subj-group div.subject {
+    font-weight: 700 !important
+}
+
+div.boxed-text div.title,
+div.sec div.title[data-levels="1"],
+div.subj-group div.subject {
+    text-transform: uppercase !important
+}
+
+.funding-group {
+    display: block !important;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+
+.funding-group::before {
+    display: block;
+    content: "Sources of Funding";
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}

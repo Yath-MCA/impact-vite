@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Link-rules matrix — area-first (JATS / BITS)</title>
+<style>
+  :root { font-family: Segoe UI, system-ui, sans-serif; color: #1a1a1a; }
+  body { margin: 0; background: #eef0f3; }
+  .page { max-width: 1100px; margin: 0 auto; padding: 1.25rem 1.5rem 3rem; }
+  h1 { margin: 0 0 .25rem; font-size: 1.4rem; }
+  .meta { color: #555; margin-bottom: 1rem; font-size: .88rem; }
+  .toc { display: flex; gap: .75rem; margin: 1rem 0 1.25rem; flex-wrap: wrap; }
+  .toc a { display: inline-block; padding: .55rem 1rem; border-radius: 6px; color: #fff; text-decoration: none; font-weight: 600; }
+  .toc .jats { background: #1a56a8; }
+  .toc .bits { background: #0d7a4f; }
+  .split-note { background: #fff8e6; border: 1px solid #e6d9a8; border-radius: 6px; padding: .65rem .85rem; font-size: .85rem; }
+  .stats { display: flex; gap: .75rem; margin: .75rem 0; flex-wrap: wrap; }
+  .stat { background: #f7f8fa; border: 1px solid #ddd; border-radius: 6px; padding: .5rem .8rem; }
+  .stat strong { display: block; font-size: 1.2rem; }
+  .stat.ok strong { color: #0a7a32; }
+  .stat.bad strong { color: #b00020; }
+  .dtd-block { background: #fff; border: 2px solid var(--accent); border-radius: 10px; padding: 1rem 1.1rem 1.4rem; margin: 1.75rem 0; }
+  .dtd-header h2 { margin: 0; font-size: 1.35rem; color: var(--accent); letter-spacing: .04em; }
+  .dtd-sub { color: #555; font-size: .88rem; margin: .35rem 0 .75rem; }
+  .area-nav { display: flex; flex-wrap: wrap; gap: .35rem; margin: .5rem 0 1rem; }
+  .area-nav a { background: #f0f2f5; border: 1px solid #ccc; padding: .2rem .55rem; border-radius: 4px; text-decoration: none; color: #0645ad; font-size: .8rem; }
+  .area { margin: 1.1rem 0 1.4rem; }
+  .area h3 { margin: 0 0 .5rem; font-size: 1.05rem; display: flex; align-items: baseline; gap: .75rem; }
+  .area h3 .counts { font-size: .75rem; font-weight: 500; color: #666; }
+  .area h3 .hint { font-size: .75rem; font-weight: 500; color: #666; }
+  table { border-collapse: collapse; width: 100%; font-size: .8rem; }
+  th, td { border: 1px solid #e0e0e0; padding: .4rem .5rem; vertical-align: top; text-align: left; }
+  th { background: #f0f2f5; }
+  tr.pass td:last-child { color: #0a7a32; font-weight: 600; }
+  tr.fail td:last-child { color: #b00020; font-weight: 600; }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-all; font-size: .72rem; }
+  .token { margin-top: .25rem; color: #666; font-size: .7rem; }
+  code { font-size: .72rem; }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Link-rules matrix (area-first)</h1>
+  <p class="meta">Generated 2026-09-19T19:09:00.319Z from <code>link-rules.json</code>.
+  Structure: <strong>DTD → area → client rows</strong> (Client | Input | Output | Result).</p>
+
+  <p class="split-note">
+    <strong>JATS</strong> (journal): ACS, BRILL, INTELLECT, LWW, MEDKNOW, NIHR, OUP, PLOS, TNFJOURNALS<br/>
+    <strong>BITS</strong> (book): TNF, OSO, OXMEDO, LSE<br/>
+    <strong>special-case:</strong> only clients with <code>journals</code> allowlist (e.g. LWW × GOX/PRS/XCS).
+  </p>
+
+  <div class="stats">
+    <div class="stat"><span>Total cases</span><strong>68</strong></div>
+    <div class="stat ok"><span>Pass</span><strong>68</strong></div>
+    <div class="stat bad"><span>Fail</span><strong>0</strong></div>
+  </div>
+
+  <div class="toc">
+    <a class="jats" href="#dtd-JATS">JATS — 9 clients</a>
+    <a class="bits" href="#dtd-BITS">BITS — 4 clients</a>
+  </div>
+
+  
+  <section class="dtd-block" id="dtd-JATS" style="--accent:#1a56a8">
+    <header class="dtd-header">
+      <h2>JATS</h2>
+      <p class="dtd-sub">Journal clients · <code>isJournal: true</code> · areas then special-case (allowlist only).</p>
+      <div class="stats">
+        <div class="stat"><span>Clients</span><strong>9</strong></div>
+        <div class="stat"><span>Cases</span><strong>48</strong></div>
+        <div class="stat ok"><span>Pass</span><strong>48</strong></div>
+        <div class="stat bad"><span>Fail</span><strong>0</strong></div>
+      </div>
+      <nav class="area-nav">
+        <a href="#dtd-JATS-body-url">body-url</a><a href="#dtd-JATS-reference-url">reference-url</a><a href="#dtd-JATS-doi-full">doi-full</a><a href="#dtd-JATS-doi-partial">doi-partial</a><a href="#dtd-JATS-email">email</a>
+        <a href="#JATS-special-case">special-case</a>
+      </nav>
+    </header>
+    
+  <section class="area" id="dtd-JATS-body-url">
+    <h3>body-url <span class="counts">9 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>ACS</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>BRILL</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>INTELLECT</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/uri&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>MEDKNOW</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>NIHR</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OUP</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>PLOS</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>TNFJOURNALS</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-JATS-reference-url">
+    <h3>reference-url <span class="counts">9 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>ACS</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>BRILL</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>INTELLECT</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/uri&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>MEDKNOW</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>NIHR</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OUP</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>PLOS</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>TNFJOURNALS</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-JATS-doi-full">
+    <h3>doi-full <span class="counts">9 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>ACS</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>BRILL</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>INTELLECT</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>MEDKNOW</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>NIHR</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OUP</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>PLOS</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>TNFJOURNALS</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-JATS-doi-partial">
+    <h3>doi-partial <span class="counts">9 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>ACS</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>BRILL</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>INTELLECT</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>doiPartialExtDoi</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>MEDKNOW</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>NIHR</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OUP</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>PLOS</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>TNFJOURNALS</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;pub-id pub-id-type=&quot;doi&quot;&gt;10.1234/test&lt;/pub-id&gt;</pre><div class="token">token: <code>pubId</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-JATS-email">
+    <h3>email <span class="counts">9 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>ACS</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>BRILL</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>INTELLECT</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>MEDKNOW</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>NIHR</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OUP</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>PLOS</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>TNFJOURNALS</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="JATS-special-case">
+    <h3>special-case <span class="hint">(allowlisted client × journal only)</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Journal</th><th>Input</th><th>Output</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td>GOX</td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td>PRS</td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LWW</strong></td>
+      <td>XCS</td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;?pub-id-doi xlink:href=&quot;10.1234/test&quot;?&gt;</pre></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+  </section>
+  
+  <section class="dtd-block" id="dtd-BITS" style="--accent:#0d7a4f">
+    <header class="dtd-header">
+      <h2>BITS</h2>
+      <p class="dtd-sub">BITS clients TNF · OSO · OXMEDO · LSE · <code>isJournal: false</code>.</p>
+      <div class="stats">
+        <div class="stat"><span>Clients</span><strong>4</strong></div>
+        <div class="stat"><span>Cases</span><strong>20</strong></div>
+        <div class="stat ok"><span>Pass</span><strong>20</strong></div>
+        <div class="stat bad"><span>Fail</span><strong>0</strong></div>
+      </div>
+      <nav class="area-nav">
+        <a href="#dtd-BITS-body-url">body-url</a><a href="#dtd-BITS-reference-url">reference-url</a><a href="#dtd-BITS-doi-full">doi-full</a><a href="#dtd-BITS-doi-partial">doi-partial</a><a href="#dtd-BITS-email">email</a>
+        
+      </nav>
+    </header>
+    
+  <section class="area" id="dtd-BITS-body-url">
+    <h3>body-url <span class="counts">4 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>TNF</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/uri&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OSO</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/uri&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OXMEDO</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LSE</strong></td>
+      <td><code>https://example.com/page</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/page&quot;&gt;https://example.com/page&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-BITS-reference-url">
+    <h3>reference-url <span class="counts">4 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>TNF</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/uri&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OSO</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/uri&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OXMEDO</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LSE</strong></td>
+      <td><code>https://example.com/ref</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;uri&quot; xlink:href=&quot;https://example.com/ref&quot;&gt;https://example.com/ref&lt;/ext-link&gt;</pre><div class="token">token: <code>extUri</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-BITS-doi-full">
+    <h3>doi-full <span class="counts">4 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>TNF</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OSO</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/uri&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OXMEDO</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LSE</strong></td>
+      <td><code>https://doi.org/10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;https://doi.org/10.1234/test&quot;&gt;https://doi.org/10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-BITS-doi-partial">
+    <h3>doi-partial <span class="counts">4 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>TNF</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OSO</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;uri xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/uri&gt;</pre><div class="token">token: <code>uri</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OXMEDO</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LSE</strong></td>
+      <td><code>10.1234/test</code></td>
+      <td><pre>&lt;ext-link ext-link-type=&quot;doi&quot; xlink:href=&quot;10.1234/test&quot;&gt;10.1234/test&lt;/ext-link&gt;</pre><div class="token">token: <code>extDoi</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  <section class="area" id="dtd-BITS-email">
+    <h3>email <span class="counts">4 pass / 0 fail</span></h3>
+    <table>
+      <thead>
+        <tr><th>Client</th><th>Input</th><th>Output</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+    <tr class="pass">
+      <td><strong>TNF</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OSO</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>OXMEDO</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr>
+    <tr class="pass">
+      <td><strong>LSE</strong></td>
+      <td><code>author@example.com</code></td>
+      <td><pre>&lt;email&gt;author@example.com&lt;/email&gt;</pre><div class="token">token: <code>email</code></div></td>
+      <td>PASS</td>
+    </tr></tbody>
+    </table>
+  </section>
+
+  </section>
+</div>
+</body>
+</html>

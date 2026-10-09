@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="ARISOC" abbr="" journal-title="Proceedings of the Aristotelian Society">
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="yes" author-comment="no" degrees="no" role="no" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="yes" corresp-quees="yes" crosslink="yes" surnameSep="," altername_start="(" altername_end=")" givennamesep=" " crosslinksep="," seperator="," contrib-last-sep=" and " pattern="beforecomma" contribsep=" " notallowed="yes" />
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="no" single-aff="false" autoReNumber="true" />
+				<corresp data-name="corresp" email="true" address="no" corresp-quees="no" maximum="yes" minimum="1" telephone="no" fax="no" indicators="yes" degrees="no" />
+				<author-notes data-name="fn" indicators="yes" author-notes-quees="no" />
+				<abstract data-name="abstract" GA="true" laysummery="true">
+				</abstract>
+				<keywords data-name="keywords" seperator="; " endperiod="." minimum="1" maximum="5" limit="yes" notallowed="yes" />
+				<heading data-name="title" numbered="yes" label="yes" label_suffix="." maximum="3" notallowed="yes" label_between_delim=".">
+					<!--! NO STYLE SHEET DISABLED 17_APR_2023 - WITH SATHEESH CALL-->
+					<h1 style="bold" type="sentence case" label_format="upper_roman" label_end_delim="" label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="arabic" label_end_delim="" label_prefix="yes" />
+					<h3 style="bold" type="sentence case" label_format="" label_end_delim="" label_prefix="" />
+				</heading>
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,back" />
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite beginpara="Figure " single_prefix="Fig. " double_prefix="Figs " double_sep=", " last_sep=" and " multi_prefix="Figs " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Fig. " double_prefix="Figs " double_sep=", " last_sep=" and " multi_prefix="Figs " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false">
+					<citation type="FOLLOW_AUTHOR" name_sep=" and " name_last_sep=", |, and " name_year_sep=" " direct_sep=", " indirect_sep=", " double_sep=", " range_sep="" openwrap="(" closewrap=")" max-author="3" etal="et al." etal_format="roman" />
+				</Reference>
+			</journal>

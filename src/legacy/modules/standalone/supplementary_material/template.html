@@ -1,0 +1,41 @@
+<div class="mDialog ds-none w-editor-access" id="SupplementaryMaterialDialog">
+    <div class="dialog-container xl">
+        <div class="dialog-content">
+            <div class="dia_header_div">
+                <div class="dia_header_text" data-id="headerTitle">Supplementary Files List</div>
+                <div class="ml-auto closeIcons" title="Close">
+                    <img class="n_Img" src="assets/images/svg/dialogClose.svg" alt="Close Icon" />
+                </div>
+            </div>
+            <div class="dialog-body" data-id="dialog-body">
+
+                <div class="file-header">
+                    <div class="row">
+                        <div class="col-5 first_row">Filename</div>
+                        <div class="col-2">Label</div>
+                        <div class="col-2">Replace</div>
+                        <div class="col-2">Download</div>
+                        <div class="col-1 ds-none">Delete</div>
+                    </div>
+                </div>
+                <div class="file-list" id="fileList"></div>
+                <div class="supp_query_section">
+                    <div class="column" id="supp_query_div">
+                        <span class="supp_query_head"><b>Query:</b></span>
+                        <div class="Query_Contents" id="Query_Contents"></div>
+                    </div>
+                    <div class="confirmation-box">
+                        <span class="supp_query_resp"><b>Query Response:</b></span>
+                        <input type="text" class="form-control form-control-sm" id="confirmationInput" placeholder="Respond your Query" data-auto-focus="0" />
+                    </div>
+                </div>
+            </div>
+            <div class="default dialog-footer" data-id="dialog-footer">
+                <button type="button" title="Add new files" id="add_files_suppl" class="btn btn-sm secondary-btn mr-auto"><i class="fas fa-paperclip"></i> Add New File</button>
+                <button type="submit" title="Cancel" id="cancel_suppl" class="btn secondary-btn btn-sm cancel_btn" data-lang-lab="cancel">Cancel</button>
+                <button type="submit" title="Submit" id="supply_submit" class="btn btn-sm primary-btn">Submit</button>
+            </div>
+        </div>
+        <input type="file" class="fileUploadInput ds-none" id="fileUploadInputSupp" name="myfiles" aria-label="fileUpload" title="Upload">
+    </div>
+</div>

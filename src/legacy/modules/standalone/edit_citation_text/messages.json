@@ -1,0 +1,24 @@
+{
+  "en": {
+    "labels": {
+      "Panel_title": "Edit Citation",
+      "close_title": "Close",
+      "label_display_text": "Display Text",
+      "label_linked_ref": "Linked reference",
+      "btn_cancel": "Cancel",
+      "btn_apply": "Update"
+    },
+    "runtime": {}
+  },
+  "fr": {
+    "labels": {
+      "Panel_title": "Modifier la citation",
+      "close_title": "Fermer",
+      "label_display_text": "Texte affiché",
+      "label_linked_ref": "Référence liée",
+      "btn_cancel": "Annuler",
+      "btn_apply": "Mettre à jour"
+    },
+    "runtime": {}
+  }
+}

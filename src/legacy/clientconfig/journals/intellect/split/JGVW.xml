@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="JGVW" abbr="J GAMING VIRTUAL WOR" journal-title="Journal of Gaming &amp; Virtual Worlds" batch="2" by="YA_10_FEB_2026" qcby="" copyby="YA_10_FEB_2026" mantis="3457454">
+	<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="yes" author-comment="no" degrees="no" role="no" on-behalf-of="no" collab="no" string-name="yes" author-notes-quees="no" corresp-quees="no" crosslink="no" givennamesep="" surnameSep="" altername_start="(" altername_end=")" crosslinksep="" seperator="" contribsep="" contrib-last-sep="" pattern="" notallowed="yes" />
+	<affiliation data-name="aff" department="no" institution="no" city="no" state="no" country="no" postbox="no" postcode="no" street="no" seperator="" designators="" contrib-last-sep="" single-aff="false" autoReNumber="false" notallowed="yes" />
+	<corresp data-name="corresp" email="yes" address="yes" maximum="1" telephone="yes" fax="yes" indicators="yes" corresp-quees="" notallowed="yes" />
+	<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+	<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+	<keywords data-name="keywords" seperator="" minimum="6" maximum="8" endperiod="false" notallowed="yes" />
+	<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+	<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+	<Figure data-name="fig" sentence="Figure " ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+		<caption label="yes" label_end_sep=":" end_sep="." limit="3" />
+		<dircite single_prefix="Figure " double_prefix="Figures " multi_sep=", " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+		<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" multi_sep="," part_lab_case="" part_lab_double_sep="" />
+	</Figure>
+	<Table data-name="table-wrap" sentence="Table " ref-type="Table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+		<caption label="yes" label_end_sep=":" end_sep="." limit="3" />
+		<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+		<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+	</Table>
+	<notes footnote="notallowed" endnote="notallowed" note="" />
+	<heading data-name="title" numbered="no" label="" label_suffix="" maximum="3" label_between_delim="">
+		<h1 style="bold" type="Sentence case" label_format="" label_end_delim="" label_prefix="" />
+		<h2 style="bolditalic" type="Sentence case" label_format="" label_end_delim="" label_prefix="" />
+		<h3 style="italic" type="Sentence case" label_format="" label_end_delim="" label_prefix="" />
+	</heading>
+	<dictionary spelling="UK English" name="Oxford English Dictionary" note="-ize, -yse (analyse)" />
+	<list label="" bullet="" note="" />
+	<equation label="" note="" />
+	<BackMatter ack="allowed" act="allowed" coi="allowed" fund="allowed" das="allowed" supp="allowed" suppcap="allowed" app="allowed" />
+	<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false">
+		<citation type="CHRON_ASCEND" name_sep=" and " name_year_sep=" " direct_sep=", " indirect_sep="; " double_sep="; " range_sep="" openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="roman" />
+	</Reference>
+</journal>

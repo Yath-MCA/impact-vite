@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<clients>
+  <client name="lse">
+    <journals>
+      <journal short="LSE" editor-comes-first="true" client="lse" split="LSE.xml" split_master="master_split.xml" />
+    </journals>
+  </client>
+  <client name="oho">
+    <journals>
+      <journal short="OHO" client="oho" split="OHO.xml" split_master="master_split.xml" />
+    </journals>
+  </client>
+  <client name="oso">
+    <journals>
+      <journal short="OSO" client="oso" split="OSO.xml" split_master="master_split.xml" />
+    </journals>
+  </client>
+  <client name="oxmedo">
+    <journals>
+      <journal short="OXMEDO" client="oxmedo" split="OXMEDO.xml" split_master="master_split.xml" />
+    </journals>
+  </client>
+  <client name="tnf">
+    <journals>
+      <journal short="TNF" client="tnf" split="TNF.xml" split_master="master_split.xml" />
+    </journals>
+  </client>
+</clients>

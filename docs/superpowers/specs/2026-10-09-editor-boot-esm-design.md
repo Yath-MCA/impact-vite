@@ -3,7 +3,7 @@
 **Date:** 2026-10-09  
 **Status:** Approved for planning  
 **Repo:** impact_vite  
-**Source of truth for file order:** [`temp/legacy/gulp/pipeline.js`](../../temp/legacy/gulp/pipeline.js) (`e6_common`, `e6_main`)  
+**Source of truth for file order:** [`src/legacy/gulp/pipeline.js`](../../src/legacy/gulp/pipeline.js) (`e6_common`, `e6_main`)  
 **HTML skeleton:** [`src/pages/editor/index.html`](../../src/pages/editor/index.html)
 
 ## Goal
@@ -24,7 +24,7 @@ Session CHECK/CLOSE, SocketBridge, and full dialog/module graphs are **out of sc
 | Scope | Slice A — boot shell only (`e6_common` + `e6_main` + CKEditor/CSS) |
 | Load style | Lazy / on-demand via `import()` from `src/pages/editor/index.js` |
 | Dedupe | Single ordered list; files in both bundles (e.g. `demo.js`) imported once |
-| Sources | Import from `temp/legacy/src/...` (wrappers OK); avoid copying the whole tree |
+| Sources | Import from `src/legacy/...` (wrappers OK); avoid copying the whole tree |
 | Vendors | Prefer existing `public/` + Vite jQuery/Bootstrap; do not double-load |
 | CKEditor | [`public/ckeditor4/`](../../public/ckeditor4/) |
 | Session / socket | Deferred until editor shell verifies |

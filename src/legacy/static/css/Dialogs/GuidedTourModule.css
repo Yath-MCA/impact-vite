@@ -1,0 +1,89 @@
+div.dummyCheck{
+  cursor: pointer;  
+}
+.GuiedTourPop .btn {
+  cursor: pointer;
+}
+.popover-navigation li {
+  display: inline;
+  padding: 2px;
+}
+.popover {
+  max-width: 70% !important;
+  width: 30% !important;
+  background: #FFFFFF;
+  box-shadow: 2px 14px 18px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+.popover.right > .arrow {
+  left: -16px;
+}
+.popover-content {
+  min-height: 100px;
+}
+.progress {
+  height: 0.5rem;
+  background: #E0E0E0;
+}
+.progress .progress-bar {
+    background: #FF7200 !important;
+}
+
+.OnFoucs {
+  border: 1px solid red;
+  margin: 0px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  outline-color: red;
+  padding: 15px;
+}
+
+.popover,
+.popover.tour,
+.tour-backdrop,
+.tour-step-background {
+  z-index: 1;
+}
+
+  .popover[class*="tour-"] .popover-navigation *[data-role="end"] {
+      float: none !important;
+  }
+
+  .popover[class*="tour-"] .popover-navigation {
+      padding: 10px 10px 6px 0px;
+      overflow: hidden;
+      margin: 0px;
+  }
+
+.tour-header {
+  color: #E36500;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.tour-body {
+  color: #272727;
+  font-size: 13px;
+}
+
+.GuiedTourPop .btn {
+  cursor: pointer;
+}
+
+  .GuiedTourPop .btn.disabled {
+      cursor: not-allowed;
+  }
+/*? Guided Your end*/
+/* 24-Sep-2021 */
+.GuiedTourPop li.button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+.popover.left > .arrow {
+  right: -16px !important;
+}
+/* GUIDED TOUR  23-03-22*/
+.tour-backdrop.center {
+  opacity: 0;
+}

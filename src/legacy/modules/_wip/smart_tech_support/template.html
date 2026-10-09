@@ -1,0 +1,42 @@
+<div class="mDialog ds-none wo-editor-access" id="SmartTechSupportDialog">
+    <div class="dialog-container xl">
+        <div class="dialog-content">
+            <div class="dia_header_div">
+                <div class="dia_header_text">Contact Support</div>
+            </div>
+            <div class="d-flex flex-column dialog-body" data-id="dialog-body">
+                <div class="row row-inner-body" data-id="">
+                    <div class="col-md-4 support-history-col">
+                        <h6 class="mb-1">History Chats</h6>
+                        <div id="smart_support_history_status" class="small text-muted mb-1">Loading...</div>
+                        <div id="smart_support_history_chats" class="border rounded p-2 smart-support-history-list"></div>
+                    </div>
+                    <div class="col-md-8 support-new-col">
+                        <div class="d-flex align-items-center justify-content-between mb-1">
+                            <h6 class="mb-0">New Conversation</h6>
+                            <button type="button" id="smart_support_history_toggle" class="btn btn-sm secondary-btn" title="Hide history">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div id="smart_support_thread" class="border rounded p-2 mb-2 smart-support-current-thread"></div>
+                            <textarea id="smart_support_message" class="form-control form-control-sm" rows="5" placeholder="Describe your issue or message to the support team"></textarea>
+                            <div id="smart_support_attachment_list" class="small text-muted mt-1"></div>
+                            <div class="d-flex align-items-center justify-content-end mt-2">
+                                <button type="button" id="smart_support_attach_btn" class="btn btn-sm secondary-btn" title="Attach file">
+                                    <i class="fa fa-paperclip" aria-hidden="true"></i>
+                                </button>
+
+                                <button type="button" title="close" id="smart_support_send" class="btn btn-sm primary-btn ml-2">Send</button>
+                            </div>
+                            <input type="file" id="smart_support_attachment" class="ds-none" multiple>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex dialog-footer" data-id="dialog-footer">
+                <button type="submit" title="cancel" id="smart_support_close" class="btn secondary-btn btn-sm ml-auto cancel_btn ml-auto" data-lang-lab="btn_cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

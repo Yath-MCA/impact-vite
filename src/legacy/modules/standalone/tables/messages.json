@@ -1,0 +1,36 @@
+{
+    "en": {
+        "labels": {
+            "tblFnDialogTitle": "Insert Table Citation",
+            "tblFnCiteTitle": "Insert Table Citation",
+            "tblFnCiteDeleteTitle": "Delete Footnote Citation",
+            "tblFnCiteEditTitle": "Edit Footnote Citation",
+            "tblFnNewTitle": "Insert Table Footnote",
+            "tblFnDeleteTitle": "Delete the Footnote",
+            "tblFnType": "Footnote type",
+            "tblFnKindNumbered": "Number",
+            "tblFnKindUnnumbered": "Unnumbered",
+            "tblFnFmtNumbered": "Number format",
+            "tblFnFmtUnnumbered": "Unnumbered format",
+            "tblFnRadioNumeric": "Numbers (1, 2, 3)",
+            "tblFnRadioAlpha": "Letters (a, b, c)",
+            "tblFnRadioSymbol": "Symbols (*, \u2020)",
+            "tblFnRadioProbability": "P-value (*)",
+            "tblFnRadioNote": "General note",
+            "tblFnRadioAbbrev": "Abbreviations",
+            "tblFnRadioSource": "Source",
+            "tblFnLabel": "Label",
+            "tblFnContent": "Content",
+            "tblFnDeletePreview": "Footnote to delete",
+            "cancel": "Cancel",
+            "insert": "Insert",
+            "modify": "Modify",
+            "delete": "Delete"
+        },
+        "runtime": {
+            "labelInUse": "This footnote label is already used. Choose {{next}} instead.",
+            "lastCiteConfirm": "This citation is the only link to footnote “{{label}}”. Deleting it will also remove the footnote. Continue?",
+            "emptyContent": "Enter footnote content before inserting."
+        }
+    }
+}

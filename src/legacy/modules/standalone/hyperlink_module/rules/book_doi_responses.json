@@ -1,0 +1,109 @@
+{
+    "https://doi.org/10.1002/9780470690024.ch3": {},
+    "https://doi.org/10.1002/9781119210177.ch18": {},
+    "https://doi.org/10.1007/978-1-4615-9317-1_1": {},
+    "https://doi.org/10.1007/978-3-319-23246-1_1": {},
+    "https://doi.org/10.1007/978-3-319-56883-6_4": {},
+    "https://doi.org/10.1007/978-3-319-74078-2_113-1": {},
+    "https://doi.org/10.1007/978-3-319-95993-1_5": {
+
+        "license": [{
+            "content-version": "tdm",
+            "URL": "http://www.springer.com/tdm",
+            "delay-in-days": 0,
+            "date-parts": [
+                2018,
+                1,
+                1
+            ],
+            "timestamp": 1514764800000
+        }],
+        "issued": {
+            "date-parts": [
+                2018
+            ]
+        },
+        "link": [{
+            "intended-application": "crawler-based",
+            "content-version": "vor",
+            "content-type": "unspecified",
+            "URL": "https://link.springer.com/content/pdf/10.1007/978-3-319-95993-1_5"
+        }],
+        "score": 1,
+        "prefix": "http://id.crossref.org/10.1007",
+        "author": [{
+            "family": "Brogaard",
+            "given": "Berit"
+        }],
+        "container-title": "Believing in Accordance with the Evidence",
+        "citedby-count": 10,
+        "reference-count": 36,
+        "page": "53-67",
+        "deposited": {
+            "date-parts": [
+                2025,
+                10,
+                22
+            ],
+            "timestamp": 1761095893000
+        },
+        "created": {
+            "date-parts": [
+                2018,
+                10,
+                2
+            ],
+            "issue": "",
+            "title": "Phenomenal Dogmatism, Seeming Evidentialism and Inferential Justification",
+            "subtitle": "",
+            "type": "book_content",
+            "DOI": "10.1007/978-3-319-95993-1_5",
+            "ISSN": [
+                "01666991",
+                "25428292"
+            ],
+            "ISBN": [
+                "9783319959924",
+                "9783319959931"
+            ],
+            "URL": "https://doi.org/10.1007/978-3-319-95993-1_5",
+            "source": "Crossref",
+            "publisher": "Springer Science and Business Media LLC",
+            "indexed": {
+                "date-parts": [
+                    2025,
+                    10,
+                    22
+                ],
+                "timestamp": 1761095893000
+            },
+            "volume": "398",
+            "member": "http://id.crossref.org/member/297"
+        }
+    },
+    "https://doi.org/10.1007/978-90-481-3851-7_4": {},
+    "https://doi.org/10.1007/978-90-481-9597-8_2": {},
+    "https://doi.org/10.1007/978-94-009-9479-9_6": {},
+    "https://doi.org/10.1007/978-94-010-1426-7_67": {},
+    "https://doi.org/10.1007/978-94-017-1866-0_1": {},
+    "https://doi.org/10.1007/978-94-017-8688-1_10": {},
+    "https://doi.org/10.1017/CBO9780511708411.003": {},
+    "https://doi.org/10.1017/CBO9780511805042": {},
+    "https://doi.org/10.1017/CBO9780511976162": {},
+    "https://doi.org/10.1017/CBO9781107337619": {},
+    "https://doi.org/10.1017/CBO9781107415324.004": {},
+    "https://doi.org/10.1017/CBO9781139166874": {},
+    "https://doi.org/10.1093/9780191966729.001.0001": {},
+    "https://doi.org/10.1093/9780198924159.003.0002": {},
+    "https://doi.org/10.1093/9780198954712.003.0002": {},
+    "https://doi.org/10.1093/acprof:oso/9780190278014.001.0001": {},
+    "https://doi.org/10.1093/acprof:oso/9780198709299.003.0007": {},
+    "https://doi.org/10.1093/acprof:oso/9780198719632.003.0013": {},
+    "https://doi.org/10.1093/acprof:oso/9780199557912.001.0001": {},
+    "https://doi.org/10.1093/acprof:oso/9780199606375.003.0004": {},
+    "https://doi.org/10.1093/acprof:oso/9780199672707.003.0007": {},
+    "https://doi.org/10.1093/acprof:oso/9780199744794.003.0001": {},
+    "https://doi.org/10.1093/acprof:oso/9780199744794.003.0004": {},
+    "https://doi.org/10.1093/acprof:oso/9780199744794.003.0015": {},
+    "https://doi.org/10.1093/acprof:oso/9780199856145.003.0004"
+}

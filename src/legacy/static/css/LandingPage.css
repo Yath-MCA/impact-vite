@@ -1,0 +1,348 @@
+﻿/* ? Inter */
+@font-face {
+    font-family: 'Inter UI';
+    font-weight: 100 900;
+    font-style: oblique 0deg 10deg;
+    src: url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf-variations");
+}
+
+@font-face {
+    font-family: 'Inter UI var alt';
+    font-weight: 100 900;
+    font-style: normal;
+    font-named-instance: 'Regular';
+    src: url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf supports variations(gvar)"),
+        url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf-variations"),
+        url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: 'Inter UI var alt';
+    font-weight: 100 900;
+    font-style: italic;
+    font-named-instance: 'Italic';
+    src: url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf supports variations(gvar)"),
+        url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf-variations"),
+        url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf");
+}
+
+/* ? https://gist.github.com/yasar2385/79a3e03d6c7acd623d70167440d77cd0 */
+@supports (font-variation-settings: normal) {
+    html {
+        font-family: 'Inter UI', sans-serif;
+    }
+}
+
+body {
+    font-family: 'Inter UI', sans-serif !important;
+    font-size: 13px;
+    color: #000912 !important;
+    background-color: #fff !important;
+}
+
+.navbar-bg {
+    background-color: #f3f8fb !important;
+}
+
+.navbar-dark-bg-1 {
+    background-color: #10147e !important;
+}
+
+.icon-ug {
+    height: 16px;
+    width: 18px;
+    margin-top: -3px;
+    margin-right: .5px;
+}
+
+.navbar .nav-link {
+    color: #565658 !important;
+    font-weight: 600;
+}
+
+.navbar a.nav-link.text-light {
+    color: #f8f9fa !important;
+}
+
+.navbar a.nav-link.text-color1 {
+    color: #193e72 !important;
+}
+
+.navbar .nav-link:hover {
+    color: #002164 !important;
+    font-weight: 600;
+}
+
+.height30 {
+    height: 30px;
+}
+
+.height35 {
+    height: 35px;
+}
+
+.font-12px {
+    font-size: 12px;
+}
+
+.font-13px {
+    font-size: 13px;
+}
+
+.font-14px {
+    font-size: 14px;
+}
+
+.font-15px {
+    font-size: 15px;
+}
+
+.font-16px {
+    font-size: 16px;
+}
+
+.font-17px {
+    font-size: 17px;
+}
+
+.font-18px {
+    font-size: 18px;
+}
+
+.font-19px {
+    font-size: 19px;
+}
+
+.font-20px {
+    font-size: 20px;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.txt-gray1 {
+    color: #626262;
+}
+
+.email-text {
+    text-decoration: none;
+}
+
+.impact-title {
+    /* color: #FF7200 !important; */
+    /* WCAG - Contrast Color Issue */
+    color: #BA5808 !important;
+}
+
+.email-text {
+    /* color: #FF7200 !important; */
+    /* WCAG - Contrast Color Issue */
+    color: #AB5107 !important;
+}
+
+.list-item {
+    margin-bottom: 5px;
+}
+
+.card {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+.card-body ul,
+.card-body ol {
+    padding-left: 3px !important;
+    margin-left: 1em;
+}
+
+.card-body .list-group .list-group-item {
+    border: none;
+}
+
+.footer-link {
+    color: #f8f9fa !important;
+    text-decoration: auto;
+    cursor: text !important;
+}
+
+.blue-text {
+    color: #002164 !important;
+    text-decoration: none;
+}
+
+a.blue-text:hover,
+a.oup-link:hover,
+a.email-text:hover {
+    text-decoration: underline;
+}
+
+.link {
+    color: #002164 !important;
+    font-weight: 500;
+    text-decoration: auto;
+}
+
+.button {
+    color: #fff !important;
+    background-color: #014089 !important;
+    border-radius: 0.25rem;
+    box-shadow: 0px 3px 7px -3px #094E9D !important;
+}
+
+.button:hover {
+    color: #fff !important;
+    background-color: #002164 !important;
+    /* box-shadow: 0 0 1.25rem rgba(0,0,0,.25)!important; */
+}
+
+.bt-border-color {
+    border-bottom: 1px solid #cbc2c2;
+}
+
+.footer-topics {
+    font-weight: 500;
+}
+
+.bg-light-blue {
+    background-color: #E4EEFB !important;
+}
+
+.bg-blue {
+    background-color: #002147 !important;
+}
+
+.bg-crimson-red {
+    background-color: rgb(224, 17, 43) !important;
+}
+
+.bg-gray {
+    background-color: rgb(51, 51, 51) !important;
+}
+
+.pad-1rem {
+    padding: 1rem;
+}
+
+.pad-2rem {
+    padding: 2rem;
+}
+
+.padt-1rem {
+    padding-top: 1rem;
+}
+
+.padb-1rem {
+    padding-bottom: 1rem;
+}
+
+.padl-1rem {
+    padding-left: 1rem;
+}
+
+.padr-1rem {
+    padding-right: 1rem;
+}
+
+.padt-2rem {
+    padding-top: 2rem;
+}
+
+.padb-2rem {
+    padding-bottom: 2rem;
+}
+
+.padl-2rem {
+    padding-left: 2rem;
+}
+
+.padr-2rem {
+    padding-right: 21rem;
+}
+
+.mr-2px {
+    margin-right: 2px !important;
+}
+
+footer .list-unstyled li {
+    margin-bottom: 3px;
+    cursor: text !important;
+}
+
+.ds-none {
+    display: none !important;
+}
+
+img#image000 {
+    background: #FFFF;
+    border-radius: 3px;
+    width: 14.813rem;
+    height: 19.875rem;
+    -webkit-box-shadow: 0 15px 16px -5px rgb(0 0 0 / 30%);
+    -moz-box-shadow: 0 15px 16px -5px rgba(0, 0, 0, .3);
+    box-shadow: 0 15px 16px -5px rgb(0 0 0 / 30%);
+    animation: 0s fadeIn;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+@keyframes fadeIn {
+    99% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: visible;
+    }
+}
+
+.fw-700,
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+/* Temp added for siva point need to confirm UI and Srini */
+#FAQ_UI {
+    margin-right: 11px;
+}
+
+#FAQ_UI,
+#User_Guide_UI {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.tranlate {
+    background: #cfe1f2;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 16px;
+}
+
+#formLanding button {
+    width: 100%;
+    /* Full width for all screen sizes */
+    color: #fff !important;
+    background-color: #014089 !important;
+    font-size: 14px;
+    font-weight: 600;
+    height: 35px;
+    border-radius: 0.25rem;
+    box-shadow: 0px 3px 7px -3px #094E9D !important;
+    margin-top: 1.5rem;
+    /* Equivalent to mt-4 */
+}
+
+/* Hover State */
+#formLanding button:hover {
+    background-color: #002164 !important;
+}

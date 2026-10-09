@@ -1,0 +1,393 @@
+{
+    "config": {
+        "dialogId": "ReferenceDialog",
+        "dialogClass": "wip-reference-dialog",
+        "radioNames": {
+            "insMethod": "REFERENCE_INS_METHOD",
+            "refType": "REFERENCE_REF_TYPE"
+        },
+        "domIds": {
+            "spinner": "reference_spinner",
+            "typeOptionsForm": "reference_type_options_form",
+            "typeBtnGroup": "reference_type_btngroup",
+            "insRefMethodGroup": "reference_ins_ref_method_group",
+            "formGroup": "reference_form_group",
+            "divPlainText": "reference_div_plain_text",
+            "plainValue": "reference_plain_value",
+            "bulkPlainWrap": "reference_bulk_plain_wrap",
+            "bulkPlainInsert": "reference_bulk_plain_insert",
+            "citeInputGroup": "reference_cite_input_group",
+            "plainTextCite": "reference_plain_text_cite",
+            "divDoiForm": "reference_div_doi_form",
+            "doiValue": "reference_doi_value",
+            "validateDoiBtn": "reference_validate_doi_btn",
+            "divOpenForm": "reference_div_open_form",
+            "authGroupBorder": "reference_auth_group_border",
+            "authorRepeat": "reference_author_repeat",
+            "editorSection": "reference_editor_section",
+            "editorRepeat": "reference_editor_repeat",
+            "etal": "reference_etal",
+            "collab": "reference_collab",
+            "queryDiv": "reference_query_div",
+            "previewQuery": "reference_preview_query",
+            "queryCloseDiv": "reference_query_close_div",
+            "queryRespond": "reference_query_respond",
+            "hintsDiv": "reference_hints_div",
+            "hint": "reference_hint",
+            "editAllField": "reference_edit_all_field",
+            "replyQryEditRef": "reference_reply_qry_edit_ref",
+            "updateCmdEditRef": "reference_update_cmd_edit_ref",
+            "cancelEditRef": "reference_cancel_edit_ref",
+            "insertEditRef": "reference_insert_edit_ref",
+            "insertRef": "reference_insert_ref",
+            "insertRefWoCite": "reference_insert_ref_wo_cite",
+            "previewDiv": "reference_preview_div",
+            "preview": "reference_preview"
+        },
+        "tokenToInputId": {
+            "article-title": "reference_title",
+            "chapter-title": "reference_chapter_title",
+            "source": "reference_source",
+            "year": "reference_year",
+            "volume": "reference_volume",
+            "issue": "reference_issue",
+            "edition": "reference_edition",
+            "fpage": "reference_fpage",
+            "lpage": "reference_lpage",
+            "publisher-name": "reference_publisher_name",
+            "publisher-loc": "reference_publisher_loc",
+            "ext-link": "reference_ext_link",
+            "uri": "reference_ext_link",
+            "doi": "reference_doi",
+            "object-id": "reference_pmid",
+            "supplement": "reference_suppl",
+            "comment": "reference_comments",
+            "collab": "reference_collab",
+            "etal": "reference_etal"
+        },
+        "authorIds": {
+            "surnamePrefix": "reference_surname",
+            "givennamePrefix": "reference_givenname"
+        },
+        "assets": {
+            "template": "reference/template.html",
+            "styles": "reference/styles.scss"
+        },
+        "authorTokens": ["surname", "given-names", "string-name", "collab", "etal"],
+        "sectionOrder": ["title", "publication", "link", "misc"],
+        "sectionLabelKeys": {
+            "title": "ref_section_title",
+            "publication": "ref_section_publication",
+            "link": "ref_section_link",
+            "misc": "ref_section_misc"
+        },
+        "layoutColClass": {
+            "full": "col-12",
+            "half": "col-6",
+            "third": "col-4"
+        },
+        "groupToSection": {
+            "title": "title",
+            "meta": "publication",
+            "pages": "publication",
+            "publisher": "publication",
+            "extra": "link",
+            "misc": "misc"
+        },
+        "sectionOverrideByToken": {
+            "ext-link": "link",
+            "uri": "link",
+            "supplement": "misc",
+            "comment": "misc"
+        },
+        "fieldUiSchema": {
+            "year": {
+                "control": "number",
+                "layout": "third",
+                "group": "meta",
+                "labelKey": "ref_field_year"
+            },
+            "volume": {
+                "control": "text",
+                "layout": "third",
+                "group": "meta",
+                "labelKey": "ref_field_volume"
+            },
+            "issue": {
+                "control": "text",
+                "layout": "third",
+                "group": "meta",
+                "labelKey": "ref_field_issue",
+                "refTypes": ["journal"]
+            },
+            "edition": {
+                "control": "text",
+                "layout": "third",
+                "group": "meta",
+                "labelKey": "ref_field_edition",
+                "refTypes": ["book", "ed-book"]
+            },
+            "fpage": {
+                "control": "text",
+                "layout": "half",
+                "group": "pages",
+                "labelKey": "ref_field_fpage"
+            },
+            "lpage": {
+                "control": "text",
+                "layout": "half",
+                "group": "pages",
+                "labelKey": "ref_field_lpage"
+            },
+            "article-title": {
+                "control": "richtext",
+                "layout": "full",
+                "group": "title",
+                "labelKey": "ref_field_article_title",
+                "refTypes": ["journal"]
+            },
+            "chapter-title": {
+                "control": "richtext",
+                "layout": "full",
+                "group": "title",
+                "labelKey": "ref_field_chapter_title",
+                "refTypes": ["ed-book"]
+            },
+            "source": {
+                "control": "text",
+                "layout": "full",
+                "group": "title",
+                "labelKey": "ref_field_source"
+            },
+            "publisher-name": {
+                "control": "text",
+                "layout": "half",
+                "group": "publisher",
+                "labelKey": "ref_field_publisher_name",
+                "refTypes": ["book", "ed-book"]
+            },
+            "publisher-loc": {
+                "control": "text",
+                "layout": "half",
+                "group": "publisher",
+                "labelKey": "ref_field_publisher_loc",
+                "refTypes": ["book", "ed-book"]
+            },
+            "supplement": {
+                "control": "text",
+                "layout": "half",
+                "group": "extra",
+                "labelKey": "ref_field_supplement",
+                "refTypes": ["journal"]
+            },
+            "ext-link": {
+                "control": "text",
+                "layout": "full",
+                "group": "extra",
+                "labelKey": "ref_field_ext_link"
+            },
+            "uri": {
+                "control": "text",
+                "layout": "full",
+                "group": "extra",
+                "labelKey": "ref_field_uri"
+            },
+            "comment": {
+                "control": "text",
+                "layout": "full",
+                "group": "extra",
+                "labelKey": "ref_field_comment"
+            },
+            "collab": {
+                "control": "text",
+                "layout": "full",
+                "group": "author",
+                "labelKey": "ref_field_collab"
+            },
+            "etal": {
+                "control": "text",
+                "layout": "full",
+                "group": "author",
+                "labelKey": "ref_field_etal",
+                "skipInHost": true
+            }
+        }
+    },
+    "en": {
+        "labels": {
+            "ref_contributors_heading": "Contributors",
+            "ref_editors_heading": "Editors",
+            "ref_translators_heading": "Translators",
+            "ref_add_contributor_title": "Add contributor",
+            "ref_add_editor_title": "Add editor",
+            "ref_add_translator_title": "Add translator",
+            "ref_drag_title": "Drag to reorder",
+            "ref_move_up_title": "Move up",
+            "ref_move_down_title": "Move down",
+            "ref_remove_title": "Remove",
+            "ref_section_title": "Title",
+            "ref_section_publication": "Publication Details",
+            "ref_section_link": "URL / Website",
+            "ref_section_misc": "Additional Details",
+            "ref_field_year": "Year",
+            "ref_field_volume": "Volume",
+            "ref_field_issue": "Issue",
+            "ref_field_edition": "Edition",
+            "ref_field_fpage": "Page Start",
+            "ref_field_lpage": "Page End",
+            "ref_field_article_title": "Article Title",
+            "ref_field_chapter_title": "Chapter Title",
+            "ref_field_source": "Source",
+            "ref_field_journal_title": "Journal Title",
+            "ref_field_book_title": "Book Title",
+            "bulk_plain_insert": "Bulk insert (one entry per paragraph)",
+            "ref_field_publisher_name": "Publisher name",
+            "ref_field_publisher_loc": "Publisher location",
+            "ref_field_supplement": "Supplement",
+            "ref_field_ext_link": "DOI / URL",
+            "ref_field_uri": "URI",
+            "ref_field_comment": "Comments",
+            "ref_field_collab": "Collab",
+            "ref_field_etal": "et al.",
+            "ref_insert": "Insert",
+            "ref_insert_with_citation": "Insert with Citation",
+            "ref_insert_only": "Insert Reference Only",
+            "ref_edit_all_fields": "Edit All Fields",
+            "ref_update_query": "Update Query",
+            "res_to_query": "Respond to the query",
+            "update_with_cmd": "Update with Command",
+            "query": "Query",
+            "hints-tips": "Hints / Tips"
+        },
+        "runtime": {
+            "Author_limitExceed": {
+                "text": "As per the journal’s specifications, references with more than {{count}} author names should be followed by \"et al.\". The current reference already includes the \"et al.\" element (checkbox below the author names), indicating that the {{after}}-author limit has been reached. Consequently, the addition of a new author is not permissible."
+            },
+            "et_al_optional": {
+                "text": "The reference you are adding already includes {{current}} author names, which is the limit set by the journal’s specifications. Do you want to proceed with adding \"et al.\" to indicate additional contributors after the {{after}} author’s name?"
+            },
+            "remove_author_remove_et_al": {
+                "text": "According to this journal requirement, references must display a minimum of {{count}} author names. If you need to remove an author, please ensure that you eliminate \"et al.\" (uncheck the box below author names) or input the appropriate author name in the vacant field as per the specifications."
+            },
+            "add_et_al_add_author": {
+                "text": "As per the journal specification, the reference must have a minimum of {{current}} author names to enable et al., please add the appropriate author names to match the specification."
+            },
+            "add_et_al_remove_author": {
+                "text": "The reference you are adding lists {{current}} author names, exceeding the author limit specified by the journal. According to the journal’s guidelines, only the first {{after}} authors’ names, followed by \"et al.,\" will be displayed, and any additional authors will be removed from the reference."
+            },
+            "change_year_cite": {
+                "text": "You have modified the year of publication in a reference. As a result, this alteration will be consistently applied to the relevant in-text citations present throughout your document. Kindly ensure that these adjustments are accurately reviewed and confirmed."
+            },
+            "change_full_cite": {
+                "text": "You have modified the {{text}} in the reference. As a result, this alteration will be consistently applied to the relevant in-text citations present throughout your document. Kindly ensure that these adjustments are accurately reviewed and confirmed."
+            },
+            "empty_field": {
+                "text": "Kindly make sure to provide the appropriate details in the mandatory field as per the specification."
+            },
+            "confirm_reference_action": {
+                "text": "Are you sure you want to dismiss all changes?"
+            },
+            "empty_doi_content": {
+                "text": "Please enter the DOI ID to fetch the reference from online databases and click Insert to insert the reference."
+            },
+            "empty_plain_txt_content": {
+                "text": "Please paste the reference text in the textbox provided to insert the reference."
+            },
+            "annatation_txt_content": {
+                "text": "Please paste the Annotation Note text in the textbox provided to insert the reference."
+            },
+            "empty_citation": {
+                "text": "The citation text field cannot be left empty."
+            },
+            "doi_fetch_error": {
+                "text": "Data not available in database."
+            },
+            "empty_au_field": {
+                "text": "Kindly make sure to provide the appropriate author name in the vacant field as per the specification."
+            },
+            "empty_editor_field": {
+                "text": "Kindly make sure to provide the appropriate editor name in the vacant field as per the specification."
+            },
+            "module_wip": {
+                "text": "This feature (Insert/Delete Reference) is currently unavailable for this journal specification."
+            },
+            "ref_edit_mode_warn": {
+                "text": "Reference pre-text such as ed., eds., edited by, In, and translated by is automatically generated and cannot be modified."
+            },
+            "EDIT_OR_INS_REF": {
+                "type": "warning",
+                "title": "Warning",
+                "text": "Would you like to edit the existing reference or add a new one? Please confirm your choice below",
+                "button1": "Edit Reference",
+                "button2": "Cancel",
+                "button3": "Insert New Reference",
+                "param": true,
+                "Options": {
+                    "hide": true
+                }
+            },
+            "WARN_POST_TOASTER": {
+                "type": "info",
+                "title": "",
+                "text": "Please note that journal/book type references cannot be edited directly, as this may affect their style due to the underlying structure. To enable editing, the reference is loaded into a form that can be viewed in the right panel.",
+                "button1": "OK",
+                "button2": "",
+                "param": true,
+                "Options": {
+                    "hide": true
+                }
+            }
+        }
+    },
+    "fr": {
+        "labels": {
+            "ref_contributors_heading": "Contributeurs",
+            "ref_editors_heading": "Éditeurs",
+            "ref_translators_heading": "Traducteurs",
+            "ref_add_contributor_title": "Ajouter un contributeur",
+            "ref_add_editor_title": "Ajouter un éditeur",
+            "ref_add_translator_title": "Ajouter un traducteur",
+            "ref_drag_title": "Glisser pour réorganiser",
+            "ref_move_up_title": "Déplacer vers le haut",
+            "ref_move_down_title": "Déplacer vers le bas",
+            "ref_remove_title": "Supprimer",
+            "ref_section_title": "Titre",
+            "ref_section_publication": "Détails de publication",
+            "ref_section_link": "URL / Site Web",
+            "ref_section_misc": "Détails supplémentaires",
+            "ref_field_year": "Année",
+            "ref_field_volume": "Volume",
+            "ref_field_issue": "Numéro",
+            "ref_field_edition": "Édition",
+            "ref_field_fpage": "Page de début",
+            "ref_field_lpage": "Page de fin",
+            "ref_field_article_title": "Titre de l'article",
+            "ref_field_chapter_title": "Titre du chapitre",
+            "ref_field_source": "Source",
+            "ref_field_journal_title": "Titre de la revue",
+            "ref_field_book_title": "Titre du livre",
+            "bulk_plain_insert": "Insertion en masse (une entrée par paragraphe)",
+            "ref_field_publisher_name": "Nom de l'éditeur",
+            "ref_field_publisher_loc": "Lieu de publication",
+            "ref_field_supplement": "Supplément",
+            "ref_field_ext_link": "DOI / URL",
+            "ref_field_uri": "URI",
+            "ref_field_comment": "Commentaires",
+            "ref_field_collab": "Collab",
+            "ref_field_etal": "et al.",
+            "ref_insert": "Insérer",
+            "ref_insert_with_citation": "Insérer avec citation",
+            "ref_insert_only": "Insérer la référence seulement",
+            "ref_edit_all_fields": "Modifier tous les champs",
+            "ref_update_query": "Mettre à jour la requête",
+            "res_to_query": "Répondre à la requête",
+            "update_with_cmd": "Mettre à jour avec commande",
+            "query": "Requête",
+            "hints-tips": "Conseils"
+        },
+        "runtime": {}
+    },
+    "free_text": {
+        "default": ["edited by", "https://doi.org/", "eds by", "trans", "and", "(eds)", "eds", "ed", "pp", "translated by", "In", "in", "no", "” in", " in"]
+    }
+}

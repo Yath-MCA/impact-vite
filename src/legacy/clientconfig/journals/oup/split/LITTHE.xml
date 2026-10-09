@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="LITTHE" abbr="" journal-title="Literature And Theology" batch="20" by="YA">
+				<!-- ?author  -->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="no" suffix="yes" orcid="no" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="no" corresp-quees="no" crosslink="yes" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=" and " pattern="aftercomma" notallowed="no" />
+				<!-- ?affiliation:  superscript Asterisk -->
+				<affiliation data-name="aff" department="yes" institution="yes" city="yes" state="yes" country="yes" postbox="yes" postcode="yes" street="yes" seperator="," designators="custom_increase_order_*" single-aff="false" autoReNumber="true" />
+				<!-- ?corresp  Not used-->
+				<corresp data-name="corresp" email="yes" address="yes" corresp-quees="" maximum="" minimum="" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ?  -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<!-- ?abstract:  One paragraph, not bold (Ref. citation not allowed) -->
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!-- ?Keywords:  Follow author for order -->
+				<!-- 2232968: General - LITTHE style update -->
+				<keywords data-name="keywords" seperator="; " endperiod="." minimum="3" maximum="5" limit="no" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<Figure data-name="fig" sentence="Example " ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure" notallowed="yes">
+					<!-- ? No Style Point – Follow author -->
+					<caption label="yes" label_end_sep="." end_sep="" limit="3" />
+					<dircite single_prefix="Example " double_prefix="Examples " double_sep=", " last_sep=" and " multi_prefix="Examples " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Ex. " double_prefix="Examples " double_sep=", " last_sep=" and " multi_prefix="Examples " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table" notallowed="yes">
+					<!-- ? No Style Point – Follow author -->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<!-- ? notes: set as endnotes before References. Heading: Notes (H1), note numbers not
+				superscript in this section -->
+				<notes footnote="notallowed" endnote="allowed" note="" />
+				<heading data-name="title" numbered="yes" label="yes" label_suffix="" maximum="3" label_between_delim="">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="Title case" label_format="upper_roman" label_end_delim="." label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="upper_alphabet" label_end_delim="." label_prefix="" />
+					<h3 style="bold" type="sentence case" label_format="lower_roman" label_end_delim="." label_prefix="" />
+				</heading>
+				<dictionary spelling="uk" name="Concise Oxford Dictionary" note="" />
+				<list label="(i)|(a)" bullet="allowed" note="" />
+				<equation label="" note="Follow author" />
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false" notallowed="yes">
+					<!-- ? References as end notes -->
+					<citation type="FOOTNOTE" name_sep=" and " name_last_sep=", |, " name_year_sep=", " direct_sep=", " indirect_sep="; " double_sep="; " range_sep="" openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="italic" />
+				</Reference>
+				<!-- ?BackMatter: ack: After affiliation before references -->
+				<BackMatter ack="allowed" act="followauthor" coi="notallowed" fund="notallowed" das="followauthor" supp="followauthor" suppcap="followauthor" app="followauthor" />
+			</journal>

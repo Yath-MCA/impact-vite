@@ -1,0 +1,13 @@
+
+/* 3392038: LWW - Thomson - Batch 4 Configurations */
+
+
+
+div.ref .mixed-citation .source,
+div.ref .mixed-citation .person-group .etal {
+    font-style: italic !important;
+}
+div.ref .mixed-citation .article-title,
+div.ref .mixed-citation .year { 
+    font-style: bold !important;
+}

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinalizeSignOff Workflow Diagrams</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .diagram-section {
+            margin-bottom: 50px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e6ed;
+        }
+
+        .diagram-title {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            display: flex;
+            align-items: center;
+        }
+
+        .diagram-title::before {
+            content: "📊";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .diagram {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e1e8ed;
+            overflow-x: auto;
+            min-height: 400px;
+        }
+
+        .description {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+            padding: 5px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px 20px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tab.active {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        .tab:hover:not(.active) {
+            background: #bdc3c7;
+            transform: translateY(-1px);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .mermaid {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                margin-bottom: 5px;
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>FinalizeSignOff Workflow Diagrams</h1>
+
+        <div class="tabs">
+            <div class="tab active" data-target="dialog-flow" onclick="showTab('dialog-flow', event)">Dialog Flow</div>
+            <div class="tab" data-target="query-flow" onclick="showTab('query-flow', event)">Query Logic</div>
+            <div class="tab" data-target="collab-flow" onclick="showTab('collab-flow', event)">Collaborative</div>
+            <div class="tab" data-target="finalize-flow" onclick="showTab('finalize-flow', event)">Finalization</div>
+        </div>
+
+        <!-- Dialog Flow Tab -->
+        <div id="dialog-flow" class="tab-content active">
+            <div class="diagram-section">
+                <h2 class="diagram-title">Main Dialog Flow</h2>
+                <div class="diagram">
+                    <div class="mermaid">
+                        graph TD
+                        Start([User clicks Finalize]) --> Init[FinalizeDialog.initLoop]
+                        Init --> SetFlags[CHECK_WORK_RULE polling<br/>sets IS_EDITOR_COMES_FIRST<br/>IS_EDITOR_ONLY flags]
+                        SetFlags --> Show[FinalizeDialog.showLoop]
+                        Show --> Loading[StageView: loading]
+                        Loading --> QueryReady{queryModule ready?}
+                        QueryReady -->|No| RetryShow[Retry showLoop]
+                        QueryReady -->|Yes| CheckMismatch{isCountMismatch}
+                        RetryShow --> QueryReady
+                        CheckMismatch -->|Yes| Mismatch[Stage: query_mismatch]
+                        CheckMismatch -->|No| AbstractCheck{AbstractWordCounter<br/>valid?}
+                        AbstractCheck -->|No| Return[Return/Abort]
+                        AbstractCheck -->|Yes| GetQueries[getOpenQueries]
+                        Mismatch --> End1([End - Contact Support])
+                        GetQueries --> CheckOpen{Open queries<br/>count > 0?}
+                        CheckOpen -->|Yes| QueryFlow[Query Flow Logic]
+                        CheckOpen -->|No| MissingCite[checkMissingCiteItems]
+                        MissingCite -->|Has missing| DeleteWarn[Stage: delete_cite_warn]
+                        MissingCite -->|None| CollabCheck{Collab enabled<br/>& primary author?}
+                        CollabCheck -->|Yes| CollabFlow[Collaborative Flow]
+                        CollabCheck -->|No| FinalStage[Stage: finalize]
+                        QueryFlow --> StageRender[StageView & Render]
+                        CollabFlow --> StageRender
+                        DeleteWarn --> StageRender
+                        FinalStage --> StageRender
+                        StageRender --> UserAction{User Action}
+                        UserAction -->|Reply Query| GotoQuery[goto query panel]
+                        UserAction -->|Submit| SubmitFlow[Submit Flow]
+                        UserAction -->|Finalize| SubmitFlow
+                        UserAction -->|Cancel| Cancel([Cancelled])
+                        GotoQuery --> End2([Open Queries Panel])
+                        SubmitFlow --> Save[IMPACT_SAVE.iSave]
+                        Save --> Validate[Validateworkflow]
+                        Validate --> Close[CloseSharedStatus]
+                        Close --> Redirect[reDirectReadOnly]
+                        Redirect --> Survey[FIRE_SURVEY]
+                        Survey --> End3([Survey & Redirect])
+                        Return --> End1
+
+                        style Start fill:#e3f2fd
+                        style Mismatch fill:#ffebee
+                        style DeleteWarn fill:#fff3e0
+                        style FinalStage fill:#e8f5e8
+                        style End1 fill:#ffcdd2
+                        style End2 fill:#fff9c4
+                        style End3 fill:#c8e6c9
+                    </div>
+                </div>
+                <div class="description">
+                    Complete dialog lifecycle from initialization through finalization. Shows all major decision points including abstract validation, query count checks, and collaborative status verification.
+                </div>
+            </div>
+        </div>
+
+        <!-- Query Logic Tab -->
+        <div id="query-flow" class="tab-content">
+            <div class="diagram-section">
+                <h2 class="diagram-title">Query Decision Logic</h2>
+                <div class="diagram">
+                    <div class="mermaid">
+                        graph TD
+                        Start([openQueryCount > 0]) --> InitFlow{Determine Workflow Type}
+                        
+                        InitFlow --> CheckWflow{SHARED_KEY.wflow<br/>exists?}
+                        CheckWflow -->|Yes| ParseWflow{wflow ===<br/>editoronly?}
+                        CheckWflow -->|No| CheckNextRole{SHARED_KEY.nextrole<br/>exists?}
+                        
+                        ParseWflow -->|Yes| IsEditorOnly[is_editor_only_flow = true]
+                        ParseWflow -->|No| CheckWflow2{wflow ===<br/>editorfirst?}
+                        CheckWflow2 -->|Yes| IsEditorFirst[is_editor_author_flow = true]
+                        CheckWflow2 -->|No| FallBack1[is_editor_author_flow = false]
+                        
+                        CheckNextRole -->|nextrole.role<br/>== ROLE_IDS.CO| IsEditorOnly
+                        CheckNextRole -->|nextrole.role<br/>!= ROLE_IDS.CO| IsEditorFirst
+                        CheckNextRole -->|No nextrole| FallBack1
+                        
+                        IsEditorOnly --> Check1{editorOnly flag<br/>== true?}
+                        IsEditorFirst --> Check2{editorComesFirst flag<br/>== true?}
+                        FallBack1 --> Check3{isPrimaryAuthor?}
+                        
+                        Check1 -->|Yes| EO{isPrimaryAuthor?}
+                        Check1 -->|No| Check3
+                        
+                        EO -->|Yes| QueryOpen1[Stage: query_open]
+                        EO -->|No| QueryCo1[Stage: query_open_co_user]
+                        
+                        Check2 -->|Yes| EF{USER_INFO.IS_AUTHOR<br/>& isPrimaryAuthor?}
+                        Check2 -->|No| Check3
+                        
+                        EF -->|Yes| QueryOpen2[Stage: query_open]
+                        EF -->|No| QueryCo2[Stage: query_open_co_user]
+                        
+                        Check3 -->|Yes| QueryOpen3[Stage: query_open]
+                        Check3 -->|No| QueryCo3[Stage: query_open_co_user]
+                        
+                        QueryOpen1 --> RenderBody[StageRenderBody<br/>icon: WARNING]
+                        QueryCo1 --> RenderBody
+                        QueryOpen2 --> RenderBody
+                        QueryCo2 --> RenderBody
+                        QueryOpen3 --> RenderBody
+                        QueryCo3 --> RenderBody
+                        
+                        RenderBody --> RenderFooter[StageRenderFooter<br/>with action buttons]
+                        RenderFooter --> End([Dialog Rendered])
+                        
+                        style Start fill:#e3f2fd
+                        style QueryOpen1 fill:#c8e6c9
+                        style QueryOpen2 fill:#c8e6c9
+                        style QueryOpen3 fill:#c8e6c9
+                        style QueryCo1 fill:#bbdefb
+                        style QueryCo2 fill:#bbdefb
+                        style QueryCo3 fill:#bbdefb
+                        style End fill:#a5d6a7
+                    </div>
+                </div>
+                <div class="description">
+                    Logic for determining which query stage to display when open queries exist. Evaluates workflow type (editor-only, editor-first, or fallback) and role (primary author vs co-user) to select appropriate stage and buttons.
+                </div>
+            </div>
+        </div>
+
+        <!-- Collaborative Flow Tab -->
+        <div id="collab-flow" class="tab-content">
+            <div class="diagram-section">
+                <h2 class="diagram-title">Collaborative Status Flow</h2>
+                <div class="diagram">
+                    <div class="mermaid">
+                        graph TD
+                        Start([Collab enabled<br/>& no queries<br/>& primary author]) --> Stage[Stage: collaborative_status]
+                        Stage --> Fetch1[GET_JSON: get_corole_info]
+                        Stage --> Fetch2[GET_JSON: Fileslist]
+                        Fetch1 --> Ajax1[callajax<br/>filterSaveData]
+                        Fetch2 --> Ajax1
+                        Ajax1 --> FilterCB[Callback: filterSaveData]
+                        FilterCB --> DedupeData[Deduplicate by<br/>username_role]
+                        DedupeData --> Save[M_SCOPE.SAVE_UNIQUE_DATA]
+                        Save --> Ajax2[callajax<br/>refreshCollaborativeStatus]
+                        Ajax2 --> RefreshCB[Callback: refreshCollaborativeStatus]
+                        RefreshCB --> WaitData{SAVE_UNIQUE_DATA<br/>available?}
+                        WaitData -->|No| Retry[Retry after 500ms]
+                        Retry --> WaitData
+                        WaitData -->|Yes| GetLocks[paraLock.getLockedElementsByOthers]
+                        GetLocks --> AnalyzeLocks{Determine status<br/>from locks}
+                        AnalyzeLocks -->|byOthers.length > 0| ActiveStatus[key = active]
+                        AnalyzeLocks -->|no co-users| FinalizeStatus[key = finalize]
+                        AnalyzeLocks -->|co-users inactive| NonActiveStatus[key = non_active]
+                        ActiveStatus --> RenderTable[updateCollabTable]
+                        FinalizeStatus --> RenderTable
+                        NonActiveStatus --> RenderTable
+                        RenderTable --> ShowTable[Display co-author access log<br/>with Last Access & Status]
+                        ShowTable --> RenderButtons[RenderFooter with buttons]
+                        RenderButtons --> End{User Action}
+                        End -->|Close| Cancel([Cancelled])
+                        End -->|Logoff| Logoff([Logout])
+                        End -->|Yes - Finalize| Continue([Proceed to Finalization])
+
+                        style Start fill:#e3f2fd
+                        style ActiveStatus fill:#ffebee
+                        style FinalizeStatus fill:#c8e6c9
+                        style NonActiveStatus fill:#fff3e0
+                        style Continue fill:#a5d6a7
+                    </div>
+                </div>
+                <div class="description">
+                    Flow for displaying collaborative user status when multiple authors are working on the document. Fetches co-author data, determines active locks, and renders a table showing access history and submission status.
+                </div>
+            </div>
+        </div>
+
+        <!-- Finalization Flow Tab -->
+        <div id="finalize-flow" class="tab-content">
+            <div class="diagram-section">
+                <h2 class="diagram-title">Finalization & Server Submission</h2>
+                <div class="diagram">
+                    <div class="mermaid">
+                        graph TD
+                        Start([User clicks Finalize]) --> ISave[IMPACT_SAVE.iSave<br/>forcesave: true<br/>regenerate: package]
+                        ISave --> ShowNext[StageView: finalize_next]
+                        ShowNext --> CheckWF{M_SCOPE.WORK_FLOW<br/>== null?}
+                        CheckWF -->|Yes| FetchWF[Validateworkflow<br/>fetchworkflow: true]
+                        CheckWF -->|No| CallClose[CloseSharedStatus<br/>redirect: true]
+                        FetchWF --> Ajax[callajax with workflow query]
+                        Ajax --> WFReturn[Work_Flow_Return callback]
+                        WFReturn --> StoreWF[M_SCOPE.WORK_FLOW = response]
+                        StoreWF --> CallClose
+                        CallClose --> UpdateDB1[Update: linksharing signoff]
+                        CallClose --> UpdateDB2[Update: Shareandinvite signoff]
+                        CallClose --> UpdateDB3[Update: correction count]
+                        UpdateDB1 --> CheckRole{Primary author<br/>or co-role?}
+                        CheckRole -->|Co-role| CoFinalize[coRoleFinalize]
+                        CheckRole -->|Primary| EmailStatus[Send signoffstatus update]
+                        CoFinalize --> SendCoMail[Send email to corresponding author]
+                        SendCoMail --> Redirect[reDirectReadOnly]
+                        EmailStatus --> CheckPubkit{SHARED_KEY.roletaskid<br/>exists?}
+                        CheckPubkit -->|Yes| ClosePubkit[task_close_pubkit_post]
+                        CheckPubkit -->|No| CheckWFData{M_SCOPE.WORK_FLOW<br/>has data?}
+                        ClosePubkit --> FirePubkit[fire_pubkit_post]
+                        FirePubkit --> ShareWorkflow[ShareFromWorkflow]
+                        ShareWorkflow --> ReDirectWF[reDirectReadOnly]
+                        CheckWFData -->|Yes| ShareWorkflow
+                        CheckWFData -->|No| ShareNonPubkit[NON_PUBKIT_WORKFLOW]
+                        ShareNonPubkit --> ThenRedirect[reDirectReadOnly]
+                        ThenRedirect --> Redirect
+                        ReDirectWF --> Redirect
+                        Redirect --> Wait[Wait 2.25s]
+                        Wait --> ShowSuccess[StageView: finalize_pass]
+                        ShowSuccess --> ResetState[GlobalEditor.resetDirty<br/>CanClose = true]
+                        ResetState --> WaitSurvey[Wait 5s]
+                        WaitSurvey --> FireSurvey[FIRE_SURVEY]
+                        FireSurvey --> FinalEnd([Final Redirect<br/>or Survey])
+
+                        style Start fill:#e3f2fd
+                        style ISave fill:#fff3e0
+                        style ShowNext fill:#fff3e0
+                        style ShowSuccess fill:#c8e6c9
+                        style FinalEnd fill:#a5d6a7
+                    </div>
+                </div>
+                <div class="description">
+                    Complete finalization sequence including document save, workflow validation, database updates for sign-off status, and conditional server calls (Pubkit, workflow sharing, email notifications). Ends with success message and optional survey redirect.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+
+        function showTab(tabId, event) {
+            document.querySelectorAll('.tab-content')
+                .forEach(content => content.classList.remove('active'));
+
+            document.querySelectorAll('.tab')
+                .forEach(tab => tab.classList.remove('active'));
+
+            const tabContent = document.getElementById(tabId);
+            if (tabContent) {
+                tabContent.classList.add('active');
+            }
+
+            if (event) {
+                event.currentTarget.classList.add('active');
+            }
+
+            setTimeout(() => {
+                const diagrams = tabContent.querySelectorAll('.mermaid');
+                diagrams.forEach(block => {
+                    if (!block.dataset.rendered) {
+                        mermaid.init(undefined, block);
+                        block.dataset.rendered = "true";
+                    }
+                });
+            }, 50);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const activeTab = document.querySelector('.tab-content.active');
+            if (activeTab) {
+                const diagrams = activeTab.querySelectorAll('.mermaid');
+                diagrams.forEach(block => {
+                    mermaid.init(undefined, block);
+                    block.dataset.rendered = "true";
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<div class="mDialog ds-none wo-editor-access" id="EditCitationTextDialog">
+    <div class="dialog-container xl">
+        <div class="dialog-content">
+            <div class="dia_header_div">
+                <div class="dia_header_text" data-lang-lab="Panel_title">Edit Citation</div>
+                <div class="ml-auto closeIcons" title="Close" tabindex="0" data-lang-lab="close_title"><img alt="Close" class="n_Img" src="assets/images/svg/dialogClose.svg"></div>
+            </div>
+            <div class="d-flex flex-column dialog-body" data-id="dialog-body">
+                <form id="editCiteTextBody" onsubmit="return false;" spellcheck="false">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label for="cite_display_text" data-lang-lab="label_display_text">Display Text</label>
+                                <textarea class="form-control form-control-sm bg-white pt-1" id="cite_display_text" placeholder="Citation display text" rows="3" data-auto-focus></textarea>
+                                
+                            </div>
+                            <div class="col-3 mt-4">
+                                <button type="button" class="btn btn-sm secondary-btn" id="cite_use_selection" title="Select citation surround in the editor and fill Display Text">Wrap selection</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="cite_linked_ref_group">
+                        <div class="row">
+                            <div class="col">
+                                <label for="cite_linked_rid" data-lang-lab="label_linked_ref">Linked reference</label>
+                                <div class="d-flex align-items-center" style="gap:6px;">
+                                    <input type="text" class="form-control form-control-sm" id="cite_linked_rid" readonly tabindex="-1" aria-label="Linked reference">
+                                    <button type="button" class="btn btn-sm secondary-btn text-nowrap" id="change_cite_ref" title="Change corresponding reference">Change</button>
+                                </div>
+                                <div id="cite_ref_picker" class="ds-none mt-2 border rounded p-2 bg-white" style="max-height:180px;overflow:auto;">
+                                    <input type="text" class="form-control form-control-sm mb-2" id="cite_ref_filter" placeholder="Filter references..." aria-label="Filter references">
+                                    <div id="cite_ref_list" role="listbox" aria-label="References"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-0" id="cite_same_rid_section">
+                        <div class="row">
+                            <div class="col">
+                                <div class="d-flex align-items-center justify-content-between flex-wrap" style="gap:6px;">
+                                    <label class="mb-0" id="cite_same_rid_heading">Other citations with this reference</label>
+                                    <div class="d-flex align-items-center" style="gap:6px;">
+                                        <button type="button" class="btn btn-sm secondary-btn" id="cite_same_rid_prev" title="Previous citation with this reference">Prev</button>
+                                        <span id="cite_same_rid_position" class="text-muted small" aria-live="polite">1 of 1</span>
+                                        <button type="button" class="btn btn-sm secondary-btn" id="cite_same_rid_next" title="Next citation with this reference">Next</button>
+                                    </div>
+                                </div>
+                                <p id="cite_same_rid_empty" class="text-muted small mt-2 mb-0 ds-none">No other citations share this reference.</p>
+                                <div id="cite_same_rid_grid" class="cite-same-rid-grid mt-2" aria-live="polite"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="default dialog-footer" data-id="dialog-footer">
+                <button type="button" title="Cancel" id="cancel_cite_text" class="btn btn-sm secondary-btn" data-lang-lab="btn_cancel">Cancel</button>
+                <button type="button" title="Apply" id="apply_cite_text" class="btn btn-sm primary-btn disabled" data-lang-lab="btn_apply">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

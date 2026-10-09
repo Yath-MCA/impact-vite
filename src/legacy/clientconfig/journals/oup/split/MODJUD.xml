@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="MODJUD" abbr="" journal-title="Modern Judaism: A Journal Of Jewish Ideas And Experience" batch="21" by="AK">
+				<!-- ?author  -->
+				<!--
+				sur name and given name follow author in word config so i can put yes & in word config Group
+				author = optional role and collab element so i put yes & in word config alter name is not
+				available so i put no in string names & Affiliation designators = NA so i put crosslink =
+				no-->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="yes" suffix="yes" orcid="yes" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="no" corresp-quees="no" crosslink="no" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep=", " contrib-last-sep=" and " pattern="aftercomma" notallowed="yes" />
+				<!-- ?affiliation: Affiliation designators = NA -->
+				<affiliation data-name="aff" department="no" institution="yes" city="no" state="no" country="yes" postbox="no" postcode="no" street="no" seperator="" designators="" single-aff="true" autoReNumber="true" />
+				<!-- ?corresp  Not used-->
+				<corresp data-name="corresp" email="no" address="no" corresp-quees="" maximum="" minimum="" telephone="no" fax="no" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ?  -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<!-- ?abstract:  Unstructured - Single paragraph -->
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!-- ?Keywords:  Not used  JMTHER followed 20 batch-->
+				<keywords data-name="keywords" seperator="; " endperiod="." minimum="3" maximum="5" limit="no" notallowed="no" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<!-- ? No specific style point—follow author in word config so i put not allowed yes-->
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure" notallowed="yes">
+					<!-- ? No Style Point – Follow author -->
+					<caption label="yes" label_end_sep="." end_sep="" limit="3" />
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<!-- ? No specific style point—follow author in word config so i put not allowed yes-->
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table" notallowed="yes">
+					<!-- ? No Style Point – Follow author -->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<!-- ? notes:  -->
+				<notes footnote="" endnote="allowed" note="" />
+				<!-- ?heading follwed by SOCREL journal batch 19 -->
+				<heading data-name="title" numbered="no" label="no" label_suffix="" maximum="3" label_between_delim="">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="sentence case" />
+					<h2 style="bold" type="sentence case" />
+					<h3 style="bold" type="sentence case" />
+				</heading>
+				<!-- ?dictionary  -->
+				<dictionary spelling="us" name="Merriam-Webster’s 11th Collegiate Dictionary" note="" />
+				<!-- ?List Follow author; use bulleting if appropriate. Use numbering if items are referred back to later by their numbers. (Arabic numerals are preferred.) -->
+				<list label="(1)" bullet="allowed" note="" />
+				<!-- ?equation   Not applicable generally-->
+				<equation label="" note="" notallowed="yes" />
+				<!-- ?BackMatter:  -->
+				<BackMatter ack="allowed" act="allowed" coi="notallowed" fund="optional" das="allowed" supp="notallowed" suppcap="notallowed" app="optional" />
+				<!-- ? Reference citation its new pattern  | CEG_NOT_FOUND-->
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false" notallowed="yes">
+					<!-- ? Endnotes are used instead of footnotes or references | Heading given as “NOTES” -->
+					<citation type="FOOTNOTE" name_sep=" and " name_year_sep=" " direct_sep=", " indirect_sep="; " openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="roman" />
+				</Reference>
+			</journal>

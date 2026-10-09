@@ -1,0 +1,20 @@
+#eventContainer {
+    &.show {
+        margin: 5em 0 0 5em;
+        background-color: #f7f2f2;
+        height: 31em;
+        width: 35em;
+        position: absolute;
+        color: rgb(24, 22, 22);
+        padding: 1em;
+        margin-left: 55%;
+        overflow: auto;
+    }
+
+    a {
+        color: darkorange;
+        vertical-align: super;
+    }
+
+
+}

@@ -1,0 +1,178 @@
+<div class="mDialog ds-none w-editor-access" id="MultiRefDialog">
+    <div class="dialog-container xl">
+        <div class="dialog-content">
+            <div class="dia_header_div">
+                <div class="dia_header_text" data-id="headerTitle">Insert New Reference</div>
+                <div class="ml-auto closeIcons" title="Close"><img class="n_Img" src="assets/images/svg/dialogClose.svg" alt="Close Icon"></div>
+            </div>
+            <div class="dialog-body" data-id="dialog-body">
+                <div class="spinner-border iSpin_border hide" role="status" id="spinner">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <form class="mb-2" onsubmit="return false;" spellcheck="false">
+                    <div class="form-group row" id="type_options_form">
+                        <label for="select_ref_drop" class="col-sm col-form-label">Reference Type</label>
+                        <div class="col mt-0 invisible"></div>
+                        <div class="col mt-0 align-self-end">
+                            <div class="btn-group btn-group-toggle" role="group" id="ref_type_btngroup" data-toggle="buttons">
+                                <label class="btn btn-sm primary-btn active" value="journal">
+                                    <input type="radio" name="ref_type" value="journal"> Journals
+                                </label>
+                                <label class="btn btn-sm primary-btn" value="other">
+                                    <input type="radio" name="ref_type" value="other"> Conf/Web/Other
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="ins_ref_method_group">
+                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                            <label class="btn primary-btn btn-light active">
+                                <input type="radio" name="INS_REF_RADIO" id="doi_id" value="doi_form" checked> DOI
+                            </label>
+                            <label class="btn primary-btn btn-light ">
+                                <input type="radio" name="INS_REF_RADIO" id="form_id" value="open_form"> Form Based
+                            </label>
+                            <label class="btn primary-btn btn-light">
+                                <input type="radio" name="INS_REF_RADIO" id="plain_text_id" value="plain_text"> Plain Text
+                            </label>
+                        </div>
+                    </div>
+                    <div id="formGroup" class="" data-group-show="doi_form">
+                        <div class="form-group" id="div_plain_text">
+                            <label class="mt-3" for="plain_value">Text Area</label>
+                            <textarea aria-label="Reference text" placeholder="Enter or Paste reference text here" class="form-control form-control-sm mt-2" id="plain_value" rows="3"></textarea>
+                            <div class="" id="cite_input_group">
+                                <label class="mt-3" for="plain_text_cite">Citation Text</label>
+                                <input type="text" autocomplete="off" class="form-control form-control-sm" id="plain_text_cite" placeholder="">
+                            </div>
+                        </div>
+                        <div id="div_doi_form">
+                            <div class="form-group mb-2" id="">
+                                <div class="row">
+                                    <div class="col-9" id="row_1_col_1"><input type="text" autocomplete="off" class="form-control form-control-sm opacity" id="doi_value" aria-label="Enter Id here" placeholder="Enter Id here"></div>
+                                    <div class="col" id="row_1_col_3"><button type="button" class="btn primary-btn btn-sm btn-block disabled" id="validate_doi_btn" title="Fetch from Database">Fetch</button></div>
+                                </div>
+                            </div>
+                            <!-- 
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <button class="btn primary-btn btn-sm disabled" type="button" id="validate_doi_btn" title="Fetch from Database">Fetch</button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm" placeholder="Enter Id here" aria-label="Enter Id here" aria-describedby="validate_doi_btn" autocomplete="off" id="doi_value">
+                                </div>
+                                -->
+                        </div>
+                        <div class="form-group opacity" id="div_open_form" data-current-form="journal">
+                            <div class="authGroup_div_border" id="authGroup_div_border">
+                                <div class="row" id="">
+                                    <div class="col-4"><span data-lang-lab="surname" class="labelText">Surname</span></div>
+                                    <div class="col-4"><span data-lang-lab="given_name" class="labelText">Given Name</span></div>
+                                    <div class="col-4"></div>
+                                </div>
+                                <div class="" id="refauthorrepeat"></div>
+                                <div class="form-group">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="etal"><label class="form-check-label" for="etal" data-lang-lab="etal">et al.</label></div>
+                                </div>
+                                <div class="form-group">
+                                    <label data-lang-lab="collab" for="collab">Collab</label><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="collab" placeholder="Collab content here">
+                                </div>
+                            </div>
+                            <div class="form-group" data-id="title_group">
+                                <label for="title" data-lang-lab="title">Title</label>
+                                <div class="mt-0" data-input="journal"><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="title" placeholder="Article Title"></div>
+                                <div class="" data-input="ed-book"><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="chapter-title" placeholder="Chapter Title"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="source" data-lang-lab="source">Source</label>
+                                <input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="source" placeholder="Source here">
+                            </div>
+                            <div class="row" id="entry_row_2">
+                                <div class="col-2 form-group" id=""><label data-lang-lab="year" for="year">Year</label><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" placeholder="year" id="year"></div>
+                                <div class="col-6 form-group">
+                                    <div class="row" id="issue_vol_group">
+                                        <div class="col-6 form-group"><label data-lang-lab="vol" for="volume">Volume</label><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="volume" placeholder="volume"> </div>
+                                        <div class="col-6 form-group" data-input="journal"><label data-lang-lab="issue" for="issue">Issue</label><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="issue" placeholder="issue"> </div>
+                                        <div class="col form-group" data-input="book"><label data-lang-lab="edn" for="edition">Edition</label><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" placeholder="edition" id="edition"></div>
+                                    </div>
+                                </div>
+                                <div class="col" id="page_group">
+                                    <div class="row" id="page_group_div">
+                                        <div class="col-6 form-group"><label data-lang-lab="f_page" for="fpage">Page Start</label><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="fpage" placeholder="first page"></div>
+                                        <div class="col-6 form-group"><label data-lang-lab="l_page" for="lpage">Page End</label><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="lpage" placeholder="last page"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" data-input="book" id="publisher_group">
+                                <div class="col form-group"><label data-lang-lab="pub_name" for="publisher-name">Publisher name</label><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="publisher-name" placeholder="publisher- name"></div>
+                                <div class="col form-group"><label data-lang-lab="pub_loc" for="publisher-loc">location</label><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="publisher-loc" placeholder="publisher location"></div>
+                            </div>
+                            <div class="row" data-input="journal">
+                                <div class="col-4"><label data-lang-lab="supp" for="suppl">Supplement</label><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="suppl" placeholder="Supplemental"></div>
+                                <div class="col"><label data-lang-lab="doi_url" for="ext-link">DOI / URL</label><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="ext-link" placeholder="DOI / URL"></div>
+                            </div>
+                            <div class="form-group ds-none">
+                                <div class="col-12"><label data-lang-lab="cmds" for="comments">Comments</label></div>
+                                <div class="col-12"><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm refborder refcomments" id="comments" placeholder="Comments content here"> </div>
+                            </div>
+                            <div class="row ds-none" id="query_div">
+                                <div class="col-12"><span class="labelText" data-lang-lab="query">Query</span></div>
+                                <div class="col-12">
+                                    <div type="text" autocomplete="off" class="inputDiv form-control form-control-sm query_border" id="edit_query" placeholder="Query content will display"></div>
+                                </div>
+                            </div>
+                            <div class="form-group ds-none" id="query_close_div">
+                                <label data-lang-lab="res_to_query" for="query_respond" data-id="lab_cmd_qry">Respond to the query</label><input type="text" aria-label="Text area" autocomplete="off" class="inputDiv form-control form-control-sm" id="query_respond" placeholder="" aria-label="Response text"></input>
+                            </div>
+                            <div class="row ds-none" id="hints_div">
+                                <div class="col-12"><span class="labelText" data-lang-lab="hints-tips">Hints / Tips</span></div>
+                                <div class="col-12">
+                                    <div type="text" autocomplete="off" class="inputDiv form-control form-control-sm hints" id="hint">Please place the cursor in the text where the reference citation should appear</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Radio Options -->
+                        <div class="ds-none" id="annotationsOptionsGroup">
+                            <div class="form-group">
+                                <div class="col-12">
+                                    <label>Annotations (Interest-Level)</label>
+                                </div>
+                                <div class="col-12">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="annotationOptionNone" name="annotationOptions" class="custom-control-input" checked>
+                                        <label class="custom-control-label" for="annotationOptionNone">None</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="annotationOptionSingle" name="annotationOptions" class="custom-control-input">
+                                        <label class="custom-control-label" for="annotationOptionSingle">Special</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="annotationOptionDouble" name="annotationOptions" class="custom-control-input">
+                                        <label class="custom-control-label" for="annotationOptionDouble">Outstanding</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Annotations Form Group (initially hidden) -->
+                            <div class="form-group ds-none" id="annotations-form-group">
+                                <div class="col-12"><label for="annotations">Annotations Note</label></div>
+                                <div class="col-12"><input type="text" aria-label="Text area" autocomplete="off" class="form-control form-control-sm refborder refcomments" id="annotations-input" placeholder="Note text here"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="default dialog-footer" data-id="dialog-footer">
+                <button type="submit" title="Enable All Fields" id="edit_all_field" class="btn secondary-btn btn-sm ds-none">Edit All Fields</button>
+                <button type="submit" title="Respond to the query" id="Reply_qry_edit_ref" class="btn secondary-btn btn-sm  ds-none" data-lang-lab="res_to_query">Respond to the query</button>
+                <button type="submit" title="Click to Update" id="Update_cmd_edit_ref" class="btn secondary-btn btn-sm ds-none" data-lang-lab="update_with_cmd">Update with Command</button>
+                <button type="submit" title="Click to Cancel" id="cancel_edit_ref" class="btn secondary-btn btn-sm cancel_btn" data-lang-lab="cancel">Cancel</button>
+                <button type="submit" title="Click to Update" id="insert_edit_ref" class="btn primary-btn btn-sm disabled ds-none" data-lang-lab="update">Update</button>
+                <button type="submit" title="Click to Insert" id="insert_ref" class="btn primary-btn btn-sm">Insert</button>
+                <button type="submit" title="Click to Insert" id="insert_ref_wo_cite" class="btn secondary-btn btn-sm ds-none ml-2">Insert Reference Only</button>
+            </div>
+            <div class="" id="preview_div"><span class="col labelText" data-lang-lab="preview">Preview</span>
+                <div class="col preview" autocomplete="off" id="preview"></div>
+            </div>
+        </div>
+    </div>
+</div>

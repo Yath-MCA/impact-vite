@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<journal short="ALECON" abbr="" journal-title="American Law And Economics Review" batch="21" by="AK">
+				<!-- ?author  suffix = Provide if given ==> so i put yes -->
+				<!-- ?author  Group Author: Listed as author even if it is also the publisher.==> need to
+				discuss -->
+				<!-- ?author string-name==> Alter names No element in word config need to discuss -->
+				<!-- ?author  Article note indicator = Optional in word config so i put yes-->
+				<!-- ?author doubts seperator="," contribsep=", " contrib-last-sep=" and " pattern="aftercomma" notallowed="yes"-->
+				<author data-name="contrib" surname="yes" given-names="yes" prefix="yes" suffix="yes" orcid="yes" author-comment="no" degrees="no" role="yes" on-behalf-of="no" collab="yes" string-name="yes" author-notes-quees="yes" corresp-quees="no" crosslink="no" givennamesep=" " surnameSep="" altername_start="(" altername_end=")" crosslinksep="," seperator="," contribsep="," contrib-last-sep=" and " pattern="aftercomma" notallowed="yes" />
+				<!-- ?affiliation:  N/A -->
+				<!-- ?seperator="and" in word config Affiliation separator= and so i put and-->
+				<affiliation data-name="aff" department="no" institution="yes" city="no" state="no" country="no" postbox="no" postcode="no" street="no" seperator="" designators="no" single-aff="true" autoReNumber="false" />
+				<!-- ?corresp  -->
+				<corresp data-name="corresp" email="yes" address="yes" corresp-quees="no" maximum="" minimum="" telephone="yes" fax="yes" indicators="no" degrees="no" notallowed="yes" />
+				<!-- ?  -->
+				<author-notes data-name="fn" indicators="no" author-notes-quees="" notallowed="yes" />
+				<!-- ?abstract:  Unstructured - Single paragraph -->
+				<abstract data-name="abstract" GA="true" laysummery="true" notallowed="no" />
+				<!-- ?Keywords:  Not used -->
+				<keywords data-name="keywords" seperator="" endperiod="false" minimum="" maximum="" limit="" notallowed="yes" />
+				<p data-name="p" merge="yes" indent="yes" insfnnotes="no" insennotes="no" insertpi="no" insfig="no" instable="no" inscitation="yes" editcitation="yes" delcitation="yes" />
+				<ciation allowedparent="body" allowed="p,tr,td" disallowed="front,ref" />
+				<!-- ? ref-type=fig its defauls as per dev team said and in Use “Figure” written in full (no
+				Fig.). -->
+				<Figure data-name="fig" sentence="Figure" ref-type="fig" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-figure">
+					<!-- ? double_sep=", "  & last_sep=" and " ==> need to check with production team
+					(doubts)-->
+					<caption label="yes" label_end_sep="." end_sep="." limit="3" />
+					<dircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Figure " double_prefix="Figures " double_sep=", " last_sep=" and " multi_prefix="Figures " range_sep="–" openwrap="(" closewrap=")" />
+				</Figure>
+				<Table data-name="table-wrap" sentence="Table" ref-type="table" findCaption=".caption" findCaptionInner=".caption .p" new-item-key="data-table">
+					<!-- ? double_sep=", "  & last_sep=" and " ==> need to check with production team (doubts)-->
+					<!-- ? Caption end dot = Not used-->
+					<caption label="yes" label_end_sep="." end_sep="" limit="3" />
+					<dircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="" closewrap="" />
+					<indircite single_prefix="Table " double_prefix="Tables " double_sep=", " last_sep=" and " multi_prefix="Tables " range_sep="–" openwrap="(" closewrap=")" />
+				</Table>
+				<!-- ? notes: -->
+				<notes footnote="allowed" endnote="" note="" />
+				<!-- ?heading follwed by JLA..J journal BATCH 21 -->
+				<heading data-name="title" numbered="yes" label="yes" label_suffix="" maximum="4" label_between_delim=".">
+					<!-- ? upper_roman || upper_alphabet || arabic || lower_roman || lower_alphabet -->
+					<h1 style="bold" type="Title case" label_format="arabic" label_end_delim="." label_prefix="" />
+					<h2 style="bold" type="sentence case" label_format="arabic" label_end_delim="" label_prefix="yes" />
+					<h3 style="bold" type="sentence case" label_format="arabic" label_end_delim="" label_prefix="yes" />
+				</heading>
+				<!-- ?dictionary  -->
+				<dictionary spelling="us" name="Merriam-Webster's Collegiate Dictionary, 11th Edition" note="" />
+				<!-- ?List  -->
+				<list label="(1)|(i)|(a)" bullet="allowed" note="" />
+				<!-- ?equation  -->
+				<equation label="(7)" note="followauthor" />
+				<!-- ?BackMatter:  -->
+				<BackMatter ack="allowed" act="optional" coi="notallowed" fund="optional" das="optional" supp="optional" suppcap="optional" app="allowed" />
+				<!-- ?No style – Follow author-->
+				<Reference data-name="ref" sentence="Reference" ref-type="bibr" data-label-format="unnumbered" text-format="false" notallowed="no">
+					<!-- ? follow author CHRON_ASCEND == DEFAULT | CEG_NOT_FOUND-->
+					<citation type="CHRON_ASCEND" name_sep=" and " name_last_sep=", | and " name_year_sep=", " direct_sep=", " indirect_sep="; " openwrap="(" closewrap=")" max-author="2" etal="et al." etal_format="roman" />
+				</Reference>
+			</journal>

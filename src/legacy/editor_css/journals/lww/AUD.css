@@ -1,0 +1,10 @@
+
+
+div.sec div.title[data-levels="4"] {
+    font-size: 0.781rem;
+    line-height: 0.906rem;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}

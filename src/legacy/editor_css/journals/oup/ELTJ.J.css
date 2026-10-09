@@ -1,0 +1,15 @@
+tr th .italic {
+    font-style: italic !important;
+    font-weight: bold !important;
+}
+
+/* Reference Part */
+div.ref .mixed-citation .source {
+    font-style: italic !important;
+}
+
+
+div.ref .mixed-citation .surname,
+div.ref .mixed-citation .given-names {
+    font-style: bold !important;
+}
