@@ -10,7 +10,8 @@ export async function mountEditor(appEl) {
 
   booting = (async () => {
     try {
-      appEl.innerHTML = extractBodyHtml(skeletonHtml);
+      // Preserve <body id="Body" class="wrapper-i"> attrs — extractBodyHtml drops the tag.
+      appEl.innerHTML = `<div class="wrapper-i" data-class="ignore-events" id="Body">${extractBodyHtml(skeletonHtml)}</div>`;
       appEl.dataset.pageId = 'editor';
       await bootEditor();
     } catch (err) {
