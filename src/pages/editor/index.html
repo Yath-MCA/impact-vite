@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="google" content="notranslate">
+    <title>IMPACT - Online Editing and Proofing</title>
+    <link href="/favicon.svg" rel="icon">
+    <!-- Vendor/CKEditor/CSS loaded by Vite editor boot (src/pages/editor/boot.js) -->
+</head>
+
+<body class="wrapper-i" data-class="ignore-events" id="Body">
+    <div class="row d-flex flex-column">
+        <div class="col" id='col1'>
+            <header class="content-header-i">
+                <nav class="navbar navbar-expand-md flex-nowrap flex-row sticky-top" id="navbar_row_1">
+                    <ul class="nav navbar-nav flex-row mr-auto" id="downloadPdfList">
+                        <li class="nav-menu-item guide spinner-hide" id="ce_track_pdf"><a class="nav-link" href="javascript:iDownloadMethod.click('ce_track_pdf')" title="Download PDF with copy-edited track changes">
+                                <div class="spinner-border iSpin_border-md" role="status"></div><img src="assets/images/svg/mainPage/CE_Track_PDF.svg" alt="Download CE PDF" class="im-help-size"><span class="im-d-hide nav-menu-header">CE Track PDF</span>
+                            </a></li>
+                        <li class="nav-menu-item guide spinner-hide" id="proof_pdf"><a class="nav-link" href="javascript:iDownloadMethod.click('proof_pdf')" title="Download typeset / proof PDF">
+                                <div class="spinner-border iSpin_border-md" role="status"></div><img src="assets/images/svg/mainPage/Proof_PDF.svg" alt="Download Proof PDF" class="im-help-size"><span class="im-d-hide nav-menu-header">Proof PDF</span>
+                            </a></li>
+                        <li class="nav-menu-item guide spinner-hide" id="i_track_pdf"><a class="nav-link" href="javascript:IMPACT_SAVE.iSave({forcesave:true,regenerate:'i_track_pdf'})" title="Download PDF with content and formatting changes">
+                                <div class="spinner-border iSpin_border-md" role="status"></div><img src="assets/images/svg/mainPage/Generate_Track_PDF.svg" alt="Download Track PDF" class="im-help-size"><span class="im-d-hide nav-menu-header">Generate Track PDF</span>
+                            </a></li>
+                    </ul>
+                    <ul class="nav navbar-nav flex-row userinfo mr-3" id="userinfoList">
+                        <li class="nav-menu-item" id="guide_tour"><a class="nav-link" href="#" title="Guided Tour: Key features slide show"><img src="assets/images/svg/mainPage/GuideTour.svg" alt="GuidedTourIcon" class="im-help-size"><span class="im-d-hide nav-menu-header">Guided Tour</span></a></li>
+                        <!-- <li class="nav-menu-item faq" id="faqGroup"><a class="nav-link" href="javascript:iDownloadMethod.click('Help_FAQ_pdf')" title="Frequently Asked Questions (FAQ)"><img src="assets/images/svg/mainPage/faq3.svg" alt="FAQ" class="im-help-size"><span class="im-d-hide nav-menu-header">FAQ</span></a></li> -->
+                        <li class="nav-menu-item dropdown" id="helpGroup">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Get proofing tool assistance and support"><img src="assets/images/svg/mainPage/Help.svg" alt="HelpIcon" class="im-help-size"><span class="im-d-hide nav-menu-header">Help</span></a>
+                            <div class="dropdown-menu" aria-labelledby="HelpDiv" id="HelpDiv">
+                                <!--Mantis 1996803 : As per ticket Moving FAQ inside Help Section -->
+                                <a class="dropdown-item" href="javascript:iDownloadMethod.click('Help_FAQ_pdf');" id="faq_download_btn" title="Frequently Asked Questions (FAQ)"><img alt="FAQIcon" id="FAQ" src="assets/images/svg/mainPage/faq3.svg" width="23" height="21">&nbsp;&nbsp;FAQ</a>
+                                <a class="dropdown-item" href="javascript:iDownloadMethod.click('Help_Guide_pdf');" id="guide_download_btn" title="Click to download the User Guide"><img alt="Help Guide" id="DownLoadLogo" src="assets/images/svg/mainPage/helpDownLoad.svg">&nbsp;&nbsp;User Guide</a>
+                                <a class="dropdown-item" href="javascript:iDownloadMethod.click('tips_tricks_pdf');" title="Tricks Tips Tutorial" id="TipsTricks"><img alt="Tips and Tricks Icon" id="" src="assets/images/svg/mainPage/tip_stricks_24.svg">&nbsp;&nbsp;Tips and Tricks</a>
+
+                                <a class="dropdown-item" href="#" target="_blank" title="Click to watch the Video Tutorial" id="VideoTour"><img alt="Video Tour" id="" src="assets/images/svg/mainPage/VideoTour.svg">&nbsp;&nbsp;Video Tutorial</a>
+                                <a class="dropdown-item" href="#" title="Get Contact Support" data-module="sendMailDialogModule" id="contact_support"><img alt="ContactSupportIcon" data-module="sendMailDialogModule" id="MailLogo" src="assets/images/svg/mainPage/Mail.svg">&nbsp;&nbsp;Contact Support</a>
+                                <a class="dropdown-item d-none" href="#" title="View Chat Box" data-module="chatbox" id="chat_box_btn"><img class="ml-1" alt="ChatBoxIcon" id="ChatboxLogo" src="assets/images/svg/mainPage/chatBoxIcon.svg">&nbsp;&nbsp;Chat Box</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown d-none" id="profileGroup"><a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img id="userIdLogo" src="assets/images/svg/mainPage/User_Icon.svg" alt="UserIcon" class="im-help-size"></a>
+                            <div class="dropdown-menu" aria-labelledby="profileDiv" id="profileDiv">
+                                <a class="dropdown-item ds-none" href="#">My Profile</a>
+                                <a class="dropdown-item ds-none" href="#">Settings</a>
+                                <a class="dropdown-item" href="#" id=''><img id="" src="assets/images/svg/mainPage/UserName_DropMenu.svg" alt="Loading" class="mr-2"><span id="iuser_Name">Loading ...</a>
+                            </div>
+                        </li>
+                        <li class="nav-item ml-3" id="logoutGroup">
+                            <a class="nav-link" href="#" id="log_out_btn" tabindex="0">
+                                <img id="userId_Logout" src="assets/images/svg/mainPage/Logout.svg" alt="Logout" class="">
+                            </a>
+                        </li>
+                        <li class="nav-item ml-1" title="Submit your corrections to progress the article to publication" id="finalize"><a class="nav-link" href="#" tabindex="0" title="Submit your corrections to progress the article to publication"><img id="final_img" src="assets/images/svg/mainPage/Finalize.svg" alt="Finalize" class="" /></a></li>
+                    </ul>
+                </nav>
+                <nav class="navbar navbar-expand-md flex-nowrap flex-row sticky-top profileid" id="navbar_row_2">
+                    <div class="row d-lg-flex flex-lg-row w-100">
+                        <div class="col-1 align-self-end" id="NaviButton1" data-view='navi'><img class="" title="Hide Navigation" src="assets/images/svg/mainPage/hamburger.svg" alt="hamburger" id="hamburger"></div>
+                        <div class="col-11 bg-white">
+                            <div class="row align-items-center" id="sNavbar">
+                                <div class="col-4 text-right pr-lg-0 pr-md-0">
+                                    <p class="font-weight-normal rTitleGroup" title="" id="rTitleGroup"><span class="font-weight-bold hide" id="r-label">Journal Title</span><span class="r-title" id="r-title"><i class="fa fa-spin fa-spinner"></i> Loading ...</span></p>
+                                </div>
+                                <div class="col-4 mt-lg-n4 menuicons">
+                                    <div class="top-menu-icons-group" id="menugrpicons">
+                                        <ul class="list-inline d-flex mt-lg-3 justify-content-md-around justify-content-lg-around" aria-label="menu">
+                                            <li class="menu-items ds-none" title="Document Statistics" id="wordCountBut"><a>
+                                                    <div class="top-menu-icon-img tesst"><img src="assets/images/svg/mainPage/Word.svg" alt="Word" class="top-menu-icon hideoverdisplay" /><img src="assets/images/svg/mainPage/Word_2.svg" alt="Word" class="top-menu-icon showoverdisplay" /></div>
+                                                </a></li>
+                                            <li class="menu-items" title="Share article content with co-authors for them to review" id="shareFileBtn"><a aria-label="ShareandInvite" href="javascript:ShareInviteDialog.show();">
+                                                    <div class="top-menu-icon-img"><img src="assets/images/svg/mainPage/Share.svg" alt="Share" class="top-menu-icon hideoverdisplay" /><img src="assets/images/svg/mainPage/Share_2.svg" alt="Share" class="top-menu-icon showoverdisplay" /></div>
+                                                </a></li>
+                                            <li class="menu-items" title="Click to save changes; Auto-save is ON" id="filesaving"><a aria-label="Save" href="javascript:IMPACT_SAVE.iSave()">
+                                                    <div class="top-menu-icon-img"><img src="assets/images/svg/mainPage/SaveFile_0.svg" alt="SaveIcon" class="top-menu-icon" /></div>
+                                                </a></li>
+                                            <li class="menu-items dropdown" title="Customize document view" id="viewoptn">
+                                                <a href="#" aria-label="View Panel" class="dropdown-toggle d-flex flex-column" data-toggle="dropdown" tabindex="0" data-hover="dropdown" id="btn-view">
+                                                    <div class="top-menu-icon-img" id="viewDiv"><img src="assets/images/svg/mainPage/View.svg" alt="ViewIcon" class="top-menu-icon hideoverdisplay" /><img src="assets/images/svg/mainPage/View_2.svg" alt="ViewIcon" class="top-menu-icon showoverdisplay" /></div><i class="fa fa-angle-down align-self-center" aria-hidden="true" id="downArrow"></i>
+                                                </a>
+                                                <div class="border-between dropdown-menu dropdown-menu-center" tabindex="0" id="view-dialog">
+                                                    <div class="d-inline-block" tabindex="0" title="Editor only view" data-view='edit'>
+                                                        <div class="view-drop-img-editor"><img src="assets/images/svg/mainPage/iEditorView.svg" alt="EditorView" class="top-menu-icon viewoption" /></div>
+                                                    </div>
+                                                    <div class="d-inline-block ml-1" tabindex="0" title="Proof only view" data-view='pdf'>
+                                                        <div class="view-drop-img-pdf"><img src="assets/images/svg/mainPage/iPdfView.svg" alt="PDFViewIcon" class="top-menu-icon viewoption" /></div>
+                                                    </div>
+                                                    <div class="d-inline-block ml-1" tabindex="0" title="Combined View: Editor and Proof PDF side-by-side with synchronized scroll" data-view='both'>
+                                                        <div class="view-drop-img-both"><img src="assets/images/svg/mainPage/iDefaultView.svg" alt="DefaultViewIcon" class="top-menu-icon viewoption" /></div>
+                                                    </div>
+                                                    <div class="d-inline-block ml-1" tabindex="0" title="Option to maximize the Editor view" data-view='maximize'>
+                                                        <div class="view-drop-img-editor"><img src="assets/images/svg/mainPage/iEditorMaxiView.svg" alt="MaxiViewIcon" class="top-menu-icon viewoption" /></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="angle-down ds-none" id="angledown-top"><i class="fa fa-angle-down" aria-hidden="true"></i></li>
+                                            <li class="menu-items" title="Show track changes during the proof review process" id="showRevisionBtn"><a old-onclick="ShowTrackModules().show()" tabindex="0" href="#" onclick="trackDialog.show();">
+                                                    <div class="top-menu-icon-img"><img src="assets/images/svg/mainPage/History.svg" alt="ShowChangesIcon" class="top-menu-icon hideoverdisplay" /><img src="assets/images/svg/mainPage/History_2.svg" alt="ShowChangesIcon" class="top-menu-icon showoverdisplay" /></div>
+                                                </a></li>
+                                            <li class="menu-items" id='onlineStatus'><a aria-label="Online Status" href="#">
+                                                    <div class="top-menu-icon-6" id="onlineDiv"><img src="assets/images/svg/mainPage/Online.svg" alt="OnlineIcon" title="Show network connection status" class="top-menu-icon hideoverdisplay" /><img src="assets/images/svg/mainPage/Online_2.svg" alt="OnlineIcon" title="Show network connection status" class="top-menu-icon showoverdisplay" /></div>
+                                                    <div class="top-menu-icon-6 ds-none" id="offlineDiv"><img src="assets/images/svg/mainPage/Offline.svg" alt="offlineIcon" title="Offline" class="top-menu-icon hideoverdisplay" /><img src="assets/images/svg/mainPage/Offline_2.svg" alt="offlineIcon" title="Offline" class="top-menu-icon showoverdisplay" /></div>
+                                                </a></li>
+                                            <li class="menu-items ds-none" title="Regenerate Proof PDF" id="GenaratePDF" tabindex="0" onclick="GeneratingPDF(this)" data-last-Genarate-Status="null">
+                                                <div class="top-menu-icon-img"><img src="assets/images/svg/mainPage/PDF.svg" alt="PDFIcon" class="top-menu-icon hideoverdisplay" /><img src="assets/images/svg/mainPage/PDF_2.svg" alt="PDFIcon" class="top-menu-icon showoverdisplay" /></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-left pl-lg-0 pl-md-0">
+                                    <p class="font-weight-normal text-truncate lTitleGroup" id="lTitleGroup"><span class="font-weight-bold hide" id="l-label">Article Title</span><span class="l-title" id="l-title"><i class="fa fa-spin fa-spinner"></i> Loading ...</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-self-end" id="NaviButton2" data-view='navi'><img class="ml-lg-2" title="Show Thumbnail" src="assets/images/svg/mainPage/hamburger_1.svg" alt="hamburger" id="hamburger_Thumbnail"></div>
+                </nav>
+            </header>
+        </div>
+        <div class="col" id='col2'>
+            <main class="content-wrapper-i" id="mine">
+                <div class="container-fluid mt-md-auto">
+                    <div class="row dynamic-columns" id="iWrapper">
+                        <!-- TOC -->
+                        <!-- d-none d-sm-none d-md-block -->
+                        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2" id="iTOC_Section">
+                            <div class="pdf-dum">&nbsp;</div>
+                            <div class="container-fluid-i toc-query-header">
+                                <div class="d-flex align-items-center" id="menu_row">
+                                    <div class="col-3 active" id="btn_toc" tabindex="0" data-panel="toc" onclick="Show_TOC_Query_Panel(this)" title="Table of Contents with links"><img class="testimg" src="assets/images/svg/mainPage/qpTOC.svg" alt="TOCIcon" /><span class="headText">TOC</span></div>
+                                    <div class="col-4" id="btn_qry" tabindex="0" data-panel="query" onclick="Show_TOC_Query_Panel(this)" title="List of copyediting queries that require your response"><img class="testimg" src="assets/images/svg/mainPage/qpQuery.svg" alt="Query" /><span class="headText">Queries</span></div>
+                                    <div class="col-5" id="btn_cts" tabindex="0" data-panel="comment" onclick="Show_TOC_Query_Panel(this)" title="Use comments to share instructions and document attachments"><img class="testimg" src="assets/images/svg/mainPage/qpQuery.svg" alt="CommentIcon" /><span class="headText">Comments</span></div>
+                                </div>
+                                <div class="d-flex flex-column" id="leftPanel_Body">
+                                    <div class="active" id="toc_panel">
+                                        <div class="toc-group pl-2" id="toc" tabindex="0">
+                                            <div class="container-fluid toc-container" id="toc-body">
+                                                <ul id="toc_list" class="firstlevel"></ul>
+                                            </div>
+                                        </div>
+                                        <div class="" id="flatpanel">
+                                            <div id="flots_panel_list">
+                                                <div class="float-head-img"><img id="floatSvg" src="assets/images/svg/mainPage/Float.svg" alt="Float" /></div>
+                                                <div class="float_border"></div>
+                                                <ul class="lof_list pl-2" id="lof_list" title="" tabindex="0">
+                                                    <li class="lof-items" id="fig_items" title=""><span class="impact" tabindex="0"><span class="fa fa-angle-right"></span>Figures (<span id="FigCount" class="FloatsCount">0</span>)</span>
+                                                        <ul class="nested" id="lofig"></ul>
+                                                    </li>
+                                                    <li class="lof-items" id="unfig_items" title=""><span class="impact" tabindex="0"><span class="fa fa-angle-right"></span>Unnumbered Figures (<span id="UnFigCount" class="FloatsCount">0</span>)</span>
+                                                        <ul class="nested" id="lounfig"></ul>
+                                                    </li>
+                                                    <li class="lof-items" id="tab_items" title=""><span class="impact" tabindex="0"><span class="fa fa-angle-right"></span>Tables (<span id="TabCount" class="FloatsCount">0</span>)</span>
+                                                        <ul class="nested" id="lotab"></ul>
+                                                    </li>
+                                                    <li class="lof-items" id="untab_items" title=""><span class="impact" tabindex="0"><span class="fa fa-angle-right"></span>Unnumbered Tables (<span id="UnTabCount" class="FloatsCount">0</span>)</span>
+                                                        <ul class="nested" id="lountab"></ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="" id="query_panel" data-shown="All">
+                                    <div class="query-count-report">
+                                        <div class="d-flex align-items-center justify-content-around" id="Query_count_panel">
+                                            <div class="queryCount NG_Color" data-shown="all" onclick="ShowQueryByStatusInPanel(this)" id="qAllCountDiv" tabindex="0" title="Show All Queries">
+                                                <div class="d-flex" id="OverAll"><span class="qtext">All</span><span class="badge badge-light" id="qTotal">0</span></div>
+                                            </div>
+                                            <div class="queryCount" data-shown="open" onclick="ShowQueryByStatusInPanel(this)" id="qOpenCountDiv" tabindex="0" title="Show Open Queries">
+                                                <div class="d-flex" id="OnlyOpen"><span class="qtext">Open</span><span class="badge badge-light" id="qOpen">0</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 15_Jul_2023-RJ-WCAG-tabIndex -->
+                                    <div class="container-fluid query-group" tabindex="0" id="queryGroupTab">
+                                        <div class="query-list" data-shown="all"></div>
+                                    </div>
+                                </div>
+                                <div class="" id="comment_panel">
+                                    <div class="query-count-report" id="cmd_count">
+                                        <div class="d-flex align-items-center justify-content-around qcomments">
+                                            <div class="queryCount NG_Color" data-shown="all" id="cAllCountDiv" title="Show All Comments" tabindex="0">
+                                                <div class="d-flex" id="OverAllcoment"><span class="qtext">All</span><span class="badge badge-light" id="cTotal">0</span></div>
+                                            </div>
+                                            <div class="queryCount" data-shown="open" id="cOpenCountDiv" title="Show Open Comments" tabindex="0">
+                                                <div class="d-flex" id="OnlyOpenComent"><span class="qtext">Open</span><span class="badge badge-light" id="cOpen">0</span></div>
+                                            </div>
+                                            <div class="addcmt" tabindex="0" id="addcmt" title="Add Comment">
+                                                <img alt="AddCommentIcon" class="addcmt-icon" src="assets/images/svg/mainPage/AddCment.svg">
+                                                <span class="qtext">Add</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment-group" id="comment">
+                                        <div class="comment-list" data-shown="all"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CKEditor and PDF -->
+                        <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10" id="iViewArea">
+                            <div class="row">
+                                <!-- CKEditor Top menus div -->
+                                <!-- Editor section (always visible, full width on smaller screens) -->
+                                <div class="col-12 col-sm-12 col-md-10 col-lg-6" id="iEditorSection">
+                                    <div class="row justify-content-lg-start justify-content-md-start justify-content-sm-start ck-menus" id="ck-menus">
+                                        <div class="col col-md-auto ds-none" id="image_menu">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><img alt="FigureIcon" class="small-icons-menu" src="assets/images/svg/mainPage/MenuFigure.svg">Image</button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#" onclick="openCKDialogsImage('image');"><img alt="FigureIcon" class="small-icons-menu-list" src="assets/images/svg/mainPage/MenuOptFigure.svg">Update Figure</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col col-md-auto" id="link_menu" tabindex="0">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn dropdown-toggle" id="dropdownLinkBtn" data-toggle="dropdown" tabindex="0" data-hover="dropdown"><img alt="LinkIcon" class="small-icons-menu-link" src="assets/images/svg/mainPage/MenuLink.svg">Link</button>
+                                                <ul class="dropdown-menu">
+                                                    <!--  ? 1996643: Inserting references pop-up -->
+                                                    <li id="insertRefmenu"><a href="#"><img alt="LinkIcon" class="small-icons-menu-link-list" src="assets/images/svg/mainPage/MenuLink.svg">Insert Reference</a></li>
+                                                    <li id="insertCitemenu"><a href="#" onclick="javascript:CitationNewModule.show();"><img alt="LinkIcon" class="small-icons-menu-link-list" src="assets/images/svg/mainPage/MenuLink.svg">Insert Citations</a></li>
+                                                    <li id="applylinkmenu"><a href="#"><img alt="LinkIcon" class="small-icons-menu-link-list" src="assets/images/svg/mainPage/MenuLink.svg">Apply Hyperlink</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col col-md-auto" id="contentMenu" tabindex="0">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" tabindex="0" data-hover="dropdown"><img alt="MenuIcon" class="small-icons-menu" src="assets/images/svg/mainPage/MenuContent.svg">Versions</button>
+                                                <ul id="contenMenuOpt" class="dropdown-menu">
+                                                    <li id="Generate_XML" class="spinner-hide"><a href="#" onclick="javascript:IMPACT_SAVE.iSave({forcesave:true,regenerate:'xml'});">
+                                                            <div class="spinner-border iSpin_border-sm" role="status"></div><img alt="XMLDownloadIcon" class="small-icons-menu-list" src="assets/images/svg/mainPage/MenuOptXmlDownload.svg">XML Download
+                                                        </a></li>
+                                                    <li id="restoreHTML"><a href="#"><img alt="DocumentVersionIcon" class="small-icons-menu-list" src="assets/images/svg/mainPage/MenuOptRestoreHTML.svg">Document Version</a></li>
+                                                    <li id="ShowTrackOnly"><a href="#" onclick="javascript:showTrackReadOnly();"><img alt="HTMLViewIcon" class="small-icons-menu-list" src="assets/images/svg/mainPage/MenuOptHTMLView.svg">Show Tracking</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col col-md-auto" id="StyleMenu" tabindex="0">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" tabindex="0" data-hover="dropdown"><img alt="ApplyStyleIcon" class="small-icons-menu" src="assets/images/svg/mainPage/MenuApplyStyle.svg">Style</button>
+                                                <ul id="StyleApplyMenu" class="dropdown-menu">
+                                                    <li id="menuapplystyle"><a href="#" onclick="javascript:APPLY_STYLE_MODULE.show();"><img alt="ApplyStyleIcon" class="small-icons-menu-list" src="assets/images/svg/mainPage/MenuApplyStyle.svg">Apply Style</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col col-md-auto ds-none" id="StatisticsMenu" tabindex="0">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" tabindex="0" data-hover="dropdown"><img alt="StatisticsIcon" class="small-icons-menu" src="assets/images/svg/mainPage/MenuApplyStyle.svg">Statistics</button>
+                                                <ul id="StatisticsOption" class="dropdown-menu">
+                                                    <li id="checkAbstractCount"><a href="#" onclick="AbstractWordCounter.showLoop();"><img alt="AbstractCountIcon" class="small-icons-menu-list" src="assets/images/svg/mainPage/MenuApplyStyle.svg">Show Abstract Count</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col col-md-auto dropdown" id="showTrackDiv" tabindex="0" onclick="ShowTrackOnOff(this);">
+                                            <button type="button" class="btn"><img alt="ShowMarkupIcon" class="small-icons-menu" id="TrackImg" src="assets/images/svg/mainPage/MenuTrackON.svg">Show Markup</button>
+                                        </div>
+                                        <div class="col col-md-auto dropdown" id="showSpellDiv" tabindex="0" onclick="iWSC.SpellCheckOnOff(this);">
+                                            <button type="button" class="btn"><img alt="SpellCheckIcon" class="small-icons-menu" id="spellCheckImg" src="assets/images/svg/mainPage/MenuTrackOFF.svg">Spell Check</button>
+                                        </div>
+                                    </div>
+                                    <!-- CKEditor Div -->
+                                    <div class="editor-section" id="htmlcontent">
+                                        <div id="maineditor" aria-label="maineditor"></div>
+                                        <!-- <textarea id="maineditor" name="maineditor" rows="5" cols="33"></textarea> -->
+                                        <div class='pop_up ds-none' id="popupdiv">
+                                            <div class="panel panel-primary">
+                                                <div class="d-flex border-tc">
+                                                    <div class="panel-heading">Track Changes</div>
+                                                    <div class="ml-auto px" id="closetc"><i class="far fa-times-circle"></i></div>
+                                                </div>
+                                                <div id='AuthorAffTrackChangesShow' class="panel-body"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- PDF section (visible only on desktop and larger) -->
+                                <div class="col-12 col-lg-6" id="iPdfSection">
+                                    <div class="pdf-dum">&nbsp;</div>
+                                    <div class="container-fluid-i pdf-section">
+                                        <div class="d-flex flex-row justify-content-center align-items-center pdf-menu-header">
+                                            <span class="btn-header" id="leftpagebut" name="leftpagebut" title="Previous page"><img alt="Previous page" class="small-icons-pdf-menu" src="assets/images/svg/mainPage/PDF-Previous.svg"></span>
+                                            <span class="btn-header"><input class="form-control text-center" autocomplete="off" id="currpageno" min="1" aria-label="currentpageNumber" name="currpageno" value="" type="text" size="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57;' placeholder="current page"><span id="totalpgs"></span><input autocomplete="off" type="hidden" id="currpagebut" name="currpagebut" placeholder="current page" inline="true" value="Go" /></span>
+                                            <span class="btn-header im-lato-12" id="of">of</span>
+                                            <span class="btn-header im-lato-12" id="lastpage">0</span>
+                                            <span class="btn-header" id="rightpagebut" name="rightpagebut" title="Next page"><img alt="Next page" class="small-icons-pdf-menu" src="assets/images/svg/mainPage/PDF-Next.svg"></span>
+                                            <span class="btn-header"><a href="javascript:void(0);" id='pdf_zoomout' title="Zoom Out"><img alt="zoom out" class="small-icons-pdf-menu" src="assets/images/svg/mainPage/ZoomOut.svg"></a></span>
+                                            <span class="btn-header"><a id='pdf_zoomin' title="Zoom In"><img alt="zoom in" class="small-icons-pdf-menu" src="assets/images/svg/mainPage/ZoomIn.svg"></a></span>
+                                            <!-- 3350491 Fit to Page - May_06_2025 - RJ-->
+                                            <span class="btn-header">
+                                                <select id="zoom_dropdown" class="form-control" title="Zoom Level">
+                                                    <option value="100">Fit to width</option>
+                                                    <option value="58" accesskey="fittopage">Fit to Page</option>
+                                                </select>
+                                            </span>
+                                            <span class="btn-header ds-none"><a id='pdf_fitnpage' title="Fit with page"><img alt="Fit with page" class="small-icons-pdf-menu" src="assets/images/svg/mainPage/FittoPage.svg"></a></span>
+                                            <span class="btn-header ds-none"><a id='pdf_fitwith' title="Fit with"><img alt="fit with width" class="small-icons-pdf-menu" src="assets/images/svg/mainPage/FittoWidth.svg"></a></span>
+                                            <span class="btn-header"><a id='pdf_rotate' data-rotate="0" title="Rotate clockwise"><img alt="Rotate pdf" class="small-icons-pdf-menu" src="assets/images/svg/mainPage/RotateIcon.svg"></a></span>
+                                        </div>
+                                        <!-- 15_Jul_2023-RJ-WCAG-tabIndex -->
+                                        <div id="pageimagedisplayparent" tabindex="0" class="pdf-view-section"><img id="pageimagedisplay" src="assets/images/img/pdfimage.png" class="img-fluid" alt="pdficon"></div>
+                                        <!-- <div class="container-fluid pdf-view-section" id="pdfeditor"><embed id="pdfurl" src="" type="application/pdf" frameborder="2" internalinstanceid="203"></div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- PDF/Images Thumb -->
+                        <div class="ds-none d-sm-none d-md-block col-md-1 col-lg-1 col-xl-1" id="iPdfThumbnail_Section">
+                            <div class="container container-fluid" id="pagedetails">
+                                <p class="text-center align-content-center mt-auto mb-auto font-small"><span class="pdf_curPage" id="pdf_curPage">00</span><span class="pdftext">of</span><span class="pdft_pageend" id="pdft_pageend">00</span></p>
+                            </div>
+                            <div class="container-fluid-i">
+                                <div class="container-fluid pdf-thumb-section">
+                                    <!-- <div class="thumbilArrow" name="uppagebut" id="uppagebut" title="Up"><a href="#" alt="Up Arrow"><i class="fa fa-angle-up"></i></a></div> -->
+                                    <ul class="list-group text-center mt-3" id="img-list">
+                                        <!-- <li class="list-group-item"><a href="#" class=""><img src="assets/images/svg/mainPage/pdf-img/pagei.svg" href="#" alt="page" class="img-fluid-thumbil"></a></li><li class="list-group-item font-small text-center mt-n1">1</li>-->
+                                    </ul>
+                                    <!-- <div class="thumbilArrow" name="rightpagebut" id="downpagebut" title="Down"><a href="#" alt="Down Arrow"><i class="fa fa-angle-down"></i></a></div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="col" id='col3'>
+            <footer class="content-footer-i d-flex justify-content-between">
+                <div class="logodiv"><img class="navbar-brand im-logo-size" src="assets/images/svg/logo/IMPACT_5_4.svg" alt="ImpactLogo"></div>
+                <div class="mr-lg-3 footer-text">Developed and Maintained by <a rel="noopener" rel="help" href="https://www.newgen.co" target="_blank"><img alt="load" src="assets/images/logo/Newgen.svg" class="new-logo mr-1"></a> KnowledgeWorks</div>
+            </footer>
+        </div>
+    </div>
+    <div class="ds-none" id="dummy-impact">
+        <div id="image_load"></div>
+        <div id="aaa"></div>
+        <div id="bbb"></div>
+        <div id="ccc"></div>
+        <div id="SET_DATA_DOM"></div>
+    </div>
+    <div class="ds-none" id="AuthDOM"></div>
+    <div id="ModelDialogAppend">
+        <div class="iToolTip ipopUp hide" id="xToolTip"></div>
+    </div>
+</body>
+
+</html>
