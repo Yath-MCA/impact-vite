@@ -129,6 +129,31 @@ function applyLandingConfigOverride(baseConfig, override) {
 export default function LandingUI({ docData }) {
   const [coverImageError, setCoverImageError] = useState(false);
   const [configOverride, setConfigOverride] = useState(null);
+  const [acceptBusy, setAcceptBusy] = useState(false);
+  const [acceptError, setAcceptError] = useState('');
+
+  async function onAgreeContinue() {
+    setAcceptError('');
+    setAcceptBusy(true);
+    try {
+      const { startLandingAccept } = await import('./landingSessionBridge.js');
+      await startLandingAccept(docData, {
+        onError: (err) => setAcceptError(String(err?.message || err || 'Session failed')),
+        onTryAgain: () => setAcceptError('Could not open session. Try again.'),
+        onDenied: (msg) => setAcceptError(msg || 'Access denied'),
+        onVerifyFailed: () => setAcceptError('Session verify failed. Try again.'),
+        onBlocked: async () => {
+          setAcceptError(
+            'Another user holds this session. Send Request UI comes in a follow-up.'
+          );
+        },
+      });
+    } catch (err) {
+      setAcceptError(String(err?.message || err));
+    } finally {
+      setAcceptBusy(false);
+    }
+  }
 
   const clientName = (docData?.client ?? 'default').toLowerCase();
   const branding = docData?.branding || {};
@@ -266,7 +291,7 @@ export default function LandingUI({ docData }) {
         </div>
 
         <div
-          className="tw:grid tw:gap-6 lg:tw:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]"
+          className="tw:grid tw:gap-6 tw:lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]"
           style={LANDING_BODY_TEXT_STYLE}
         >
           <div className="tw:bg-white tw:rounded-lg tw:shadow-md tw:p-6 tw:border tw:border-slate-200">
@@ -348,12 +373,18 @@ export default function LandingUI({ docData }) {
               </p>
             ) : null}
 
+            {acceptError ? (
+              <p className="tw:mb-3 tw:text-sm tw:text-red-700" role="alert">
+                {acceptError}
+              </p>
+            ) : null}
             <button
               type="button"
-              disabled
-              className="tw:w-full tw:bg-primary tw:opacity-60 tw:cursor-not-allowed tw:text-white tw:font-bold tw:py-3.5 tw:rounded-lg tw:shadow-md tw:border-0"
+              disabled={acceptBusy || !docData}
+              onClick={onAgreeContinue}
+              className="tw:w-full tw:bg-primary tw:text-white tw:font-bold tw:py-3.5 tw:rounded-lg tw:shadow-md tw:border-0 tw:disabled:opacity-60 tw:disabled:cursor-not-allowed"
             >
-              AGREE &amp; CONTINUE
+              {acceptBusy ? 'Opening…' : 'AGREE & CONTINUE'}
             </button>
           </div>
 
@@ -448,7 +479,7 @@ export default function LandingUI({ docData }) {
             <h3 className="tw:text-lg tw:font-bold tw:text-white tw:m-0">Supported Browsers</h3>
           </div>
 
-          <div className="tw:grid md:tw:grid-cols-3 tw:gap-6 tw:mb-6">
+          <div className="tw:grid tw:md:grid-cols-3 tw:gap-6 tw:mb-6">
             {Object.values(BROWSER_COMPATIBILITY).map((block) => (
               <div key={block.os}>
                 <h4 className="tw:font-bold tw:text-orange-300 tw:mb-2">
