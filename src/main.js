@@ -13,6 +13,7 @@ import { applyDocumentHead } from './shared/documentHead.js';
 import loginConfig from './pages/login/page.config.js';
 import dashboardConfig from './pages/dashboard/page.config.js';
 import landingConfig from './pages/landing/page.config.js';
+import editorConfig from './pages/editor/page.config.js';
 
 const PAGE_IDS = ['home', 'login', 'editor', 'dashboard', 'landing'];
 const REACT_HASH_IDS = new Set(['login', 'dashboard', 'validateurl']);
@@ -41,9 +42,19 @@ async function routeFromHash() {
     return;
   }
 
+  if (id === 'editor') {
+    unmountReactApp();
+    const el = appEl();
+    if (el) el.innerHTML = '';
+    applyDocumentHead(editorConfig);
+    const { mountEditor } = await import('./pages/editor/index.js');
+    await mountEditor(el);
+    return;
+  }
+
   unmountReactApp();
-  const pageId = PAGE_IDS.includes(id) && !REACT_HASH_IDS.has(id) ? id : 'home';
-  await loadPage(pageId === 'editor' ? 'home' : pageId);
+  const pageId = PAGE_IDS.includes(id) && id !== 'editor' ? id : 'home';
+  await loadPage(pageId);
 }
 
 window.addEventListener('hashchange', () => {
