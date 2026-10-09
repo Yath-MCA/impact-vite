@@ -82,5 +82,4 @@ Exact paths mirror `pipeline.js`; implementation lists them in `boot.js` with co
 
 - Landing Accept → CHECK → grant → `#/editor`  
 - Multi-session / send-request / SocketBridge  
-- `dialog_module`, `module_main`, `single_module`, `session_editor` bundles  
-```
+- `dialog_module`, `module_main`, `single_module`, `session_editor` bundles
