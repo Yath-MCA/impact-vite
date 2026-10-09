@@ -1,6 +1,6 @@
 /** Deduped e6_common + e6_main paths relative to @legacy (= src/legacy). */
 
-const E6_COMMON = [
+export const E6_COMMON_PATHS = [
   // skip js/index.js — gulp placeholders; use legacyGlobals.js instead
   'js/_initialGlobalVaribale.js',
   'js/_editorLayout.js',
@@ -30,7 +30,7 @@ const QUERY_COMMENT_SYSTEM = [
   'modules/shared/query-comment-system/register.js',
 ];
 
-const E6_MAIN = [
+export const E6_MAIN_PATHS = [
   'js/editor_sync_scrollspy.js',
   'js/editor_page_events_fn.js',
   'js/commonEvtHandler.js',
@@ -50,7 +50,7 @@ function uniqueInOrder(paths) {
   return out;
 }
 
-export const EDITOR_JS_PATHS = uniqueInOrder([...E6_COMMON, ...E6_MAIN]);
+export const EDITOR_JS_PATHS = uniqueInOrder([...E6_COMMON_PATHS, ...E6_MAIN_PATHS]);
 
 export const EDITOR_CSS_PATHS = [
   'static/css/main.css',

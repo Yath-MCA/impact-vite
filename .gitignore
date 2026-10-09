@@ -20,3 +20,7 @@ env/*.secrets.js
 
 # Generated runtime env (may contain merged secrets) — recreate via npm run env:generate
 public/env.js
+
+# Generated editor legacy packs (npm run pack:editor)
+public/assets/
+
