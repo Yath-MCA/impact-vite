@@ -69,8 +69,8 @@ flowchart LR
 
 Mirror gulp naming enough for boot + config loader:
 
-- `dist/assets/{VERSION}/js/e6_common.js` (or `.min.js` if matching existing HTML conventions — pick one and stick to it in the plan)
-- `dist/assets/{VERSION}/js/e6_main.js`
+- `dist/assets/{VERSION}/js/e6_common.min.js` (concat of Slice A e6_common order)
+- `dist/assets/{VERSION}/js/e6_main.min.js` (concat of Slice A e6_main order)
 - `dist/assets/{VERSION}/css/…` from `EDITOR_CSS_PATHS`
 - `dist/assets/{VERSION}/config/…` minimal stubs or copied clientconfig paths so `FOLDER_PATH = 'assets/' + VERSION + '/config/'` does not 404 hard
 
