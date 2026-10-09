@@ -23,7 +23,7 @@ test('validateurl valid key opens landing shell', async ({ page }) => {
   await expect(page.getByTestId('landing-shell')).toBeVisible({ timeout: 15000 });
   await expect(page.getByRole('strong').filter({ hasText: /sample proof/i })).toBeVisible();
   await expect(page.getByRole('heading', { name: /instructions|welcome/i }).first()).toBeVisible();
-  await expect(page.getByRole('button', { name: /agree & continue/i })).toBeDisabled();
+  await expect(page.getByRole('button', { name: /agree & continue/i })).toBeEnabled();
 });
 
 test('validateurl invalid key shows INVALID alert, no landing', async ({ page }) => {
