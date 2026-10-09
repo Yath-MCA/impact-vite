@@ -301,7 +301,7 @@ describe('buildLandingAcceptContext', () => {
 import { loadLandingSessionOnce } from './loadLandingSession.js';
 import {
   commitLandingStorageAndVerify,
-  getSessionIdKey,
+  saveLegacyShareLocalStorage,
 } from './landingSessionStorage.js';
 
 function newSessionId() {
