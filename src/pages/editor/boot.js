@@ -70,9 +70,16 @@ const CSS_URL_BY_PATH = {
   'static/css/editorLayout.css': layoutCss,
 };
 
-export async function bootEditor() {
-  applyLegacyGlobals();
-  await loadCkeditorOnce();
+async function canLoad(url) {
+  try {
+    const res = await fetch(url, { method: 'GET', cache: 'no-store' });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+async function bootFromUrlInject() {
   for (const p of EDITOR_CSS_PATHS) {
     const href = CSS_URL_BY_PATH[p];
     if (!href) throw new Error(`Missing CSS url for ${p}`);
@@ -83,4 +90,24 @@ export async function bootEditor() {
     if (!src) throw new Error(`Missing JS url for ${p}`);
     await loadScriptOnce(src);
   }
+}
+
+export async function bootEditor() {
+  applyLegacyGlobals();
+  await loadCkeditorOnce();
+  const version = String(window.VERSION || 'dev');
+  const commonUrl = `/assets/${version}/js/e6_common.min.js`;
+  const mainUrl = `/assets/${version}/js/e6_main.min.js`;
+  const usePack = await canLoad(commonUrl);
+
+  if (usePack) {
+    for (const name of ['main.css', 'media_query.css', 'editorLayout.css']) {
+      await loadStylesheetOnce(`/assets/${version}/css/${name}`);
+    }
+    await loadScriptOnce(commonUrl);
+    await loadScriptOnce(mainUrl);
+    return;
+  }
+
+  await bootFromUrlInject();
 }
