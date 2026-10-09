@@ -8,11 +8,18 @@ function newSessionId() {
   return String(Date.now()) + String(Math.floor(Math.random() * 1000));
 }
 
+/** SPA equivalent of legacy `PAGE_ReDIRECT[0] + docid` → `editor6.html?docid=…`. */
+export function buildEditorRedirectHash(docId) {
+  const id = String(docId || '').trim();
+  if (!id) return '#/editor';
+  return `#/editor?docid=${encodeURIComponent(id)}`;
+}
+
 export function buildLandingAcceptContext(docData, handlers = {}) {
   const resData = docData || {};
   const docId = String(resData.docid || resData.docId || '');
   const sessionId = handlers.sessionId || newSessionId();
-  const editorHash = '#/editor';
+  const editorHash = buildEditorRedirectHash(docId);
 
   return {
     docId,
@@ -31,11 +38,13 @@ export function buildLandingAcceptContext(docData, handlers = {}) {
         ctx.grantOptions?.skipVerify ||
         ctx.grantOptions?.canforceClose
       );
+      const resolvedDocId = ctx.docId || docId;
+      const redirectHash = buildEditorRedirectHash(resolvedDocId);
       const mod = window.LinkSessionModule.getInstance();
       const result = await commitLandingStorageAndVerify({
-        docId: ctx.docId || docId,
+        docId: resolvedDocId,
         sessionId: ctx.sessionId || sessionId,
-        redirectUrl: editorHash,
+        redirectUrl: redirectHash,
         resData: ctx.resData || resData,
         skipVerify,
         confirmFn: (expected) => mod.confirmSessionOnServer(expected),
@@ -44,7 +53,7 @@ export function buildLandingAcceptContext(docData, handlers = {}) {
         handlers.onVerifyFailed?.(result);
         return;
       }
-      window.location.hash = editorHash;
+      window.location.hash = redirectHash;
     },
     onTryAgain: (key) => handlers.onTryAgain?.(key),
     onRequestError: (err) => handlers.onError?.(err),

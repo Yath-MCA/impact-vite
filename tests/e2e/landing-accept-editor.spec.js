@@ -80,7 +80,7 @@ test('Agree grants session and opens editor shell', async ({ page }) => {
   const agree = page.getByRole('button', { name: /agree & continue/i });
   await expect(agree).toBeEnabled({ timeout: 10000 });
   await agree.click();
-  await expect(page).toHaveURL(/#\/editor/, { timeout: 30000 });
+  await expect(page).toHaveURL(/#\/editor\?docid=D-E2E/, { timeout: 30000 });
   await expect(page.locator('#Body, .content-header-i, #navbar_row_1').first()).toBeVisible({
     timeout: 30000,
   });
