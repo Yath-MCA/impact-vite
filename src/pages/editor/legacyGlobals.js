@@ -1,3 +1,6 @@
+import pkg from '../../../package.json';
+import { applyEditorLegacyHelpers } from './editorLegacyHelpers.js';
+
 export function applyLegacyGlobals() {
   const env = (typeof window !== 'undefined' && window.ENV) || {};
   const g = typeof window !== 'undefined' ? window : globalThis;
@@ -12,6 +15,11 @@ export function applyLegacyGlobals() {
   g.API_PATH = env.API_PATH || '/xmleditor/';
   g.DOMAIN_ROOT = env.DOMAIN_ROOT || '';
   g.BUCKET_URL = env.BUCKET_URL || 'http://localhost/xmleditor/';
-  g.VERSION = env.VERSION || 'dev';
-  // Add further keys as boot errors reveal missing placeholders
+  // Same rule as scripts/resolveEditorVersion.js: ENV.VERSION then package.json
+  g.VERSION =
+    (env.VERSION && String(env.VERSION).trim()) ||
+    (pkg && pkg.version) ||
+    g.VERSION ||
+    'dev';
+  applyEditorLegacyHelpers(g);
 }
