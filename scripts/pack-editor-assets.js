@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import * as esbuild from 'esbuild';
 import { readEditorVersionFromRepo } from './resolveEditorVersion.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -34,6 +35,32 @@ function shouldSkipConfigRel(relPosix) {
   return false;
 }
 
+/** Collapse insignificant XML whitespace (gulp pretty-data minify parity). */
+function minifyXml(text) {
+  const cdata = [];
+  let out = String(text).replace(/<!\[CDATA\[[\s\S]*?\]\]>/g, (block) => {
+    cdata.push(block);
+    return `\0CDATA${cdata.length - 1}\0`;
+  });
+  out = out
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/>\s+</g, '><')
+    .replace(/^\s+|\s+$/gm, '')
+    .replace(/\n+/g, '')
+    .trim();
+  out = out.replace(/\0CDATA(\d+)\0/g, (_, i) => cdata[Number(i)]);
+  return out;
+}
+
+function minifyJsonText(text, label) {
+  try {
+    return JSON.stringify(JSON.parse(text));
+  } catch (err) {
+    console.error(`[pack-editor-assets] invalid JSON in ${label}: ${err.message}`);
+    process.exit(1);
+  }
+}
+
 function copyClientconfigTree(srcDir, destDir) {
   if (!fs.existsSync(srcDir)) {
     console.error(`[pack-editor-assets] missing config ${srcDir}`);
@@ -53,7 +80,17 @@ function copyClientconfigTree(srcDir, destDir) {
       if (ext !== '.xml' && ext !== '.json') continue;
       const out = path.join(destDir, ...rel.split('/'));
       fs.mkdirSync(path.dirname(out), { recursive: true });
-      fs.copyFileSync(abs, out);
+      const raw = fs.readFileSync(abs, 'utf8');
+      let body;
+      try {
+        body = ext === '.json' ? minifyJsonText(raw, abs) : minifyXml(raw);
+      } catch (err) {
+        console.error(
+          `[pack-editor-assets] FAIL minify ${path.relative(root, abs)}: ${err.message}`
+        );
+        process.exit(1);
+      }
+      fs.writeFileSync(out, body, 'utf8');
       copied += 1;
     }
   }
@@ -121,6 +158,67 @@ function rewriteCssAssetUrls(cssText) {
     .replace(/url\(\s*(['"]?)\.\.\/\.\.\/assets\/images\//g, 'url($1/assets/images/');
 }
 
+async function minifyCssText(cssText, label) {
+  const result = await esbuild.transform(cssText, {
+    loader: 'css',
+    minify: true,
+    legalComments: 'none',
+  });
+  if (!result.code) {
+    console.error(`[pack-editor-assets] FAIL minify CSS ${label}`);
+    process.exit(1);
+  }
+  return result.code;
+}
+
+async function minifyJsText(jsText, label) {
+  const result = await esbuild.transform(jsText, {
+    loader: 'js',
+    minify: true,
+    target: 'esnext',
+    legalComments: 'none',
+  });
+  if (!result.code) {
+    console.error(`[pack-editor-assets] FAIL minify JS ${label}`);
+    process.exit(1);
+  }
+  return result.code;
+}
+
+/** Copy lang dir: .js → esbuild minify, .json → compact, other → copy. */
+async function copyLangDir(srcDir, destDir) {
+  if (!fs.existsSync(srcDir)) {
+    console.error(`[pack-editor-assets] missing ${srcDir}`);
+    process.exit(1);
+  }
+  if (fs.existsSync(destDir)) fs.rmSync(destDir, { recursive: true, force: true });
+  let copied = 0;
+  async function walk(current) {
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      const abs = path.join(current, entry.name);
+      const rel = path.relative(srcDir, abs).split(path.sep).join('/');
+      if (entry.isDirectory()) {
+        await walk(abs);
+        continue;
+      }
+      const out = path.join(destDir, ...rel.split('/'));
+      fs.mkdirSync(path.dirname(out), { recursive: true });
+      const ext = path.extname(entry.name).toLowerCase();
+      const raw = fs.readFileSync(abs, 'utf8');
+      let body = raw;
+      if (ext === '.js') {
+        body = await minifyJsText(raw, abs);
+      } else if (ext === '.json') {
+        body = minifyJsonText(raw, abs);
+      }
+      fs.writeFileSync(out, body, 'utf8');
+      copied += 1;
+    }
+  }
+  await walk(srcDir);
+  return copied;
+}
+
 async function main() {
   const {
     E6_COMMON_PATHS,
@@ -150,7 +248,11 @@ async function main() {
     }
   }
 
-  function concat(relPaths, outFile) {
+  /**
+   * Concat Slice A sources, then esbuild-minify with an external .map.
+   * Vendors stay as separate pre-minified copies (not passed through here).
+   */
+  async function concatMinify(relPaths, outFile) {
     const parts = [];
     for (const rel of relPaths) {
       const abs = resolveEditorSource(rel);
@@ -162,12 +264,35 @@ async function main() {
     }
     const text = parts.join('\n');
     assertNoGulpPlaceholders(text, outFile);
-    fs.writeFileSync(outFile, text, 'utf8');
-    console.log(`[pack-editor-assets] wrote ${path.relative(root, outFile)}`);
+
+    const outBaseName = path.basename(outFile);
+    // Minify only — do not downlevel. Slice A uses modern syntax that older
+    // esbuild targets cannot rewrite; browsers already run this as-is.
+    const result = await esbuild.transform(text, {
+      loader: 'js',
+      minify: true,
+      sourcemap: 'external',
+      sourcesContent: true,
+      sourcefile: outBaseName.replace(/\.min\.js$/i, '.js'),
+      target: 'esnext',
+      legalComments: 'none',
+    });
+
+    const mapFile = `${outFile}.map`;
+    const mapBaseName = path.basename(mapFile);
+    let code = result.code || '';
+    if (!code.includes('sourceMappingURL')) {
+      code = `${code.replace(/\s*$/, '')}\n//# sourceMappingURL=${mapBaseName}\n`;
+    }
+    fs.writeFileSync(outFile, code, 'utf8');
+    fs.writeFileSync(mapFile, result.map || '{}', 'utf8');
+    console.log(
+      `[pack-editor-assets] wrote ${path.relative(root, outFile)} (+ ${path.basename(mapFile)})`
+    );
   }
 
-  concat(E6_COMMON_PATHS, path.join(jsDir, 'e6_common.min.js'));
-  concat(E6_MAIN_PATHS, path.join(jsDir, 'e6_main.min.js'));
+  await concatMinify(E6_COMMON_PATHS, path.join(jsDir, 'e6_common.min.js'));
+  await concatMinify(E6_MAIN_PATHS, path.join(jsDir, 'e6_main.min.js'));
 
   for (const rel of EDITOR_VENDOR_JS_PATHS) {
     const abs = resolveEditorSource(rel);
@@ -203,12 +328,12 @@ async function main() {
       process.exit(1);
     }
     const name = path.basename(rel);
+    const outFile = path.join(cssDir, name);
     let text = fs.readFileSync(abs, 'utf8');
     text = rewriteCssAssetUrls(text);
-    fs.writeFileSync(path.join(cssDir, name), text, 'utf8');
-    console.log(
-      `[pack-editor-assets] wrote ${path.relative(root, path.join(cssDir, name))}`
-    );
+    text = await minifyCssText(text, abs);
+    fs.writeFileSync(outFile, text, 'utf8');
+    console.log(`[pack-editor-assets] wrote ${path.relative(root, outFile)}`);
   }
 
   const booksSrc = path.join(configRoot, 'books');
@@ -227,7 +352,7 @@ async function main() {
 
   const langSrc = path.join(editorRoot, 'js', 'lang');
   const langOut = path.join(configDir, 'lang');
-  const langCount = copyDirAllFiles(langSrc, langOut);
+  const langCount = await copyLangDir(langSrc, langOut);
   console.log(
     `[pack-editor-assets] lang=${langCount} → ${path.relative(root, langOut)}`
   );
@@ -238,10 +363,17 @@ async function main() {
   console.log(
     `[pack-editor-assets] images=${imagesCount} → ${path.relative(root, imagesOut)}`
   );
-  if (imagesCount === 0) {
-    console.warn(
-      '[pack-editor-assets] WARNING: src/assets/images has no files — editor shell icons will 404 until binaries are restored'
+  const mainPageSrc = path.join(imagesSrc, 'svg', 'mainPage');
+  const mainPageFiles = fs.existsSync(mainPageSrc)
+    ? fs.readdirSync(mainPageSrc).filter((name) =>
+        fs.statSync(path.join(mainPageSrc, name)).isFile()
+      ).length
+    : 0;
+  if (imagesCount === 0 || mainPageFiles === 0) {
+    console.error(
+      `[pack-editor-assets] FAIL: src/assets/images empty or missing svg/mainPage (images=${imagesCount}, mainPage=${mainPageFiles}) — restore binaries before packing`
     );
+    process.exit(1);
   }
 
   const fontsSrc = path.join(assetsRoot, 'fonts');
