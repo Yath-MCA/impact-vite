@@ -98,9 +98,12 @@
             if (typeof global.parsePageQueryParams === 'function') {
                 params = global.parsePageQueryParams(pageQuery);
             } else if (typeof URLSearchParams !== 'undefined' && pageQuery) {
-                new URLSearchParams(pageQuery).forEach(function(value, key) {
-                    params[key] = value;
-                });
+                var entries = new URLSearchParams(pageQuery).entries();
+                var entry = entries.next();
+                while (!entry.done) {
+                    params[entry.value[0]] = entry.value[1];
+                    entry = entries.next();
+                }
             } else if (pageQuery) {
                 var pairs = pageQuery.indexOf('&') >= 0 ? pageQuery.split('&') : [pageQuery];
                 pairs.forEach(function(pair) {
@@ -234,6 +237,8 @@
 
             if (userInfo.MAIL_ID) {
                 userInfo.MAIL_ID_PREFIX = userInfo.MAIL_ID.split('@')[0].trim();
+            } else {
+                userInfo.MAIL_ID_PREFIX = '';
             }
 
             return !!userInfo.MAIL_ID;
@@ -401,7 +406,11 @@
      */
     InitConfig.prototype.IsAdmin = function() {
         safely('IsAdmin', function() {
-            var isAdmin = global.ADMIN_USER_IDs.includes(global.USER_INFO.MAIL_ID_PREFIX) &&
+            var prefix =
+                (global.USER_INFO && global.USER_INFO.MAIL_ID_PREFIX) || '';
+            var isAdmin =
+                Array.isArray(global.ADMIN_USER_IDs) &&
+                global.ADMIN_USER_IDs.includes(prefix) &&
                 !(global.SHARED_KEY && global.SHARED_KEY.apikey);
             global.USER_INFO.IS_ADMIN = isAdmin;
 

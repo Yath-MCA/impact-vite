@@ -28,9 +28,11 @@ export function parsePageQueryParams(pageQuery) {
   if (!query) return params;
 
   if (typeof URLSearchParams !== 'undefined') {
-    new URLSearchParams(query).forEach((value, key) => {
+    // Use entries() — URLSearchParams.forEach can throw
+    // "callback is no longer runnable" across Vite/classic realms.
+    for (const [key, value] of new URLSearchParams(query).entries()) {
       params[key] = value;
-    });
+    }
     return params;
   }
 

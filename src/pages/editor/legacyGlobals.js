@@ -1,5 +1,10 @@
 import pkg from '../../../package.json';
 import { FetchService } from '../../shared/httpService.js';
+import {
+  ADMIN_USER_IDs,
+  GET_SENDER_RECEIVER_ID,
+  MAIL_DETAIL,
+} from '../../shared/legacyMailGlobals.js';
 import { applyEditorLegacyHelpers } from './editorLegacyHelpers.js';
 import {
   parsePageQueryParams,
@@ -29,5 +34,17 @@ export function applyLegacyGlobals() {
   g.FetchService = FetchService;
   g.resolvePageQueryString = resolvePageQueryString;
   g.parsePageQueryParams = parsePageQueryParams;
+  if (!Array.isArray(g.ADMIN_USER_IDs)) {
+    g.ADMIN_USER_IDs = ADMIN_USER_IDs;
+  }
+  g.MAIL_DETAIL = g.MAIL_DETAIL || MAIL_DETAIL;
+  g.GET_SENDER_RECEIVER_ID = GET_SENDER_RECEIVER_ID;
+  if (typeof g.IS_LOCAL_HOST === 'undefined') {
+    const href =
+      (typeof location !== 'undefined' &&
+        (location.hostname || location.href || '')) ||
+      '';
+    g.IS_LOCAL_HOST = /localhost/i.test(String(href));
+  }
   applyEditorLegacyHelpers(g);
 }
