@@ -1,6 +1,10 @@
 import pkg from '../../../package.json';
 import { FetchService } from '../../shared/httpService.js';
 import { applyEditorLegacyHelpers } from './editorLegacyHelpers.js';
+import {
+  parsePageQueryParams,
+  resolvePageQueryString,
+} from './resolvePageQueryString.js';
 
 export function applyLegacyGlobals() {
   const env = (typeof window !== 'undefined' && window.ENV) || {};
@@ -23,5 +27,7 @@ export function applyLegacyGlobals() {
     g.VERSION ||
     'dev';
   g.FetchService = FetchService;
+  g.resolvePageQueryString = resolvePageQueryString;
+  g.parsePageQueryParams = parsePageQueryParams;
   applyEditorLegacyHelpers(g);
 }

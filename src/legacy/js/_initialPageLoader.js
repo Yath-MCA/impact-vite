@@ -64,22 +64,52 @@
     };
 
     /**
-     * Parse URL parameters from window.location.search
+     * Prefer location.search; else query after '?' in location.hash (HashRouter).
+     * @param {string} [search]
+     * @param {string} [hash]
+     * @returns {string}
+     */
+    function resolvePageQueryString(search, hash) {
+        if (typeof global.resolvePageQueryString === 'function') {
+            return global.resolvePageQueryString(search, hash);
+        }
+        var s = String(search || '');
+        if (s.charAt(0) === '?' && s.length > 1) return s.substring(1);
+        if (s.length > 0 && s.charAt(0) !== '?') return s;
+        var h = String(hash || '');
+        var q = h.indexOf('?');
+        if (q >= 0) return h.substring(q + 1);
+        return '';
+    }
+
+    /**
+     * Parse URL parameters from location.search or hash query (HashRouter).
      * @returns {object} Parsed URL parameters
      */
     InitConfig.prototype.parseURLParams = function() {
         var self = this;
         return safely('parseURLParams', function() {
-            var pageQuery = decodeURIComponent(window.location.search.substring(1));
-            var pairs = pageQuery.includes('&') ? pageQuery.split('&') : [pageQuery];
+            var pageQuery = resolvePageQueryString(
+                window.location.search,
+                window.location.hash
+            );
             var params = {};
 
-            pairs.forEach(function(pair) {
-                var parts = pair.split('=');
-                if (parts.length === 2) {
-                    params[parts[0]] = parts[1];
-                }
-            });
+            if (typeof global.parsePageQueryParams === 'function') {
+                params = global.parsePageQueryParams(pageQuery);
+            } else if (typeof URLSearchParams !== 'undefined' && pageQuery) {
+                new URLSearchParams(pageQuery).forEach(function(value, key) {
+                    params[key] = value;
+                });
+            } else if (pageQuery) {
+                var pairs = pageQuery.indexOf('&') >= 0 ? pageQuery.split('&') : [pageQuery];
+                pairs.forEach(function(pair) {
+                    var parts = pair.split('=');
+                    if (parts.length === 2) {
+                        params[parts[0]] = parts[1];
+                    }
+                });
+            }
 
             self.urlParams = params;
             log('URL params parsed', params);
