@@ -3,8 +3,7 @@ import {
   applyLegacyIdHelpers,
   d4,
   guid,
-} from '../../src/pages/editor/legacyIdHelpers.js';
-
+} from '../../src/pages/editor/initial_helpers/legacyIdHelpers.js';
 describe('legacyIdHelpers', () => {
   it('d4 returns a 4-digit number', () => {
     const n = d4();

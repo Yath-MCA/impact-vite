@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { applyLegacyGlobals } from '../../src/pages/editor/legacyGlobals.js';
+import { applyLegacyGlobals } from '../../src/pages/editor/initial_helpers/legacyGlobals.js';
 import { FetchService } from '../../src/shared/httpService.js';
 
 describe('applyLegacyGlobals', () => {

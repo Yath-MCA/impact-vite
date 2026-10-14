@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { parseLangResponseText } from '../../src/pages/editor/parseLangFile.js';
+import { parseLangResponseText } from '../../src/pages/editor/initial_helpers/parseLangFile.js';
 
 describe('parseLangResponseText', () => {
   it('parses comment + trailing-comma en assignment', () => {
@@ -19,7 +19,7 @@ en = {
   });
 
   it('parses real packed en.js', () => {
-    const enPath = resolve('src/legacy/js/lang/en.js');
+    const enPath = resolve('src/pages/editor/slice_a/lang/en.js');
     const text = readFileSync(enPath, 'utf8');
     const lang = parseLangResponseText(text, 'en');
     expect(lang).toBeTypeOf('object');

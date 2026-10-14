@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   parsePageQueryParams,
   resolvePageQueryString,
-} from '../../src/pages/editor/resolvePageQueryString.js';
+} from '../../src/pages/editor/initial_helpers/resolvePageQueryString.js';
 
 describe('resolvePageQueryString', () => {
   it('reads docid from hash when search is empty', () => {

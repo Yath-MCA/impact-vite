@@ -1,6 +1,6 @@
 import { extractBodyHtml } from '../../shared/extractBody.js';
 import skeletonHtml from './index.html?raw';
-import { bootEditor } from './boot.js';
+import { bootEditor } from './initial_helpers/boot.js';
 
 let booting = null;
 

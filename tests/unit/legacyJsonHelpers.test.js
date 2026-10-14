@@ -3,7 +3,7 @@ import {
   ADD_DEFAULT_KEYS,
   applyLegacyJsonHelpers,
   GET_JSON,
-} from '../../src/pages/editor/legacyJsonHelpers.js';
+} from '../../src/pages/editor/initial_helpers/legacyJsonHelpers.js';
 
 describe('legacyJsonHelpers', () => {
   beforeEach(() => {

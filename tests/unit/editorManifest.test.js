@@ -9,11 +9,11 @@ describe('editor manifest', () => {
     expect(EDITOR_JS_PATHS.some((p) => p.endsWith('editor_open.js'))).toBe(true);
   });
 
-  it('lists e6_main css once each', () => {
+  it('lists boot CSS under _CSS_UI and common styles', () => {
     expect(EDITOR_CSS_PATHS).toEqual([
-      'static/css/main.css',
-      'static/css/media_query.css',
-      'static/css/editorLayout.css',
+      '_CSS_UI/main.css',
+      'common/styles/media_query.css',
+      '_CSS_UI/editorLayout.css',
     ]);
   });
 });

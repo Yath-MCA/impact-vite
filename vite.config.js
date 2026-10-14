@@ -10,6 +10,9 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
+      '@editor': path.resolve(root, 'src/pages/editor'),
+      '@common': path.resolve(root, 'src/pages/common'),
+      '@config': path.resolve(root, 'src/config'),
       '@legacy': path.resolve(root, 'src/legacy'),
     },
   },

@@ -3,7 +3,7 @@ import {
   applyLegacyRoleIds,
   hasCollabClient,
   ROLE_IDS,
-} from '../../src/pages/editor/legacyRoleIds.js';
+} from '../../src/pages/editor/initial_helpers/legacyRoleIds.js';
 
 describe('legacyRoleIds', () => {
   it('ROLE_IDS includes AU and ED shortname targets', () => {

@@ -4,8 +4,19 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readEditorVersionFromRepo } from './resolveEditorVersion.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const legacyRoot = path.join(root, 'src/legacy');
-const clientconfigRoot = path.join(legacyRoot, 'clientconfig');
+const editorRoot = path.join(root, 'src/pages/editor');
+const commonRoot = path.join(root, 'src/pages/common');
+const configRoot = path.join(root, 'src/config');
+const assetsRoot = path.join(root, 'src/assets');
+
+/** Resolve a manifest-relative path (editor/… or common/…). */
+export function resolveEditorSource(relPosix) {
+  const rel = String(relPosix).replace(/\\/g, '/');
+  if (rel.startsWith('common/')) {
+    return path.join(commonRoot, ...rel.slice('common/'.length).split('/'));
+  }
+  return path.join(editorRoot, ...rel.split('/'));
+}
 
 // Skip gulp-excluded clientconfig paths: temp/ and any extra/ segment
 function shouldSkipConfigRel(relPosix) {
@@ -17,7 +28,7 @@ function shouldSkipConfigRel(relPosix) {
 
 function copyClientconfigTree(srcDir, destDir) {
   if (!fs.existsSync(srcDir)) {
-    console.error(`[pack-editor-assets] missing clientconfig ${srcDir}`);
+    console.error(`[pack-editor-assets] missing config ${srcDir}`);
     process.exit(1);
   }
   let copied = 0;
@@ -70,7 +81,7 @@ function copyDirAllFiles(srcDir, destDir) {
 
 async function main() {
   const { E6_COMMON_PATHS, E6_MAIN_PATHS, EDITOR_CSS_PATHS } = await import(
-    pathToFileURL(path.join(root, 'src/pages/editor/manifest.js')).href
+    pathToFileURL(path.join(editorRoot, 'manifest.js')).href
   );
   const version = readEditorVersionFromRepo(root);
   const outBase = path.join(root, 'public', 'assets', version);
@@ -93,7 +104,7 @@ async function main() {
   function concat(relPaths, outFile) {
     const parts = [];
     for (const rel of relPaths) {
-      const abs = path.join(legacyRoot, rel);
+      const abs = resolveEditorSource(rel);
       if (!fs.existsSync(abs)) {
         console.error(`[pack-editor-assets] missing ${abs}`);
         process.exit(1);
@@ -110,36 +121,40 @@ async function main() {
   concat(E6_MAIN_PATHS, path.join(jsDir, 'e6_main.min.js'));
 
   for (const rel of EDITOR_CSS_PATHS) {
-    const abs = path.join(legacyRoot, rel);
+    const abs = resolveEditorSource(rel);
     if (!fs.existsSync(abs)) {
       console.error(`[pack-editor-assets] missing ${abs}`);
       process.exit(1);
     }
     const name = path.basename(rel);
     fs.copyFileSync(abs, path.join(cssDir, name));
-    console.log(`[pack-editor-assets] wrote ${path.relative(root, path.join(cssDir, name))}`);
+    console.log(
+      `[pack-editor-assets] wrote ${path.relative(root, path.join(cssDir, name))}`
+    );
   }
 
-  const booksSrc = path.join(clientconfigRoot, 'books');
-  const journalsSrc = path.join(clientconfigRoot, 'journals');
+  const booksSrc = path.join(configRoot, 'books');
+  const journalsSrc = path.join(configRoot, 'journals');
   const booksOut = path.join(configDir, 'books');
   const journalsOut = path.join(configDir, 'journals');
   if (fs.existsSync(booksOut)) fs.rmSync(booksOut, { recursive: true, force: true });
-  if (fs.existsSync(journalsOut)) fs.rmSync(journalsOut, { recursive: true, force: true });
+  if (fs.existsSync(journalsOut)) {
+    fs.rmSync(journalsOut, { recursive: true, force: true });
+  }
   const booksCount = copyClientconfigTree(booksSrc, booksOut);
   const journalsCount = copyClientconfigTree(journalsSrc, journalsOut);
   console.log(
     `[pack-editor-assets] config books=${booksCount} journals=${journalsCount} → ${path.relative(root, configDir)}`
   );
 
-  const langSrc = path.join(legacyRoot, 'js', 'lang');
+  const langSrc = path.join(editorRoot, 'slice_a', 'lang');
   const langOut = path.join(configDir, 'lang');
   const langCount = copyDirAllFiles(langSrc, langOut);
   console.log(
     `[pack-editor-assets] lang=${langCount} → ${path.relative(root, langOut)}`
   );
 
-  const logoSrc = path.join(legacyRoot, 'static', 'images', 'client_logo');
+  const logoSrc = path.join(assetsRoot, 'images', 'client_logo');
   const logoOut = path.join(root, 'public', 'assets', 'images', 'client_logo');
   const logoCount = copyDirAllFiles(logoSrc, logoOut);
   console.log(
@@ -149,7 +164,13 @@ async function main() {
   console.log(`[pack-editor-assets] VERSION=${version}`);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+const isDirectRun =
+  process.argv[1] &&
+  path.resolve(fileURLToPath(import.meta.url)) === path.resolve(process.argv[1]);
+
+if (isDirectRun) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

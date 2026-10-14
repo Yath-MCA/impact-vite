@@ -287,7 +287,7 @@ var generatePipelineConfig = function(env, version) {
                     // Must load before context.js files
                     "src/modules/context/store/module-runtime-store.js",
                     "src/modules/context/store/template-store.js",
-                    "src/modules/context/helpers/context-helpers.js",
+                    "src/modules/context/initial_helpers/context-helpers.js",
                     "src/modules/shared/**/context.js",
                 ],
                 JS_OUT: `dist/assets/${version}/modules`,

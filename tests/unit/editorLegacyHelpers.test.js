@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   applyEditorLegacyHelpers,
   isValidVariable,
-} from '../../src/pages/editor/editorLegacyHelpers.js';
+} from '../../src/pages/editor/initial_helpers/editorLegacyHelpers.js';
 
 describe('editorLegacyHelpers', () => {
   it('isValidVariable rejects nullish and empty', () => {

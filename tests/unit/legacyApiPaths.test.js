@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { applyLegacyApiPaths } from '../../src/pages/editor/legacyApiPaths.js';
+import { applyLegacyApiPaths } from '../../src/pages/editor/initial_helpers/legacyApiPaths.js';
 
 describe('legacyApiPaths', () => {
   it('builds API_GET_DOCS from API_PATH', () => {
