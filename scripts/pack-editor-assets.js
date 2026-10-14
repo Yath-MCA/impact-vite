@@ -5,6 +5,42 @@ import { readEditorVersionFromRepo } from './resolveEditorVersion.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const legacyRoot = path.join(root, 'src/legacy');
+const clientconfigRoot = path.join(legacyRoot, 'clientconfig');
+
+// Skip gulp-excluded clientconfig paths: temp/ and any extra/ segment
+function shouldSkipConfigRel(relPosix) {
+  const parts = relPosix.split('/');
+  if (parts.includes('temp')) return true;
+  if (parts.includes('extra')) return true;
+  return false;
+}
+
+function copyClientconfigTree(srcDir, destDir) {
+  if (!fs.existsSync(srcDir)) {
+    console.error(`[pack-editor-assets] missing clientconfig ${srcDir}`);
+    process.exit(1);
+  }
+  let copied = 0;
+  function walk(current) {
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      const abs = path.join(current, entry.name);
+      const rel = path.relative(srcDir, abs).split(path.sep).join('/');
+      if (shouldSkipConfigRel(rel)) continue;
+      if (entry.isDirectory()) {
+        walk(abs);
+        continue;
+      }
+      const ext = path.extname(entry.name).toLowerCase();
+      if (ext !== '.xml' && ext !== '.json') continue;
+      const out = path.join(destDir, ...rel.split('/'));
+      fs.mkdirSync(path.dirname(out), { recursive: true });
+      fs.copyFileSync(abs, out);
+      copied += 1;
+    }
+  }
+  walk(srcDir);
+  return copied;
+}
 
 async function main() {
   const { E6_COMMON_PATHS, E6_MAIN_PATHS, EDITOR_CSS_PATHS } = await import(
@@ -47,10 +83,16 @@ async function main() {
     console.log(`[pack-editor-assets] wrote ${path.relative(root, path.join(cssDir, name))}`);
   }
 
-  fs.writeFileSync(
-    path.join(configDir, 'README.txt'),
-    'Stub config dir for LoadingConfig FOLDER_PATH. Populate in a later phase.\n',
-    'utf8'
+  const booksSrc = path.join(clientconfigRoot, 'books');
+  const journalsSrc = path.join(clientconfigRoot, 'journals');
+  const booksOut = path.join(configDir, 'books');
+  const journalsOut = path.join(configDir, 'journals');
+  if (fs.existsSync(booksOut)) fs.rmSync(booksOut, { recursive: true, force: true });
+  if (fs.existsSync(journalsOut)) fs.rmSync(journalsOut, { recursive: true, force: true });
+  const booksCount = copyClientconfigTree(booksSrc, booksOut);
+  const journalsCount = copyClientconfigTree(journalsSrc, journalsOut);
+  console.log(
+    `[pack-editor-assets] config books=${booksCount} journals=${journalsCount} → ${path.relative(root, configDir)}`
   );
   console.log(`[pack-editor-assets] VERSION=${version}`);
 }

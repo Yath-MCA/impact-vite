@@ -1,4 +1,5 @@
 import pkg from '../../../package.json';
+import { FetchService } from '../../shared/httpService.js';
 import { applyEditorLegacyHelpers } from './editorLegacyHelpers.js';
 
 export function applyLegacyGlobals() {
@@ -21,5 +22,6 @@ export function applyLegacyGlobals() {
     (pkg && pkg.version) ||
     g.VERSION ||
     'dev';
+  g.FetchService = FetchService;
   applyEditorLegacyHelpers(g);
 }
