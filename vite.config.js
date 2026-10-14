@@ -13,7 +13,7 @@ export default defineConfig({
       '@editor': path.resolve(root, 'src/pages/editor'),
       '@common': path.resolve(root, 'src/pages/common'),
       '@config': path.resolve(root, 'src/config'),
-      '@legacy': path.resolve(root, 'src/legacy'),
+      '@assets': path.resolve(root, 'src/assets'),
     },
   },
   server: {

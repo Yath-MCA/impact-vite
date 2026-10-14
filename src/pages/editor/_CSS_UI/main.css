@@ -1,35 +1,35 @@
 /* Open Sans Font */
 @font-face {
     font-family: "Open Sans";
-    src: url('../../assets/images/fonts/fonts-open/OpenSans-Regular.ttf') format('truetype');
+    src: url('/assets/images/fonts/fonts-open/OpenSans-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Open Sans";
-    src: url('../../assets/images/fonts/fonts-open/OpenSans-Bold.ttf') format('truetype');
+    src: url('/assets/images/fonts/fonts-open/OpenSans-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Open Sans";
-    src: url('../../assets/images/fonts/fonts-open/OpenSans-Italic.ttf') format('truetype');
+    src: url('/assets/images/fonts/fonts-open/OpenSans-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
     font-family: "Open Sans";
-    src: url('../../assets/images/fonts/fonts-open/OpenSans-BoldItalic.ttf') format('truetype');
+    src: url('/assets/images/fonts/fonts-open/OpenSans-BoldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
     font-family: "Open Sans";
-    src: url('../../assets/images/fonts/fonts-open/OpenSans-SemiBold.ttf') format('truetype');
+    src: url('/assets/images/fonts/fonts-open/OpenSans-SemiBold.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
 }
@@ -39,7 +39,7 @@
     font-family: 'Inter UI';
     font-weight: 100 900;
     font-style: oblique 0deg 10deg;
-    src: url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf-variations");
+    src: url("/assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf-variations");
 }
 
 @font-face {
@@ -47,9 +47,9 @@
     font-weight: 100 900;
     font-style: normal;
     font-named-instance: 'Regular';
-    src: url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf supports variations(gvar)"),
-        url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf-variations"),
-        url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf");
+    src: url("/assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf supports variations(gvar)"),
+        url("/assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf-variations"),
+        url("/assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf");
 }
 
 @font-face {
@@ -57,9 +57,9 @@
     font-weight: 100 900;
     font-style: italic;
     font-named-instance: 'Italic';
-    src: url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf supports variations(gvar)"),
-        url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf-variations"),
-        url("../../assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf");
+    src: url("/assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf supports variations(gvar)"),
+        url("/assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf-variations"),
+        url("/assets/images/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format("ttf");
 }
 
 /* ? https://gist.github.com/yasar2385/79a3e03d6c7acd623d70167440d77cd0 */

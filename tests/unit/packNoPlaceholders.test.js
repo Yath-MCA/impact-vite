@@ -26,10 +26,24 @@ describe('Slice A sources', () => {
     expect(hits).toEqual([]);
   });
 
-  it('resolves slice_a and modules under editor root', () => {
-    const abs = resolveEditorSource('slice_a/editor_open.js');
-    expect(abs.replace(/\\/g, '/')).toContain('src/pages/editor/slice_a/editor_open.js');
-    expect(fs.existsSync(abs)).toBe(true);
+  it('resolves slice_a, initial_helpers, and vendor lib paths', () => {
+    const open = resolveEditorSource('slice_a/editor_open.js');
+    expect(open.replace(/\\/g, '/')).toContain(
+      'src/pages/editor/slice_a/editor_open.js'
+    );
+    expect(fs.existsSync(open)).toBe(true);
+
+    const initial = resolveEditorSource(
+      'initial_helpers/_initialGlobalVaribale.js'
+    );
+    expect(initial.replace(/\\/g, '/')).toContain(
+      'src/pages/editor/initial_helpers/_initialGlobalVaribale.js'
+    );
+    expect(fs.existsSync(initial)).toBe(true);
+
+    const moment = resolveEditorSource('lib/moment.min.js');
+    expect(moment.replace(/\\/g, '/')).toContain('src/assets/lib/moment.min.js');
+    expect(fs.existsSync(moment)).toBe(true);
     expect(root).toBeTruthy();
   });
 });
