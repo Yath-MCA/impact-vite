@@ -4,6 +4,7 @@ import DashboardSidebar from '../layout/DashboardSidebar';
 import DashboardHome from '../pages/DashboardHome';
 import DashboardShellHeader from './DashboardShellHeader';
 import ProtectedRoute from '../../../core/router/ProtectedRoute';
+import '../styles.css';
 
 export default function DashboardShell() {
   return (
