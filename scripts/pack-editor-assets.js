@@ -42,6 +42,32 @@ function copyClientconfigTree(srcDir, destDir) {
   return copied;
 }
 
+/** Copy all files under srcDir into destDir (replace dest if present). */
+function copyDirAllFiles(srcDir, destDir) {
+  if (!fs.existsSync(srcDir)) {
+    console.error(`[pack-editor-assets] missing ${srcDir}`);
+    process.exit(1);
+  }
+  if (fs.existsSync(destDir)) fs.rmSync(destDir, { recursive: true, force: true });
+  let copied = 0;
+  function walk(current) {
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      const abs = path.join(current, entry.name);
+      const rel = path.relative(srcDir, abs).split(path.sep).join('/');
+      if (entry.isDirectory()) {
+        walk(abs);
+        continue;
+      }
+      const out = path.join(destDir, ...rel.split('/'));
+      fs.mkdirSync(path.dirname(out), { recursive: true });
+      fs.copyFileSync(abs, out);
+      copied += 1;
+    }
+  }
+  walk(srcDir);
+  return copied;
+}
+
 async function main() {
   const { E6_COMMON_PATHS, E6_MAIN_PATHS, EDITOR_CSS_PATHS } = await import(
     pathToFileURL(path.join(root, 'src/pages/editor/manifest.js')).href
@@ -94,6 +120,21 @@ async function main() {
   console.log(
     `[pack-editor-assets] config books=${booksCount} journals=${journalsCount} → ${path.relative(root, configDir)}`
   );
+
+  const langSrc = path.join(legacyRoot, 'js', 'lang');
+  const langOut = path.join(configDir, 'lang');
+  const langCount = copyDirAllFiles(langSrc, langOut);
+  console.log(
+    `[pack-editor-assets] lang=${langCount} → ${path.relative(root, langOut)}`
+  );
+
+  const logoSrc = path.join(legacyRoot, 'static', 'images', 'client_logo');
+  const logoOut = path.join(root, 'public', 'assets', 'images', 'client_logo');
+  const logoCount = copyDirAllFiles(logoSrc, logoOut);
+  console.log(
+    `[pack-editor-assets] logos=${logoCount} → ${path.relative(root, logoOut)}`
+  );
+
   console.log(`[pack-editor-assets] VERSION=${version}`);
 }
 
