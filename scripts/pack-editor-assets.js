@@ -35,7 +35,11 @@ function shouldSkipConfigRel(relPosix) {
   return false;
 }
 
-/** Collapse insignificant XML whitespace (gulp pretty-data minify parity). */
+/**
+ * Collapse insignificant XML whitespace (pretty-data-style).
+ * Only strip comments and whitespace *between* tags — never glue multiline
+ * text/attribute values by deleting interior newlines.
+ */
 function minifyXml(text) {
   const cdata = [];
   let out = String(text).replace(/<!\[CDATA\[[\s\S]*?\]\]>/g, (block) => {
@@ -45,8 +49,6 @@ function minifyXml(text) {
   out = out
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/>\s+</g, '><')
-    .replace(/^\s+|\s+$/gm, '')
-    .replace(/\n+/g, '')
     .trim();
   out = out.replace(/\0CDATA(\d+)\0/g, (_, i) => cdata[Number(i)]);
   return out;
@@ -81,15 +83,7 @@ function copyClientconfigTree(srcDir, destDir) {
       const out = path.join(destDir, ...rel.split('/'));
       fs.mkdirSync(path.dirname(out), { recursive: true });
       const raw = fs.readFileSync(abs, 'utf8');
-      let body;
-      try {
-        body = ext === '.json' ? minifyJsonText(raw, abs) : minifyXml(raw);
-      } catch (err) {
-        console.error(
-          `[pack-editor-assets] FAIL minify ${path.relative(root, abs)}: ${err.message}`
-        );
-        process.exit(1);
-      }
+      const body = ext === '.json' ? minifyJsonText(raw, abs) : minifyXml(raw);
       fs.writeFileSync(out, body, 'utf8');
       copied += 1;
     }
@@ -164,7 +158,7 @@ async function minifyCssText(cssText, label) {
     minify: true,
     legalComments: 'none',
   });
-  if (!result.code) {
+  if (typeof result.code !== 'string') {
     console.error(`[pack-editor-assets] FAIL minify CSS ${label}`);
     process.exit(1);
   }
@@ -178,7 +172,7 @@ async function minifyJsText(jsText, label) {
     target: 'esnext',
     legalComments: 'none',
   });
-  if (!result.code) {
+  if (typeof result.code !== 'string') {
     console.error(`[pack-editor-assets] FAIL minify JS ${label}`);
     process.exit(1);
   }
