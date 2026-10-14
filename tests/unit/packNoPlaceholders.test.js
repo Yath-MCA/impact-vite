@@ -44,6 +44,11 @@ describe('Slice A sources', () => {
     const moment = resolveEditorSource('lib/moment.min.js');
     expect(moment.replace(/\\/g, '/')).toContain('src/assets/lib/moment.min.js');
     expect(fs.existsSync(moment)).toBe(true);
+
+    const fonts = resolveEditorSource('fonts/fontawesome/css/all.min.css');
+    expect(fonts.replace(/\\/g, '/')).toContain(
+      'src/assets/fonts/fontawesome/css/all.min.css'
+    );
     expect(root).toBeTruthy();
   });
 });

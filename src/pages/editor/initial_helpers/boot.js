@@ -5,14 +5,12 @@ import {
   loadCkeditorOnce,
 } from './loadEditorAssets.js';
 import {
-  EDITOR_CSS_PATHS,
   EDITOR_JS_PATHS,
   EDITOR_VENDOR_JS_PATHS,
   EDITOR_VENDOR_CSS_PATHS,
+  EDITOR_PAGE_CSS_PATHS,
+  EDITOR_COMMON_CSS_PATHS,
 } from '../manifest.js';
-
-import momentUrl from '@assets/lib/moment.min.js?url';
-import tippyUrl from '@assets/lib/tippy.min.js?url';
 
 import initialGlobalUrl from '@editor/initial_helpers/_initialGlobalVaribale.js?url';
 import editorLayoutUrl from '@editor/initial_helpers/_editorLayout.js?url';
@@ -47,13 +45,6 @@ import layoutCss from '@editor/_CSS_UI/editorLayout.css?url';
 import mediaCss from '@common/styles/media_query.css?url';
 import preloaderCss from '@common/styles/preloader.css?url';
 
-const VENDOR_JS_URL_BY_PATH = {
-  'lib/moment.min.js': momentUrl,
-  'lib/tippy.min.js': tippyUrl,
-};
-
-const VENDOR_CSS_URL_BY_PATH = {};
-
 const JS_URL_BY_PATH = {
   'initial_helpers/_initialGlobalVaribale.js': initialGlobalUrl,
   'initial_helpers/_editorLayout.js': editorLayoutUrl,
@@ -86,12 +77,28 @@ const JS_URL_BY_PATH = {
   'js/editorBootInit.js': editorBootInitUrl,
 };
 
-const CSS_URL_BY_PATH = {
+const PAGE_CSS_URL_BY_PATH = {
   '_CSS_UI/main.css': mainCss,
   '_CSS_UI/editorLayout.css': layoutCss,
   'common/styles/media_query.css': mediaCss,
   'common/styles/preloader.css': preloaderCss,
 };
+
+function basename(relPosix) {
+  const parts = String(relPosix).replace(/\\/g, '/').split('/');
+  return parts[parts.length - 1];
+}
+
+function editorVersion() {
+  return String(
+    (typeof window !== 'undefined' && (window.VERSION || window.ENV?.VERSION)) ||
+      'dev'
+  );
+}
+
+function vendorUrl(relPosix) {
+  return `/assets/${editorVersion()}/vendor/${basename(relPosix)}`;
+}
 
 async function canLoad(url) {
   try {
@@ -102,35 +109,33 @@ async function canLoad(url) {
   }
 }
 
-function cssBasenames() {
-  return EDITOR_CSS_PATHS.map((p) => p.split('/').pop());
-}
-
-async function loadVendorCssDev() {
+/** Vendors always come from packed public/assets — manifest is the only inventory. */
+async function loadVendorsFromPack() {
   for (const p of EDITOR_VENDOR_CSS_PATHS) {
-    const href = VENDOR_CSS_URL_BY_PATH[p];
-    if (!href) throw new Error(`Missing vendor CSS url for ${p}`);
-    await loadStylesheetOnce(href);
+    await loadStylesheetOnce(vendorUrl(p));
+  }
+  for (const p of EDITOR_VENDOR_JS_PATHS) {
+    await loadScriptOnce(vendorUrl(p));
   }
 }
 
-async function loadVendorJsDev() {
-  for (const p of EDITOR_VENDOR_JS_PATHS) {
-    const src = VENDOR_JS_URL_BY_PATH[p];
-    if (!src) throw new Error(`Missing vendor JS url for ${p}`);
-    await loadScriptOnce(src);
+async function loadPageCssFromPack(version) {
+  for (const p of [...EDITOR_PAGE_CSS_PATHS, ...EDITOR_COMMON_CSS_PATHS]) {
+    await loadStylesheetOnce(`/assets/${version}/css/${basename(p)}`);
+  }
+}
+
+async function loadPageCssDev() {
+  for (const p of [...EDITOR_PAGE_CSS_PATHS, ...EDITOR_COMMON_CSS_PATHS]) {
+    const href = PAGE_CSS_URL_BY_PATH[p];
+    if (!href) throw new Error(`Missing CSS url for ${p}`);
+    await loadStylesheetOnce(href);
   }
 }
 
 async function bootFromUrlInject() {
-  await loadVendorCssDev();
-  for (const p of EDITOR_CSS_PATHS) {
-    if (EDITOR_VENDOR_CSS_PATHS.includes(p)) continue;
-    const href = CSS_URL_BY_PATH[p];
-    if (!href) throw new Error(`Missing CSS url for ${p}`);
-    await loadStylesheetOnce(href);
-  }
-  await loadVendorJsDev();
+  await loadVendorsFromPack();
+  await loadPageCssDev();
   for (const p of EDITOR_JS_PATHS) {
     const src = JS_URL_BY_PATH[p];
     if (!src) throw new Error(`Missing JS url for ${p}`);
@@ -148,24 +153,14 @@ function shouldPreferEditorPack() {
 export async function bootEditor() {
   applyLegacyGlobals();
   await loadCkeditorOnce();
-  const version = String(window.VERSION || 'dev');
+  const version = editorVersion();
   const commonUrl = `/assets/${version}/js/e6_common.min.js`;
   const mainUrl = `/assets/${version}/js/e6_main.min.js`;
   const usePack = shouldPreferEditorPack() && (await canLoad(commonUrl));
 
   if (usePack) {
-    for (const p of EDITOR_VENDOR_CSS_PATHS) {
-      const name = p.split('/').pop();
-      await loadStylesheetOnce(`/assets/${version}/vendor/${name}`);
-    }
-    for (const name of cssBasenames()) {
-      if (EDITOR_VENDOR_CSS_PATHS.some((p) => p.endsWith(name))) continue;
-      await loadStylesheetOnce(`/assets/${version}/css/${name}`);
-    }
-    for (const p of EDITOR_VENDOR_JS_PATHS) {
-      const name = p.split('/').pop();
-      await loadScriptOnce(`/assets/${version}/vendor/${name}`);
-    }
+    await loadVendorsFromPack();
+    await loadPageCssFromPack(version);
     await loadScriptOnce(commonUrl);
     await loadScriptOnce(mainUrl);
     return;

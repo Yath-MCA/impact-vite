@@ -1,15 +1,36 @@
 /**
  * Slice A + CSS paths relative to src/pages/editor/
- * (except common/* → src/pages/common/, vendor lib/* → src/assets/).
+ * (except common/* → src/pages/common/, lib|fonts/* → src/assets/).
+ *
+ * Vendor inventory is maintained HERE only. Boot loads packed
+ * /assets/{VERSION}/vendor/{basename} — do not duplicate lists in boot.js.
+ *
+ * Skip jquery/bootstrap (already provided by src/main.js).
+ * Omit paths that are not present under src/assets yet (jquery-ui, fontawesome).
  */
 
-export const EDITOR_VENDOR_JS_PATHS = [
-  'lib/moment.min.js',
-  'lib/tippy.min.js',
-];
+function nonEmpty(paths) {
+  return paths.filter((p) => typeof p === 'string' && p.trim().length > 0);
+}
 
-/** Optional third-party CSS under src/assets (empty until needed). */
-export const EDITOR_VENDOR_CSS_PATHS = [];
+export const EDITOR_VENDOR_JS_PATHS = nonEmpty([
+  'lib/popper/popper.min.js',
+  'lib/sweetalert2/sweetalert2.all.min.js',
+  'lib/moment.min.js',
+  'lib/mustache.min.js',
+  'lib/tippy.min.js',
+  'lib/axios.min.js',
+  'lib/bootstrap/js/bootstrap-dropdownhover.js',
+  'lib/bootstrap-tour/js/bootstrap-tour-standalone.js',
+  'lib/Sortable.min.js',
+  'lib/summernote/0.8.2/summernote.min.js',
+]);
+
+export const EDITOR_VENDOR_CSS_PATHS = nonEmpty([
+  'lib/summernote/0.8.2/summernote.css',
+  'lib/bootstrap-tour/css/bootstrap-tour-standalone.css',
+  'lib/mathlive/mathlive-static.css',
+]);
 
 export const E6_COMMON_PATHS = [
   // skip js/index.js — gulp leftovers; use initial_helpers/legacyGlobals.js
@@ -67,10 +88,9 @@ export const EDITOR_JS_PATHS = uniqueInOrder([
 
 /**
  * Pack/boot CSS order:
- * 1) vendor (optional)
+ * 1) vendor
  * 2) editor page: main + editorLayout
  * 3) common: media_query + preloader
- * `common/…` resolves under src/pages/common/.
  */
 export const EDITOR_PAGE_CSS_PATHS = [
   '_CSS_UI/main.css',
