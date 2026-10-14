@@ -26,10 +26,10 @@ describe('Slice A sources', () => {
     expect(hits).toEqual([]);
   });
 
-  it('resolves slice_a, initial_helpers, and vendor lib paths', () => {
-    const open = resolveEditorSource('slice_a/editor_open.js');
+  it('resolves js, initial_helpers, and vendor lib paths', () => {
+    const open = resolveEditorSource('js/editor_open.js');
     expect(open.replace(/\\/g, '/')).toContain(
-      'src/pages/editor/slice_a/editor_open.js'
+      'src/pages/editor/js/editor_open.js'
     );
     expect(fs.existsSync(open)).toBe(true);
 

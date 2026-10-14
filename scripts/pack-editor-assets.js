@@ -225,7 +225,7 @@ async function main() {
     `[pack-editor-assets] config books=${booksCount} journals=${journalsCount} → ${path.relative(root, configDir)}`
   );
 
-  const langSrc = path.join(editorRoot, 'slice_a', 'lang');
+  const langSrc = path.join(editorRoot, 'js', 'lang');
   const langOut = path.join(configDir, 'lang');
   const langCount = copyDirAllFiles(langSrc, langOut);
   console.log(

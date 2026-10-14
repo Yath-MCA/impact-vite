@@ -19,7 +19,7 @@ describe('editor manifest', () => {
     expect(
       EDITOR_JS_PATHS.some((p) => p === 'initial_helpers/_initialGlobalVaribale.js')
     ).toBe(true);
-    expect(EDITOR_JS_PATHS.some((p) => p.startsWith('slice_a/_initial'))).toBe(
+    expect(EDITOR_JS_PATHS.some((p) => p.startsWith('js/_initial'))).toBe(
       false
     );
   });

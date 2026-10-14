@@ -20,17 +20,17 @@ import alertMessageLoaderUrl from '@editor/initial_helpers/_initialAlertmessageL
 import loadingDialogUrl from '@editor/initial_helpers/_initalLoadingDialog.js?url';
 import pageLoaderUrl from '@editor/initial_helpers/_initialPageLoader.js?url';
 import scriptLoaderUrl from '@editor/initial_helpers/_initialScriptLoader.js?url';
-import initializerUrl from '@editor/slice_a/initializer.js?url';
-import editorOpenUrl from '@editor/slice_a/editor_open.js?url';
-import commonfnUrl from '@editor/slice_a/commonfn.js?url';
-import demoUrl from '@editor/slice_a/demo.js?url';
-import dialogsHandleUrl from '@editor/slice_a/dialogModules/dialogsHandle.js?url';
-import errorMailModuleUrl from '@editor/slice_a/dialogModules/ErrorMail_Module.js?url';
-import downloadModuleUrl from '@editor/slice_a/dialogModules/Download_Module.js?url';
-import alertNewUrl from '@editor/slice_a/dialogModules/AlertNew.js?url';
-import syncScrollspyUrl from '@editor/slice_a/editor_sync_scrollspy.js?url';
-import pageEventsFnUrl from '@editor/slice_a/editor_page_events_fn.js?url';
-import commonEvtHandlerUrl from '@editor/slice_a/commonEvtHandler.js?url';
+import initializerUrl from '@editor/js/initializer.js?url';
+import editorOpenUrl from '@editor/js/editor_open.js?url';
+import commonfnUrl from '@editor/js/commonfn.js?url';
+import demoUrl from '@editor/js/demo.js?url';
+import dialogsHandleUrl from '@editor/js/dialogModules/dialogsHandle.js?url';
+import errorMailModuleUrl from '@editor/js/dialogModules/ErrorMail_Module.js?url';
+import downloadModuleUrl from '@editor/js/dialogModules/Download_Module.js?url';
+import alertNewUrl from '@editor/js/dialogModules/AlertNew.js?url';
+import syncScrollspyUrl from '@editor/js/editor_sync_scrollspy.js?url';
+import pageEventsFnUrl from '@editor/js/editor_page_events_fn.js?url';
+import commonEvtHandlerUrl from '@editor/js/commonEvtHandler.js?url';
 import qcsBootstrapUrl from '@editor/modules/shared/query-comment-system/bootstrap.js?url';
 import qcsQueryBaseUrl from '@editor/modules/shared/query-comment-system/QueryBaseModule.js?url';
 import qcsAttachmentUrl from '@editor/modules/shared/query-comment-system/AttachmentModule.js?url';
@@ -40,7 +40,7 @@ import qcsQueryTemplatesUrl from '@editor/modules/shared/query-comment-system/Qu
 import qcsQueryUtilsUrl from '@editor/modules/shared/query-comment-system/QueryUtils.js?url';
 import qcsQueryDialogUrl from '@editor/modules/shared/query-comment-system/QueryDialogModule.js?url';
 import qcsRegisterUrl from '@editor/modules/shared/query-comment-system/register.js?url';
-import editorBootInitUrl from '@editor/slice_a/editorBootInit.js?url';
+import editorBootInitUrl from '@editor/js/editorBootInit.js?url';
 
 import mainCss from '@editor/_CSS_UI/main.css?url';
 import layoutCss from '@editor/_CSS_UI/editorLayout.css?url';
@@ -61,17 +61,17 @@ const JS_URL_BY_PATH = {
   'initial_helpers/_initalLoadingDialog.js': loadingDialogUrl,
   'initial_helpers/_initialPageLoader.js': pageLoaderUrl,
   'initial_helpers/_initialScriptLoader.js': scriptLoaderUrl,
-  'slice_a/initializer.js': initializerUrl,
-  'slice_a/editor_open.js': editorOpenUrl,
-  'slice_a/commonfn.js': commonfnUrl,
-  'slice_a/demo.js': demoUrl,
-  'slice_a/dialogModules/dialogsHandle.js': dialogsHandleUrl,
-  'slice_a/dialogModules/ErrorMail_Module.js': errorMailModuleUrl,
-  'slice_a/dialogModules/Download_Module.js': downloadModuleUrl,
-  'slice_a/dialogModules/AlertNew.js': alertNewUrl,
-  'slice_a/editor_sync_scrollspy.js': syncScrollspyUrl,
-  'slice_a/editor_page_events_fn.js': pageEventsFnUrl,
-  'slice_a/commonEvtHandler.js': commonEvtHandlerUrl,
+  'js/initializer.js': initializerUrl,
+  'js/editor_open.js': editorOpenUrl,
+  'js/commonfn.js': commonfnUrl,
+  'js/demo.js': demoUrl,
+  'js/dialogModules/dialogsHandle.js': dialogsHandleUrl,
+  'js/dialogModules/ErrorMail_Module.js': errorMailModuleUrl,
+  'js/dialogModules/Download_Module.js': downloadModuleUrl,
+  'js/dialogModules/AlertNew.js': alertNewUrl,
+  'js/editor_sync_scrollspy.js': syncScrollspyUrl,
+  'js/editor_page_events_fn.js': pageEventsFnUrl,
+  'js/commonEvtHandler.js': commonEvtHandlerUrl,
   'modules/shared/query-comment-system/bootstrap.js': qcsBootstrapUrl,
   'modules/shared/query-comment-system/QueryBaseModule.js': qcsQueryBaseUrl,
   'modules/shared/query-comment-system/AttachmentModule.js': qcsAttachmentUrl,
@@ -83,7 +83,7 @@ const JS_URL_BY_PATH = {
   'modules/shared/query-comment-system/QueryDialogModule.js':
     qcsQueryDialogUrl,
   'modules/shared/query-comment-system/register.js': qcsRegisterUrl,
-  'slice_a/editorBootInit.js': editorBootInitUrl,
+  'js/editorBootInit.js': editorBootInitUrl,
 };
 
 const CSS_URL_BY_PATH = {

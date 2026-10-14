@@ -19,7 +19,7 @@ en = {
   });
 
   it('parses real packed en.js', () => {
-    const enPath = resolve('src/pages/editor/slice_a/lang/en.js');
+    const enPath = resolve('src/pages/editor/js/lang/en.js');
     const text = readFileSync(enPath, 'utf8');
     const lang = parseLangResponseText(text, 'en');
     expect(lang).toBeTypeOf('object');

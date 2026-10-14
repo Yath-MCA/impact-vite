@@ -12,21 +12,21 @@ export const EDITOR_VENDOR_JS_PATHS = [
 export const EDITOR_VENDOR_CSS_PATHS = [];
 
 export const E6_COMMON_PATHS = [
-  // skip slice_a/index.js — gulp leftovers; use initial_helpers/legacyGlobals.js
+  // skip js/index.js — gulp leftovers; use initial_helpers/legacyGlobals.js
   'initial_helpers/_initialGlobalVaribale.js',
   'initial_helpers/_editorLayout.js',
   'initial_helpers/_initialAlertmessageLoader.js',
   'initial_helpers/_initalLoadingDialog.js',
   'initial_helpers/_initialPageLoader.js',
   'initial_helpers/_initialScriptLoader.js',
-  'slice_a/initializer.js',
-  'slice_a/editor_open.js',
-  'slice_a/commonfn.js',
-  'slice_a/demo.js',
-  'slice_a/dialogModules/dialogsHandle.js',
-  'slice_a/dialogModules/ErrorMail_Module.js',
-  'slice_a/dialogModules/Download_Module.js',
-  'slice_a/dialogModules/AlertNew.js',
+  'js/initializer.js',
+  'js/editor_open.js',
+  'js/commonfn.js',
+  'js/demo.js',
+  'js/dialogModules/dialogsHandle.js',
+  'js/dialogModules/ErrorMail_Module.js',
+  'js/dialogModules/Download_Module.js',
+  'js/dialogModules/AlertNew.js',
 ];
 
 const QUERY_COMMENT_SYSTEM = [
@@ -42,11 +42,11 @@ const QUERY_COMMENT_SYSTEM = [
 ];
 
 export const E6_MAIN_PATHS = [
-  'slice_a/editor_sync_scrollspy.js',
-  'slice_a/editor_page_events_fn.js',
-  'slice_a/commonEvtHandler.js',
+  'js/editor_sync_scrollspy.js',
+  'js/editor_page_events_fn.js',
+  'js/commonEvtHandler.js',
   ...QUERY_COMMENT_SYSTEM,
-  'slice_a/editorBootInit.js',
+  'js/editorBootInit.js',
 ];
 
 function uniqueInOrder(paths) {
