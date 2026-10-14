@@ -1,5 +1,7 @@
 # Vite Migration Plan — IMPACT Web
 
+> **2026-10-14 update (impact_vite SPA):** Hybrid `e6_*.min.js` packs under `assets/{VERSION}/` are a temporary bridge. VERSION comes from `package.json` / `ENV.VERSION` via `generate-env` + packer; no `${{VERSION}}$` in Slice A sources. Shared AJAX: `src/shared/legacyAjax.js`. See `docs/superpowers/plans/2026-10-14-pack-version-legacy-ajax.md`. Deep ESM `import()` retirement remains backlog. Sections below describe the older webpack/gulp baseline.
+
 Slow, low-risk migration from **Gulp + Webpack** to **Vite**, then **Vite + React**. This plan is based on the current repo layout as of the webpack-primary build (`npm run build` → `webpack.config.js`).
 
 ---

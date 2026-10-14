@@ -1,5 +1,7 @@
 import pkg from '../../../package.json';
 import { FetchService } from '../../shared/httpService.js';
+import { applyLegacyAjax } from '../../shared/legacyAjax.js';
+import { resolveEditorVersion } from '../../shared/resolveEditorVersion.js';
 import {
   ADMIN_USER_IDs,
   GET_SENDER_RECEIVER_ID,
@@ -30,12 +32,10 @@ export function applyLegacyGlobals() {
   g.API_PATH = env.API_PATH || '/xmleditor/';
   g.DOMAIN_ROOT = env.DOMAIN_ROOT || '';
   g.BUCKET_URL = env.BUCKET_URL || 'http://localhost/xmleditor/';
-  // Same rule as scripts/resolveEditorVersion.js: ENV.VERSION then package.json
-  g.VERSION =
-    (env.VERSION && String(env.VERSION).trim()) ||
-    (pkg && pkg.version) ||
-    g.VERSION ||
-    'dev';
+  g.VERSION = resolveEditorVersion({
+    envVersion: env.VERSION,
+    packageVersion: pkg && pkg.version,
+  });
   g.FetchService = FetchService;
   g.resolvePageQueryString = resolvePageQueryString;
   g.parsePageQueryParams = parsePageQueryParams;
@@ -52,6 +52,26 @@ export function applyLegacyGlobals() {
       '';
     g.IS_LOCAL_HOST = /localhost/i.test(String(href));
   }
+
+  const noop = function () {};
+  g.debug = {
+    log: noop,
+    error: noop,
+    warn: noop,
+    info: noop,
+    table: noop,
+  };
+  if (g.IS_UAT_DOMAIN || g.IS_LOCAL_HOST) {
+    g.debug = {
+      log: console.log.bind(console),
+      error: console.error.bind(console, 'error: %s'),
+      info: console.info.bind(console),
+      warn: console.warn.bind(console),
+      table: console.table ? console.table.bind(console) : noop,
+    };
+  }
+
+  applyLegacyAjax(g);
   applyLegacyIdHelpers(g);
   applyLegacyApiPaths(g);
   applyLegacyRoleIds(g);

@@ -92,13 +92,21 @@ async function bootFromUrlInject() {
   }
 }
 
+function shouldPreferEditorPack() {
+  const env = (typeof window !== 'undefined' && window.ENV) || {};
+  if (env.USE_EDITOR_PACK === true) return true;
+  if (env.USE_EDITOR_PACK === false) return false;
+  // Default: packs in production builds only (dev uses Vite ?url for HMR).
+  return Boolean(import.meta.env.PROD);
+}
+
 export async function bootEditor() {
   applyLegacyGlobals();
   await loadCkeditorOnce();
   const version = String(window.VERSION || 'dev');
   const commonUrl = `/assets/${version}/js/e6_common.min.js`;
   const mainUrl = `/assets/${version}/js/e6_main.min.js`;
-  const usePack = await canLoad(commonUrl);
+  const usePack = shouldPreferEditorPack() && (await canLoad(commonUrl));
 
   if (usePack) {
     for (const name of ['main.css', 'media_query.css', 'editorLayout.css']) {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { resolveEditorVersion } from '../../scripts/resolveEditorVersion.js';
+import { resolveEditorVersion } from '../../src/shared/resolveEditorVersion.js';
 
 describe('resolveEditorVersion', () => {
   it('prefers env VERSION over package.json', () => {

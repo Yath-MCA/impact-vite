@@ -1,7 +1,7 @@
 # Editor Hybrid Assets Pack — Design
 
 **Date:** 2026-10-09  
-**Status:** Approved for planning  
+**Status:** Temporary bridge (see [2026-10-14-pack-version-legacy-ajax](../plans/2026-10-14-pack-version-legacy-ajax.md)); ESM retirement backlog  
 **Related:** [editor-boot-esm](./2026-10-09-editor-boot-esm-design.md), [landing-accept-legacy-session](./2026-10-09-landing-accept-legacy-session-design.md)
 
 ---

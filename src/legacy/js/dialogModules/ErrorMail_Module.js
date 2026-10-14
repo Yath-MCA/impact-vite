@@ -32,7 +32,7 @@ String.prototype.replaceAllSplit = function (search, replacement) {
     }
     return target;
 };
-iVersion = `${{VERSION}}$`;
+iVersion = (typeof window !== 'undefined' && window.VERSION) ? window.VERSION : '';
 commonfn['ErrorShareMailPost'] = function(response) {
     debug.log(JSON.stringify(response));
 };
@@ -122,7 +122,7 @@ const ERROR_ON_ERROR_MAIL = function (trackOrder, stackTemp, ErrMessage) {
     }
 };
 const GET_MAIL_TABLE_FORMAT = function(userData, errData) {
-    var version = `${{VERSION}}$`;
+    var version = (typeof window !== 'undefined' && window.VERSION) ? window.VERSION : '';
     /* 
        <tr class="align-top"><td>Browser Details:</td><td class="ml-2">${browser_version?browser_version:'Nil'}</td></tr>
         <tr class="align-top"><td>Screen-size</td><td class="ml-1">${TempInfo&&TempInfo.screenResolution?TempInfo.screenResolution:'Nil'}</td></tr>
@@ -184,7 +184,7 @@ function ErrorShareMail(subject, trackOrder, errMessage, StackLines) {
             "tbl": "ErrorLogs",
             "docid": DOC_ID,
             "module": subject,
-            "iversion": `${{VERSION}}$`,
+            "iversion": (typeof window !== 'undefined' && window.VERSION) ? window.VERSION : '',
             "domain": hostname,
             // "browversion": browser_version,
             // "screensize": TempInfo.screenResolution,

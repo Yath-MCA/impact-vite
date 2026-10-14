@@ -320,7 +320,7 @@ const MAIL_DETAIL = {
 // ! https://stackoverflow.com/questions/13815640/a-proper-wrapper-for-console-log-with-correct-line-number
 var myuserUniqueId = "",
     IS_TEST_ENV = ((IS_LOCAL_HOST) ? true : false),
-    iVersion = `${{ VERSION }}$`;
+    iVersion = (typeof window !== 'undefined' && window.VERSION) ? window.VERSION : '';
 
 if (IS_TEST_ENV || IS_UAT_DOMAIN || IS_LOCAL_HOST) {
     window.debug = {
@@ -1402,62 +1402,10 @@ window.GET_JSON = function (params, Options = {}, addKeys, removeKeys = []) {
     }
 };
 
-$.ajaxSetup({
-    beforeSend: function (request) {
-        request.setRequestHeader("Content-Type", 'application/x-www-form-urlencoded;charset=UTF-8');
-        request.setRequestHeader("appkey", localStorage.getItem('xmleditor:appkey'));
-        request.setRequestHeader("apikey", localStorage.getItem('xmleditor:apikey'));
-    },
-    success: function (jqXHR, textStatus) {
-        console.log(textStatus);
-    },
-    error: function (jqXHR, textStatus) {
-        console.log(textStatus);
-        if (jqXHR.status == 401) {
-            location.reload(true);
-        }
-    },
-    always: function () { }
-});
-
-
-
-
-commonfn.callajax = function (jsondata, postfun, url, opt = '') {
-    try {
-        const { _r, _w } = jsondata;
-        delete jsondata._r;
-        delete jsondata._w;
-        Object.assign(jsondata, { _r, _w });
-        jsondata = JSON.stringify(jsondata);
-        $.ajax({
-            url: url,
-            data: {
-                'jsondata': jsondata
-            },
-            type: "post",
-            dataType: "JSON",
-
-            contentType: "application/json",
-            success: function (response) {
-                if (commonfn[postfun]) {
-                    commonfn[postfun](response, opt);
-                } else if (opt && (opt[postfun] || (opt['M_FUN'] && opt['M_FUN'][postfun]))) {
-                    opt[postfun] ? opt[postfun](response, opt) : opt['M_FUN'][postfun](response, opt);
-                } else if (typeof ErrorLogTrace == 'function' && postfun != 'fun_return') {
-                    console.log(postfun);
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log("error calling: " + postfun);
-                console.log(textStatus, errorThrown);
-            }
-        });
-    } catch (err) {
-        console.warn(err.message);
-        ErrorLogTrace('callajax', err.message);
-    }
-};
+// $.ajaxSetup + commonfn.callajax: src/shared/legacyAjax.js (SPA-wide). Skip if already installed.
+if (typeof commonfn.callajax !== 'function') {
+    console.warn('[index.js] commonfn.callajax missing; expected applyLegacyAjax at SPA boot');
+}
 
 var START_TIME = (new Date().getTime());
 var IS_READ_ONLY_MODE = false;

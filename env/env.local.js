@@ -10,6 +10,11 @@ export default {
   // App Configuration
   APP_KEY: 'xmleditor',
 
+  // Optional cache-bust override; blank → package.json "version" via generate-env / packer.
+  // VERSION: '1.2.3',
+  // Dev: Vite ?url (HMR). Set true only to exercise packed e6_*.min.js locally.
+  USE_EDITOR_PACK: false,
+
   // API Configuration — real keys live in env.local.secrets.js
   API_KEY: 'REPLACE_IN_SECRETS_FILE',
   User_API_KEY: 'REPLACE_IN_SECRETS_FILE',

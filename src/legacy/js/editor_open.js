@@ -1,6 +1,19 @@
 console.log('editor-open.js');
 
-
+function IsAdmin() {
+    try {
+        if (ADMIN_USER_IDs.includes(USER_INFO.MAIL_ID.split('@')[0].trim()) && !SHARED_KEY.apikey) {
+            localStorage.setItem('xmleditor:admin', 'superadmin');
+            USER_INFO.IS_ADMIN = true;
+        } else {
+            localStorage.removeItem('xmleditor:admin');
+            USER_INFO.IS_ADMIN = false;
+        }
+    } catch (err) {
+        console.warn(err.message);
+        ErrorLogTrace('IsAdmin', err.message);
+    }
+};
 
 commonMethods.get_user_info = function(el) {
     return {
@@ -106,93 +119,11 @@ function formatTime(ts = Date.now()) {
 
 commonfn.timerCall = {};
 
-commonfn.callajax = function(jsondata, postfun, url, opt = '') {
-    try {
-
-        const exceptionList = ['onlinecrossrefplaintext', 'anystylecrossrefplaintext'];
-        const isException = exceptionList.some(ex => url.includes(ex));
-
-        const hasUrl = typeof url !== "undefined";
-        const isLocalHost = location && location.hostname === "localhost";
-        const isNotLocalString = !url.includes("local");
-
-        if (hasUrl && isLocalHost && isNotLocalString && !isException) {
-            return console.warn("Local API call skipped:", url);
-        }
-
-        if (!jsondata.username) jsondata.username = USER_INFO.MAIL_ID;
-        if (!jsondata.role) jsondata.role = USER_INFO.ROLE_ID;
-        if (!jsondata.rolename) jsondata.rolename = USER_INFO.ROLE_NAME;
-
-        const collabEnabled = typeof window.isCollabEnabled === "function" && window.isCollabEnabled(DOC_ID);
-        if (jsondata.tbl == "linksharing" && collabEnabled) {
-            jsondata.collaborative = "1";
-            // jsondata.process = "signoff";
-        }
-
-        jsondata = JSON.stringify(jsondata);
-
-        // --- Start time ---
-        const startTs = Date.now();
-        const startTime = formatTime(startTs);
-
-        commonfn.timerCall[postfun] = {
-            url,
-            startTs,
-            startTime,
-            endTime: null,
-            durationSec: null
-        };
-
-        $.ajax({
-            url: url,
-            data: {
-                'jsondata': jsondata
-            },
-            type: "post",
-            dataType: "JSON",
-            contentType: "application/json",
-            success: function(response) {
-                const endTs = Date.now();
-                const endTime = formatTime(endTs);
-
-                const durationSec = ((endTs - commonfn.timerCall[postfun]['startTs']) / 1000).toFixed(2);
-
-                commonfn.timerCall[postfun].endTime = endTime;
-                commonfn.timerCall[postfun].durationSec = durationSec;
-
-                // debug.log(`${postfun} | Start: ${startTime} | End: ${endTime} | Duration: ${durationSec} s`);
-
-                if (commonfn[postfun]) {
-                    commonfn[postfun](response, opt);
-                } else if (opt && (opt[postfun] || (opt['M_FUN'] && opt['M_FUN'][postfun]))) {
-                    if (opt[postfun]) {
-                        opt[postfun](response, opt);
-                    } else {
-                        opt['M_FUN'][postfun](response, opt);
-                    }
-                } else if (typeof ErrorLogTrace == 'function' && postfun != 'fun_return') {
-                    //ErrorLogTrace(postfun, 'post_fun_missing');
-                    console.log(postfun);
-                }
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                const endTs = Date.now();
-                const endTime = formatTime(endTs);
-                const durationSec = ((endTs - commonfn.timerCall[postfun]['startTs']) / 1000).toFixed(2);
-
-                commonfn.timerCall[postfun].endTime = endTime;
-                commonfn.timerCall[postfun].durationSec = durationSec;
-
-                // console.log(` ${postfun} | Start: ${startTime} | End: ${endTime} | Duration: ${durationSec} s`);
-                console.log("Error calling:", postfun, textStatus, errorThrown);
-            }
-        });
-    } catch (err) {
-        console.warn(err.message);
-        ErrorLogTrace('callajax', err.message);
-    }
-};
+// commonfn.callajax + $.ajaxSetup live in src/shared/legacyAjax.js (SPA-wide).
+// Do not redefine here so packed/url-injected editor_open cannot clobber the shared impl.
+if (typeof commonfn.callajax !== 'function') {
+    console.warn('[editor_open] commonfn.callajax missing; expected applyLegacyAjax before Slice A load');
+}
 
 commonfn.getProjectData = function(responce, opt) {
     try {

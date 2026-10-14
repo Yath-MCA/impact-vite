@@ -81,6 +81,15 @@ async function main() {
   fs.mkdirSync(cssDir, { recursive: true });
   fs.mkdirSync(configDir, { recursive: true });
 
+  function assertNoGulpPlaceholders(text, outFile) {
+    if (/\$\{\{/.test(text)) {
+      console.error(
+        `[pack-editor-assets] leftover \${{…}}$ placeholders in ${path.relative(root, outFile)}`
+      );
+      process.exit(1);
+    }
+  }
+
   function concat(relPaths, outFile) {
     const parts = [];
     for (const rel of relPaths) {
@@ -91,7 +100,9 @@ async function main() {
       }
       parts.push(`\n;/* === ${rel} === */\n` + fs.readFileSync(abs, 'utf8'));
     }
-    fs.writeFileSync(outFile, parts.join('\n'), 'utf8');
+    const text = parts.join('\n');
+    assertNoGulpPlaceholders(text, outFile);
+    fs.writeFileSync(outFile, text, 'utf8');
     console.log(`[pack-editor-assets] wrote ${path.relative(root, outFile)}`);
   }
 

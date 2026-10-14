@@ -1,13 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+import { resolveEditorVersion } from '../src/shared/resolveEditorVersion.js';
 
-export function resolveEditorVersion({ envVersion, packageVersion }) {
-  const fromEnv = envVersion != null ? String(envVersion).trim() : '';
-  if (fromEnv) return fromEnv;
-  const fromPkg = packageVersion != null ? String(packageVersion).trim() : '';
-  return fromPkg || 'dev';
-}
+export { resolveEditorVersion };
 
 export function readEditorVersionFromRepo(rootDir) {
   const require = createRequire(path.join(rootDir, 'package.json'));

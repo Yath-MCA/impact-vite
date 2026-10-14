@@ -3,6 +3,9 @@ window.$ = $;
 window.jQuery = $;
 jQuery = $;
 
+import { applyLegacyAjax } from './shared/legacyAjax.js';
+applyLegacyAjax(window);
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import './styles/app.css';

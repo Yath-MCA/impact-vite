@@ -1,3 +1,5 @@
+import { applyLegacyAjax } from '../../shared/legacyAjax.js';
+
 export function applyLandingSessionGlobals() {
   const env = (typeof window !== 'undefined' && window.ENV) || {};
   const g = window;
@@ -8,6 +10,8 @@ export function applyLandingSessionGlobals() {
   g.APP_KEY = env.APP_KEY || g.APP_KEY || '';
   g.API_KEY = env.API_KEY || g.API_KEY || '';
   g.BUCKET_URL = env.BUCKET_URL || g.BUCKET_URL || '';
+
+  applyLegacyAjax(g);
 
   if (typeof g.GET_JSON !== 'function') {
     g.GET_JSON = function getJsonStub() {
