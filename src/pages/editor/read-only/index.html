@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google" content="notranslate">
+    <title>IMPACT | Track View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/images/logo/ng_favicon.ico">
+
+    <!-- custom and library css -->
+    <link rel="stylesheet" href="assets/${{VERSION}}$/vendor/vendor_jbt.css?_${{TIMESTAMP}}$">
+    <link rel="stylesheet" href="assets/${{VERSION}}$/css/e6_Track.css?_${{TIMESTAMP}}$">
+
+
+    <!-- Combine version of third party -->
+    <script type="text/javascript" src="assets/${{VERSION}}$/vendor/vendor_jbt.js?_${{TIMESTAMP}}$"></script>
+    <script type="text/javascript" src="assets/${{VERSION}}$/vendor/vendor_smt.js?_${{TIMESTAMP}}$"></script>
+    <script type="text/javascript" src="ckeditor-${{VERSION}}$/ckeditor_dev.js?_${{TIMESTAMP}}$"></script>
+
+
+
+    <script src="assets/${{VERSION}}$/modules/browser-compatible/index.js?_${{TIMESTAMP}}$"></script>
+
+    <!-- Page Script -->
+    <script type="text/javascript" src="assets/${{VERSION}}$/js/e6_common.js?_${{TIMESTAMP}}$" defer></script>
+    <script type="text/javascript" src="assets/${{VERSION}}$/js/session_editor.min.js?_${{TIMESTAMP}}$" defer></script>
+    <script type="text/javascript" src="assets/${{VERSION}}$/modules/module_main.js?_${{TIMESTAMP}}$" defer></script>
+    <script type="text/javascript" src="assets/${{VERSION}}$/js/e6_Track.js?_${{TIMESTAMP}}$" defer></script>
+    <script type="text/javascript" src="assets/${{VERSION}}$/modules/global_context_common.js?_${{TIMESTAMP}}$" defer></script>
+
+    <style>
+        .TrackChangesList {
+            display: block !important;
+            margin-left: 10px !important;
+        }
+
+        .trackheader {
+            color: #464646;
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 19px;
+            text-align: left;
+            padding: 0.5rem 0;
+            margin-left: 4px;
+        }
+    </style>
+    <!-- QC Track: wait for e6_common (IS_TRACK_VIEW, dialogModule, USER_INFO) before mount -->
+    <script type="module">
+        import {
+            bootstrapQcValidationTrack
+        } from './assets/${{VERSION}}$/modules/qc_validation/QcValidationTrackModule.js?_${{TIMESTAMP}}$';
+
+        const intervalId = setInterval(async () => {
+            try {
+                if (typeof IS_TRACK_VIEW === 'undefined') return;
+                if (!IS_TRACK_VIEW) {
+                    clearInterval(intervalId);
+                    return;
+                }
+                if (typeof dialogModule === 'undefined' || typeof USER_INFO === 'undefined') return;
+                clearInterval(intervalId);
+                await bootstrapQcValidationTrack();
+            } catch (err) {
+                console.warn(err);
+                clearInterval(intervalId);
+            }
+        }, 750);
+    </script>
+    <!-- Tooltip Track: xref/link/orcid hover without module_main -->
+    <script type="module">
+        import {
+            bootstrapTooltipTrack
+        } from './assets/${{VERSION}}$/modules/tooltip/TooltipTrackBootstrap.js?_${{TIMESTAMP}}$';
+
+        const tipIntervalId = setInterval(() => {
+            try {
+                if (typeof IS_TRACK_VIEW === 'undefined') return;
+                if (!IS_TRACK_VIEW) {
+                    clearInterval(tipIntervalId);
+                    return;
+                }
+                if (typeof GlobalEditor === 'undefined' || !GlobalEditor) return;
+                const editable = GlobalEditor.editable && GlobalEditor.editable();
+                if (!editable) return;
+                if (typeof commonMethods === 'undefined') return;
+                clearInterval(tipIntervalId);
+                bootstrapTooltipTrack(GlobalEditor);
+            } catch (err) {
+                console.warn(err);
+                clearInterval(tipIntervalId);
+            }
+        }, 750);
+    </script>
+</head>
+
+<body class="wrapper-i" id="Body">
+    <div class="row d-flex flex-column editor6">
+        <div class="col" id='col1'>
+            <header class="content-header-i">
+                <nav class="m-1 ml-4">
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <div class="">
+                            <span class="font-weight-bold" id="r-label">Journal Title</span><span class="r-title" id="r-title"><i class="fa fa-spin fa-spinner"></i> Loading ...</span>
+                        </div>
+                        <div class="d-none" id="rTitleGroup">
+                            <span class="font-weight-bold" id="l-label">DOI</span><span class="l-title" id="l-title"><i class="fa fa-spin fa-spinner"></i> Loading ...</span>
+                        </div>
+                        <div class="" id="trackTitleGroup">
+                            <span class="font-weight-bold" id="track-label">DOI</span><span class="l-title" id="track-title"><i class="fa fa-spin fa-spinner"></i> Loading ...</span>
+                        </div>
+                        <div>
+                            <ul class="nav navbar-nav flex-row userinfo ml-auto" id="userinfoList">
+                                <li class="nav-menu-item dropdown" id="downloadGroup"><a class="nav-link" href="!#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="PDF's Downloads"><img src="assets/images/svg/mainPage/Proof_PDF.svg" alt="Download Icon" class="im-help-size"><span class="im-d-hide nav-menu-header">PDF Downloads</span></a>
+                                    <div class="dropdown-menu" aria-labelledby="downloadDiv" id="downloadDiv">
+                                        <a class="dropdown-item" href="javascript:iDownloadMethod.click('i_track_pdf');" title="Click to download Track PDF" id="i_track_pdf"><img alt="download icon" class="DownLoadLogo" src="assets/images/svg/mainPage/helpDownLoad.svg">&nbsp;&nbsp;Track PDF</a>
+                                        <a class="dropdown-item" href="javascript:iDownloadMethod.click('proof_pdf')" title="Click to download First Proof PDF" id="proof_pdf"><img alt="download icon" src="assets/images/svg/mainPage/helpDownLoad.svg">&nbsp;&nbsp;First Proof PDF</a>
+                                        <a class="dropdown-item" href="javascript:iDownloadMethod.click('ce_track_pdf')" title="Click to download CE Track PDF" id="ce_track_pdf"><img alt="download icon" class="MailLogo" src="assets/images/svg/mainPage/helpDownLoad.svg">&nbsp;&nbsp;CE Track PDF</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown mr-2" id="profileGroup"><a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img id="userIdLogo" src="assets/images/svg/mainPage/User_Icon.svg" alt="UserIcon" class="im-help-size"></a>
+                                    <div class="dropdown-menu" aria-labelledby="profileDiv" id="profileDiv">
+                                        <a class="dropdown-item ds-none" href="#">My Profile</a>
+                                        <a class="dropdown-item ds-none" href="#">Settings</a>
+                                        <a class="dropdown-item" href="#" id=''><img id="" src="assets/images/svg/mainPage/UserName_DropMenu.svg" alt="Loading" class="mr-2"><span id="iuser_Name">Loading ...</a>
+                                    </div>
+                                </li>
+                                <li class="nav-menu-item ml-2 mt-n1" id="qcValidationGroup"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        </div>
+        <div class="col" id='col2'>
+            <main class="content-wrapper-i trackView" id="mine">
+                <div class="container-fluid mt-md-auto">
+                    <div class="row dynamic-columns">
+                        <!-- CKEditor and PDF -->
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12" id="iViewArea">
+                            <div class="row">
+                                <!-- CKEditor Top menus div -->
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-9" id="iEditorSection">
+                                    <div class="editor-section" id="htmlcontent">
+                                        <div id="maineditor" class="trackView"></div>
+                                    </div>
+                                </div>
+                                <!-- Compare -->
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3" id="trackcomparediv">
+                                    <div class="d-flex flex-column" id="TrackViewPanel">
+                                        <div class="trackheader">Review Changes</div>
+                                        <div class="trackOptionDiv trackView">
+                                            <ul class="OptionsList" id="OptionsList">
+                                                <li class="pb-3 d-flex align-items-center" id="OptionsListOpt1">
+                                                    <span class="f14">Reviewers:</span>
+                                                    <div class="input-group-sm ml-2 f14" id="track_select"><select aria-label="Track" class="custom-select" id="TrackSelectOpt"></select></div>
+                                                </li>
+                                                <li class="mb-3" id="OptionsListOpt2">
+                                                    <div class="d-flex justify-content-between align-items-center" id="TrackEntryCounts">
+                                                        <div class="d-flex justify-content-between align-items-center w-100" id="TrackTypeFilter">
+                                                            <div class="countText"><input type="checkbox" name="trackTypeFilter" value="insert" checked> Insertions:<span class="TrackCount" id="TrackinsCount">0</span></div>
+                                                            <div class="pl-1 countText"><input type="checkbox" name="trackTypeFilter" value="del" checked> Deletions: <span class="TrackCount" id="TrackdelCount">0</span></div>
+                                                            <div class="pl-1 countText"><input type="checkbox" name="trackTypeFilter" value="for" checked> Formatting:<span class="TrackCount" id="TrackformatCount">0</span></div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between align-items-center w-100 ds-none" id="QueryStatusFilter">
+                                                            <label class="radio-inline mr-2 countText"><input type="radio" name="queryStatusFilter" value="all" checked> All</label>
+                                                            <label class="radio-inline mr-2 countText"><input type="radio" name="queryStatusFilter" value="openPending"> Open / TS Notes / Pending</label>
+                                                            <label class="radio-inline countText"><input type="radio" name="queryStatusFilter" value="resolved"> Resolved</label>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex justify-content-start align-items-center testb mt-1" id="OptionsListOpt3">
+                                                    <button id="btnPrevTrack" type="button" class="btn btn-sm primary-btn ml-auto" title="Previous"><img class="btnPrevTrackimg" src="assets/images/svg/track/Prev.svg" alt=""></button>
+                                                    <button id="btnNextTrack" type="button" class="btn btn-sm primary-btn ml-2" title="Next"><img class="btnNxtTrackimg" src="assets/images/svg/track/Next.svg" alt=""></button>
+                                                    <button id="TrackEntryIndex" type="button" class="btn btn-light btn-sm last disabled  w-25"><span id="tp_curIndex">0</span> of <span id="overallCount">0</span></button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="track-history e6 trackView d-flex justify-content-center align-items-center" id="trackListGroup">'<div class="spinner-border iSpin_border" role="status"></div>'</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="col" id='col3'>
+            <footer class="content-footer-i d-flex justify-content-between">
+                <div class="logodiv"><img class="navbar-brand im-logo-size" src="assets/images/svg/logo/IMPACT_5_4.svg" alt="Logo"></div>
+                <div class="mr-lg-3 footer-text">Developed and Maintained by <a rel="noopener" href="https://www.newgen.co" target="_blank"><img alt="load" src="assets/images/svg/logo/Newgen.svg" class="new-logo mr-1"></a> KnowledgeWorks</div>
+            </footer>
+        </div>
+    </div>
+    <div class="ds-none" id="dummy-impact">
+        <div id="aaa"></div>
+    </div>
+    <div id="ModelDialogAppend"></div>
+    <div class="iToolTip ipopUp hide" id="xToolTip"></div>
+
+</body>
+
+</html>

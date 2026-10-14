@@ -88,19 +88,55 @@ export function assertValidateAccess(response) {
  * Flatten validate payload for UI / later landing stash.
  */
 export function normalizeValidateResponse(response) {
-  const data =
-    response?.data && typeof response.data === 'object' && !Array.isArray(response.data)
-      ? response.data
-      : response?.doc && typeof response.doc === 'object'
-        ? response.doc
-        : response || {};
+    const resData = response?.data ?? response ?? {};
+  const docid = resData.docid || resData.identifier || resData.docId || '';
+  const articletitle = resData.xmltohtmlres?.articletitle || '';
+  const journaltitle = resData.xmltohtmlres?.journaltitle || '';
+  const booktitle = resData.xmltohtmlres?.booktitle || '';
+  const projecttitle = resData.projecttitle || '';
+  const title =
+    articletitle ||
+    booktitle ||
+    projecttitle ||
+    journaltitle ||
+    resData.title ||
+    '';
 
   return {
-    docid: String(data.docid ?? data.docId ?? data.DOCID ?? ''),
-    title: String(data.title ?? data.docname ?? data.DOCNAME ?? data.name ?? ''),
-    rolename: String(data.rolename ?? data.roleName ?? data.ROLE ?? ''),
-    client: String(data.client ?? data.clientname ?? data.CLIENT ?? ''),
-    raw: response,
+    docid,
+    title,
+    doi: resData.doi || resData.DOI || resData.xmltohtmlres?.doi || '',
+    client: resData.client || 'default',
+    projecttitle,
+    identifier: resData.identifier || docid,
+    dtd: resData.dtd || '',
+    type: resData.type || '',
+    linkinfo: resData.linkinfo || '',
+    vendor: resData.vendor || '',
+    shorttitle: resData.shorttitle || '',
+    username: resData.username || resData.mail_id || resData.MAIL_ID || '',
+    role: resData.role || resData.roleid || resData.ROLE_ID || '',
+    rolename: resData.rolename || resData.ROLENAME || '',
+    roleid: resData.roleid || resData.ROLE_ID || '',
+    branding: resData.branding || resData.client_metadata || resData.client_config || null,
+    cover: resData.titleinfo?.cover,
+    projectname: resData.titleinfo?.projectname,
+    journaltitle,
+    articletitle,
+    booktitle,
+    authorgroup: resData.xmltohtmlres?.authorgroup || '',
+    figcount: resData.xmltohtmlres?.figcount || 0,
+    tablecount: resData.xmltohtmlres?.tablecount || 0,
+    Query: resData.xmltohtmlres?.Query || 0,
+    Equation: resData.xmltohtmlres?.Equation || 0,
+    collaborative: resData.collaborative,
+    apikey: resData.apikey || '',
+    emailto: resData.emailto,
+    status: resData.status || '',
+    r: resData.r,
+    enable: resData.enable,
+    temporaryAccess: resData.temporaryAccess,
+    raw: resData
   };
 }
 

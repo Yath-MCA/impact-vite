@@ -1,192 +1,350 @@
 {
-  "help": {
-    "faqUrl": "/assets/help/IMPACT_FAQ.pdf",
-    "guideUrl": "/assets/help/IMPACT_User_Guide.pdf"
-  },
-  "logo": {
-    "default": {
-      "theme": "primary",
-      "header-logo": {
-        "name": "/assets/logo/IMPACT_5_4.svg",
-        "alt": "IMPACT",
-        "width": 120,
-        "height": 40
-      },
-      "footer-logo": {
-        "name": "/assets/logo/IMPACT_5_4.svg",
-        "alt": "IMPACT",
-        "width": 100,
-        "height": 32
-      },
-      "favicon": { "name": "/assets/logo/favicon.ico" }
+    "help": {
+        "faqUrl": "IMPACT_FAQ.pdf",
+        "guideUrl": "IMPACT_User_Guide.pdf"
     },
-    "plos": {
-      "theme": "plos",
-      "header-logo": {
-        "name": "PLOS_WHITE.svg",
-        "alt": "PLOS",
-        "width": 120,
-        "height": 40
-      },
-      "footer-logo": {
-        "name": "PLOS_COLOR_BOTTOM.svg",
-        "alt": "PLOS",
-        "width": 100,
-        "height": 32
-      },
-      "favicon": { "name": "PLOS_FAVICON.png" }
+    "logo": {
+        "default": {
+            "theme": "primary",
+            "header-logo": {
+                "name": "/assets/logo/IMPACT_5_4.svg",
+                "alt": "IMPACT Logo",
+                "width": "150px",
+                "height": "30"
+            },
+            "footer-logo": {
+                "name": "/assets/logo/IMPACT_5_4.svg",
+                "alt": "IMPACT Logo",
+                "height": "50"
+            },
+            "favicon": {
+                "name": "/assets/logo/favicon.ico",
+                "alt": "IMPACT Favicon"
+            }
+        },
+        "oup": {
+            "theme": "oxford",
+            "header-logo": {
+                "name": "OUP_WHITE.svg",
+                "alt": "OUP Logo",
+                "width": "150px",
+                "height": "30"
+            },
+            "footer-logo": {
+                "name": "OUP_WHITE.svg",
+                "alt": "OUP Logo",
+                "height": "50"
+            },
+            "favicon": {
+                "name": "OUP_FAVICON.svg",
+                "alt": "OUP Favicon"
+            },
+            "website": "https://global.oup.com"
+        },
+        "lww": {
+            "theme": "lww",
+            "header-logo": {
+                "name": "LWW.svg",
+                "alt": "LWW Logo",
+                "width": "150px",
+                "height": "40"
+            },
+            "footer-logo": {
+                "name": "LWW_WHITE_BOTTOM.svg",
+                "alt": "LWW Logo",
+                "height": "50"
+            },
+            "favicon": {
+                "name": "LWW_FAVICON.svg",
+                "alt": "LWW Favicon"
+            }
+        },
+        "medknow": {
+            "theme": "medknow",
+            "header-logo": {
+                "name": "MEDKNOW_FAVICON.svg",
+                "alt": "Medknow Logo",
+                "width": "150px",
+                "height": "40"
+            },
+            "footer-logo": {
+                "name": "MEDKNOW_FAVICON.svg",
+                "alt": "Medknow Logo",
+                "height": "50"
+            },
+            "favicon": {
+                "name": "MEDKNOW_FAVICON.svg",
+                "alt": "Medknow Favicon"
+            }
+        },
+        "plos": {
+            "theme": "plos",
+            "header-logo": {
+                "name": "OUP_WHITE.svg",
+                "alt": "PLOS Logo",
+                "width": "150px",
+                "height": "30"
+            },
+            "footer-logo": {
+                "name": "OUP_WHITE.svg",
+                "alt": "PLOS Logo",
+                "height": "50"
+            },
+            "favicon": {
+                "name": "OUP_FAVICON.svg",
+                "alt": "PLOS Favicon"
+            }
+        },
+        "nihr": {
+            "theme": "nihr",
+            "header-logo": {
+                "name": "NIHR.svg",
+                "alt": "NIHR Logo",
+                "width": "150px",
+                "height": "40"
+            },
+            "footer-logo": {
+                "name": "NIHR.svg",
+                "alt": "NIHR Logo",
+                "height": "50"
+            },
+            "favicon": {
+                "name": "NIHR_FAVICON.svg",
+                "alt": "NIHR Favicon"
+            }
+        },
+        "brill": {
+            "theme": "brill",
+            "header-logo": {
+                "name": "BRILL.svg",
+                "alt": "Brill Logo",
+                "width": "150px",
+                "height": "40"
+            },
+            "footer-logo": {
+                "name": "BRILL.svg",
+                "alt": "Brill Logo",
+                "height": "50"
+            },
+            "favicon": {
+                "name": "BRILL.svg",
+                "alt": "Brill Favicon"
+            }
+        },
+        "tnf": {
+            "theme": "tnf",
+            "header-logo": {
+                "name": "tfgroup.svg",
+                "alt": "Taylor & Francis Logo",
+                "width": "150px",
+                "height": "40"
+            },
+            "footer-logo": {
+                "name": "tfgroup.svg",
+                "alt": "Taylor & Francis Logo",
+                "height": "50"
+            },
+            "favicon": {
+                "name": "TNF_FAVICON.svg",
+                "alt": "Taylor & Francis Favicon"
+            },
+            "journal-header-logo": {
+                "name": "TNF_JORUNAL.svg",
+                "alt": "Taylor & Francis Journals Logo",
+                "width": "150px",
+                "height": "40"
+            },
+            "journal-footer-logo": {
+                "name": "TNF_JORUNAL.svg",
+                "alt": "Taylor & Francis Journals Logo",
+                "height": "50"
+            },
+            "journal-favicon": {
+                "name": "TNFJOURNALS_FAVICON.svg",
+                "alt": "Taylor & Francis Journals Favicon"
+            }
+        },
+        "acs": {
+            "theme": "acs",
+            "header-logo": {
+                "name": "ACS_WHITE.svg",
+                "alt": "ACS Logo",
+                "width": "150px",
+                "height": "40"
+            },
+            "footer-logo": {
+                "name": "ACS_WHITE.svg",
+                "alt": "ACS Logo",
+                "height": "50"
+            },
+            "favicon": {
+                "name": "ACS_WHITE.svg",
+                "alt": "ACS Favicon"
+            }
+        },
+        "oho": {
+            "theme": "oho",
+            "header-logo": {
+                "name": "OHO_WHITE.svg",
+                "alt": "OHO Logo",
+                "width": "150px",
+                "height": "40"
+            },
+            "footer-logo": {
+                "name": "OHO_WHITE.svg",
+                "alt": "OHO Logo",
+                "height": "50"
+            },
+            "favicon": {
+                "name": "OHO_FAVICON.svg",
+                "alt": "OHO Favicon"
+            }
+        }
     },
-    "lww": {
-      "theme": "lww",
-      "header-logo": {
-        "name": "LWW.svg",
-        "alt": "LWW",
-        "width": 120,
-        "height": 40
-      },
-      "footer-logo": {
-        "name": "LWW_WHITE_BOTTOM.svg",
-        "alt": "LWW",
-        "width": 100,
-        "height": 32
-      },
-      "favicon": { "name": "LWW_FAVICON.svg" }
-    },
-    "oup": {
-      "theme": "oxford",
-      "header-logo": {
-        "name": "OUP_WHITE.svg",
-        "alt": "OUP",
-        "width": 120,
-        "height": 40
-      },
-      "footer-logo": {
-        "name": "OUP_BLUE.svg",
-        "alt": "OUP",
-        "width": 100,
-        "height": 32
-      },
-      "favicon": { "name": "OUP_FAVICON.svg" }
-    },
-    "nihr": {
-      "theme": "nihr",
-      "header-logo": {
-        "name": "NIHR.svg",
-        "alt": "NIHR",
-        "width": 120,
-        "height": 40
-      },
-      "footer-logo": {
-        "name": "NIHR.png",
-        "alt": "NIHR",
-        "width": 100,
-        "height": 32
-      },
-      "favicon": { "name": "NIHR_FAVICON.svg" }
-    },
-    "brill": {
-      "theme": "brill",
-      "header-logo": {
-        "name": "BRILL.svg",
-        "alt": "Brill",
-        "width": 120,
-        "height": 40
-      },
-      "footer-logo": {
-        "name": "BRILL_BOTTOM.png",
-        "alt": "Brill",
-        "width": 100,
-        "height": 32
-      },
-      "favicon": { "name": "BRILL_FAVICON.png" }
-    },
-    "medknow": {
-      "theme": "medknow",
-      "header-logo": {
-        "name": "MEDKNOW.png",
-        "alt": "Medknow",
-        "width": 120,
-        "height": 40
-      },
-      "footer-logo": {
-        "name": "MEDKNOW_WHITE.png",
-        "alt": "Medknow",
-        "width": 100,
-        "height": 32
-      },
-      "favicon": { "name": "MEDKNOW_FAVICON.svg" }
-    },
-    "tnf": {
-      "theme": "tnf",
-      "header-logo": {
-        "name": "tnf.svg",
-        "alt": "T&F",
-        "width": 120,
-        "height": 40
-      },
-      "footer-logo": {
-        "name": "tfgroup.svg",
-        "alt": "T&F",
-        "width": 100,
-        "height": 32
-      },
-      "favicon": { "name": "TNF_FAVICON.svg" },
-      "journal-header-logo": {
-        "name": "TNF_JORUNAL.svg",
-        "alt": "T&F Journals",
-        "width": 120,
-        "height": 40
-      }
-    },
-    "acs": {
-      "theme": "acs",
-      "header-logo": {
-        "name": "ACS_WHITE.svg",
-        "alt": "ACS",
-        "width": 120,
-        "height": 40
-      },
-      "footer-logo": {
-        "name": "ACS_WHITE.svg",
-        "alt": "ACS",
-        "width": 100,
-        "height": 32
-      },
-      "favicon": { "name": "ACS_FAVICON.ico" }
-    },
-    "oho": {
-      "theme": "oho",
-      "header-logo": {
-        "name": "OHO_WHITE.svg",
-        "alt": "OHO",
-        "width": 120,
-        "height": 40
-      },
-      "footer-logo": {
-        "name": "OHO_BLUE.svg",
-        "alt": "OHO",
-        "width": 100,
-        "height": 32
-      },
-      "favicon": { "name": "OHO_FAVICON.svg" }
+    "copy": {
+        "common": {
+            "disclaimer": "The proofs provided are intended solely for checking purposes and should not be regarded as the final publication format, nor should they be utilized for any other reason. It is crucial that they are not posted on personal or institutional websites or printed and distributed. Until the final version has been published and citation details are obtainable, no excerpts or the entire article in its entirety should be included in any other publications.",
+            "thirdPartyPlugins": {
+                "title": "Third Party Plug-Ins:",
+                "text": "Using any third-party plug-in to translate the content or make any changes in the editor is not recommended as it might affect the content quality and the underlying metadata, which will delay publication.",
+                "chineseLabel": "Chinese Version:",
+                "chineseText": "请不要使用任何第三方插件翻译或者修改编辑器中的内容，因为这样可能会影响内容质量和底层元数据，从而导致发表延迟。"
+            }
+        },
+        "clients": {
+            "default": {
+                "welcome": "",
+                "subtitle": "The online proofing tool for collaborating on journal content",
+                "title": "Instructions",
+                "instructions": [
+                    "Take a thorough look at your proof and make any necessary modifications directly within the reports or article.",
+                    "It should be noted that the images in IMPACT have a low resolution to enhance the performance of the tool.",
+                    "Once you have reviewed the entire report and resolved all author queries, submit the article.",
+                    "An email will be sent to you with a copy of the proof containing your tracked changes for your own records."
+                ],
+                "notes": [],
+                "supportEmail": "impact.helpdesk@newgen.co"
+            },
+            "oup": {
+                "welcome": "",
+                "subtitle": "The online proofing tool that permits authors to directly edit and collaborate on journal content for Oxford University Press.",
+                "title": "Instructions",
+                "instructions": [""],
+                "notes": [],
+                "supportEmail": ""
+            },
+            "lww": {
+                "welcome": "",
+                "subtitle": "The online proofing tool for collaborating on proofing journal content for Wolters Kluwer Health, LLC.",
+                "title": "Instructions",
+                "instructions": [""],
+                "notes": [""],
+                "supportEmail": ""
+            },
+            "medknow": {
+                "welcome": "",
+                "subtitle": "The online proofing tool for collaborating on proofing journal content for Wolters Kluwer - Medknow",
+                "title": "Instructions",
+                "instructions": [
+                    "Log in to IMPACT in a single browser window at a time (but if you would like your co-authors to review the article as well, please share it with them by selecting the sharing option in IMPACT).",
+                    "Review your proof carefully, making any necessary amendments directly into the article.",
+                    "Save your changes if you want to pause reviewing and use the logout option before closing the browser window. You may log in again later to resume reviewing using your log-in link.",
+                    "Only finish your review in IMPACT when you are sure you have no additional changes to add as the review will be closed and not be accessible after reviewing has been completed.",
+                    "Note that the images in IMPACT are low resolution to optimize the performance of the tool.",
+                    "Submit the article when you have reviewed the entire article and resolved all author queries.",
+                    "You will receive a copy of the proof with your changes tracked via email for your own records."
+                ],
+                "notes": [],
+                "supportEmail": ""
+            },
+            "plos": {
+                "welcome": "",
+                "subtitle": "The online proofing tool for collaborating on proofing journal content for Public Library of Science",
+                "title": "Instructions",
+                "instructions": [
+                    "Log in to IMPACT in a single browser window at a time (but if you would like your co-authors to review the article as well, please share it with them by selecting the sharing option in IMPACT).",
+                    "Review your proof carefully, making any necessary amendments directly into the article.",
+                    "Save your changes if you want to pause reviewing and use the logout option before closing the browser window. You may log in again later to resume reviewing using your log-in link.",
+                    "Only finish your review in IMPACT when you are sure you have no additional changes to add as the review will be closed and not be accessible after reviewing has been completed.",
+                    "Note that the images in IMPACT are low resolution to optimize the performance of the tool.",
+                    "Submit the article when you have reviewed the entire article and resolved all author queries.",
+                    "You will receive a copy of the proof with your changes tracked via email for your own records."
+                ],
+                "notes": [],
+                "supportEmail": ""
+            },
+            "nihr": {
+                "welcome": "",
+                "subtitle": "The online proofing tool for collaborating on journal content",
+                "title": "Instructions",
+                "instructions": [""],
+                "notes": [],
+                "supportEmail": ""
+            },
+            "brill": {
+                "welcome": "",
+                "subtitle": "The online proofing tool for collaborating on proofing journal content for BRILL.",
+                "title": "Instructions",
+                "instructions": [""],
+                "notes": [],
+                "supportEmail": ""
+            },
+            "tnf": {
+                "welcome": "",
+                "subtitle": "The online proofing tool that permits authors to directly edit and collaborate on book content.",
+                "title": "Instructions",
+                "instructions": [""],
+                "notes": [],
+                "supportEmail": "impact.helpdesk.tnf@newgen.co"
+            },
+            "acs": {
+                "welcome": "",
+                "subtitle": "The online proofing tool that permits authors to directly edit and collaborate on journal content for American Chemical Society.",
+                "title": "Instructions",
+                "instructions": [""],
+                "notes": [],
+                "supportEmail": ""
+            },
+            "oho": {
+                "welcome": "",
+                "subtitle": "The online proofing tool that permits authors to directly edit and collaborate on book content for Oxford University Press.",
+                "title": "Instructions",
+                "instructions": [""],
+                "notes": [],
+                "supportEmail": ""
+            },
+            "intellect": {
+                "welcome": "",
+                "subtitle": "The online proofing tool for collaborating on proofing journal content for INTELLECT.",
+                "title": "Instructions",
+                "instructions": [""],
+                "notes": [],
+                "supportEmail": ""
+            },
+            "oso": {
+                "welcome": "",
+                "subtitle": "The online proofing tool that permits authors to directly edit and collaborate on book content for Oxford University Press.",
+                "title": "Instructions",
+                "instructions": [""],
+                "notes": [],
+                "supportEmail": "impact.notification.oup@newgen.co"
+            },
+            "oxmedo": {
+                "welcome": "",
+                "subtitle": "The online proofing tool that permits authors to directly edit and collaborate on book content for Oxford Medical Online.",
+                "title": "Instructions",
+                "instructions": [""],
+                "notes": [],
+                "supportEmail": ""
+            },
+            "lse": {
+                "welcome": "",
+                "subtitle": "An online proofing tool that allows authors to directly edit and collaborate on book content",
+                "title": "Instructions",
+                "instructions": [""],
+                "notes": [],
+                "supportEmail": "impact.helpdesk.lse@newgen.co"
+            }
+        }
     }
-  },
-  "copy": {
-    "common": {
-      "disclaimer": "By continuing you agree to use IMPACT for proofing collaboration as instructed by your publisher."
-    },
-    "clients": {
-      "default": {
-        "welcome": "",
-        "subtitle": "The online proofing tool for collaborating on journal content",
-        "title": "Instructions",
-        "instructions": [
-          "Review the proof carefully for accuracy.",
-          "Use the tools provided to mark corrections.",
-          "Submit your changes when complete."
-        ],
-        "supportEmail": "impact.helpdesk@newgen.co"
-      }
-    }
-  }
 }
