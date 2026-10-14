@@ -6,6 +6,10 @@ import {
   MAIL_DETAIL,
 } from '../../shared/legacyMailGlobals.js';
 import { applyEditorLegacyHelpers } from './editorLegacyHelpers.js';
+import { applyLegacyApiPaths } from './legacyApiPaths.js';
+import { applyLegacyIdHelpers } from './legacyIdHelpers.js';
+import { applyLegacyJsonHelpers } from './legacyJsonHelpers.js';
+import { applyLegacyRoleIds } from './legacyRoleIds.js';
 import { parseLangResponseText } from './parseLangFile.js';
 import {
   parsePageQueryParams,
@@ -48,5 +52,9 @@ export function applyLegacyGlobals() {
       '';
     g.IS_LOCAL_HOST = /localhost/i.test(String(href));
   }
+  applyLegacyIdHelpers(g);
+  applyLegacyApiPaths(g);
+  applyLegacyRoleIds(g);
+  applyLegacyJsonHelpers(g);
   applyEditorLegacyHelpers(g);
 }
