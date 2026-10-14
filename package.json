@@ -6,7 +6,7 @@
   "scripts": {
     "env:generate": "node scripts/generate-env.js",
     "pack:editor": "node scripts/pack-editor-assets.js",
-    "predev": "npm run env:generate",
+    "predev": "npm run env:generate && npm run pack:editor",
     "dev": "vite",
     "prebuild": "npm run env:generate && npm run pack:editor",
     "build": "vite build",

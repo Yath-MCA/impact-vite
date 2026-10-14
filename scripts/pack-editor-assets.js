@@ -12,7 +12,7 @@ const assetsRoot = path.join(root, 'src/assets');
 /**
  * Resolve a manifest-relative path:
  * - common/… → src/pages/common/
- * - lib/… → src/assets/
+ * - lib/… or fonts/… → src/assets/
  * - else → src/pages/editor/
  */
 export function resolveEditorSource(relPosix) {
@@ -20,7 +20,7 @@ export function resolveEditorSource(relPosix) {
   if (rel.startsWith('common/')) {
     return path.join(commonRoot, ...rel.slice('common/'.length).split('/'));
   }
-  if (rel.startsWith('lib/')) {
+  if (rel.startsWith('lib/') || rel.startsWith('fonts/')) {
     return path.join(assetsRoot, ...rel.split('/'));
   }
   return path.join(editorRoot, ...rel.split('/'));
