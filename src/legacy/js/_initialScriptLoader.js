@@ -369,7 +369,9 @@
             }
 
             if (global.IS_JOURNAL) {
-                if (SHARED_KEY.titleinfo && SHARED_KEY.titleinfo.cover) {
+                if (SHARED_KEY.cover) {
+                    global.SHORT_TITLE = SHARED_KEY.cover;
+                } else if (SHARED_KEY.titleinfo && SHARED_KEY.titleinfo.cover) {
                     global.SHORT_TITLE = SHARED_KEY.titleinfo.cover;
                 } else {
                     if (SHARED_KEY.shorttitle) global.SHORT_TITLE = SHARED_KEY.shorttitle;
@@ -503,18 +505,32 @@
             if (global.isValidVariable(global.InitLog)) {
                 global.InitLog('LangConfig', 'handleResponse');
             }
-            this.IS_LOADED = true;
-            var filter = response.responseText.slice((this.DEFAULT.length + 1), -1);
-            if (filter.indexOf('"=') === 0) filter = filter.slice(2);
-            else if (filter.indexOf('=') === 0) filter = filter.slice(1);
-            if (filter.slice(-1) === '"') filter = filter.slice(0, -1);
-
-            var stringfy = JSON.stringify(filter);
-            var json = JSON.parse(JSON.parse(stringfy));
+            var text = response && response.responseText != null ? response.responseText : '';
+            var json;
+            if (typeof global.parseLangResponseText === 'function') {
+                json = global.parseLangResponseText(text, this.DEFAULT);
+            } else {
+                // Fallback if applyLegacyGlobals did not run (should not happen in SPA boot).
+                var stripped = String(text).replace(/\/\*[\s\S]*?\*\//g, '').trim();
+                var assignRe = new RegExp('^' + String(this.DEFAULT).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*=\\s*');
+                if (!assignRe.test(stripped)) {
+                    throw new Error('Lang file missing "' + this.DEFAULT + ' =" assignment');
+                }
+                stripped = stripped.replace(assignRe, '').trim();
+                if (stripped.slice(-1) === ';') stripped = stripped.slice(0, -1).trim();
+                var start = stripped.indexOf('{');
+                var end = stripped.lastIndexOf('}');
+                if (start < 0 || end <= start) {
+                    throw new Error('Lang file missing object literal');
+                }
+                json = new Function('return (' + stripped.slice(start, end + 1) + ');')();
+            }
             if (!global.IMPACT) global.IMPACT = {};
             if (!global.IMPACT.lang) global.IMPACT.lang = {};
             global.IMPACT.lang[this.DEFAULT] = json;
+            this.IS_LOADED = true;
         } catch (err) {
+            this.IS_LOADED = false;
             console.warn(err.message);
             if (global.isValidVariable(global.ErrorLogTrace)) global.ErrorLogTrace('LANG_CONFIG_HANDLE', err.message);
         }

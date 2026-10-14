@@ -6,6 +6,7 @@ import {
   MAIL_DETAIL,
 } from '../../shared/legacyMailGlobals.js';
 import { applyEditorLegacyHelpers } from './editorLegacyHelpers.js';
+import { parseLangResponseText } from './parseLangFile.js';
 import {
   parsePageQueryParams,
   resolvePageQueryString,
@@ -34,6 +35,7 @@ export function applyLegacyGlobals() {
   g.FetchService = FetchService;
   g.resolvePageQueryString = resolvePageQueryString;
   g.parsePageQueryParams = parsePageQueryParams;
+  g.parseLangResponseText = parseLangResponseText;
   if (!Array.isArray(g.ADMIN_USER_IDs)) {
     g.ADMIN_USER_IDs = ADMIN_USER_IDs;
   }

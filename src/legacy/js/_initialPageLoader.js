@@ -368,6 +368,9 @@
             if (typeof global.setDOC_INFO === 'function') {
                 global.setDOC_INFO(sharedKey);
             }
+			
+			global.DOC_DTD = sharedKey.dtd;
+            global.IS_JOURNAL = Boolean(global.DOC_DTD.includes('JATS'));
 
             if (global.isValidVariable(global.InitialLoadDialog)) {
                 global.InitialLoadDialog.updateProgress(2);
