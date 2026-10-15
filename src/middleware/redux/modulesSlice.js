@@ -130,6 +130,40 @@ const modulesSlice = createSlice({
       mod.lastError = { functionName: functionName || null, message: message || null, timestamp: new Date().toISOString() };
       const timestamp = touchRuntime(state, 'module/errorRecorded');
       pushTimeline(state, { type: 'module/errorRecorded', moduleId: id, functionName: functionName || null, timestamp });
+    },
+    /** Merge a BaseModule snapshot without re-incrementing open/close counts. */
+    moduleStatePatched(state, action) {
+      const payload = action.payload || {};
+      const id = payload.id || payload.dialogId || payload.moduleId;
+      if (!id) return;
+      const mod = ensureModule(state, id);
+      if (payload.name !== undefined || payload.moduleName !== undefined) {
+        mod.name = payload.name || payload.moduleName || mod.name;
+      }
+      if (payload.dialogType !== undefined) mod.dialogType = payload.dialogType;
+      if (payload.initiated !== undefined) mod.initiated = !!payload.initiated;
+      if (payload.stats) {
+        mod.stats = normalizeStats({ ...mod.stats, ...payload.stats });
+      }
+      const isOpen =
+        payload.state === 1 ||
+        payload.isOpen === true ||
+        (payload.isOpen === false ? false : mod.isOpen);
+      mod.isOpen = isOpen;
+      state.modules.openIds = state.modules.openIds.filter((existingId) => existingId !== id);
+      if (isOpen) {
+        state.modules.openIds.push(id);
+        state.runtime.activeModuleId = mod.name || id;
+        state.runtime.activeDialogId = id;
+      } else if (state.runtime.activeDialogId === id) {
+        const remaining = state.modules.openIds;
+        state.runtime.activeDialogId = remaining.length
+          ? remaining[remaining.length - 1]
+          : null;
+        state.runtime.activeModuleId = null;
+      }
+      const timestamp = touchRuntime(state, 'module/statePatched');
+      pushTimeline(state, { type: 'module/statePatched', moduleId: id, timestamp });
     }
   }
 });
@@ -140,7 +174,8 @@ export const {
   moduleClosed,
   buttonClicked,
   inputInteracted,
-  errorRecorded
+  errorRecorded,
+  moduleStatePatched
 } = modulesSlice.actions;
 
 export default modulesSlice.reducer;

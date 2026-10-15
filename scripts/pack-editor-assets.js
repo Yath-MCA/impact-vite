@@ -419,14 +419,52 @@ async function main() {
   }
 
   /**
-   * Rewrite Vite @editor/modules/… imports so packed ESM can native-import.
-   * Covers _runtime, components, context helpers/stores, etc.
+   * Rewrite Vite @editor/modules/… and relative middleware/redux imports
+   * so packed ESM can native-import from /assets/{VERSION}/….
    */
   function rewriteEsmEditorImports(jsText) {
     const modulesBase = `/assets/${version}/modules/`;
-    return String(jsText).replace(
+    const reduxBase = `/assets/${version}/middleware/redux/`;
+    let text = String(jsText).replace(
       /(['"])@editor\/modules\//g,
       `$1${modulesBase}`
+    );
+    // ../../../../middleware/redux/foo.js → /assets/{V}/middleware/redux/foo.js
+    text = text.replace(
+      /(['"])(?:\.\.\/)+middleware\/redux\//g,
+      `$1${reduxBase}`
+    );
+    return text;
+  }
+
+  /** Pack shared RTK store + modules bridge for classic editor ESM. */
+  function packReduxMiddlewareEsm() {
+    const srcDir = path.join(root, 'src', 'middleware', 'redux');
+    const outDir = path.join(outBase, 'middleware', 'redux');
+    fs.mkdirSync(outDir, { recursive: true });
+    const files = [
+      'store.js',
+      'modulesSlice.js',
+      'moduleRuntimeBridge.js',
+      'pageMetaSlice.js',
+      'capabilityCatalogSlice.js',
+      'index.js',
+      'useModuleLifecycle.js',
+    ];
+    let n = 0;
+    for (const name of files) {
+      const abs = path.join(srcDir, name);
+      if (!fs.existsSync(abs)) {
+        console.error(`[pack-editor-assets] missing redux ${abs}`);
+        process.exit(1);
+      }
+      let text = fs.readFileSync(abs, 'utf8');
+      text = rewriteEsmEditorImports(text);
+      fs.writeFileSync(path.join(outDir, name), text, 'utf8');
+      n += 1;
+    }
+    console.log(
+      `[pack-editor-assets] redux ESM=${n} → ${path.relative(root, outDir)}`
     );
   }
 
@@ -586,6 +624,7 @@ async function main() {
       path.join(modulesDir, 'global_context_editor.min.js')
     );
   }
+  packReduxMiddlewareEsm();
   packRuntimeEsm();
   packComponentsEsm();
   packContextEsm();

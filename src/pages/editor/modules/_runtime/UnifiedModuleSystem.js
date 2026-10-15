@@ -1434,52 +1434,36 @@ class UnifiedModuleSystem {
         this.setupInputTracking(instance, moduleId);
     }
 
-    recordModuleOpen(moduleId) {
-        const stats = this.moduleStats.get(moduleId);
-        if (!stats) return;
-
-        stats.openCount++;
-        stats.lastOpened = new Date();
-
-        // Add to history
-        stats.history.push({
-            action: 'open',
-            timestamp: stats.lastOpened,
-            count: stats.openCount
-        });
-
-        // Keep history size manageable
-        if (stats.history.length > 100) {
-            stats.history = stats.history.slice(-50);
-        }
-        if (!["TOOLTIP_MODULE"].includes(moduleId)) {
-            debug.log(`Module ${moduleId} opened - Count: ${stats.openCount}`);
-        }
+    /**
+     * Open/close counts live in RTK modulesSlice via BaseModule.dispatchRuntimeAction.
+     * Wraps remain so show/close still flow through setupMethodsForModule — no local increment.
+     */
+    recordModuleOpen(_moduleId) {
+        // no-op: avoids double-counting with modulesSlice.moduleOpened
     }
 
-    recordModuleClose(moduleId) {
-        const stats = this.moduleStats.get(moduleId);
-        if (!stats || !stats.lastOpened) return;
+    recordModuleClose(_moduleId) {
+        // no-op: avoids double-counting with modulesSlice.moduleClosed
+    }
 
-        stats.closeCount++;
-        stats.lastClosed = new Date();
-
-        // Calculate open duration
-        const openDuration = stats.lastClosed - stats.lastOpened;
-        stats.totalOpenTime += openDuration;
-        stats.avgOpenTime = stats.totalOpenTime / stats.closeCount;
-
-        // Add to history
-        stats.history.push({
-            action: 'close',
-            timestamp: stats.lastClosed,
-            duration: openDuration,
-            count: stats.closeCount
-        });
-
-        if (moduleId == "TOOLTIP_MODULE") {
-
-        } else debug.log(`Module ${moduleId} closed - Duration: ${openDuration}ms`);
+    /** Prefer RTK modules.byId when present; fall back to local moduleStats. */
+    _readRtkModuleStats(moduleId) {
+        try {
+            const store =
+                (typeof window !== 'undefined' && window.__IMPACT_REDUX_STORE__) ||
+                null;
+            if (!store || typeof store.getState !== 'function') return null;
+            const byId = store.getState()?.modules?.modules?.byId || {};
+            return (
+                byId[moduleId] ||
+                Object.values(byId).find(
+                    (m) => m && (m.name === moduleId || m.id === moduleId)
+                ) ||
+                null
+            );
+        } catch {
+            return null;
+        }
     }
 
     setupButtonTracking(instance, moduleId) {
@@ -1524,27 +1508,61 @@ class UnifiedModuleSystem {
     }
 
     getModuleUsageReport(moduleId) {
-        const stats = this.moduleStats.get(moduleId);
-        if (!stats) return null;
+        const local = this.moduleStats.get(moduleId);
+        const rtk = this._readRtkModuleStats(moduleId);
+        const stats = local || {
+            openCount: 0,
+            closeCount: 0,
+            totalOpenTime: 0,
+            avgOpenTime: 0,
+            buttonClicks: {},
+            inputInteractions: 0,
+            lastOpened: null,
+            lastClosed: null,
+            history: []
+        };
+        if (rtk && rtk.stats) {
+            stats.openCount = rtk.stats.openCount || 0;
+            stats.closeCount = rtk.stats.closeCount || 0;
+            stats.lastOpened = rtk.stats.lastOpened
+                ? new Date(rtk.stats.lastOpened)
+                : null;
+            stats.lastClosed = rtk.stats.lastClosed
+                ? new Date(rtk.stats.lastClosed)
+                : null;
+            if (rtk.stats.buttonClicks) {
+                stats.buttonClicks = {
+                    ...stats.buttonClicks,
+                    ...rtk.stats.buttonClicks
+                };
+            }
+            if (typeof rtk.stats.inputInteractions === 'number') {
+                stats.inputInteractions = rtk.stats.inputInteractions;
+            }
+        }
+        if (!local && !rtk) return null;
 
         return {
             moduleId,
             usage: {
                 totalOpens: stats.openCount,
                 totalCloses: stats.closeCount,
-                currentlyOpen: stats.lastOpened > stats.lastClosed,
-                avgOpenTime: Math.round(stats.avgOpenTime / 1000) + 's',
-                totalTime: Math.round(stats.totalOpenTime / 1000 / 60) + 'min'
+                currentlyOpen: !!(
+                    stats.lastOpened &&
+                    (!stats.lastClosed || stats.lastOpened > stats.lastClosed)
+                ),
+                avgOpenTime: Math.round((stats.avgOpenTime || 0) / 1000) + 's',
+                totalTime: Math.round((stats.totalOpenTime || 0) / 1000 / 60) + 'min'
             },
             interactions: {
                 buttonClicks: stats.buttonClicks,
-                totalButtonClicks: Object.values(stats.buttonClicks).reduce((a, b) => a + b, 0),
+                totalButtonClicks: Object.values(stats.buttonClicks || {}).reduce((a, b) => a + b, 0),
                 inputInteractions: stats.inputInteractions
             },
             timeline: {
                 lastOpened: stats.lastOpened,
                 lastClosed: stats.lastClosed,
-                recentHistory: stats.history.slice(-10)
+                recentHistory: (stats.history || []).slice(-10)
             }
         };
     }

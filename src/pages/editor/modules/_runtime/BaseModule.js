@@ -7,6 +7,7 @@ import trackManager from '@editor/modules/components/trackManager.js';
 import SummernoteManager from '@editor/modules/components/SummernoteManager.js';
 import { EnhancedErrorTracker } from '@editor/modules/components/Error_Report_Table_Builder.js';
 import { getRecordUserAction } from '@editor/modules/components/UserActionRecord_Handler.js';
+import { dispatchModuleRuntimeToRtk } from '../../../../middleware/redux/moduleRuntimeBridge.js';
 
 /** Window-backed gulp helper — bare ErrorLogTrace is not in ESM scope. */
 function legacyErrorLog(module, msg) {
@@ -164,13 +165,13 @@ class BaseModule {
     }
     dispatchRuntimeAction(action) {
         try {
-            const store = this.getRuntimeStore();
-            if (!store || typeof store.dispatch !== "function" || !action || !action.type) return false;
-            store.dispatch(action);
-            return true;
+            if (!action || !action.type) return false;
+            // RTK modulesSlice is the source of truth (openIds / lastOpened / timeline).
+            // ModuleRuntimeStore is a getState/subscribe facade over the same store.
+            return dispatchModuleRuntimeToRtk(action);
         } catch (err) {
             if (typeof console !== "undefined" && console.warn) {
-                console.warn("ModuleRuntimeStore dispatch failed:", err && err.message ? err.message : err);
+                console.warn("module runtime RTK dispatch failed:", err && err.message ? err.message : err);
             }
             return false;
         }
