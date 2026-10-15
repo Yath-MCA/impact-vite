@@ -3,6 +3,8 @@
  * Phase 2: panel enable/disable driven by style-rules.json (engine inlined; no JS imports).
  * Phase 3: scoped offscreen DOM via resolveApplyStyleScopeRoot (books avoid full get/set).
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 
 /**
  * Resolve offscreen HTML + write-back mode for Apply Style.

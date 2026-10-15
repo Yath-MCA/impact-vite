@@ -417,6 +417,37 @@ async function main() {
     );
   }
 
+  /** Rewrite Vite @editor/_runtime imports so packed ESM can dynamic-import. */
+  function rewriteEsmRuntimeImports(jsText) {
+    const runtimeBase = `/assets/${version}/modules/_runtime/`;
+    return String(jsText).replace(
+      /(['"])@editor\/modules\/_runtime\//g,
+      `$1${runtimeBase}`
+    );
+  }
+
+  /** Copy BaseModule + UnifiedModuleSystem as ESM under modules/_runtime/. */
+  function packRuntimeEsm() {
+    const runtimeSrc = path.join(editorRoot, 'modules', '_runtime');
+    const runtimeOut = path.join(modulesDir, '_runtime');
+    fs.mkdirSync(runtimeOut, { recursive: true });
+    let n = 0;
+    for (const name of ['BaseModule.js', 'UnifiedModuleSystem.js']) {
+      const abs = path.join(runtimeSrc, name);
+      if (!fs.existsSync(abs)) {
+        console.error(`[pack-editor-assets] missing runtime ${abs}`);
+        process.exit(1);
+      }
+      let text = fs.readFileSync(abs, 'utf8');
+      text = rewriteEsmRuntimeImports(text);
+      fs.writeFileSync(path.join(runtimeOut, name), text, 'utf8');
+      n += 1;
+    }
+    console.log(
+      `[pack-editor-assets] runtime ESM=${n} → ${path.relative(root, runtimeOut)}`
+    );
+  }
+
   function packSingleModuleTree() {
     const modulesRoot = path.join(editorRoot, 'modules');
     const include = SINGLE_MODULE_INCLUDE_GLOBS.map((g) => toPosix(g));
@@ -431,7 +462,13 @@ async function main() {
       if (!destRel) continue;
       const out = path.join(modulesDir, ...destRel.split('/'));
       fs.mkdirSync(path.dirname(out), { recursive: true });
-      fs.copyFileSync(abs, out);
+      if (path.extname(abs).toLowerCase() === '.js') {
+        let text = fs.readFileSync(abs, 'utf8');
+        text = rewriteEsmRuntimeImports(text);
+        fs.writeFileSync(out, text, 'utf8');
+      } else {
+        fs.copyFileSync(abs, out);
+      }
       copied += 1;
     }
     console.log(
@@ -477,6 +514,7 @@ async function main() {
     GLOBAL_CONTEXT_EDITOR_PATHS,
     path.join(modulesDir, 'global_context_editor.min.js')
   );
+  packRuntimeEsm();
   packSingleModuleTree();
   packTemplatesHtml();
 

@@ -8,6 +8,8 @@
  * - Ensures consistent, sequential labeling for all float types.
  * - Refer to float-renumbering.md for detailed input/output and logic explanation.
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 
 
 /**

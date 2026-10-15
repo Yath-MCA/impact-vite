@@ -2,6 +2,8 @@
  * ShowTrackingModule — class-based Review Changes (localhost simplified stack).
  * No M_FUN / get_entry_info. Lists plain insert/del + data-track-code only.
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 
 import {
     TRACK_CODES,

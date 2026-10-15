@@ -1,4 +1,6 @@
 /*jslint white:true, for:true */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 /*global window, BaseModule, SmartSyncSocket, DOC_ID, USER_INFO, TOASTER_ALERT */
 
 class SmartLinkShareModule extends BaseModule {

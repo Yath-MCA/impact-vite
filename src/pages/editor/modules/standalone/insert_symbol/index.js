@@ -1,6 +1,8 @@
 /**
  * InsertSymbolModule — migrated from Insert_Symbol_Module.js
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 class InsertSymbolModule extends BaseModule {
 
     constructor(name = 'InsertSymbolModule', errorTracker = null, options = {}) {

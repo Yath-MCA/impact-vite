@@ -1,3 +1,4 @@
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
 import { buildInsertFnRadios, kindForUiType, isCuedUiType, nextFnInsertBody, summerHtmlToJats, countLiveTblFnXrefs, lastCiteRemovesNote, canInsertTblFnCite, tblFnLabelsFromSources, pickNextFnLabel, nextProbabilityLabel, probabilityLabelChoices, applySplitFnParagraphs, wrapBareTblFnStarXrefs, htmlToPlain } from './insert_fn_radios.js';
 
 /* <div class="mDialog ds-none wo-editor-access" id="NotesGroupDialog"> */

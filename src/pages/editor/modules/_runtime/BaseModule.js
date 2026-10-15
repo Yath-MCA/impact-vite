@@ -1,3 +1,7 @@
+/**
+ * Editor dialog/module base class.
+ * ESM export + window bridge for classic scripts still using global BaseModule.
+ */
 class BaseModule {
 
     constructor(name, subFolder, options = {}) {
@@ -1898,4 +1902,11 @@ class BaseModule {
             return str;
         }
     }
+}
+
+export default BaseModule;
+export { BaseModule };
+
+if (typeof window !== 'undefined') {
+    window.BaseModule = BaseModule;
 }

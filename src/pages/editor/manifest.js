@@ -84,8 +84,7 @@ export const MODULE_MAIN_PATHS = [
   'modules/components/FileUploadModule.js',
   'modules/components/SummernoteManager.js',
   'modules/components/emailInputHelper.js',
-  'modules/_runtime/BaseModule.js',
-  'modules/_runtime/UnifiedModuleSystem.js',
+  // BaseModule + UnifiedModuleSystem load as ESM from boot (not classic concat).
   'modules/module_main.js',
 ];
 
@@ -129,6 +128,7 @@ export const SINGLE_MODULE_INCLUDE_GLOBS = [
 ];
 
 export const SINGLE_MODULE_EXCLUDE_GLOBS = [
+  'shared/index.js',
   'shared/**/context.js',
   'shared/browser-compatible/**',
   'shared/query-comment-system/**',

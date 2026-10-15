@@ -1,6 +1,8 @@
 /**
  * PiModule — migrated from ProcessingInstruction_GeneratePDF_Module.js
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 class PiModule extends BaseModule {
     constructor(name = 'PiModule', errorTracker = null, options = {}) {
         super(name, errorTracker, options);

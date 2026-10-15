@@ -12,6 +12,8 @@
  * 6. Use template literals for HTML generation
  * 7. Implement proper cleanup to prevent memory leaks
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 
 class SupplementaryMaterial extends BaseModule {
     /**

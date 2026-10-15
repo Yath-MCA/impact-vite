@@ -4,6 +4,8 @@
  */
 import QcValidationCore from './QcValidationCore.js';
 
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 class QcValidationModule extends BaseModule {
     constructor(name = 'QualityValidationModule', errorTracker = null, options = {}) {
         super(name, errorTracker, options);

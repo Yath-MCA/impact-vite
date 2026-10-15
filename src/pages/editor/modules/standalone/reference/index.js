@@ -1,3 +1,4 @@
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
 class ReferenceModule extends BaseModule {
     constructor(name = 'ReferenceModule', subFolder = 'reference', options = {}) {
         super(name, subFolder, options);

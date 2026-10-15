@@ -3,6 +3,8 @@
  * with author/editor analysis and row layout
  * (Edit Field → Preview → Suggestion).
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 
 
 class EditReferenceTextModule extends BaseModule {

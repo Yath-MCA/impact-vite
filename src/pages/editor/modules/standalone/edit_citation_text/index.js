@@ -3,6 +3,8 @@
  * optionally change linked reference, and retain formatting tags inside xref.
  * Pattern: hyperlink_module (BaseModule + minimal dialog).
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 class EditCitationTextModule extends BaseModule {
     static TRACK_CODE_LEGACY_DEL = 'cite-text-del-01';
     static TRACK_CODE_LEGACY = 'cite-text-01';

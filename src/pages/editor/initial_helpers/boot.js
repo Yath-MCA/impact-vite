@@ -134,7 +134,23 @@ async function loadPageCssDev() {
   }
 }
 
-/** module_main + global_context_* always from pack (classic scripts). */
+/**
+ * ESM BaseModule + UnifiedModuleSystem (window bridge).
+ * Must run after module_main.min.js (FileUploadModule, etc.) and before context packs.
+ */
+async function ensureModuleRuntimeEsm() {
+  const [{ default: BaseModule }, { initUnifiedModuleSystem }] =
+    await Promise.all([
+      import('@editor/modules/_runtime/BaseModule.js'),
+      import('@editor/modules/_runtime/UnifiedModuleSystem.js'),
+    ]);
+  if (typeof window !== 'undefined') {
+    window.BaseModule = BaseModule;
+  }
+  await initUnifiedModuleSystem();
+}
+
+/** module_main then ESM runtime then global_context_* (classic contexts). */
 async function loadModulePacks(version) {
   for (const name of EDITOR_MODULE_PACK_SCRIPTS) {
     const url = `/assets/${version}/modules/${name}`;
@@ -142,6 +158,12 @@ async function loadModulePacks(version) {
       throw new Error(`Missing packed module script ${url} — run npm run pack:editor`);
     }
     await loadScriptOnce(url);
+    if (name === 'module_main.min.js') {
+      await ensureModuleRuntimeEsm();
+    }
+  }
+  if (!EDITOR_MODULE_PACK_SCRIPTS.includes('module_main.min.js')) {
+    await ensureModuleRuntimeEsm();
   }
 }
 

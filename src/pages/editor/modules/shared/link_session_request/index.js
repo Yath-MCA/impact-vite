@@ -2,6 +2,8 @@
  * LinkSessionRequestModule — editor incoming-request dialog (accept / reject / auto-accept).
  * Session API logic stays in LinkSessionService (LinkSessionCore).
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 
 const LINK_REQUEST_DIALOG_SOURCE = 'link_request_dialog';
 

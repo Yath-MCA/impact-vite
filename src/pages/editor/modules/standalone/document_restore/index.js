@@ -6,6 +6,8 @@
  **   Do you wish to continue?)
             
 */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 /**
  * DocumentRestoreModule - Handles document version restoration functionality
  * Allows users to restore previous versions of documents with proper confirmation

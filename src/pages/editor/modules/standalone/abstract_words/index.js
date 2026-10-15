@@ -1,3 +1,4 @@
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
 // AbstractWordCounter.js
 
 class AbstractWordCounter extends BaseModule {

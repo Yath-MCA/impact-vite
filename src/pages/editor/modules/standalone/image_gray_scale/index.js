@@ -5,6 +5,8 @@
  
             
 */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 class GrayscaleModule extends BaseModule {
 
     constructor(name, errorTracker, options = {}) {

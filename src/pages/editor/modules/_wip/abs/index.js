@@ -6,6 +6,8 @@ https://claude.ai/chat/0347d25d-965e-4a8e-b648-1a10a4605e45
 
 
 */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 
 class AbstractModule extends BaseModule {
 
@@ -140,3 +142,5 @@ class AbstractModule extends BaseModule {
 }
 
 window.Abstract_Module = new AbstractModule();
+
+export default AbstractModule;

@@ -2,6 +2,8 @@
  * ApplyStyleModule — migrated from ApplyStyle.js
  * Refactored with SRP: CkDom, LabelGenerator, StyleRuleValidator, DomManipulator, Strategy Pattern
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 
 import StyleRulesEngine from './styleRules.js';
 import WrapEngine from './WrapEngine.js';

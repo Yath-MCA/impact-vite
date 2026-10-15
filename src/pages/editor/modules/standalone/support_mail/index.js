@@ -8,6 +8,8 @@
  * @version 2.1.0
  * @author Development Team
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 
 
 

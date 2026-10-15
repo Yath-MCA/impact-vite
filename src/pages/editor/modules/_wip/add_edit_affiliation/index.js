@@ -1,4 +1,6 @@
 /* jshint esversion: 11 */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 /* global BaseModule, ErrorLogTrace, IMPACT_SELECTION, USER_INFO */
 
 class AddEditAffiliationModule extends BaseModule {

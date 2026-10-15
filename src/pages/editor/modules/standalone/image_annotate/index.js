@@ -3,6 +3,8 @@
  
             
 */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 /**
  * Enhanced AnnotationModule Class
  * Refactored for better maintainability, error handling, and modern JavaScript practices

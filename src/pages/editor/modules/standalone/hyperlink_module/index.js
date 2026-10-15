@@ -3,6 +3,8 @@
  * Provides functionality for URL validation, email handling, and link management
  * https://claude.ai/chat/0c77019f-29d1-40f6-9ca1-f39301c337e5
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 import {
     EMERGENCY_DEFAULT,
     resolveClientInstance,

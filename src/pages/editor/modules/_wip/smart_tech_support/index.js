@@ -1,4 +1,6 @@
 /*jslint white:true, for:true */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 /*global window, BaseModule, DOC_ID, USER_INFO, GET_JSON */
 
 class SmartTechSupportModule extends BaseModule {

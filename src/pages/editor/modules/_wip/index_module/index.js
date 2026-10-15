@@ -1,6 +1,8 @@
 /**
  * IndexModule — mark index entries in CKEditor (separate layer, stored in document HTML).
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 class IndexModule extends BaseModule {
     constructor(name = 'IndexModule', errorTracker = null, options = {}) {
         super(name, errorTracker, options);

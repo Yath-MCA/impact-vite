@@ -2,6 +2,8 @@
  * @deprecated Use src/modules/shared/link_session/ — LinkSessionModule extends BaseModule.
  * Template: src/modules/shared/link_session/template.html
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 class LinkShareModule extends BaseModule {
     constructor(name = 'LinkShareModule', errorTracker = null, options = {}) {
         super(name, errorTracker, options);

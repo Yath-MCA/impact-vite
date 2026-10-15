@@ -1,6 +1,8 @@
 /**
  * ShareInviteModule � share proof link via email (lazy-loaded dialog).
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 class ShareInviteModule extends BaseModule {
     constructor(name = 'ShareInviteModule', subFolder = 'reference', options = {}) {
         super(name, subFolder, options);

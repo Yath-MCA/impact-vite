@@ -3,6 +3,8 @@
  * Flow phases: precheck → confirm → commit → post → exit
  * Commit path: legacy multi-AJAX (default) or saveWithLogout / saveWithFinalize when capabilities allow.
  */
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
+
 
 class FinalizeSignOffModule extends BaseModule {
     constructor(name = 'FinalizeSignOffModule', errorTracker = null, options = {}) {

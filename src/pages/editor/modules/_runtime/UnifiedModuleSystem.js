@@ -1,4 +1,7 @@
-// Unified Module System - Combines both initialization approaches
+/**
+ * Unified Module System — onthefly / lazy / ondemand loader.
+ * ESM export + window.moduleSystem bridge for classic callers.
+ */
 class UnifiedModuleSystem {
     constructor() {
         // Core properties
@@ -411,9 +414,28 @@ class UnifiedModuleSystem {
     }
 
 
+    /**
+     * Resolve ./module/index.js → importable ESM URL under /assets/{VERSION}/modules/.
+     * Absolute http(s) and root-absolute paths pass through.
+     */
+    resolveEsmModuleUrl(path) {
+        const raw = String(path || '');
+        if (/^(https?:)?\/\//.test(raw) || raw.startsWith('/')) {
+            return raw;
+        }
+        const clean = raw.replace(/^\.\//, '');
+        const version =
+            (typeof window !== 'undefined' &&
+                (window.VERSION || window.ENV?.VERSION)) ||
+            '0.0.0';
+        return `/assets/${version}/modules/${clean}`;
+    }
+
     async loadModuleClass(path) {
         try {
-            const moduleFile = await import(path);
+            const url = this.resolveEsmModuleUrl(path);
+            // Packed / public URLs are outside Vite's graph; ignore analysis.
+            const moduleFile = await import(/* @vite-ignore */ url);
             return moduleFile.default || moduleFile;
         } catch (error) {
             this.errorTracker.logError('system', 'loadModuleClass', error, {
@@ -2346,19 +2368,24 @@ await unifiedModuleSystem.registerModule('UtilityModule', {
  */
 
 
-// Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', async () => {
-    // await migrateExistingModules();
-    // Initialize the unified system
-    const unifiedModuleSystem = new UnifiedModuleSystem();
+/**
+ * Create (or reuse) the global moduleSystem instance and register built-ins.
+ * Safe to call from ESM boot; no-ops if window.moduleSystem already exists.
+ */
+export async function initUnifiedModuleSystem() {
+    if (typeof window !== 'undefined' && window.moduleSystem) {
+        return window.moduleSystem;
+    }
 
-    // Export for global use
-    window.UnifiedModuleSystem = unifiedModuleSystem;
-    window.moduleSystem = unifiedModuleSystem;
-    // List of modules to ensure globally
+    const unifiedModuleSystem = new UnifiedModuleSystem();
+    if (typeof window !== 'undefined') {
+        window.UnifiedModuleSystem = UnifiedModuleSystem;
+        window.moduleSystem = unifiedModuleSystem;
+    }
+
     const requiredModules = ['GuidedTour', 'CITATION_POPUP', 'TOOLTIP_MODULE'];
-    if (IS_EDITOR_PAGE) {
-        await moduleSystem.registerModule('GuidedTour', {
+    if (typeof IS_EDITOR_PAGE !== 'undefined' && IS_EDITOR_PAGE) {
+        await unifiedModuleSystem.registerModule('GuidedTour', {
             name: 'GuidedTour',
             type: 'onthefly',
             path: './guide_tour/index.js',
@@ -2367,18 +2394,26 @@ document.addEventListener('DOMContentLoaded', async () => {
             commands: []
         });
     }
-    if (IS_TRACK_VIEW) {
+    if (typeof IS_TRACK_VIEW !== 'undefined' && IS_TRACK_VIEW) {
         const idx = requiredModules.indexOf('GuidedTour');
         if (idx !== -1) {
             requiredModules.splice(idx, 1);
         }
     }
     for (const mod of requiredModules) {
-        if (!window[mod]) {
-            window[mod] = await moduleSystem.getModule(mod);
+        if (typeof window !== 'undefined' && !window[mod]) {
+            try {
+                window[mod] = await unifiedModuleSystem.getModule(mod);
+            } catch (err) {
+                console.warn(`[moduleSystem] skip ensure ${mod}:`, err?.message || err);
+            }
         }
     }
-});
+    return unifiedModuleSystem;
+}
+
+export { UnifiedModuleSystem };
+export default UnifiedModuleSystem;
 
 /* 
 

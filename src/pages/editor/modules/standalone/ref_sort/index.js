@@ -1,3 +1,4 @@
+import BaseModule from '@editor/modules/_runtime/BaseModule.js';
 // <div class="mDialog ds-none wo-editor-access" id="RefSortingDialog">
 
 class RefSortingModule extends BaseModule {
