@@ -415,7 +415,7 @@ class UnifiedModuleSystem {
 
 
     /**
-     * Resolve ./module/index.js → importable ESM URL under /assets/{VERSION}/modules/.
+     * Resolve ./module/index.js → packed ESM URL under /assets/{VERSION}/modules/.
      * Absolute http(s) and root-absolute paths pass through.
      */
     resolveEsmModuleUrl(path) {
@@ -431,11 +431,50 @@ class UnifiedModuleSystem {
         return `/assets/${version}/modules/${clean}`;
     }
 
+    /** Native dynamic import — Vite must not intercept public/ packed URLs. */
+    importPackedEsm(url) {
+        return new Function('u', 'return import(u)')(url);
+    }
+
+    /**
+     * Vite-dev: map ./guide_tour/index.js → src modules via import.meta.glob.
+     * Keys look like ../standalone/guide_tour/index.js relative to _runtime.
+     */
+    findViteModuleImporter(relPath) {
+        const clean = String(relPath || '').replace(/^\.\//, '').replace(/\\/g, '/');
+        if (!clean || typeof import.meta.glob !== 'function') return null;
+        if (!UnifiedModuleSystem._viteModuleImporters) {
+            UnifiedModuleSystem._viteModuleImporters = import.meta.glob([
+                '../standalone/**/index.js',
+                '../shared/**/index.js',
+                '../_wip/**/index.js',
+            ]);
+        }
+        const entries = Object.entries(UnifiedModuleSystem._viteModuleImporters);
+        const hit =
+            entries.find(([key]) => key.replace(/\\/g, '/').endsWith('/' + clean)) ||
+            entries.find(([key]) => key.replace(/\\/g, '/').endsWith(clean));
+        return hit ? hit[1] : null;
+    }
+
     async loadModuleClass(path) {
         try {
+            const clean = String(path || '').replace(/^\.\//, '');
+            const preferViteSource =
+                typeof import.meta !== 'undefined' &&
+                import.meta.env &&
+                import.meta.env.DEV === true;
+
+            if (preferViteSource) {
+                const importer = this.findViteModuleImporter(clean);
+                if (importer) {
+                    const moduleFile = await importer();
+                    return moduleFile.default || moduleFile;
+                }
+            }
+
             const url = this.resolveEsmModuleUrl(path);
-            // Packed / public URLs are outside Vite's graph; ignore analysis.
-            const moduleFile = await import(/* @vite-ignore */ url);
+            const moduleFile = await this.importPackedEsm(url);
             return moduleFile.default || moduleFile;
         } catch (error) {
             this.errorTracker.logError('system', 'loadModuleClass', error, {

@@ -12,6 +12,10 @@ import {
   EDITOR_COMMON_CSS_PATHS,
   EDITOR_MODULE_PACK_SCRIPTS,
 } from '../manifest.js';
+import {
+  resolveLocalEditorBoot,
+  runLocalStagedBoot,
+} from './localStagedBoot.js';
 
 import initialGlobalUrl from '@editor/initial_helpers/_initialGlobalVaribale.js?url';
 import editorLayoutUrl from '@editor/initial_helpers/_editorLayout.js?url';
@@ -85,6 +89,13 @@ const PAGE_CSS_URL_BY_PATH = {
   'common/styles/preloader.css': preloaderCss,
 };
 
+/** Slice A paths that define ErrorLogTrace / core editor (before module packs). */
+const SLICE_A_HELPER_PREFIXES = [
+  'initial_helpers/',
+  'js/',
+  'modules/shared/query-comment-system/',
+];
+
 function basename(relPosix) {
   const parts = String(relPosix).replace(/\\/g, '/').split('/');
   return parts[parts.length - 1];
@@ -110,7 +121,6 @@ async function canLoad(url) {
   }
 }
 
-/** Vendors always come from packed public/assets — manifest is the only inventory. */
 async function loadVendorsFromPack() {
   for (const p of EDITOR_VENDOR_CSS_PATHS) {
     await loadStylesheetOnce(vendorUrl(p));
@@ -134,11 +144,18 @@ async function loadPageCssDev() {
   }
 }
 
+function shouldPreferEditorPack() {
+  const env = (typeof window !== 'undefined' && window.ENV) || {};
+  if (env.USE_EDITOR_PACK === true) return true;
+  if (env.USE_EDITOR_PACK === false) return false;
+  return Boolean(import.meta.env.PROD);
+}
+
 /**
  * ESM BaseModule + UnifiedModuleSystem (window bridge).
- * Must run after module_main.min.js (FileUploadModule, etc.) and before context packs.
+ * After module_main.min.js (FileUploadModule, etc.).
  */
-async function ensureModuleRuntimeEsm() {
+export async function ensureModuleRuntimeEsm() {
   const [{ default: BaseModule }, { initUnifiedModuleSystem }] =
     await Promise.all([
       import('@editor/modules/_runtime/BaseModule.js'),
@@ -150,54 +167,102 @@ async function ensureModuleRuntimeEsm() {
   await initUnifiedModuleSystem();
 }
 
-/** module_main then ESM runtime then global_context_* (classic contexts). */
-async function loadModulePacks(version) {
+async function loadClassicModulePackScripts(version, { withRuntimeEsm }) {
   for (const name of EDITOR_MODULE_PACK_SCRIPTS) {
     const url = `/assets/${version}/modules/${name}`;
     if (!(await canLoad(url))) {
-      throw new Error(`Missing packed module script ${url} — run npm run pack:editor`);
+      throw new Error(
+        `Missing packed module script ${url} — run npm run pack:editor`
+      );
     }
     await loadScriptOnce(url);
-    if (name === 'module_main.min.js') {
+    if (withRuntimeEsm && name === 'module_main.min.js') {
       await ensureModuleRuntimeEsm();
     }
   }
-  if (!EDITOR_MODULE_PACK_SCRIPTS.includes('module_main.min.js')) {
+  if (
+    withRuntimeEsm &&
+    !EDITOR_MODULE_PACK_SCRIPTS.includes('module_main.min.js')
+  ) {
     await ensureModuleRuntimeEsm();
   }
 }
 
-async function bootFromUrlInject() {
-  await loadVendorsFromPack();
-  await loadPageCssDev();
+/** Full module packs including ESM runtime (default boot). */
+export async function loadModulePacks(version) {
+  await loadClassicModulePackScripts(version ?? editorVersion(), {
+    withRuntimeEsm: true,
+  });
+}
+
+async function loadSliceAFromPack(version) {
+  const commonUrl = `/assets/${version}/js/e6_common.min.js`;
+  const mainUrl = `/assets/${version}/js/e6_main.min.js`;
+  await loadScriptOnce(commonUrl);
+  await loadScriptOnce(mainUrl);
+}
+
+async function loadSliceAFromUrlInject() {
   for (const p of EDITOR_JS_PATHS) {
     const src = JS_URL_BY_PATH[p];
     if (!src) throw new Error(`Missing JS url for ${p}`);
     await loadScriptOnce(src);
   }
-  await loadModulePacks(editorVersion());
 }
 
-function shouldPreferEditorPack() {
-  const env = (typeof window !== 'undefined' && window.ENV) || {};
-  if (env.USE_EDITOR_PACK === true) return true;
-  if (env.USE_EDITOR_PACK === false) return false;
-  return Boolean(import.meta.env.PROD);
+function buildStagedApi(version, usePack) {
+  return {
+    async loadUiShell() {
+      await loadCkeditorOnce();
+      await loadVendorsFromPack();
+      if (usePack) await loadPageCssFromPack(version);
+      else await loadPageCssDev();
+    },
+    async loadSliceA() {
+      if (usePack) await loadSliceAFromPack(version);
+      else await loadSliceAFromUrlInject();
+    },
+    async loadInitialHelpers() {
+      // Slice A already includes initial_helpers + ErrorMail; nothing extra.
+      console.info(
+        '[localStagedBoot] initial_helpers already in Slice A — no extra scripts'
+      );
+    },
+    async loadModulePacks() {
+      await loadClassicModulePackScripts(version, { withRuntimeEsm: false });
+    },
+    async loadModulesEsm() {
+      await ensureModuleRuntimeEsm();
+    },
+  };
+}
+
+async function bootFromUrlInject() {
+  await loadVendorsFromPack();
+  await loadPageCssDev();
+  await loadSliceAFromUrlInject();
+  await loadModulePacks(editorVersion());
 }
 
 export async function bootEditor() {
   applyLegacyGlobals();
-  await loadCkeditorOnce();
+
   const version = editorVersion();
   const commonUrl = `/assets/${version}/js/e6_common.min.js`;
-  const mainUrl = `/assets/${version}/js/e6_main.min.js`;
   const usePack = shouldPreferEditorPack() && (await canLoad(commonUrl));
+
+  const staged = resolveLocalEditorBoot();
+  if (staged) {
+    await runLocalStagedBoot(staged, buildStagedApi(version, usePack));
+    return;
+  }
+
+  await loadCkeditorOnce();
 
   if (usePack) {
     await loadVendorsFromPack();
     await loadPageCssFromPack(version);
-    await loadScriptOnce(commonUrl);
-    await loadScriptOnce(mainUrl);
+    await loadSliceAFromPack(version);
     await loadModulePacks(version);
     return;
   }

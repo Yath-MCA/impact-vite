@@ -199,8 +199,8 @@ export default class GuidedTour {
             };
         } catch (err) {
             console.warn(err.message);
-            if (typeof ErrorLogTrace === "function") {
-                ErrorLogTrace("GuidedTour.getDownloadPdfVisibility", err.message);
+            if (typeof globalThis.ErrorLogTrace === "function") {
+                globalThis.ErrorLogTrace("GuidedTour.getDownloadPdfVisibility", err.message);
             }
             return null;
         }
@@ -582,7 +582,9 @@ export default class GuidedTour {
     }
     logError(functionName, error) {
         console.warn(`Error in ${functionName}: ${error.message}`);
-        ErrorLogTrace(`GuidedTour ${functionName}`, error.message);
+        if (typeof globalThis.ErrorLogTrace === 'function') {
+            globalThis.ErrorLogTrace(`GuidedTour ${functionName}`, error.message);
+        }
     }
     togglePauseResume() {
         if (this.isPaused) {

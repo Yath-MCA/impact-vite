@@ -2,6 +2,16 @@
  * Editor dialog/module base class.
  * ESM export + window bridge for classic scripts still using global BaseModule.
  */
+
+/** Window-backed gulp helper — bare ErrorLogTrace is not in ESM scope. */
+function legacyErrorLog(module, msg) {
+    if (typeof globalThis.ErrorLogTrace === 'function') {
+        globalThis.ErrorLogTrace(module, msg);
+    } else {
+        console.warn(module, msg);
+    }
+}
+
 class BaseModule {
 
     constructor(name, subFolder, options = {}) {
@@ -623,7 +633,7 @@ class BaseModule {
     // Utility functions
     logError(functionName, err = {}) {
         console.log(`${this._id} ${functionName} ${err.message}`);
-        ErrorLogTrace(`${this._id} ${functionName}`, `${err.message}`);
+        legacyErrorLog(`${this._id} ${functionName}`, `${err.message}`);
         if (this._errorTracker) {
             this._errorTracker.logError(this._name, functionName, err);
         }
@@ -1030,7 +1040,7 @@ class BaseModule {
 
         } catch (error) {
             console.warn(`GetTemplate Error: ${error.message} | Template: ${templateName}`);
-            ErrorLogTrace("GetTemplate", error.message);
+            legacyErrorLog("GetTemplate", error.message);
         }
     }
 
