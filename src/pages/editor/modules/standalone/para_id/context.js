@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 // src\modules\para_id\context.js
 
 let paraInitStarted = false;
@@ -53,7 +55,7 @@ async function Initialize_Para_Id() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+ContextHelpers.whenDomReady( function() {
 
     let waitCount = 0;
     // 120 * 500 = 60 seconds

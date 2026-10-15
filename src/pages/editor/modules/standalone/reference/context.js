@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 const REFERENCE_MODULE_ID = 'referenceDialog';
 
 const REFERENCE_SUPPORTING_FILES = [{
@@ -510,7 +512,7 @@ $(document).ready(function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(REFERENCE_MODULE_ID, REFERENCE_MODULE_CONFIG, {
         isCms18Only: true
     });

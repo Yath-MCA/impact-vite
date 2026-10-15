@@ -635,3 +635,10 @@ class EnhancedErrorTracker {
         return summary;
     }
 }
+
+export { TableBuilder, ErrorReportRenderer, EnhancedErrorTracker };
+if (typeof window !== 'undefined') {
+  window.TableBuilder = TableBuilder;
+  window.ErrorReportRenderer = ErrorReportRenderer;
+  window.EnhancedErrorTracker = EnhancedErrorTracker;
+}

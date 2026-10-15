@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 /**
  * FinalizeSignOff module registration — ModuleSystem cutover from dialogModules/FinalizeSignOff.js
  */
@@ -89,7 +91,7 @@ function bindWorkFlowReturn() {
     };
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     bindWorkFlowReturn();
     if (typeof ContextHelpers !== 'undefined' && ContextHelpers.registerOnReady) {
         ContextHelpers.registerOnReady(FINALIZE_MODULE_ID, FINALIZE_MODULE_CONFIG);

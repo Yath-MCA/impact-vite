@@ -316,6 +316,7 @@ async function main() {
     MODULE_MAIN_PATHS = [],
     GLOBAL_CONTEXT_COMMON_PATHS = [],
     GLOBAL_CONTEXT_EDITOR_PATHS = [],
+    COMPONENT_ESM_FILES = [],
     SINGLE_MODULE_INCLUDE_GLOBS = [],
     SINGLE_MODULE_EXCLUDE_GLOBS = [],
     SINGLE_MODULE_TEMPLATE_GLOBS = [],
@@ -417,12 +418,15 @@ async function main() {
     );
   }
 
-  /** Rewrite Vite @editor/_runtime imports so packed ESM can dynamic-import. */
-  function rewriteEsmRuntimeImports(jsText) {
-    const runtimeBase = `/assets/${version}/modules/_runtime/`;
+  /**
+   * Rewrite Vite @editor/modules/… imports so packed ESM can native-import.
+   * Covers _runtime, components, context helpers/stores, etc.
+   */
+  function rewriteEsmEditorImports(jsText) {
+    const modulesBase = `/assets/${version}/modules/`;
     return String(jsText).replace(
-      /(['"])@editor\/modules\/_runtime\//g,
-      `$1${runtimeBase}`
+      /(['"])@editor\/modules\//g,
+      `$1${modulesBase}`
     );
   }
 
@@ -439,12 +443,63 @@ async function main() {
         process.exit(1);
       }
       let text = fs.readFileSync(abs, 'utf8');
-      text = rewriteEsmRuntimeImports(text);
+      text = rewriteEsmEditorImports(text);
       fs.writeFileSync(path.join(runtimeOut, name), text, 'utf8');
       n += 1;
     }
     console.log(
       `[pack-editor-assets] runtime ESM=${n} → ${path.relative(root, runtimeOut)}`
+    );
+  }
+
+  /** Copy components ESM barrel + files under modules/components/. */
+  function packComponentsEsm() {
+    const srcDir = path.join(editorRoot, 'modules', 'components');
+    const outDir = path.join(modulesDir, 'components');
+    fs.mkdirSync(outDir, { recursive: true });
+    let n = 0;
+    for (const name of COMPONENT_ESM_FILES) {
+      const abs = path.join(srcDir, name);
+      if (!fs.existsSync(abs)) {
+        console.error(`[pack-editor-assets] missing component ${abs}`);
+        process.exit(1);
+      }
+      let text = fs.readFileSync(abs, 'utf8');
+      text = rewriteEsmEditorImports(text);
+      fs.writeFileSync(path.join(outDir, name), text, 'utf8');
+      n += 1;
+    }
+    console.log(
+      `[pack-editor-assets] components ESM=${n} → ${path.relative(root, outDir)}`
+    );
+  }
+
+  /** Copy context helpers + stores under modules/context/. */
+  function packContextEsm() {
+    const pairs = [
+      ['helpers/context-helpers.js', 'helpers/context-helpers.js'],
+      ['store/module-runtime-store.js', 'store/module-runtime-store.js'],
+      ['store/template-store.js', 'store/template-store.js'],
+      ['index.js', 'index.js'],
+    ];
+    const srcRoot = path.join(editorRoot, 'modules', 'context');
+    const outRoot = path.join(modulesDir, 'context');
+    let n = 0;
+    for (const [rel] of pairs) {
+      const abs = path.join(srcRoot, ...rel.split('/'));
+      if (!fs.existsSync(abs)) {
+        console.error(`[pack-editor-assets] missing context ${abs}`);
+        process.exit(1);
+      }
+      const out = path.join(outRoot, ...rel.split('/'));
+      fs.mkdirSync(path.dirname(out), { recursive: true });
+      let text = fs.readFileSync(abs, 'utf8');
+      text = rewriteEsmEditorImports(text);
+      fs.writeFileSync(out, text, 'utf8');
+      n += 1;
+    }
+    console.log(
+      `[pack-editor-assets] context ESM=${n} → ${path.relative(root, outRoot)}`
     );
   }
 
@@ -456,6 +511,7 @@ async function main() {
       baseAbs: modulesRoot,
     });
     let copied = 0;
+    const contextDestPaths = [];
     for (const rel of files) {
       const abs = path.join(modulesRoot, ...rel.split('/'));
       const destRel = stripModuleSourceRoot(rel);
@@ -464,15 +520,26 @@ async function main() {
       fs.mkdirSync(path.dirname(out), { recursive: true });
       if (path.extname(abs).toLowerCase() === '.js') {
         let text = fs.readFileSync(abs, 'utf8');
-        text = rewriteEsmRuntimeImports(text);
+        text = rewriteEsmEditorImports(text);
         fs.writeFileSync(out, text, 'utf8');
       } else {
         fs.copyFileSync(abs, out);
       }
+      if (/(?:^|\/)context\.js$/i.test(destRel)) {
+        contextDestPaths.push(destRel);
+      }
       copied += 1;
     }
+    // Boot prod path: native-import these after ContextHelpers.
+    const ctxIndexOut = path.join(modulesDir, 'context', '_context_index.json');
+    fs.mkdirSync(path.dirname(ctxIndexOut), { recursive: true });
+    fs.writeFileSync(
+      ctxIndexOut,
+      JSON.stringify(contextDestPaths.sort((a, b) => a.localeCompare(b)), null, 2),
+      'utf8'
+    );
     console.log(
-      `[pack-editor-assets] single_module files=${copied} → ${path.relative(root, modulesDir)}`
+      `[pack-editor-assets] single_module files=${copied} context.js=${contextDestPaths.length} → ${path.relative(root, modulesDir)}`
     );
     return copied;
   }
@@ -506,15 +573,22 @@ async function main() {
     MODULE_MAIN_PATHS,
     path.join(modulesDir, 'module_main.min.js')
   );
-  await concatMinify(
-    GLOBAL_CONTEXT_COMMON_PATHS,
-    path.join(modulesDir, 'global_context_common.min.js')
-  );
-  await concatMinify(
-    GLOBAL_CONTEXT_EDITOR_PATHS,
-    path.join(modulesDir, 'global_context_editor.min.js')
-  );
+  // Classic global_context_*.min.js retired — contexts load via ensureContextEsm.
+  if (GLOBAL_CONTEXT_COMMON_PATHS.length > 0) {
+    await concatMinify(
+      GLOBAL_CONTEXT_COMMON_PATHS,
+      path.join(modulesDir, 'global_context_common.min.js')
+    );
+  }
+  if (GLOBAL_CONTEXT_EDITOR_PATHS.length > 0) {
+    await concatMinify(
+      GLOBAL_CONTEXT_EDITOR_PATHS,
+      path.join(modulesDir, 'global_context_editor.min.js')
+    );
+  }
   packRuntimeEsm();
+  packComponentsEsm();
+  packContextEsm();
   packSingleModuleTree();
   packTemplatesHtml();
 

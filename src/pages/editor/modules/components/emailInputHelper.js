@@ -500,3 +500,9 @@ class emailInputHelper {
         this.inputElement.focus();
     }
 }
+
+export default emailInputHelper;
+
+if (typeof window !== 'undefined') {
+    window.emailInputHelper = emailInputHelper;
+}

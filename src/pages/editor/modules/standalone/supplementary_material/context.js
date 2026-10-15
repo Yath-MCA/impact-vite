@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 const SUPP_MODULE_ID = 'SuppMaterialModule';
 
 /**
@@ -169,6 +171,6 @@ const SUPP_MODULE_CONFIG = {
     // contextMenuHandler: function (element, selection, elementPath, editor, subItems) {}
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(SUPP_MODULE_ID, SUPP_MODULE_CONFIG);
 });

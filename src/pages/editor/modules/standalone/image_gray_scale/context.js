@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 /*
 
 window.ContextMenuHandler
@@ -82,6 +84,6 @@ const IMAGE_GRAY_SCALE_MODULE_CONFIG = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(IMAGE_GRAY_SCALE_MODULE_ID, IMAGE_GRAY_SCALE_MODULE_CONFIG);
 });

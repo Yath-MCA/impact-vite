@@ -140,13 +140,18 @@ const ModuleTemplateStore = {
     }
 };
 
-// Expose to window
-window.ModuleTemplateStore = ModuleTemplateStore;
+export default ModuleTemplateStore;
+export { ModuleTemplateStore, CommonUtils };
+
+if (typeof window !== 'undefined') {
+    window.ModuleTemplateStore = ModuleTemplateStore;
+}
 
 // Auto-preload when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    // Delay slightly to not compete with critical page load
-    setTimeout(() => {
-        ModuleTemplateStore.preload();
-    }, 100);
-});
+if (typeof document !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            ModuleTemplateStore.preload();
+        }, 100);
+    });
+}

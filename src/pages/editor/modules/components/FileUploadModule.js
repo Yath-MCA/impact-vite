@@ -197,3 +197,9 @@ class FileUploadModule {
     }
 
 }
+
+export default FileUploadModule;
+
+if (typeof window !== 'undefined') {
+    window.FileUploadModule = FileUploadModule;
+}

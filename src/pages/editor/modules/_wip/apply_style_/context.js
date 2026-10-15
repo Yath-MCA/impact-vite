@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 const APPLY_STYLE_MODULE_ID = 'ApplyStyleDialog';
 const APPLY_STYLE_MODULE_CONFIG = {
     name: 'ApplyStyleModule',
@@ -123,7 +125,7 @@ function registerApplyStyleContextMenu() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     registerApplyStyleContextMenu();
     ContextHelpers.registerOnReady(APPLY_STYLE_MODULE_ID, APPLY_STYLE_MODULE_CONFIG);
 });

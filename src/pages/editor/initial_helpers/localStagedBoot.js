@@ -13,9 +13,11 @@ const DEFAULT_GATES = {
   loadSliceA: true,
   waitUiReady: true,
   loadInitialHelpers: true,
-  setContent: false,  
+  setContent: false,
+  loadComponentsEsm: false,
   loadModulePacks: false,
   loadModulesEsm: false,
+  loadContextEsm: false,
 };
 
 function parseBool(raw, fallback) {
@@ -179,11 +181,17 @@ export async function runLocalStagedBoot(gates, api) {
       console.warn('[localStagedBoot]', err.message || err);
     })
   );
+  await runGate('loadComponentsEsm', gates.loadComponentsEsm, () =>
+    api.loadComponentsEsm()
+  );
   await runGate('loadModulePacks', gates.loadModulePacks, () =>
     api.loadModulePacks()
   );
   await runGate('loadModulesEsm', gates.loadModulesEsm, () =>
     api.loadModulesEsm()
+  );
+  await runGate('loadContextEsm', gates.loadContextEsm, () =>
+    api.loadContextEsm()
   );
 
   console.info('[localStagedBoot] done');

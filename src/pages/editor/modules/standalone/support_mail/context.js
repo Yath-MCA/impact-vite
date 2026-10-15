@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 const SUPPORT_MAIL_MODULE_ID = 'SupportMailDialog';
 const SUPPORT_MAIL_MODULE_CONFIG = {
     name: 'SupportMailModule',
@@ -17,6 +19,6 @@ $(document).on("click", "#contact_support", (e) => {
     console.log("Contact Support button clicked.");
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(SUPPORT_MAIL_MODULE_ID, SUPPORT_MAIL_MODULE_CONFIG);
 });

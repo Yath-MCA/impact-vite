@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 const NOTES_GROUP_MODULE_ID = 'noteModule';
 const NOTES_GROUP_MODULE_CONFIG = {
     name: 'NotesGroupModule',
@@ -171,6 +173,6 @@ const NOTES_GROUP_MODULE_CONFIG = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(NOTES_GROUP_MODULE_ID, NOTES_GROUP_MODULE_CONFIG);
 });

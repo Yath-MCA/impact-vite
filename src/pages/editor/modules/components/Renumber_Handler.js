@@ -1,3 +1,5 @@
+import trackManager from './trackManager.js';
+
 class CheckOrder {
     constructor(config = "bibr") {
         this.get = {
@@ -114,7 +116,9 @@ class CheckOrder {
 
     logError(functionName, error) {
         console.warn(`Error in ${functionName}: ${error.message}`);
-        ErrorLogTrace(`CheckOrder ${functionName}`, error.message);
+        if (typeof globalThis.ErrorLogTrace === 'function') {
+            globalThis.ErrorLogTrace(`CheckOrder ${functionName}`, error.message);
+        }
     }
 
     setCurrentConfig(config) {
@@ -1360,4 +1364,10 @@ class CheckOrder {
         }
     }
      */
+}
+
+export default CheckOrder;
+
+if (typeof window !== 'undefined') {
+    window.CheckOrder = CheckOrder;
 }

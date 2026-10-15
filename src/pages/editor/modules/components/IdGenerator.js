@@ -104,6 +104,9 @@ class IdGenerator {
     }
 }
 
+export default IdGenerator;
+export { IdGenerator };
+
 if (typeof window !== 'undefined') {
     window.IdGenerator = IdGenerator;
 }

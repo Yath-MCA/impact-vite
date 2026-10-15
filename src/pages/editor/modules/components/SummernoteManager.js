@@ -924,8 +924,7 @@ class SummernoteManager {
     }
 }
 
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = SummernoteManager;
-} else if (typeof window !== 'undefined') {
+export default SummernoteManager;
+if (typeof window !== 'undefined') {
     window.SummernoteManager = SummernoteManager;
 }

@@ -198,6 +198,12 @@ function initializeDialogStateManager() {
     };
 }
 
+if (typeof window !== 'undefined') {
+    window.registerAndMonitorModules = registerAndMonitorModules;
+    window.initializeModuleRegistry = initializeModuleRegistry;
+    window.initializeDialogStateManager = initializeDialogStateManager;
+}
+
 document.addEventListener('DOMContentLoaded', async function(event) {
 
     debug.log("===========main===========");

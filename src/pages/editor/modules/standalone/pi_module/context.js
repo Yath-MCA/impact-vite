@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 /* 
 
 
@@ -157,7 +159,7 @@ const openPiModuleDialog = ContextHelpers.createDebouncedOpen(async () => {
     await ContextHelpers.openDialog(PI_MODULE_ID, PI_MODULE_CONFIG, 'PI_MODULE');
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(PI_MODULE_ID, PI_MODULE_CONFIG, {
         checkRole: true
     });

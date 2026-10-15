@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 const DOCUMENT_RESTORE_MODULE_ID = 'DocumentRestoreDialog';
 const DOCUMENT_RESTORE_MODULE_CONFIG = {
     name: 'DocumentRestoreModule',
@@ -71,6 +73,6 @@ $(document).ready(function() {
 
     });
 });
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(DOCUMENT_RESTORE_MODULE_ID, DOCUMENT_RESTORE_MODULE_CONFIG);
 });

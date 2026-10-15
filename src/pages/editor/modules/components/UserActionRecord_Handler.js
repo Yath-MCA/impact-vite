@@ -21,7 +21,7 @@ class RecordUserAction {
         this.loadHistoryFromLocalStorage();
 
         this.invoke("open_close_dialog");
-        this.apiService = new FetchService();
+        this.apiService = new (globalThis.FetchService || (typeof window !== "undefined" && window.FetchService))();
         this._isSyncing = false;
     }
 
@@ -364,7 +364,7 @@ DB_SET_CB(response) {
         debug.log(JSON.stringify(response));
     } catch (err) {
         console.warn(err.message);
-        ErrorLogTrace('DB_SET_CB', err.message);
+        (typeof globalThis.ErrorLogTrace === "function" ? globalThis.ErrorLogTrace : () => {})('DB_SET_CB', err.message);
     }
 }
 
@@ -396,11 +396,11 @@ updateSyncLocal(group, options = {}) {
                     localStorage.setItem(this.getLocalStorageKey(), JSON.stringify(trimmed));
                 } catch (retryErr) {
                     console.error('Failed to store even after trimming:', retryErr.message);
-                    ErrorLogTrace('UPDATE_LOCAL_STORAGE_TRIM', retryErr.message);
+                    (typeof globalThis.ErrorLogTrace === "function" ? globalThis.ErrorLogTrace : () => {})('UPDATE_LOCAL_STORAGE_TRIM', retryErr.message);
                 }
             } else {
                 console.warn(err.message);
-                ErrorLogTrace('UPDATE_LOCAL_STORAGE', err.message);
+                (typeof globalThis.ErrorLogTrace === "function" ? globalThis.ErrorLogTrace : () => {})('UPDATE_LOCAL_STORAGE', err.message);
             }
         }
     }
@@ -539,7 +539,7 @@ updateSyncLocal(group, options = {}) {
             }
         } catch (err) {
             console.warn(err.message);
-            ErrorLogTrace('invoke', err.message);
+            (typeof globalThis.ErrorLogTrace === "function" ? globalThis.ErrorLogTrace : () => {})('invoke', err.message);
         }
     }
     // In RecordUserAction class
@@ -603,7 +603,7 @@ updateSyncLocal(group, options = {}) {
                 debug.log('syncUserActionHistory unload sync aborted (expected on page exit):', message);
             } else {
                 console.warn('syncUserActionHistory error:', message);
-                ErrorLogTrace('syncUserActionHistory', message);
+                (typeof globalThis.ErrorLogTrace === "function" ? globalThis.ErrorLogTrace : () => {})('syncUserActionHistory', message);
             }
         } finally {
             this._isSyncing = false;
@@ -637,7 +637,7 @@ updateSyncLocal(group, options = {}) {
             return true;
         } catch (err) {
             console.warn(err.message);
-            ErrorLogTrace('trackDialogOpenClose', err.message);
+            (typeof globalThis.ErrorLogTrace === "function" ? globalThis.ErrorLogTrace : () => {})('trackDialogOpenClose', err.message);
             return false;
         }
     }
@@ -665,7 +665,7 @@ updateSyncLocal(group, options = {}) {
             return true;
         } catch (err) {
             console.warn(err.message);
-            ErrorLogTrace('trackAttachmentsFlow', err.message);
+            (typeof globalThis.ErrorLogTrace === "function" ? globalThis.ErrorLogTrace : () => {})('trackAttachmentsFlow', err.message);
             return false;
         }
     }
@@ -676,7 +676,7 @@ updateSyncLocal(group, options = {}) {
             return this.trackAttachmentsFlow(update);
         } catch (err) {
             console.warn(err.message);
-            ErrorLogTrace('trackSuppFileWorkflow', err.message);
+            (typeof globalThis.ErrorLogTrace === "function" ? globalThis.ErrorLogTrace : () => {})('trackSuppFileWorkflow', err.message);
             return false;
         }
     }
@@ -692,6 +692,9 @@ function getRecordUserAction() {
     }
     return null;
 }
+
+export { RecordUserAction, getRecordUserAction };
+export default RecordUserAction;
 
 if (typeof window !== "undefined") {
     window.RecordUserAction = RecordUserAction;

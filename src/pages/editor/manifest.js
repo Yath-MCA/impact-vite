@@ -73,47 +73,46 @@ export const E6_MAIN_PATHS = [
   'js/editorBootInit.js',
 ];
 
-/** Gulp `module_main` → packed `modules/module_main.min.js` (order matters). */
+/**
+ * Classic leftover orchestrator only — components load as ESM via
+ * ensureComponentsEsm(); BaseModule/UMS via ensureModuleRuntimeEsm().
+ */
 export const MODULE_MAIN_PATHS = [
-  'modules/components/Error_Report_Table_Builder.js',
-  'modules/components/UserActionRecord_Handler.js',
-  'modules/components/ModuleStore.js',
-  'modules/components/IdGenerator.js',
-  'modules/components/BitsIdGenerator.js',
-  'modules/components/JatsIdGenerator.js',
-  'modules/components/DocBookIdGenerator.js',
-  'modules/components/Renumber_Handler.js',
-  'modules/components/trackManager.js',
-  'modules/components/FileUploadModule.js',
-  'modules/components/SummernoteManager.js',
-  'modules/components/emailInputHelper.js',
-  // BaseModule + UnifiedModuleSystem load as ESM from boot (not classic concat).
   'modules/module_main.js',
 ];
 
 /**
- * Gulp `global_context_common` → `modules/global_context_common.min.js`.
- * Trailing globs are expanded by the packer (sorted).
+ * @deprecated Classic global_context concat removed — contexts load as ESM.
+ * Kept empty so accidental pack calls stay no-op / fail loudly if used.
  */
-export const GLOBAL_CONTEXT_COMMON_PATHS = [
-  'modules/context/store/module-runtime-store.js',
-  'modules/context/store/template-store.js',
-  'modules/context/helpers/context-helpers.js',
-  'modules/shared/**/context.js',
-];
+export const GLOBAL_CONTEXT_COMMON_PATHS = [];
 
-/** Gulp `global_context_editor` → `modules/global_context_editor.min.js`. */
-export const GLOBAL_CONTEXT_EDITOR_PATHS = [
-  'modules/standalone/**/context.js',
-];
+/** @deprecated See GLOBAL_CONTEXT_COMMON_PATHS. */
+export const GLOBAL_CONTEXT_EDITOR_PATHS = [];
 
 /**
  * Boot load order after e6_main (classic scripts under /assets/{VERSION}/modules/).
+ * Context packs are ESM (ensureContextEsm); not listed here.
  */
 export const EDITOR_MODULE_PACK_SCRIPTS = [
   'module_main.min.js',
-  'global_context_common.min.js',
-  'global_context_editor.min.js',
+];
+
+/** Components ESM sources (packed under modules/components/). */
+export const COMPONENT_ESM_FILES = [
+  'Error_Report_Table_Builder.js',
+  'UserActionRecord_Handler.js',
+  'ModuleStore.js',
+  'IdGenerator.js',
+  'BitsIdGenerator.js',
+  'JatsIdGenerator.js',
+  'DocBookIdGenerator.js',
+  'Renumber_Handler.js',
+  'trackManager.js',
+  'FileUploadModule.js',
+  'SummernoteManager.js',
+  'emailInputHelper.js',
+  'index.js',
 ];
 
 /**
@@ -123,7 +122,9 @@ export const EDITOR_MODULE_PACK_SCRIPTS = [
 export const SINGLE_MODULE_INCLUDE_GLOBS = [
   'standalone/**/index.js',
   'standalone/**/*.js',
+  'standalone/**/context.js',
   'shared/**/*.js',
+  'shared/**/context.js',
   'standalone/**/template.html',
   'shared/**/template.html',
   'standalone/**/*.json',
@@ -132,7 +133,6 @@ export const SINGLE_MODULE_INCLUDE_GLOBS = [
 
 export const SINGLE_MODULE_EXCLUDE_GLOBS = [
   'shared/index.js',
-  'shared/**/context.js',
   'shared/browser-compatible/**',
   'shared/query-comment-system/**',
   'shared/link_session/ports.js',

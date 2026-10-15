@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 async function openIndexDialog() {
     try {
         if (window.IndexDialog && typeof window.IndexDialog.show === 'function') {
@@ -97,6 +99,6 @@ const INDEX_MODULE_CONFIG = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(INDEX_MODULE_ID, INDEX_MODULE_CONFIG);
 });

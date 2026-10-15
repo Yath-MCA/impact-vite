@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 /**
  * ShowTracking (trackDialog) ModuleSystem registration — class-based WIP stack.
  */
@@ -65,7 +67,7 @@ async function ensureTrackDialogReady() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     if (typeof ContextHelpers !== 'undefined' && ContextHelpers.registerOnReady) {
         ContextHelpers.registerOnReady(SHOW_TRACKING_MODULE_ID, SHOW_TRACKING_MODULE_CONFIG);
     }

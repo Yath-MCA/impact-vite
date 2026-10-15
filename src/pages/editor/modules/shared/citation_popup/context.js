@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 
 const CITATION_POPUP_MODULE_ID = 'CITATION_POPUP';
 const CITATION_POPUP_MODULE_CONFIG = {
@@ -42,6 +44,6 @@ function executeMethod_CitePop(funcName, ...args) {
 }
 
 // Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(CITATION_POPUP_MODULE_ID, CITATION_POPUP_MODULE_CONFIG);
 });

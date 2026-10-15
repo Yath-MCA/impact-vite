@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 /***********************
  * 
  * ref sorting  module
@@ -55,6 +57,6 @@ const REF_SORT_MODULE_CONFIG = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(REF_SORT_MODULE_ID, REF_SORT_MODULE_CONFIG);
 });

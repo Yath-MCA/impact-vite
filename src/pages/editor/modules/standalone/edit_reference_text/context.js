@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 const EDIT_REFERENCE_TEXT_MODULE_ID = 'editReferenceTextDialog';
 const EDIT_REFERENCE_TEXT_MODULE_CONFIG = {
     name: 'EditReferenceTextModule',
@@ -125,6 +127,6 @@ const EDIT_REFERENCE_TEXT_MODULE_CONFIG = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(EDIT_REFERENCE_TEXT_MODULE_ID, EDIT_REFERENCE_TEXT_MODULE_CONFIG, {});
 });

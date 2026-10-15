@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 /* var absGroup80_Global = {
     loaded: false,
     SHOW_CONTEXT_GROUP: null,
@@ -106,7 +108,7 @@ var editorListener_80 = function(editor) {
     }
 };
 
-document.addEventListener('DOMContentLoaded', function(event) {
+ContextHelpers.whenDomReady( function(event) {
     CKEDITOR.on('instanceReady', function(ev) {
         console.log("------------abs-------");
         if (ev.editor.contextMenu) {

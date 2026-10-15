@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 const EDIT_CITATION_TEXT_MODULE_ID = 'editCitationTextDialog';
 
 /**
@@ -203,7 +205,7 @@ const EDIT_CITATION_TEXT_MODULE_CONFIG = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     prefetchEditCitationRoleConfig();
     ContextHelpers.registerOnReady(EDIT_CITATION_TEXT_MODULE_ID, EDIT_CITATION_TEXT_MODULE_CONFIG, {
         isBooksOnly: true

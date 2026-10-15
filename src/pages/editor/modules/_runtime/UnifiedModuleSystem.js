@@ -2,6 +2,12 @@
  * Unified Module System — onthefly / lazy / ondemand loader.
  * ESM export + window.moduleSystem bridge for classic callers.
  */
+import {
+  RecordUserAction,
+  getRecordUserAction,
+} from '@editor/modules/components/UserActionRecord_Handler.js';
+import { EnhancedErrorTracker } from '@editor/modules/components/Error_Report_Table_Builder.js';
+
 class UnifiedModuleSystem {
     constructor() {
         // Core properties
@@ -18,7 +24,10 @@ class UnifiedModuleSystem {
                 window.recordUserActionSingleton :
                 new RecordUserAction());
 
-        this.apiService = new FetchService();
+        const FetchCtor =
+            (typeof globalThis !== 'undefined' && globalThis.FetchService) ||
+            (typeof window !== 'undefined' && window.FetchService);
+        this.apiService = FetchCtor ? new FetchCtor() : null;
 
         // Error tracking
         this.errorTracker = new EnhancedErrorTracker();
@@ -493,7 +502,13 @@ class UnifiedModuleSystem {
             throw new Error('Module registry not available');
         }
 
-        await registerAndMonitorModules(window.moduleRegistry, [moduleSetup]);
+        const register =
+            (typeof window !== 'undefined' && window.registerAndMonitorModules) ||
+            (typeof globalThis !== 'undefined' && globalThis.registerAndMonitorModules);
+        if (typeof register !== 'function') {
+            throw new Error('registerAndMonitorModules is not available');
+        }
+        await register(window.moduleRegistry, [moduleSetup]);
         moduleConfig.loaded = true;
     }
 
@@ -1700,7 +1715,11 @@ class UnifiedModuleSystem {
                 emailMessage: errorReport
             };
 
-            const apiService = new FetchService();
+            const FetchCtor =
+                (typeof globalThis !== 'undefined' && globalThis.FetchService) ||
+                (typeof window !== 'undefined' && window.FetchService);
+            if (!FetchCtor) throw new Error('FetchService is not available');
+            const apiService = new FetchCtor();
             const result = await apiService.makeRequest("genericsendemail", mailObj, {
                 isPayloadLogic: true
             });

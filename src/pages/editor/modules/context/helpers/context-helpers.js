@@ -1,6 +1,6 @@
 /**
- * Shared utilities for all context.js files
- * This file is prepended to global_context.js during gulp build
+ * Shared utilities for all context.js files.
+ * ESM export + window.ContextHelpers bridge for classic callers.
  */
 
 /**
@@ -37,21 +37,44 @@ const ContextHelpers = {
     shouldAllowModuleRegistration,
 
     /**
+     * Run fn on DOMContentLoaded, or immediately if the document is already ready.
+     * Needed when context.js is ESM-imported after the initial DOM load.
+     */
+    whenDomReady(fn) {
+        if (typeof fn !== 'function') return;
+        if (typeof document === 'undefined') {
+            fn();
+            return;
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', fn);
+        } else {
+            fn();
+        }
+    },
+
+    /**
      * Poll for moduleSystem availability
      * @param {number} timeout - Max wait time in ms (default: 5000)
      * @returns {Promise<Object>} moduleSystem instance
      */
     waitForModuleSystem(timeout = 5000) {
         return new Promise((resolve, reject) => {
-            if (typeof moduleSystem !== 'undefined') {
-                resolve(moduleSystem);
+            const getMs = () =>
+                (typeof window !== 'undefined' && window.moduleSystem) ||
+                (typeof globalThis !== 'undefined' && globalThis.moduleSystem) ||
+                null;
+            const ready = getMs();
+            if (ready) {
+                resolve(ready);
                 return;
             }
             const startTime = Date.now();
             const interval = setInterval(() => {
-                if (typeof moduleSystem !== 'undefined') {
+                const ms = getMs();
+                if (ms) {
                     clearInterval(interval);
-                    resolve(moduleSystem);
+                    resolve(ms);
                     return;
                 }
                 if (Date.now() - startTime > timeout) {
@@ -171,7 +194,9 @@ const ContextHelpers = {
             await mod.show();
         } catch (err) {
             console.warn(`Failed to open ${moduleId}:`, err.message);
-            ErrorLogTrace(`openDialog-${moduleId}`, err.message);
+            if (typeof globalThis.ErrorLogTrace === 'function') {
+                globalThis.ErrorLogTrace(`openDialog-${moduleId}`, err.message);
+            }
         }
     },
 
@@ -403,5 +428,9 @@ const ContextHelpers = {
     }
 };
 
-// Backward compatibility: expose to window
-window.ContextHelpers = ContextHelpers;
+export { shouldAllowModuleRegistration };
+export default ContextHelpers;
+
+if (typeof window !== 'undefined') {
+    window.ContextHelpers = ContextHelpers;
+}

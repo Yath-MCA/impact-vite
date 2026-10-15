@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 const IMAGE_ANNOTATE_MODULE_ID = 'AnntationDialog';
 const IMAGE_ANNOTATE_MODULE_CONFIG = {
     name: 'AnntationModule',
@@ -13,6 +15,6 @@ const IMAGE_ANNOTATE_MODULE_CONFIG = {
 
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(IMAGE_ANNOTATE_MODULE_ID, IMAGE_ANNOTATE_MODULE_CONFIG);
 });

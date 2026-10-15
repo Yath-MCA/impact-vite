@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 const INSERT_SYMBOL_MODULE_ID = 'SymbolsDialog';
 const INSERT_SYMBOL_MODULE_CONFIG = {
     name: 'InsertSymbolModule',
@@ -22,6 +24,6 @@ const openInsertSymbolDialog = ContextHelpers.createDebouncedOpen(async () => {
     await ContextHelpers.openDialog(INSERT_SYMBOL_MODULE_ID, INSERT_SYMBOL_MODULE_CONFIG, 'SymbolDiaModule');
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(INSERT_SYMBOL_MODULE_ID, INSERT_SYMBOL_MODULE_CONFIG);
 });

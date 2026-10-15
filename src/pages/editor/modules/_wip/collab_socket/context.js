@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 /**
  * socket.js
  * WebSocket utility for Collab (binary) + Intelligent Chat (JSON/text)
@@ -162,7 +164,7 @@ const COLLAB_SOCKET_MODULE_CONFIG = {
 
 USER_INFO = window.USER_INFO || {};
 const { MAIL_ID, USER_ID, ROLE_ID, ROLE_NAME, TRACK_ROLE_NAME } = USER_INFO;
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     const intervalId = setInterval(async () => {
         var initiallyChecked = false;
         const collabEnabled = typeof window.isCollabEnabled === "function" && window.isCollabEnabled(DOC_ID);

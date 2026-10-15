@@ -444,7 +444,15 @@ class trackManager {
 
     errorLog(err, fun_name) {
         debug.log(fun_name, err);
-        ErrorLogTrace(fun_name, err.message);
+        if (typeof globalThis.ErrorLogTrace === 'function') {
+            globalThis.ErrorLogTrace(fun_name, err.message);
+        }
     }
 
+}
+
+export default trackManager;
+
+if (typeof window !== 'undefined') {
+    window.trackManager = trackManager;
 }

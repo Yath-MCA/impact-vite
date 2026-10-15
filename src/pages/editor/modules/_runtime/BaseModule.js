@@ -2,6 +2,11 @@
  * Editor dialog/module base class.
  * ESM export + window bridge for classic scripts still using global BaseModule.
  */
+import FileUploadModule from '@editor/modules/components/FileUploadModule.js';
+import trackManager from '@editor/modules/components/trackManager.js';
+import SummernoteManager from '@editor/modules/components/SummernoteManager.js';
+import { EnhancedErrorTracker } from '@editor/modules/components/Error_Report_Table_Builder.js';
+import { getRecordUserAction } from '@editor/modules/components/UserActionRecord_Handler.js';
 
 /** Window-backed gulp helper — bare ErrorLogTrace is not in ESM scope. */
 function legacyErrorLog(module, msg) {

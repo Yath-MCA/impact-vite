@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 debug.log("hyperLinkDialog");
 
 /**
@@ -317,7 +319,7 @@ function prefetchHyperlinkLinkRules() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     prefetchHyperlinkLinkRules();
     ContextHelpers.registerOnReady(HYPERLINK_MODULE_ID, HYPERLINK_MODULE_CONFIG);
 });

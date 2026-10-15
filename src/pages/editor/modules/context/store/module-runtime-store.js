@@ -1,8 +1,9 @@
 /**
  * ModuleRuntimeStore - small Redux-style observer store for module lifecycle state.
  * It stores serializable snapshots only; DOM nodes and module instances stay outside.
+ * ESM: side-effect assigns window.ModuleRuntimeStore; default export is the store.
  */
-(function(global) {
+const ModuleRuntimeStore = (function(global) {
     "use strict";
 
     var MAX_TIMELINE = 100;
@@ -184,4 +185,8 @@
     if (!global.ModuleRuntimeStore) {
         global.ModuleRuntimeStore = createStore();
     }
-})(typeof window !== "undefined" ? window : this);
+    return global.ModuleRuntimeStore;
+})(typeof window !== "undefined" ? window : globalThis);
+
+export default ModuleRuntimeStore;
+export { ModuleRuntimeStore };

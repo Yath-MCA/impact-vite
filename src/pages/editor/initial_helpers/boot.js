@@ -128,8 +128,18 @@ function shouldPreferEditorPack() {
 }
 
 /**
+ * Shared components (FileUploadModule, trackManager, …) — before BaseModule/UMS.
+ */
+export async function ensureComponentsEsm() {
+  const { ensureComponentsEsm: ensure } = await import(
+    '@editor/modules/components/index.js'
+  );
+  await ensure();
+}
+
+/**
  * ESM BaseModule + UnifiedModuleSystem (window bridge).
- * After module_main.min.js (FileUploadModule, etc.).
+ * Requires ensureComponentsEsm() first.
  */
 export async function ensureModuleRuntimeEsm() {
   const [{ default: BaseModule }, { initUnifiedModuleSystem }] =
@@ -143,6 +153,67 @@ export async function ensureModuleRuntimeEsm() {
   await initUnifiedModuleSystem();
 }
 
+/**
+ * ContextHelpers + stores — after window.moduleSystem exists.
+ */
+export async function ensureContextHelpersEsm() {
+  const { ensureContextHelpersEsm: ensure } = await import(
+    '@editor/modules/context/index.js'
+  );
+  return ensure();
+}
+
+/**
+ * Side-effect import all context.js files (registerOnReady).
+ * Vite-dev: import.meta.glob. Prod/pack: native-import packed URLs.
+ */
+export async function ensureContextRegistrationsEsm() {
+  const preferVite =
+    typeof import.meta !== 'undefined' &&
+    import.meta.env &&
+    import.meta.env.DEV === true;
+
+  if (preferVite && typeof import.meta.glob === 'function') {
+    const importers = import.meta.glob([
+      '../modules/shared/**/context.js',
+      '../modules/standalone/**/context.js',
+    ]);
+    await Promise.all(Object.values(importers).map((load) => load()));
+    return;
+  }
+
+  const version = editorVersion();
+  const importPacked = (url) => new Function('u', 'return import(u)')(url);
+  // Manifest-derived list is not available in browser; discover via pack tree
+  // by fetching known shared/standalone module folders that ship context.js.
+  // Prefer pre-built index if present; else fall back to Vite-packed paths from
+  // a lightweight discovery endpoint pattern under modules/.
+  const indexUrl = `/assets/${version}/modules/context/_context_index.json`;
+  let paths = [];
+  try {
+    const res = await fetch(indexUrl, { cache: 'no-store' });
+    if (res.ok) paths = await res.json();
+  } catch {
+    /* ignore */
+  }
+  if (!Array.isArray(paths) || paths.length === 0) {
+    throw new Error(
+      `Missing packed context index ${indexUrl} — run npm run pack:editor`
+    );
+  }
+  await Promise.all(
+    paths.map((rel) =>
+      importPacked(`/assets/${version}/modules/${String(rel).replace(/^\.\//, '')}`)
+    )
+  );
+}
+
+/** Helpers + all context.js registrations. */
+export async function ensureContextEsm() {
+  await ensureContextHelpersEsm();
+  await ensureContextRegistrationsEsm();
+}
+
 /** QCS ESM island — after BaseModule runtime; sets window.queryModule + ensureQueryModule. */
 export async function ensureQueryCommentIsland() {
   const { initQueryCommentSystem, ensureQueryModule } = await import(
@@ -154,7 +225,7 @@ export async function ensureQueryCommentIsland() {
   return initQueryCommentSystem();
 }
 
-async function loadClassicModulePackScripts(version, { withRuntimeEsm }) {
+async function loadClassicModulePackScripts(version) {
   for (const name of EDITOR_MODULE_PACK_SCRIPTS) {
     const url = `/assets/${version}/modules/${name}`;
     if (!(await canLoad(url))) {
@@ -163,23 +234,18 @@ async function loadClassicModulePackScripts(version, { withRuntimeEsm }) {
       );
     }
     await loadScriptOnce(url);
-    if (withRuntimeEsm && name === 'module_main.min.js') {
-      await ensureModuleRuntimeEsm();
-    }
-  }
-  if (
-    withRuntimeEsm &&
-    !EDITOR_MODULE_PACK_SCRIPTS.includes('module_main.min.js')
-  ) {
-    await ensureModuleRuntimeEsm();
   }
 }
 
-/** Full module packs including ESM runtime + QCS island (default boot). */
+/**
+ * Full module stack: components → classic module_main → runtime → context → QCS.
+ */
 export async function loadModulePacks(version) {
-  await loadClassicModulePackScripts(version ?? editorVersion(), {
-    withRuntimeEsm: true,
-  });
+  const v = version ?? editorVersion();
+  await ensureComponentsEsm();
+  await loadClassicModulePackScripts(v);
+  await ensureModuleRuntimeEsm();
+  await ensureContextEsm();
   await ensureQueryCommentIsland();
 }
 
@@ -216,12 +282,18 @@ function buildStagedApi(version, usePack) {
         '[localStagedBoot] initial_helpers already in Slice A — no extra scripts'
       );
     },
+    async loadComponentsEsm() {
+      await ensureComponentsEsm();
+    },
     async loadModulePacks() {
-      await loadClassicModulePackScripts(version, { withRuntimeEsm: false });
+      await loadClassicModulePackScripts(version);
     },
     async loadModulesEsm() {
       await ensureModuleRuntimeEsm();
       await ensureQueryCommentIsland();
+    },
+    async loadContextEsm() {
+      await ensureContextEsm();
     },
   };
 }

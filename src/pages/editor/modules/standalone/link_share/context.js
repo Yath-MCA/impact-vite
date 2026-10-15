@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 /* 
 async function openLinkShareDialog() {
     try {
@@ -262,7 +264,7 @@ window.confirmok = function (type) {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     if (typeof CHECK_REQUEST !== 'undefined' && typeof CHECK_REQUEST.Init === 'function') {
         CHECK_REQUEST.Init();
     }

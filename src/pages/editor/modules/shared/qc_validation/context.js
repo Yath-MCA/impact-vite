@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 let qcRegisterPromise = null;
 
 /** Shared with Track bootstrap — load via ContextHelpers / ensureSupportingFiles. */
@@ -120,7 +122,7 @@ $(document).ready(function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     const intervalId = setInterval(async () => {
         if (typeof IS_TRACK_VIEW !== 'undefined' && IS_TRACK_VIEW) {
             clearInterval(intervalId);

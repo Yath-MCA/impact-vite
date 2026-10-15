@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 /*  */
 
 
@@ -1758,6 +1760,6 @@ const TABLES_MODULE_CONFIG = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(TABLES_MODULE_ID, TABLES_MODULE_CONFIG);
 });

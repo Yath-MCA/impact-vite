@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 $(document).on('click', '#shareFileBtn', function (evt) {
     if (evt && typeof evt.preventDefault === 'function') {
         evt.preventDefault();
@@ -62,6 +64,6 @@ const SHARE_INVITE_MODULE_CONFIG = {
     commands: []
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(SHARE_INVITE_MODULE_ID, SHARE_INVITE_MODULE_CONFIG);
 });

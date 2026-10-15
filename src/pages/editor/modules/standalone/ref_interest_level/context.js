@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 /**
  * Interest Level Management Module
  * Manages interest level indicators for citations and references
@@ -1337,7 +1339,7 @@ const interest_logError = (functionName, error) => {
 };
 
 // Initialize when editor is ready
-document.addEventListener('DOMContentLoaded', function() {
+ContextHelpers.whenDomReady( function() {
 
     CKEDITOR.on('instanceReady', function(ev) {
         // Initialize editor event listeners

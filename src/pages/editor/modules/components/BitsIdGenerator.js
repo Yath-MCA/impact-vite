@@ -1,6 +1,8 @@
 /**
  * BITS book ID generator (workid vs normal client families).
  */
+import IdGenerator from './IdGenerator.js';
+
 class BitsIdGenerator extends IdGenerator {
     constructor(options = {}) {
         super(Object.assign({}, options, {
@@ -196,6 +198,8 @@ class BitsIdGenerator extends IdGenerator {
 }
 
 IdGenerator.register('bits', BitsIdGenerator);
+
+export default BitsIdGenerator;
 
 if (typeof window !== 'undefined') {
     window.BitsIdGenerator = BitsIdGenerator;

@@ -1,6 +1,8 @@
 /**
  * JATS journal ID generator — Phase 1 ports current journal shapes.
  */
+import IdGenerator from './IdGenerator.js';
+
 class JatsIdGenerator extends IdGenerator {
     constructor(options = {}) {
         super(Object.assign({}, options, { format: 'jats' }));
@@ -126,6 +128,8 @@ class JatsIdGenerator extends IdGenerator {
 }
 
 IdGenerator.register('jats', JatsIdGenerator);
+
+export default JatsIdGenerator;
 
 if (typeof window !== 'undefined') {
     window.JatsIdGenerator = JatsIdGenerator;

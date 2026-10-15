@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 /* global CKEDITOR, ContextHelpers, ErrorLogTrace */
 
 const ADD_EDIT_AFFILIATION_VOID_ELEMENTS = {
@@ -164,7 +166,7 @@ async function openAddEditAffiliationDialog(mode, element, selection) {
 
 window.openAddEditAffiliationDialog = openAddEditAffiliationDialog;
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(
         ADD_EDIT_AFFILIATION_MODULE_ID,
         ADD_EDIT_AFFILIATION_MODULE_CONFIG,

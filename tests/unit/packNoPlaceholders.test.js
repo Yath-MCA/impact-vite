@@ -49,11 +49,10 @@ describe('Slice A sources', () => {
   });
 
   it('declares module pack boot order', () => {
-    expect(EDITOR_MODULE_PACK_SCRIPTS).toEqual([
-      'module_main.min.js',
-      'global_context_common.min.js',
-      'global_context_editor.min.js',
-    ]);
+    // Components + context load as ESM; only classic module_main remains.
+    expect(EDITOR_MODULE_PACK_SCRIPTS).toEqual(['module_main.min.js']);
+    expect(GLOBAL_CONTEXT_COMMON_PATHS).toEqual([]);
+    expect(GLOBAL_CONTEXT_EDITOR_PATHS).toEqual([]);
   });
 
   it('resolves js, initial_helpers, and vendor lib paths', () => {

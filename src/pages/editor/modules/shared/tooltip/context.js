@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 const TOOLTIP_MODULE_ID = 'TOOLTIP_MODULE';
 const TOOLTIP_MODULE_CONFIG = {
     name: 'TooltipModule',
@@ -75,6 +77,6 @@ const TOOLTIP_MODULE_CONFIG = {
     // contextMenuHandler: function (element, selection, elementPath, editor, subItems) {}
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(TOOLTIP_MODULE_ID, TOOLTIP_MODULE_CONFIG);
 });

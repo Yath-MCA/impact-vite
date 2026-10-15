@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 function validateContext(element, selection, elementPath) {
     return {
         hasElement: !!element,
@@ -141,6 +143,6 @@ const FIGURES_MODULE_CONFIG = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(FIGURES_MODULE_ID, FIGURES_MODULE_CONFIG);
 });

@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 $(document).ready(function() {
     $('#insertRefmenu').on('click', async function(event) {
         event.preventDefault();
@@ -258,7 +260,7 @@ const REF_FORM_MODULE_CONFIG = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
 
     if (IS_LOCAL_HOST) debugger;
 

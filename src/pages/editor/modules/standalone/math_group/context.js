@@ -1,3 +1,5 @@
+import ContextHelpers from '@editor/modules/context/helpers/context-helpers.js';
+
 function replaceImageSrcOnLocalhost() {
     try {
         if (!GlobalEditor || !GlobalEditor.document || !GlobalEditor.document.$) return;
@@ -24,7 +26,7 @@ function replaceImageSrcOnLocalhost() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+ContextHelpers.whenDomReady( function() {
     try {
         CKEDITOR.on('instanceReady', function() {
 
@@ -346,6 +348,6 @@ const MATH_GROUP_MODULE_CONFIG = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+ContextHelpers.whenDomReady( () => {
     ContextHelpers.registerOnReady(MATH_GROUP_MODULE_ID, MATH_GROUP_MODULE_CONFIG);
 });
