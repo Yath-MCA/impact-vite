@@ -1,7 +1,7 @@
 /**
- * QueryTemplates - Centralized template management for query UI
+ * QueryTemplates - Centralized template management for query UI (ESM)
  */
-class QueryTemplates {
+export class QueryTemplates {
 
     constructor(name, errorTracker = {}, config) {
         this.name = name;
@@ -992,3 +992,5 @@ class QueryTemplates {
         return truncated + extension;
     }
 }
+
+export default QueryTemplates;

@@ -50,23 +50,26 @@ export const E6_COMMON_PATHS = [
   'js/dialogModules/AlertNew.js',
 ];
 
-const QUERY_COMMENT_SYSTEM = [
+/**
+ * QCS lives as an ESM island (boot import after BaseModule), not classic e6_main concat.
+ * Kept for docs / tests that list historical order.
+ */
+export const QUERY_COMMENT_SYSTEM = [
   'modules/shared/query-comment-system/bootstrap.js',
-  'modules/shared/query-comment-system/QueryBaseModule.js',
+  'modules/shared/query-comment-system/QueryUtils.js',
   'modules/shared/query-comment-system/AttachmentModule.js',
+  'modules/shared/query-comment-system/QueryTemplates.js',
   'modules/shared/query-comment-system/QueryPanelModule.js',
   'modules/shared/query-comment-system/QueryRestoreModule.js',
-  'modules/shared/query-comment-system/QueryTemplates.js',
-  'modules/shared/query-comment-system/QueryUtils.js',
   'modules/shared/query-comment-system/QueryDialogModule.js',
-  'modules/shared/query-comment-system/register.js',
+  'modules/shared/query-comment-system/QueryBaseModule.js',
+  'modules/shared/query-comment-system/index.js',
 ];
 
 export const E6_MAIN_PATHS = [
   'js/editor_sync_scrollspy.js',
   'js/editor_page_events_fn.js',
   'js/commonEvtHandler.js',
-  ...QUERY_COMMENT_SYSTEM,
   'js/editorBootInit.js',
 ];
 

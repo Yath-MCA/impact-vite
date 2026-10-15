@@ -1,7 +1,7 @@
 /**
- * QueryPanelModule - Handles panel UI for queries/comments
+ * QueryPanelModule - Handles panel UI for queries/comments (ESM)
  */
-class QueryPanelModule {
+export class QueryPanelModule {
     constructor(name, errorTracker = {}, config) {
         this.name = name;
         this.parent = window.queryModule;
@@ -1596,3 +1596,5 @@ class QueryPanelModule {
 
 
 }
+
+export default QueryPanelModule;

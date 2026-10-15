@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   EDITOR_CSS_PATHS,
   EDITOR_JS_PATHS,
+  E6_MAIN_PATHS,
   EDITOR_VENDOR_JS_PATHS,
   EDITOR_VENDOR_CSS_PATHS,
   EDITOR_PAGE_CSS_PATHS,
@@ -17,6 +18,15 @@ describe('editor manifest', () => {
     );
     expect(EDITOR_JS_PATHS.some((p) => p.endsWith('editor_open.js'))).toBe(
       true
+    );
+  });
+
+  it('keeps QCS out of classic e6_main (ESM island)', () => {
+    expect(
+      E6_MAIN_PATHS.some((p) => p.includes('query-comment-system'))
+    ).toBe(false);
+    expect(EDITOR_JS_PATHS.some((p) => p.includes('query-comment-system'))).toBe(
+      false
     );
   });
 

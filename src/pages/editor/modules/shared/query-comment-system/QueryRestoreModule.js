@@ -1,11 +1,11 @@
-    /**
-     * QueryRestoreModule - Handles query restoration from backups
-    
-     * Unified Query Restore Manager
-     * Combines QueryRestoreModule and QueryRestoreManager into a single, robust solution
-     * Handles query validation, restoration, and backup management
-     */
-    class QueryRestoreModule {
+/**
+ * QueryRestoreModule - Handles query restoration from backups (ESM)
+ *
+ * Unified Query Restore Manager
+ * Combines QueryRestoreModule and QueryRestoreManager into a single, robust solution
+ * Handles query validation, restoration, and backup management
+ */
+export class QueryRestoreModule {
         static _backupLoaded = false;
         static _loadedDocId = null;
         static _sharedContexts = null;
@@ -1592,3 +1592,5 @@
             // return await this.validateAndRestoreQueries();
         }
     }
+
+export default QueryRestoreModule;

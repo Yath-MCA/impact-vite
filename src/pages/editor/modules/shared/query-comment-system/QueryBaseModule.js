@@ -1,3 +1,9 @@
+import { AttachmentModule } from './AttachmentModule.js';
+import { QueryPanelModule } from './QueryPanelModule.js';
+import { QueryRestoreModule } from './QueryRestoreModule.js';
+import { QueryTemplates } from './QueryTemplates.js';
+import { getQueryDialogModuleConfig } from './QueryDialogModule.js';
+
 /**
  * Resolve which reference support dialog owns a missing-item query under .ref.
  * CMS18 books → referenceDialog; journals / other book styles → MultiRefModule.
@@ -11,7 +17,7 @@ function resolveRefSupportModuleId(isJournal, refStyle) {
     return isCms18Book ? 'referenceDialog' : 'MultiRefModule';
 }
 
-class QueryBaseModule {
+export class QueryBaseModule {
     constructor(name, errorTracker = {}, config) {
         this.name = name;
         this.version = "2.0.0";
@@ -327,9 +333,10 @@ class QueryBaseModule {
 
             // Readonly show dialog on Track View (thread only — no create/reply/verify)
             try {
-                // Track View often omits module_main → BaseModule undefined.
-                // getQueryDialogModuleConfig() defines `class … extends BaseModule` — must guard first.
-                const hasBaseModule = typeof BaseModule !== "undefined";
+                // Track View often omits module_main / ensureModuleRuntimeEsm → no window.BaseModule.
+                // Island always imports BaseModule for the class, but skip dialog without the bridge.
+                const hasBaseModule =
+                    typeof window !== 'undefined' && typeof window.BaseModule !== 'undefined';
                 if (!hasBaseModule) {
                     console.info("Track View: skipping queryDialog (BaseModule not defined)");
                 } else {
@@ -3995,3 +4002,5 @@ class QueryBaseModule {
 
 
 }
+
+export default QueryBaseModule;

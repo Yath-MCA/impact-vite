@@ -34,15 +34,6 @@ import alertNewUrl from '@editor/js/dialogModules/AlertNew.js?url';
 import syncScrollspyUrl from '@editor/js/editor_sync_scrollspy.js?url';
 import pageEventsFnUrl from '@editor/js/editor_page_events_fn.js?url';
 import commonEvtHandlerUrl from '@editor/js/commonEvtHandler.js?url';
-import qcsBootstrapUrl from '@editor/modules/shared/query-comment-system/bootstrap.js?url';
-import qcsQueryBaseUrl from '@editor/modules/shared/query-comment-system/QueryBaseModule.js?url';
-import qcsAttachmentUrl from '@editor/modules/shared/query-comment-system/AttachmentModule.js?url';
-import qcsQueryPanelUrl from '@editor/modules/shared/query-comment-system/QueryPanelModule.js?url';
-import qcsQueryRestoreUrl from '@editor/modules/shared/query-comment-system/QueryRestoreModule.js?url';
-import qcsQueryTemplatesUrl from '@editor/modules/shared/query-comment-system/QueryTemplates.js?url';
-import qcsQueryUtilsUrl from '@editor/modules/shared/query-comment-system/QueryUtils.js?url';
-import qcsQueryDialogUrl from '@editor/modules/shared/query-comment-system/QueryDialogModule.js?url';
-import qcsRegisterUrl from '@editor/modules/shared/query-comment-system/register.js?url';
 import editorBootInitUrl from '@editor/js/editorBootInit.js?url';
 
 import mainCss from '@editor/_CSS_UI/main.css?url';
@@ -68,17 +59,6 @@ const JS_URL_BY_PATH = {
   'js/editor_sync_scrollspy.js': syncScrollspyUrl,
   'js/editor_page_events_fn.js': pageEventsFnUrl,
   'js/commonEvtHandler.js': commonEvtHandlerUrl,
-  'modules/shared/query-comment-system/bootstrap.js': qcsBootstrapUrl,
-  'modules/shared/query-comment-system/QueryBaseModule.js': qcsQueryBaseUrl,
-  'modules/shared/query-comment-system/AttachmentModule.js': qcsAttachmentUrl,
-  'modules/shared/query-comment-system/QueryPanelModule.js': qcsQueryPanelUrl,
-  'modules/shared/query-comment-system/QueryRestoreModule.js':
-    qcsQueryRestoreUrl,
-  'modules/shared/query-comment-system/QueryTemplates.js': qcsQueryTemplatesUrl,
-  'modules/shared/query-comment-system/QueryUtils.js': qcsQueryUtilsUrl,
-  'modules/shared/query-comment-system/QueryDialogModule.js':
-    qcsQueryDialogUrl,
-  'modules/shared/query-comment-system/register.js': qcsRegisterUrl,
   'js/editorBootInit.js': editorBootInitUrl,
 };
 
@@ -90,11 +70,7 @@ const PAGE_CSS_URL_BY_PATH = {
 };
 
 /** Slice A paths that define ErrorLogTrace / core editor (before module packs). */
-const SLICE_A_HELPER_PREFIXES = [
-  'initial_helpers/',
-  'js/',
-  'modules/shared/query-comment-system/',
-];
+const SLICE_A_HELPER_PREFIXES = ['initial_helpers/', 'js/'];
 
 function basename(relPosix) {
   const parts = String(relPosix).replace(/\\/g, '/').split('/');
@@ -167,6 +143,17 @@ export async function ensureModuleRuntimeEsm() {
   await initUnifiedModuleSystem();
 }
 
+/** QCS ESM island — after BaseModule runtime; sets window.queryModule + ensureQueryModule. */
+export async function ensureQueryCommentIsland() {
+  const { initQueryCommentSystem, ensureQueryModule } = await import(
+    '@editor/modules/shared/query-comment-system/index.js'
+  );
+  if (typeof window !== 'undefined') {
+    window.ensureQueryModule = ensureQueryModule;
+  }
+  return initQueryCommentSystem();
+}
+
 async function loadClassicModulePackScripts(version, { withRuntimeEsm }) {
   for (const name of EDITOR_MODULE_PACK_SCRIPTS) {
     const url = `/assets/${version}/modules/${name}`;
@@ -188,11 +175,12 @@ async function loadClassicModulePackScripts(version, { withRuntimeEsm }) {
   }
 }
 
-/** Full module packs including ESM runtime (default boot). */
+/** Full module packs including ESM runtime + QCS island (default boot). */
 export async function loadModulePacks(version) {
   await loadClassicModulePackScripts(version ?? editorVersion(), {
     withRuntimeEsm: true,
   });
+  await ensureQueryCommentIsland();
 }
 
 async function loadSliceAFromPack(version) {
@@ -233,6 +221,7 @@ function buildStagedApi(version, usePack) {
     },
     async loadModulesEsm() {
       await ensureModuleRuntimeEsm();
+      await ensureQueryCommentIsland();
     },
   };
 }

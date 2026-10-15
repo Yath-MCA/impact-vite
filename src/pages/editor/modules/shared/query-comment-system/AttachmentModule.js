@@ -1,8 +1,8 @@
-    // ========================================
-    // ATTACHMENT MODULE - CORE ENHANCEMENTS
-    // ========================================
+// ========================================
+// ATTACHMENT MODULE - CORE ENHANCEMENTS (ESM)
+// ========================================
 
-    class AttachmentModule {
+export class AttachmentModule {
         constructor(e = {}, t = {}) {
             this.parent = window.queryModule;
             this._config = this._getDefaultConfig();
@@ -1329,3 +1329,5 @@
         }
 
     }
+
+export default AttachmentModule;

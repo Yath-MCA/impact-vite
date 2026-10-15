@@ -1,10 +1,11 @@
-    function getQueryDialogModuleConfig() {
+import BaseModule from '../../_runtime/BaseModule.js';
+import { applyGlobalHighlightStyle } from './bootstrap.js';
 
-        /**
-         * QueryDialogModule - Handles dialog UI for queries/comments
-         */
+/**
+ * QueryDialogModule - Handles dialog UI for queries/comments (ESM)
+ */
 
-        class QueryDialogModule extends BaseModule {
+export class QueryDialogModule extends BaseModule {
 
             constructor(name, errorTracker = {}, config) {
                 super(name, errorTracker = {}, config);
@@ -1697,7 +1698,8 @@
             }
         }
 
-        return {
+export function getQueryDialogModuleConfig() {
+    return {
             name: "queryDialog",
             // _id:"query-dialog",
             moduleClass: QueryDialogModule,
@@ -1833,4 +1835,5 @@
                 }
             }
         };
-    }
+
+}
