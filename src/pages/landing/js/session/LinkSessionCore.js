@@ -2789,6 +2789,8 @@ class LinkSessionCore {
 
 }
 
+export default LinkSessionCore;
+
 if (typeof window !== 'undefined') {
     window.LinkSessionCore = LinkSessionCore;
 }

@@ -425,6 +425,7 @@ async function main() {
   function rewriteEsmEditorImports(jsText) {
     const modulesBase = `/assets/${version}/modules/`;
     const reduxBase = `/assets/${version}/middleware/redux/`;
+    const linkSessionCorePacked = `${modulesBase}link_session/LinkSessionCore.js`;
     let text = String(jsText).replace(
       /(['"])@editor\/modules\//g,
       `$1${modulesBase}`
@@ -434,7 +435,41 @@ async function main() {
       /(['"])(?:\.\.\/)+middleware\/redux\//g,
       `$1${reduxBase}`
     );
+    // ../../../../landing/js/session/LinkSessionCore.js → packed link_session core
+    text = text.replace(
+      /(['"])(?:\.\.\/)+landing\/js\/session\/LinkSessionCore\.js(['"])/g,
+      `$1${linkSessionCorePacked}$2`
+    );
     return text;
+  }
+
+  /**
+   * Pack landing LinkSessionCore next to packed link_session/index.js
+   * so UMS native-import can resolve the ESM island without Vite aliases.
+   */
+  function packLinkSessionCoreEsm() {
+    const src = path.join(
+      root,
+      'src',
+      'pages',
+      'landing',
+      'js',
+      'session',
+      'LinkSessionCore.js'
+    );
+    if (!fs.existsSync(src)) {
+      console.error(`[pack-editor-assets] missing LinkSessionCore ${src}`);
+      process.exit(1);
+    }
+    const outDir = path.join(modulesDir, 'link_session');
+    fs.mkdirSync(outDir, { recursive: true });
+    let text = fs.readFileSync(src, 'utf8');
+    text = rewriteEsmEditorImports(text);
+    const out = path.join(outDir, 'LinkSessionCore.js');
+    fs.writeFileSync(out, text, 'utf8');
+    console.log(
+      `[pack-editor-assets] link_session LinkSessionCore → ${path.relative(root, out)}`
+    );
   }
 
   /** Pack shared RTK store + modules bridge for classic editor ESM. */
@@ -628,6 +663,7 @@ async function main() {
   packRuntimeEsm();
   packComponentsEsm();
   packContextEsm();
+  packLinkSessionCoreEsm();
   packSingleModuleTree();
   packTemplatesHtml();
 
