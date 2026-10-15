@@ -472,22 +472,53 @@ async function main() {
     );
   }
 
-  /** Pack shared RTK store + modules bridge for classic editor ESM. */
-  function packReduxMiddlewareEsm() {
+  /**
+   * Pack shared RTK store + modules bridge for classic editor ESM.
+   * Bundle @reduxjs/toolkit into the output — native import() cannot resolve bare package names.
+   */
+  async function packReduxMiddlewareEsm() {
     const srcDir = path.join(root, 'src', 'middleware', 'redux');
     const outDir = path.join(outBase, 'middleware', 'redux');
+    if (fs.existsSync(outDir)) {
+      fs.rmSync(outDir, { recursive: true, force: true });
+    }
     fs.mkdirSync(outDir, { recursive: true });
-    const files = [
+
+    const bundleEntries = [
+      'moduleRuntimeBridge.js',
       'store.js',
       'modulesSlice.js',
-      'moduleRuntimeBridge.js',
       'pageMetaSlice.js',
       'capabilityCatalogSlice.js',
-      'index.js',
-      'useModuleLifecycle.js',
     ];
-    let n = 0;
-    for (const name of files) {
+    const entryPoints = {};
+    for (const name of bundleEntries) {
+      const abs = path.join(srcDir, name);
+      if (!fs.existsSync(abs)) {
+        console.error(`[pack-editor-assets] missing redux ${abs}`);
+        process.exit(1);
+      }
+      entryPoints[name.replace(/\.js$/, '')] = abs;
+    }
+
+    await esbuild.build({
+      entryPoints,
+      bundle: true,
+      format: 'esm',
+      platform: 'browser',
+      splitting: true,
+      minify: true,
+      legalComments: 'none',
+      outdir: outDir,
+      entryNames: '[name]',
+      chunkNames: 'chunks/[name]-[hash]',
+      // React app loads hooks via Vite; keep react external if ever pulled in.
+      external: ['react', 'react-dom', 'react-redux'],
+    });
+
+    // Thin re-exports / hooks that do not embed toolkit themselves.
+    const copyOnly = ['index.js', 'useModuleLifecycle.js'];
+    for (const name of copyOnly) {
       const abs = path.join(srcDir, name);
       if (!fs.existsSync(abs)) {
         console.error(`[pack-editor-assets] missing redux ${abs}`);
@@ -496,10 +527,10 @@ async function main() {
       let text = fs.readFileSync(abs, 'utf8');
       text = rewriteEsmEditorImports(text);
       fs.writeFileSync(path.join(outDir, name), text, 'utf8');
-      n += 1;
     }
+
     console.log(
-      `[pack-editor-assets] redux ESM=${n} → ${path.relative(root, outDir)}`
+      `[pack-editor-assets] redux ESM bundled=${bundleEntries.length} copy=${copyOnly.length} → ${path.relative(root, outDir)}`
     );
   }
 
@@ -659,7 +690,7 @@ async function main() {
       path.join(modulesDir, 'global_context_editor.min.js')
     );
   }
-  packReduxMiddlewareEsm();
+  await packReduxMiddlewareEsm();
   packRuntimeEsm();
   packComponentsEsm();
   packContextEsm();
