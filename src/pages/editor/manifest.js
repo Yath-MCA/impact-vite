@@ -70,6 +70,82 @@ export const E6_MAIN_PATHS = [
   'js/editorBootInit.js',
 ];
 
+/** Gulp `module_main` → packed `modules/module_main.min.js` (order matters). */
+export const MODULE_MAIN_PATHS = [
+  'modules/components/Error_Report_Table_Builder.js',
+  'modules/components/UserActionRecord_Handler.js',
+  'modules/components/ModuleStore.js',
+  'modules/components/IdGenerator.js',
+  'modules/components/BitsIdGenerator.js',
+  'modules/components/JatsIdGenerator.js',
+  'modules/components/DocBookIdGenerator.js',
+  'modules/components/Renumber_Handler.js',
+  'modules/components/trackManager.js',
+  'modules/components/FileUploadModule.js',
+  'modules/components/SummernoteManager.js',
+  'modules/components/emailInputHelper.js',
+  'modules/_runtime/BaseModule.js',
+  'modules/_runtime/UnifiedModuleSystem.js',
+  'modules/module_main.js',
+];
+
+/**
+ * Gulp `global_context_common` → `modules/global_context_common.min.js`.
+ * Trailing globs are expanded by the packer (sorted).
+ */
+export const GLOBAL_CONTEXT_COMMON_PATHS = [
+  'modules/context/store/module-runtime-store.js',
+  'modules/context/store/template-store.js',
+  'modules/context/helpers/context-helpers.js',
+  'modules/shared/**/context.js',
+];
+
+/** Gulp `global_context_editor` → `modules/global_context_editor.min.js`. */
+export const GLOBAL_CONTEXT_EDITOR_PATHS = [
+  'modules/standalone/**/context.js',
+];
+
+/**
+ * Boot load order after e6_main (classic scripts under /assets/{VERSION}/modules/).
+ */
+export const EDITOR_MODULE_PACK_SCRIPTS = [
+  'module_main.min.js',
+  'global_context_common.min.js',
+  'global_context_editor.min.js',
+];
+
+/**
+ * Gulp `single_module` copy rules (relative to src/pages/editor/modules/).
+ * Packer emits under public/assets/{VERSION}/modules/{moduleName}/…
+ */
+export const SINGLE_MODULE_INCLUDE_GLOBS = [
+  'standalone/**/index.js',
+  'standalone/**/*.js',
+  'shared/**/*.js',
+  'standalone/**/template.html',
+  'shared/**/template.html',
+  'standalone/**/*.json',
+  'shared/**/*.json',
+];
+
+export const SINGLE_MODULE_EXCLUDE_GLOBS = [
+  'shared/**/context.js',
+  'shared/browser-compatible/**',
+  'shared/query-comment-system/**',
+  'shared/link_session/ports.js',
+  'shared/link_session/LinkSessionCore.js',
+  'shared/link_session/localHostSession.js',
+  'shared/link_session/LinkSessionEditor.js',
+  'shared/link_session/LinkSessionModule.js',
+  'shared/link_session/bootstrap.js',
+  'shared/link_session_send/index.js',
+];
+
+export const SINGLE_MODULE_TEMPLATE_GLOBS = [
+  'standalone/**/template.html',
+  'shared/**/template.html',
+];
+
 function uniqueInOrder(paths) {
   const seen = new Set();
   const out = [];

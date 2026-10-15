@@ -10,6 +10,7 @@ import {
   EDITOR_VENDOR_CSS_PATHS,
   EDITOR_PAGE_CSS_PATHS,
   EDITOR_COMMON_CSS_PATHS,
+  EDITOR_MODULE_PACK_SCRIPTS,
 } from '../manifest.js';
 
 import initialGlobalUrl from '@editor/initial_helpers/_initialGlobalVaribale.js?url';
@@ -133,6 +134,17 @@ async function loadPageCssDev() {
   }
 }
 
+/** module_main + global_context_* always from pack (classic scripts). */
+async function loadModulePacks(version) {
+  for (const name of EDITOR_MODULE_PACK_SCRIPTS) {
+    const url = `/assets/${version}/modules/${name}`;
+    if (!(await canLoad(url))) {
+      throw new Error(`Missing packed module script ${url} — run npm run pack:editor`);
+    }
+    await loadScriptOnce(url);
+  }
+}
+
 async function bootFromUrlInject() {
   await loadVendorsFromPack();
   await loadPageCssDev();
@@ -141,6 +153,7 @@ async function bootFromUrlInject() {
     if (!src) throw new Error(`Missing JS url for ${p}`);
     await loadScriptOnce(src);
   }
+  await loadModulePacks(editorVersion());
 }
 
 function shouldPreferEditorPack() {
@@ -163,6 +176,7 @@ export async function bootEditor() {
     await loadPageCssFromPack(version);
     await loadScriptOnce(commonUrl);
     await loadScriptOnce(mainUrl);
+    await loadModulePacks(version);
     return;
   }
 

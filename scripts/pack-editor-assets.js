@@ -27,6 +27,99 @@ export function resolveEditorSource(relPosix) {
   return path.join(editorRoot, ...rel.split('/'));
 }
 
+function toPosix(p) {
+  return String(p).replace(/\\/g, '/');
+}
+
+/** Convert a simple glob (*, **, ?) to a RegExp matched against posix paths. */
+function globToRegExp(globPosix) {
+  const g = toPosix(globPosix);
+  let re = '^';
+  for (let i = 0; i < g.length; i += 1) {
+    const c = g[i];
+    if (c === '*' && g[i + 1] === '*') {
+      re += '.*';
+      i += 1;
+      if (g[i + 1] === '/') i += 1;
+    } else if (c === '*') {
+      re += '[^/]*';
+    } else if (c === '?') {
+      re += '[^/]';
+    } else if (/[.+^${}()|[\]\\]/.test(c)) {
+      re += `\\${c}`;
+    } else {
+      re += c;
+    }
+  }
+  re += '$';
+  return new RegExp(re);
+}
+
+function walkFiles(absDir, out = []) {
+  if (!fs.existsSync(absDir)) return out;
+  for (const entry of fs.readdirSync(absDir, { withFileTypes: true })) {
+    const abs = path.join(absDir, entry.name);
+    if (entry.isDirectory()) walkFiles(abs, out);
+    else out.push(abs);
+  }
+  return out;
+}
+
+/**
+ * Expand manifest globs relative to editor root into sorted posix rel paths
+ * (still under src/pages/editor/, e.g. modules/shared/foo/context.js).
+ */
+export function expandEditorGlobs(patterns, { baseAbs = editorRoot } = {}) {
+  const include = [];
+  const excludeRes = [];
+  for (const raw of patterns || []) {
+    const p = toPosix(raw);
+    if (p.startsWith('!')) {
+      excludeRes.push(globToRegExp(p.slice(1)));
+      continue;
+    }
+    include.push(p);
+  }
+
+  const allFiles = walkFiles(baseAbs).map((abs) =>
+    toPosix(path.relative(baseAbs, abs))
+  );
+
+  const matched = new Set();
+  for (const pattern of include) {
+    if (!/[*?]/.test(pattern)) {
+      matched.add(pattern);
+      continue;
+    }
+    const re = globToRegExp(pattern);
+    for (const rel of allFiles) {
+      if (re.test(rel)) matched.add(rel);
+    }
+  }
+
+  return [...matched]
+    .filter((rel) => !excludeRes.some((re) => re.test(rel)))
+    .filter((rel) => {
+      const abs = path.join(baseAbs, ...rel.split('/'));
+      return fs.existsSync(abs) && fs.statSync(abs).isFile();
+    })
+    .sort((a, b) => a.localeCompare(b));
+}
+
+/** Strip standalone/|shared/|_wip/ prefix for gulp-compatible module dest paths. */
+function stripModuleSourceRoot(relPosix) {
+  return toPosix(relPosix)
+    .replace(/^(?:standalone|shared|_wip)\//, '');
+}
+
+/** template.html → ./figures/template.html style path used by template-store. */
+function normalizeTemplatePath(absOrRel) {
+  let s = toPosix(absOrRel);
+  s = s.replace(/^.*?\/modules\//, '');
+  s = s.replace(/^(?:standalone|shared|_wip)\//, '');
+  return `./${s.replace(/^\.\//, '')}`;
+}
+
 // Skip gulp-excluded clientconfig paths: temp/ and any extra/ segment
 function shouldSkipConfigRel(relPosix) {
   const parts = relPosix.split('/');
@@ -220,6 +313,12 @@ async function main() {
     EDITOR_CSS_PATHS,
     EDITOR_VENDOR_JS_PATHS = [],
     EDITOR_VENDOR_CSS_PATHS = [],
+    MODULE_MAIN_PATHS = [],
+    GLOBAL_CONTEXT_COMMON_PATHS = [],
+    GLOBAL_CONTEXT_EDITOR_PATHS = [],
+    SINGLE_MODULE_INCLUDE_GLOBS = [],
+    SINGLE_MODULE_EXCLUDE_GLOBS = [],
+    SINGLE_MODULE_TEMPLATE_GLOBS = [],
   } = await import(pathToFileURL(path.join(editorRoot, 'manifest.js')).href);
 
   const version = readEditorVersionFromRepo(root);
@@ -228,10 +327,15 @@ async function main() {
   const cssDir = path.join(outBase, 'css');
   const vendorDir = path.join(outBase, 'vendor');
   const configDir = path.join(outBase, 'config');
+  const modulesDir = path.join(outBase, 'modules');
   fs.mkdirSync(jsDir, { recursive: true });
   fs.mkdirSync(cssDir, { recursive: true });
   fs.mkdirSync(vendorDir, { recursive: true });
   fs.mkdirSync(configDir, { recursive: true });
+  if (fs.existsSync(modulesDir)) {
+    fs.rmSync(modulesDir, { recursive: true, force: true });
+  }
+  fs.mkdirSync(modulesDir, { recursive: true });
 
   function assertNoGulpPlaceholders(text, outFile) {
     if (/\$\{\{/.test(text)) {
@@ -242,13 +346,41 @@ async function main() {
     }
   }
 
+  /** Expand globs; keep non-glob entries in list order, then sorted glob hits. */
+  function resolvePathList(relPaths) {
+    const out = [];
+    const seen = new Set();
+    for (const raw of relPaths) {
+      const p = toPosix(raw);
+      if (!/[*?]/.test(p)) {
+        if (seen.has(p)) continue;
+        seen.add(p);
+        out.push(p);
+        continue;
+      }
+      for (const hit of expandEditorGlobs([p])) {
+        if (seen.has(hit)) continue;
+        seen.add(hit);
+        out.push(hit);
+      }
+    }
+    return out;
+  }
+
   /**
-   * Concat Slice A sources, then esbuild-minify with an external .map.
+   * Concat sources (globs allowed), then esbuild-minify with an external .map.
    * Vendors stay as separate pre-minified copies (not passed through here).
    */
   async function concatMinify(relPaths, outFile) {
+    const resolved = resolvePathList(relPaths);
+    if (resolved.length === 0) {
+      console.error(
+        `[pack-editor-assets] FAIL: empty concat list for ${path.relative(root, outFile)}`
+      );
+      process.exit(1);
+    }
     const parts = [];
-    for (const rel of relPaths) {
+    for (const rel of resolved) {
       const abs = resolveEditorSource(rel);
       if (!fs.existsSync(abs)) {
         console.error(`[pack-editor-assets] missing ${abs}`);
@@ -260,8 +392,8 @@ async function main() {
     assertNoGulpPlaceholders(text, outFile);
 
     const outBaseName = path.basename(outFile);
-    // Minify only — do not downlevel. Slice A uses modern syntax that older
-    // esbuild targets cannot rewrite; browsers already run this as-is.
+    // Minify only — do not downlevel. Slice A / modules use modern syntax that
+    // older esbuild targets cannot rewrite; browsers already run this as-is.
     const result = await esbuild.transform(text, {
       loader: 'js',
       minify: true,
@@ -281,12 +413,72 @@ async function main() {
     fs.writeFileSync(outFile, code, 'utf8');
     fs.writeFileSync(mapFile, result.map || '{}', 'utf8');
     console.log(
-      `[pack-editor-assets] wrote ${path.relative(root, outFile)} (+ ${path.basename(mapFile)})`
+      `[pack-editor-assets] wrote ${path.relative(root, outFile)} (+ ${path.basename(mapFile)}) sources=${resolved.length}`
+    );
+  }
+
+  function packSingleModuleTree() {
+    const modulesRoot = path.join(editorRoot, 'modules');
+    const include = SINGLE_MODULE_INCLUDE_GLOBS.map((g) => toPosix(g));
+    const exclude = SINGLE_MODULE_EXCLUDE_GLOBS.map((g) => `!${toPosix(g)}`);
+    const files = expandEditorGlobs([...include, ...exclude], {
+      baseAbs: modulesRoot,
+    });
+    let copied = 0;
+    for (const rel of files) {
+      const abs = path.join(modulesRoot, ...rel.split('/'));
+      const destRel = stripModuleSourceRoot(rel);
+      if (!destRel) continue;
+      const out = path.join(modulesDir, ...destRel.split('/'));
+      fs.mkdirSync(path.dirname(out), { recursive: true });
+      fs.copyFileSync(abs, out);
+      copied += 1;
+    }
+    console.log(
+      `[pack-editor-assets] single_module files=${copied} → ${path.relative(root, modulesDir)}`
+    );
+    return copied;
+  }
+
+  function packTemplatesHtml() {
+    const modulesRoot = path.join(editorRoot, 'modules');
+    const files = expandEditorGlobs(SINGLE_MODULE_TEMPLATE_GLOBS, {
+      baseAbs: modulesRoot,
+    });
+    let bundle = `<!-- Module Template Bundle - Auto-generated -->\n`;
+    bundle += `<!-- Templates: ${files.length} -->\n\n`;
+    for (const rel of files) {
+      const abs = path.join(modulesRoot, ...rel.split('/'));
+      const tplPath = normalizeTemplatePath(abs);
+      const content = fs.readFileSync(abs, 'utf8');
+      bundle += `<template data-template-path="${tplPath}">\n`;
+      bundle += content;
+      bundle += `\n</template>\n\n`;
+    }
+    const out = path.join(modulesDir, 'templates.html');
+    fs.writeFileSync(out, bundle, 'utf8');
+    console.log(
+      `[pack-editor-assets] wrote ${path.relative(root, out)} templates=${files.length}`
     );
   }
 
   await concatMinify(E6_COMMON_PATHS, path.join(jsDir, 'e6_common.min.js'));
   await concatMinify(E6_MAIN_PATHS, path.join(jsDir, 'e6_main.min.js'));
+
+  await concatMinify(
+    MODULE_MAIN_PATHS,
+    path.join(modulesDir, 'module_main.min.js')
+  );
+  await concatMinify(
+    GLOBAL_CONTEXT_COMMON_PATHS,
+    path.join(modulesDir, 'global_context_common.min.js')
+  );
+  await concatMinify(
+    GLOBAL_CONTEXT_EDITOR_PATHS,
+    path.join(modulesDir, 'global_context_editor.min.js')
+  );
+  packSingleModuleTree();
+  packTemplatesHtml();
 
   for (const rel of EDITOR_VENDOR_JS_PATHS) {
     const abs = resolveEditorSource(rel);
