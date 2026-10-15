@@ -35,6 +35,8 @@ export const EDITOR_VENDOR_CSS_PATHS = nonEmpty([
 export const E6_COMMON_PATHS = [
   // skip js/index.js — gulp leftovers; use initial_helpers/legacyGlobals.js
   'initial_helpers/_initialGlobalVaribale.js',
+  // ErrorLogTrace for all later initial_helpers (real logger; stub already in legacyGlobals)
+  'js/dialogModules/ErrorMail_Module.js',
   'initial_helpers/_editorLayout.js',
   'initial_helpers/_initialAlertmessageLoader.js',
   'initial_helpers/_initalLoadingDialog.js',
@@ -45,7 +47,6 @@ export const E6_COMMON_PATHS = [
   'js/commonfn.js',
   'js/demo.js',
   'js/dialogModules/dialogsHandle.js',
-  'js/dialogModules/ErrorMail_Module.js',
   'js/dialogModules/Download_Module.js',
   'js/dialogModules/AlertNew.js',
 ];

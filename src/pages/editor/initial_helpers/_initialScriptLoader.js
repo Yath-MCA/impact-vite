@@ -816,7 +816,11 @@
             once: true
         });
     } else {
-        global.EDITOR_INITIALIZE.preInitialize();
+        // SPA: document already loaded. Defer so remainder of e6_common (ErrorMail)
+        // finishes assigning window.ErrorLogTrace before preInitialize runs.
+        setTimeout(function() {
+            global.EDITOR_INITIALIZE.preInitialize();
+        }, 0);
     }
 
 })(window);

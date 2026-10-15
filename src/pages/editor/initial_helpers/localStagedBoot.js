@@ -13,11 +13,11 @@ const DEFAULT_GATES = {
   loadSliceA: true,
   waitUiReady: true,
   loadInitialHelpers: true,
-  setContent: false,
-  loadComponentsEsm: false,
-  loadModulePacks: false,
-  loadModulesEsm: false,
-  loadContextEsm: false,
+  setContent: true,
+  loadComponentsEsm: true,
+  loadModulePacks: true,
+  loadModulesEsm: true,
+  loadContextEsm: true,
 };
 
 function parseBool(raw, fallback) {

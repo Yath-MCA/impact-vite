@@ -9,6 +9,13 @@ describe('applyLegacyGlobals', () => {
     expect(window.FetchService).toBe(FetchService);
   });
 
+  it('installs ErrorLogTrace stub before Slice A helpers', () => {
+    delete window.ErrorLogTrace;
+    applyLegacyGlobals();
+    expect(typeof window.ErrorLogTrace).toBe('function');
+    window.ErrorLogTrace('TEST_STUB', 'ok');
+  });
+
   it('exposes id helpers, API paths, ROLE_IDS, GET_JSON, and callajax', () => {
     window.$ = { ajaxSetup() {}, ajax() {} };
     window.jQuery = window.$;

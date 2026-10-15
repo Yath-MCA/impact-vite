@@ -71,6 +71,14 @@ export function applyLegacyGlobals() {
     };
   }
 
+  // Classic initial_helpers resolve bare ErrorLogTrace from window. Stub before
+  // Slice A; ErrorMail_Module later replaces with the full mail-capable logger.
+  if (typeof g.ErrorLogTrace !== 'function') {
+    g.ErrorLogTrace = function (mod, msg) {
+      console.warn('[ErrorLogTrace]', mod, msg);
+    };
+  }
+
   applyLegacyAjax(g);
   applyLegacyIdHelpers(g);
   applyLegacyApiPaths(g);

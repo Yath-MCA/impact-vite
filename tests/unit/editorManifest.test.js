@@ -42,6 +42,25 @@ describe('editor manifest', () => {
     expect(EDITOR_JS_PATHS.some((p) => p === 'js/editor_open.js')).toBe(true);
   });
 
+  it('places ErrorMail before remaining initial_helpers so ErrorLogTrace exists early', () => {
+    const globalIdx = EDITOR_JS_PATHS.indexOf(
+      'initial_helpers/_initialGlobalVaribale.js'
+    );
+    const mailIdx = EDITOR_JS_PATHS.indexOf(
+      'js/dialogModules/ErrorMail_Module.js'
+    );
+    const layoutIdx = EDITOR_JS_PATHS.indexOf(
+      'initial_helpers/_editorLayout.js'
+    );
+    const scriptLoaderIdx = EDITOR_JS_PATHS.indexOf(
+      'initial_helpers/_initialScriptLoader.js'
+    );
+    expect(globalIdx).toBeGreaterThanOrEqual(0);
+    expect(mailIdx).toBe(globalIdx + 1);
+    expect(layoutIdx).toBeGreaterThan(mailIdx);
+    expect(scriptLoaderIdx).toBeGreaterThan(mailIdx);
+  });
+
   it('keeps vendor inventory non-empty and without blanks or dual jquery/bootstrap', () => {
     expect(EDITOR_VENDOR_JS_PATHS.every((p) => p.trim().length > 0)).toBe(true);
     expect(EDITOR_VENDOR_CSS_PATHS.every((p) => p.trim().length > 0)).toBe(
