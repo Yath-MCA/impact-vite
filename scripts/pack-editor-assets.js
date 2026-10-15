@@ -568,10 +568,36 @@ async function main() {
   console.log(
     `[pack-editor-assets] fonts=${fontsCount} → ${path.relative(root, fontsOut)}`
   );
-  if (fontsCount === 0) {
-    console.warn(
-      '[pack-editor-assets] WARNING: src/assets/fonts has no files — @font-face URLs under /assets/images/fonts will 404 until binaries are restored'
+
+  // Required by src/pages/editor/_CSS_UI/main.css @font-face URLs.
+  const requiredFonts = [
+    'fonts-open/OpenSans-Regular.ttf',
+    'fonts-open/OpenSans-Bold.ttf',
+    'fonts-open/OpenSans-Italic.ttf',
+    'fonts-open/OpenSans-BoldItalic.ttf',
+    'fonts-open/OpenSans-SemiBold.ttf',
+    'Inter/Inter-VariableFont_slnt,wght.ttf',
+  ];
+  const missingRequired = requiredFonts.filter(
+    (rel) => !fs.existsSync(path.join(fontsOut, ...rel.split('/')))
+  );
+  if (missingRequired.length > 0) {
+    console.error(
+      `[pack-editor-assets] FAIL: required editor fonts missing under ${path.relative(root, fontsOut)}:\n  - ${missingRequired.join('\n  - ')}`
     );
+    process.exit(1);
+  }
+
+  for (const optionalDir of ['font-lato', 'fontawesome', 'font-awesome']) {
+    const abs = path.join(fontsOut, optionalDir);
+    const hasFiles =
+      fs.existsSync(abs) &&
+      walkFiles(abs).length > 0;
+    if (!hasFiles) {
+      console.warn(
+        `[pack-editor-assets] WARNING: optional fonts/${optionalDir} empty — unused by packed main.css today`
+      );
+    }
   }
 
   console.log(`[pack-editor-assets] VERSION=${version}`);
