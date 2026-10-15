@@ -12,10 +12,10 @@ const DEFAULT_GATES = {
   loadUiShell: true,
   loadSliceA: true,
   waitUiReady: true,
-  setContent: true,
   loadInitialHelpers: true,
-  loadModulePacks: true,
-  loadModulesEsm: true,
+  setContent: false,  
+  loadModulePacks: false,
+  loadModulesEsm: false,
 };
 
 function parseBool(raw, fallback) {
@@ -168,16 +168,16 @@ export async function runLocalStagedBoot(gates, api) {
   logBanner(gates);
 
   await runGate('loadUiShell', gates.loadUiShell, () => api.loadUiShell());
-  await runGate('waitUiReady', gates.waitUiReady, () => waitUiReady());
+  await runGate('waitUiReady', gates.waitUiReady, () => waitUiReady());  
+  await runGate('loadInitialHelpers', gates.loadInitialHelpers, () =>
+    api.loadInitialHelpers()
+  );
   await runGate('loadSliceA', gates.loadSliceA, () => api.loadSliceA());
   await runGate('setContent', gates.setContent, () =>
     waitForEditorThenSetContent().catch((err) => {
       // Editor often becomes ready only after user/doc open — soft-fail this gate.
       console.warn('[localStagedBoot]', err.message || err);
     })
-  );
-  await runGate('loadInitialHelpers', gates.loadInitialHelpers, () =>
-    api.loadInitialHelpers()
   );
   await runGate('loadModulePacks', gates.loadModulePacks, () =>
     api.loadModulePacks()
